@@ -51,8 +51,14 @@ const userSchema = new mongoose.Schema(
     ],
     avatar: {
       type: String
+    },
+    equipment: {
+      //david added. reference to equipment schema
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Equipment'
     }
   },
+
   {
     timestamps: true
   }
