@@ -1,6 +1,8 @@
 import React from 'react';
 import './newStage.css';
 
+// should this whole thing be a modal that hovers over the "MyStages" component?
+
 const newStage = () => {
   return (
     <div className="new-stage-container">
