@@ -34,11 +34,22 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
-    // admin: {
-    //     type: Boolean,
-    //     required: true,
-    //     default: false
-    // },
+    userType: {
+      type: String
+    },
+
+    ownedEquip: {
+      type: Array
+    },
+    savedStages: [
+      {
+        type: Array,
+        stage: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'savedStages'
+        }
+      }
+    ],
     tokens: [
       {
         token: {
@@ -92,7 +103,7 @@ userSchema.statics.findByCredentials = async (email, password) => {
 userSchema.pre('save', async function (next) {
   const user = this;
   if (user.isModified('password'))
-    user.password = await bcrypt.hash(user.password, 8); //the number 8 is the additional salt for the password encryption.
+    user.password = await bcrypt.hash(user.password, 7); //the number 8 is the additional salt for the password encryption.
   next();
 });
 
