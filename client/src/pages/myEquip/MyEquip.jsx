@@ -22,7 +22,7 @@ const MyEquip = () => {
         <button> - </button>
       </tr>
       <tr>
-        <td>XLR Cable z</td>
+        <td>XLR Cable '</td>
         <td>5</td>
         <td>User Description</td>
         <button>Edit</button>
