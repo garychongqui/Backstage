@@ -1,4 +1,5 @@
 const User = require('../db/models/user'),
+  { sendWelcomeEmail } = require('../../emails/index'),
   jwt = require('jsonwebtoken');
 
 //Attempt to create a user
@@ -10,6 +11,8 @@ exports.createUser = async (req, res) => {
       email,
       password
     });
+    await user.save();
+    sendWelcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
     res.cookie('jwt', token, {
       httpOnly: true,

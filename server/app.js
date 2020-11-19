@@ -23,10 +23,11 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
+//to upload image for avatar
 app.use(
   fileUpload({
     useTempFiles: true,
-    tempFileDir: '/tmp/images'
+    tempFileDir: '/tmp/images' //we will need to verify these folders '/tmp/images'
   })
 );
 

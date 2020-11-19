@@ -7,9 +7,8 @@ const sendWelcomeEmail = (email, name) => {
   sgMail.send({
     to: email,
     from: `${process.env.FROM_EMAIL}`,
-    subject: 'Thanks for signing up.',
-    text: `Hi ${name}! Welcome to your task manager api.`
-    // html: exampleHTMLEmail
+    subject: 'Thanks for joining Backstage! ',
+    text: `Hi ${name}! Welcome to your Backstage workspace.`
   });
 };
 
