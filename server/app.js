@@ -5,6 +5,7 @@ const express = require('express'),
   openRoutes = require('./routes/open'),
   userRouter = require('./routes/secure/users'),
   cookieParser = require('cookie-parser'),
+  equipmentRouter = require('./routes/secure/equipmentTask'),
   fileUpload = require('express-fileupload'),
   passport = require('./middleware/authentication');
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 // Unauthenticated routes
 app.use('/api/users', openRoutes);
+app.use('/api/equipment', equipmentRouter);
 
 app.use(cookieParser());
 
@@ -22,7 +24,6 @@ app.use(cookieParser());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
-
 
 //to upload image for avatar
 app.use(
@@ -36,7 +37,6 @@ app.use(
 app.use('/api/*', passport.authenticate('jwt', { session: false }));
 
 app.use('/api/users', userRouter);
-
 
 // Handle React routing, return all requests to React app
 if (process.env.NODE_ENV === 'production') {
