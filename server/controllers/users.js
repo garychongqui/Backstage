@@ -1,4 +1,5 @@
 const User = require('../db/models/user'),
+  { sendWelcomeEmail } = require('../../emails/index'),
   jwt = require('jsonwebtoken');
 //Attempt to create a user
 exports.createUser = async (req, res) => {
@@ -9,6 +10,8 @@ exports.createUser = async (req, res) => {
       email,
       password
     });
+    await user.save();
+    sendWelcomeEmail(user.email, user.name);
     const token = await user.generateAuthToken();
     res.cookie('jwt', token, {
       httpOnly: true,
@@ -36,9 +39,13 @@ exports.loginUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
+
+
 // Get current user
 // ***********************************************//
 exports.getCurrentUser = async (req, res) => res.json(req.user);
+
+
 // Update a user
 // ***********************************************//
 exports.updateCurrentUser = async (req, res) => {
@@ -57,6 +64,8 @@ exports.updateCurrentUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
+
+
 // Logout a user
 // ***********************************************//
 exports.logoutUser = async (req, res) => {
@@ -71,6 +80,7 @@ exports.logoutUser = async (req, res) => {
     res.status(500).json({ error: e.toString() });
   }
 };
+
 // Logout all devices
 // ***********************************************//
 exports.logoutAllDevices = async (req, res) => {
@@ -83,6 +93,7 @@ exports.logoutAllDevices = async (req, res) => {
     res.status(500).send();
   }
 };
+
 // Delete a user
 // ***********************************************//
 exports.deleteUser = async (req, res) => {
@@ -95,6 +106,7 @@ exports.deleteUser = async (req, res) => {
     res.status(500).json({ error: e.toString() });
   }
 };
+
 // Upload avatar
 // ***********************************************//
 exports.uploadAvatar = async (req, res) => {

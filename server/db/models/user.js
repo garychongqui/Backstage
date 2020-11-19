@@ -34,6 +34,9 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
+
+
+
     userType: {
       type: String
     },
@@ -50,6 +53,7 @@ const userSchema = new mongoose.Schema(
         }
       }
     ],
+
     tokens: [
       {
         token: {
