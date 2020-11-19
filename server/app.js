@@ -23,6 +23,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
+
 //to upload image for avatar
 app.use(
   fileUpload({
@@ -35,6 +36,7 @@ app.use(
 app.use('/api/*', passport.authenticate('jwt', { session: false }));
 
 app.use('/api/users', userRouter);
+
 
 // Handle React routing, return all requests to React app
 if (process.env.NODE_ENV === 'production') {

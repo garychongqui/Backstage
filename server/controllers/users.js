@@ -1,7 +1,6 @@
 const User = require('../db/models/user'),
   { sendWelcomeEmail } = require('../../emails/index'),
   jwt = require('jsonwebtoken');
-
 //Attempt to create a user
 exports.createUser = async (req, res) => {
   const { name, email, password } = req.body;
@@ -24,7 +23,6 @@ exports.createUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
-
 // Login a user
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
@@ -42,9 +40,11 @@ exports.loginUser = async (req, res) => {
   }
 };
 
+
 // Get current user
 // ***********************************************//
 exports.getCurrentUser = async (req, res) => res.json(req.user);
+
 
 // Update a user
 // ***********************************************//
@@ -64,6 +64,7 @@ exports.updateCurrentUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
+
 
 // Logout a user
 // ***********************************************//
