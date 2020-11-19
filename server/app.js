@@ -6,6 +6,8 @@ const express = require('express'),
   userRouter = require('./routes/secure/users'),
   cookieParser = require('cookie-parser'),
   equipmentRouter = require('./routes/secure/equipmentTask'),
+  stagesRouter = require('./routes/secure/saveStages'),
+  eventRouter = require('./routes/secure/events'),
   fileUpload = require('express-fileupload'),
   passport = require('./middleware/authentication');
 
@@ -16,7 +18,6 @@ app.use(express.json());
 
 // Unauthenticated routes
 app.use('/api/users', openRoutes);
-app.use('/api/equipment', equipmentRouter);
 
 app.use(cookieParser());
 
@@ -37,6 +38,9 @@ app.use(
 app.use('/api/*', passport.authenticate('jwt', { session: false }));
 
 app.use('/api/users', userRouter);
+app.use('/api/stages', stagesRouter);
+app.use('/api/equipment', equipmentRouter);
+app.use('/api/event', eventRouter);
 
 // Handle React routing, return all requests to React app
 if (process.env.NODE_ENV === 'production') {
