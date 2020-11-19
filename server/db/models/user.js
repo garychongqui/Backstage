@@ -34,11 +34,15 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
+
+    //In this section we will determine the type of user (artist or venue).
+
     // admin: {
     //     type: Boolean,
     //     required: true,
     //     default: false
     // },
+
     tokens: [
       {
         token: {
