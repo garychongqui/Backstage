@@ -4,10 +4,20 @@ const Schema = mongoose.Schema;
 
 const ownedEquipSchema = new Schema({
   equipItem: {
-    name: String,
-    //  userComment: String,
-    description: String
-    // icon: String,
+    name: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    description: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    icon: {
+      type: String
+      //required: true, (<====did not require just incase)
+    }
   }
 });
 
