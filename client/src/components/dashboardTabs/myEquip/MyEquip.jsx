@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './myEquip.css';
-// import fullEquipList from '../../../helperFiles/fullEquipList';
+import fullEquipList from '../../../helper';
 import axios from 'axios';
 
 const MyEquip = () => {
-  const fullEquipList = [
-    { name: 'MXR Cable' },
-    { name: 'Mic Stand' },
-    { name: 'Monitor' }
-  ]; //add this to helper file
+  // useEffect = () => {
+  //   const [selectedEquip, setSelectedEquip] = useState(null);
+  // };
+
+  console.log(fullEquipList);
 
   const handleAddEquip = (event) => {
     event.preventDefault();
@@ -19,12 +19,13 @@ const MyEquip = () => {
   return (
     <div className="my-equip-container">
       <h1>My Equipment</h1>
-      <form onSubmit={(event) => handleAddEquip(event)}>
+      <form onSubmit={handleAddEquip}>
         <select name="equipment-input">
-          {fullEquipList.map((equipItem) => (
+          {fullEquipList.list?.map((equipItem) => (
             <option>{equipItem.name}</option>
           ))}
         </select>
+        {/* <input type="text"></input> */}
         <input type="submit" value="add" />
       </form>
       <tr>
