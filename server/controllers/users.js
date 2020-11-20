@@ -1,6 +1,8 @@
 const User = require('../db/models/user'),
 
+
   cloudinary = require('cloudinary').v2,
+
   { sendWelcomeEmail } = require('../emails/index'),
 
   {
@@ -48,6 +50,7 @@ exports.loginUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
+
 
 
 // Password Reset Request
