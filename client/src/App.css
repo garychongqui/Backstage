@@ -8,6 +8,10 @@
   align-items: center;
 }
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .instruments {
   color: red;
 }
