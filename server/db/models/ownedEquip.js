@@ -16,7 +16,10 @@ const ownedEquipSchema = new Schema({
     },
     icon: {
       type: String
+
+
       //required: true, (<====did not require just incase)
+
     }
   }
 });
