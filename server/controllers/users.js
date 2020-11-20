@@ -1,5 +1,8 @@
 const User = require('../db/models/user'),
 
+
+  cloudinary = require('cloudinary').v2,
+
   { sendWelcomeEmail } = require('../emails/index'),
 
   {
