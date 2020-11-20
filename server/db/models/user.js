@@ -35,14 +35,13 @@ const userSchema = new mongoose.Schema(
       }
     },
 
-
-
     userType: {
       type: String
     },
-
     ownedEquip: {
-      type: Array
+      type: Array,
+      name: String,
+      description: String
     },
     savedStages: [
       {

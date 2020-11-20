@@ -1,5 +1,11 @@
 const User = require('../db/models/user'),
+  cloudinary = require('cloudinary').v2,
   { sendWelcomeEmail } = require('../emails/index'),
+  {
+    sendCancellationEmail,
+    sendWelcomeEmail,
+    forgotPasswordEmail
+  } = require('../emails/index'),
   jwt = require('jsonwebtoken');
 //Attempt to create a user
 exports.createUser = async (req, res) => {
@@ -37,6 +43,51 @@ exports.loginUser = async (req, res) => {
     res.json(user);
   } catch (e) {
     res.status(400).json({ error: e.toString() });
+  }
+};
+
+// Password Reset Request
+// This route sends an email that the
+// user must click within 10 minutes
+// to reset their password.
+// ******************************
+exports.requestPasswordReset = async (req, res) => {
+  try {
+    const { email } = req.query,
+      user = await User.findOne({ email });
+    if (!user) throw new Error("account doesn't exist");
+    // Build jwt token
+    const token = jwt.sign(
+      { _id: user._id.toString(), name: user.name },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: '10m'
+      }
+    );
+    forgotPasswordEmail(email, token);
+    res.json({ message: 'reset password email sent' });
+  } catch (e) {
+    res.json({ error: e.toString() });
+  }
+};
+
+// ******************************
+// Redirect to password reset page
+// ******************************
+exports.passwordRedirect = async (req, res) => {
+  const { token } = req.params;
+  try {
+    jwt.verify(token, process.env.JWT_SECRET, function (err, decoded) {
+      if (err) throw new Error(err.message);
+    });
+    res.cookie('jwt', token, {
+      httpOnly: true,
+      maxAge: 600000,
+      sameSite: 'Strict'
+    });
+    res.redirect(process.env.URL + '/update-password');
+  } catch (e) {
+    res.json({ error: e.toString() });
   }
 };
 
@@ -114,6 +165,19 @@ exports.uploadAvatar = async (req, res) => {
     req.user.avatar = response.secure_url;
     await req.user.save();
     res.json(response);
+  } catch (e) {
+    res.json({ error: e.toString() });
+  }
+};
+
+// Update password
+// ******************************
+exports.updatePassword = async (req, res) => {
+  try {
+    req.user.password = req.body.password;
+    await req.user.save();
+    res.clearCookie('jwt');
+    res.json({ message: 'password updated successfully' });
   } catch (e) {
     res.json({ error: e.toString() });
   }
