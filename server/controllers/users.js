@@ -1,5 +1,8 @@
 const User = require('../db/models/user'),
 
+
+  cloudinary = require('cloudinary').v2,
+
   { sendWelcomeEmail } = require('../emails/index'),
 
   {
@@ -49,7 +52,6 @@ exports.loginUser = async (req, res) => {
 };
 
 
-
 // Password Reset Request
 // This route sends an email that the
 // user must click within 10 minutes
@@ -94,6 +96,7 @@ exports.passwordRedirect = async (req, res) => {
     res.json({ error: e.toString() });
   }
 };
+
 
 // Get current user
 // ***********************************************//
