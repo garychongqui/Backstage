@@ -1,16 +1,11 @@
 const User = require('../db/models/user'),
-
-
   cloudinary = require('cloudinary').v2,
-
   { sendWelcomeEmail } = require('../emails/index'),
-
   {
     sendCancellationEmail,
     sendWelcomeEmail,
     forgotPasswordEmail
   } = require('../emails/index'),
-
   jwt = require('jsonwebtoken');
 //Attempt to create a user
 exports.createUser = async (req, res) => {
@@ -50,8 +45,6 @@ exports.loginUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
-
-
 
 // Password Reset Request
 // This route sends an email that the
@@ -97,7 +90,6 @@ exports.passwordRedirect = async (req, res) => {
     res.json({ error: e.toString() });
   }
 };
-
 
 // Get current user
 // ***********************************************//

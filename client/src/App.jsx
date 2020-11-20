@@ -3,8 +3,10 @@ import { AppContextProvider } from './context/AppContext';
 import ContextDemo from './components/ContextDemo';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+import Dashboard from './pages/dashboard/Dashboard';
+
 import Home from './pages/Home';
-import Login from './pages/Login';
+import Login from './pages/Login2';
 import Signup from './pages/Signup';
 import Studio from './pages/Studio/Studio';
 
@@ -13,6 +15,7 @@ import './App.css';
 function App() {
   return (
     <AppContextProvider>
+      <Dashboard />
       <BrowserRouter>
         <Switch>
           <Route exact path="/login" component={Login} />
