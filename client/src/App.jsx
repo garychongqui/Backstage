@@ -10,7 +10,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 
 import Home from './pages/Home';
 import Login from './pages/Login2';
-import Signup from './pages/Signup';
+import Signup from './pages/signup/Signup';
 import Studio from './pages/Studio/Studio';
 
 import './App.css';
