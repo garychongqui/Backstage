@@ -1,19 +1,31 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { AppContextProvider } from './context/AppContext';
 import ContextDemo from './components/ContextDemo';
-import axios from 'axios';
-import { saveAs } from 'file-saver';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Dashboard from './pages/dashboard/Dashboard';
 
+import Home from './pages/Home';
+import Login from './pages/Login2';
+import Signup from './pages/Signup';
+import Studio from './pages/Studio/Studio';
+
 import './App.css';
 
-const App = () => {
+function App() {
   return (
-    <div>
+    <AppContextProvider>
       <Dashboard />
-    </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/studio" component={Studio} />
+        </Switch>
+      </BrowserRouter>
+    </AppContextProvider>
   );
-};
+}
 
 export default App;
