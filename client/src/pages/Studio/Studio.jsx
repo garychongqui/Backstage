@@ -1,32 +1,50 @@
 import React from 'react';
 import Draggable from 'react-draggable';
 import './studio.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGuitar,
+  faMicrophone,
+  faMicrophoneAlt,
+  faMicrophoneAltSlash
+} from '@fortawesome/free-solid-svg-icons';
+import { faSpeakerDeck } from '@fortawesome/free-brands-svg-icons';
 
 // https://www.freecodecamp.org/news/reactjs-implement-drag-and-drop-feature-without-using-external-libraries-ad8994429f1a/
 
-class Studio extends React.Component {
-  state = {
-    tasks: [
-      {
-        name: 'Guitar',
-        category: 'offStage',
-        bgcolor: 'yellow'
-      },
-      { name: 'Monitor', category: 'offStage', bgcolor: 'pink' }
-    ]
-  };
+const guitar = <FontAwesomeIcon icon={faGuitar} />;
+const speakerDeck = <FontAwesomeIcon icon={faSpeakerDeck} />;
+const microphone = <FontAwesomeIcon icon={faMicrophoneAlt} />;
 
+class Studio extends React.Component {
   render() {
     return (
-      <div className="instruments">
-        <Draggable>
-          <h1>Guitar</h1>
-          {/* <img src="https://www.flaticon.com/svg/static/icons/svg/3011/3011104.svg" /> */}
-        </Draggable>
+      <div className="container">
+        <div className="instruments">
+          <div className="guitar">
+            <Draggable>
+              <section>
+                <FontAwesomeIcon icon={faGuitar} size="5x" />
+              </section>
+            </Draggable>
+          </div>
 
-        <Draggable>
-          <h1>Monitor</h1>
-        </Draggable>
+          <div className="speakerDeck">
+            <Draggable>
+              <section>
+                <FontAwesomeIcon icon={faSpeakerDeck} size="5x" />
+              </section>
+            </Draggable>
+          </div>
+
+          <div className="microphone">
+            <Draggable>
+              <section>
+                <FontAwesomeIcon icon={faMicrophoneAlt} size="5x" />
+              </section>
+            </Draggable>
+          </div>
+        </div>
       </div>
     );
   }
