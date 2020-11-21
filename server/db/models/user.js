@@ -3,6 +3,7 @@ const mongoose = require('mongoose'),
   validator = require('validator'),
   bcrypt = require('bcryptjs'),
   jwt = require('jsonwebtoken');
+const OwnedEquip = require('./ownedEquip');
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -35,7 +36,7 @@ const userSchema = new mongoose.Schema(
       }
     },
     ownedEquipment: [
-      { type: mongoose.Schema.Types.ObjectId, ref: 'equipment' }
+      { type: mongoose.Schema.Types.ObjectId, ref: 'OwnedEquip' }
     ],
     userType: {
       type: String

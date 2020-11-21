@@ -1,4 +1,4 @@
-const ownedEquip = require('../db/models/ownedEquip'),
+const OwnedEquip = require('../db/models/ownedEquip'),
   mongoose = require('mongoose');
 
 // ***********************************************//

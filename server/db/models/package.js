@@ -34,6 +34,7 @@ packageSchema.methods.toJSON = function () {
   const packageObject = package.toObject();
   return packageObject;
 };
+
 const Package = mongoose.model('Package', packageSchema);
 
 module.exports = Package;
