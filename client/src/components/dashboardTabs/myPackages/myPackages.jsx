@@ -1,8 +1,8 @@
 import React from 'react';
-import './myStages.css';
+import './myPackages.css';
 import '../../../App.css';
 
-const myStages = () => {
+const myPackages = () => {
   return (
     <div>
       <h1>My Stages</h1>
@@ -33,4 +33,4 @@ const myStages = () => {
   );
 };
 
-export default myStages;
+export default myPackages;

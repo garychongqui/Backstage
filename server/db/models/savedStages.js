@@ -2,18 +2,18 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const savedStagesSchema = new Schema({
-  stage: {
-    name: String,
-    width: Number,
-    depth: Number,
-    includedEquip: Array,
-    characteristics: Array,
-    indoorOrOutdoorComments: String,
-    generalComments: String
-  }
+const savedStageSchema = new Schema({
+  name: String,
+  area: Number,
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
+  // width: Number,
+  // depth: Number,
+  // includedEquip: Array,
+  // characteristics: Array,
+  // indoorOrOutdoorComments: String,
+  // generalComments: String
 });
 
-const SavedStages = mongoose.model('SavedStages', savedStagesSchema);
+const SavedStage = mongoose.model('SavedStage', savedStageSchema);
 
-module.exports = SavedStages;
+module.exports = SavedStage;

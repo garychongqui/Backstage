@@ -7,9 +7,8 @@ import {
   Link,
   useHistory
 } from 'react-router-dom';
-import MyEquip from '../../components/dashboardTabs/myEquip/MyEquip';
-import MyStages from '../../components/dashboardTabs/myStages/MyStages';
-import NewStage from '../../components/dashboardTabs/newStage/NewStage';
+import MyPackages from '../../components/dashboardTabs/myPackages/myPackages';
+import NewPackage from '../../components/dashboardTabs/newPackage/NewPackage';
 import MyEvents from '../../components/dashboardTabs/myEvents/myEventsTab/MyEvents';
 
 const Home = () => {
@@ -20,17 +19,14 @@ const Home = () => {
       <br></br>
       <br></br>
       <BrowserRouter>
-        <Link to="/equipment">My Equipment</Link>
+        <Link to="/my-packages">My Packages</Link>
         <br></br>
-        <Link to="/stages">Stages</Link>
-        <br></br>
-        <Link to="/new-stage">New Stage</Link>
+        <Link to="/new-package">New Package</Link>
         <br></br>
         <Link to="/my-events">My Events</Link>
         <Switch>
-          <Route exact path="/equipment" component={MyEquip} />
-          <Route exact path="/stages" component={MyStages} />
-          <Route exact path="/new-stage" component={NewStage} />
+          <Route exact path="/my=packages" component={MyPackages} />-
+          <Route exact path="/new-package" component={NewPackage} />
           <Route exact path="/my-events" component={MyEvents} />
         </Switch>
       </BrowserRouter>

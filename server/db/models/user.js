@@ -45,14 +45,10 @@ const userSchema = new mongoose.Schema(
     },
     savedStages: [
       {
-        type: Array,
-        stage: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'savedStages'
-        }
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'SavedStage'
       }
     ],
-
     tokens: [
       {
         token: {

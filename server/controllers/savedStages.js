@@ -1,4 +1,4 @@
-const Stage = require('../db/models/savedStages'),
+const SavedStage = require('../db/models/savedStages'),
   mongoose = require('mongoose');
 
 // ***********************************************//
@@ -6,12 +6,16 @@ const Stage = require('../db/models/savedStages'),
 // ***********************************************//
 exports.createStage = async (req, res) => {
   try {
-    const stage = await new Stage({
-      ...req.body,
-      owner: req.user._id
+    const stage = new SavedStage({
+      name: req.body.name,
+      area: req.body.area,
+      user: req.user._id
+      // ...req.body,
+      // owner: req.user._id
     });
+    console.log(stage);
     await stage.save();
-    res.status(200).send(stage);
+    res.status(201).json(stage);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
