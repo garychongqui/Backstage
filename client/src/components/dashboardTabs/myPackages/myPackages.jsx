@@ -1,19 +1,20 @@
 import React from 'react';
-import './myStages.css';
+import './myPackages.css';
+import '../../../App.css';
 
-const myStages = () => {
+const myPackages = () => {
   return (
     <div>
       <h1>My Stages</h1>
       <button>Add Stage</button>
       <h2>Stage 1</h2>
-      <div className="saved-stage">
+      <div className="saved-stage bg-blue-200">
         <p>Description goes here</p>
         <img
           src="https://source.unsplash.com/random/120x100"
           alt="random-image"
         />
-        <button>Edit</button>
+        <button>Edit </button>
         <button>Delete</button>
         <button>See more</button>
       </div>
@@ -32,4 +33,4 @@ const myStages = () => {
   );
 };
 
-export default myStages;
+export default myPackages;

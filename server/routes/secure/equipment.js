@@ -4,7 +4,7 @@ const router = require('express').Router(),
     // createTask,
     // updateTask,
     // deleteTask
-  } = require('../../controllers/equipmentTasks');
+  } = require('../../controllers/equipment');
 
 router.post('/', addEquipItem);
 // router.put('/:id', updateTask);

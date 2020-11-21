@@ -1,8 +1,10 @@
 module.exports = {
-  list: [
+  cables: [
     { name: 'XLR Cable', iconURL: 'something' },
+    { name: 'Quarter-Inch Cable', iconURL: 'something' }
+  ],
+  stands: [
     { name: 'Mic Stand', iconURL: 'something' },
-    { name: 'Monitor', iconURL: 'something' },
-    { name: 'Drum Kit', iconURL: 'drum-kit' }
+    { name: 'Guitar Stand', iconURL: 'drum-kit' }
   ]
 };
