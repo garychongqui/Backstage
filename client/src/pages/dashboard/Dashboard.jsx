@@ -27,11 +27,11 @@ class Dashboard extends React.Component {
     return (
       <div>
         <h1>Dashboard</h1>
-        <br></br>
+
         <br></br>
         <CreateEvent show={this.state.show} handleClose={this.hideModal} />
         <button type="button" onClick={this.showModal}>
-          Create Event{' '}
+          Create Event
         </button>
         <br />
         <br />
@@ -41,7 +41,8 @@ class Dashboard extends React.Component {
           <Link to="/new-package">New Package</Link>
           <br />
           <Link to="/my-events">My Events</Link>
-
+          <br />
+          <br />
           <Switch>
             <Route exact path="/my-packages" component={MyPackages} />
             <Route exact path="/new-package" component={NewPackage} />

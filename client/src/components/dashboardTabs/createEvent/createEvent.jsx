@@ -49,9 +49,7 @@ const createEvent = ({ handleClose, show }) => {
                     Create New Event{' '}
                   </h3>
                   <div class="mt-2">
-                    <p class="text-sm text-gray-500">
-                      1. Select on of your stages.
-                    </p>
+                    <p class="text-sm text-gray-500">1. Select package.</p>
                     <p class="text-sm text-gray-500">2. Date </p>
                     <p class="text-sm text-gray-500">3. Time </p>
                   </div>

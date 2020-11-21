@@ -1,5 +1,6 @@
 const SavedStage = require('../db/models/savedStages'),
-  mongoose = require('mongoose');
+  User = require('../db/models/user');
+mongoose = require('mongoose');
 
 // ***********************************************//
 // Create a task
@@ -8,13 +9,20 @@ exports.createStage = async (req, res) => {
   try {
     const stage = new SavedStage({
       name: req.body.name,
-      area: req.body.area,
-      user: req.user._id
+      area: req.body.area
       // ...req.body,
       // owner: req.user._id
     });
-    console.log(stage);
+
     await stage.save();
+    console.log(req);
+    const theUser = await User.findOne({
+      _id: req.user._id
+    });
+    console.log(theUser);
+    theUser.savedStages.push(stage);
+    await theUser.save();
+
     res.status(201).json(stage);
   } catch (error) {
     res.status(400).json({ error: error.message });

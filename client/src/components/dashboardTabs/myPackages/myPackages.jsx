@@ -14,7 +14,7 @@ const myPackages = () => {
           src="https://source.unsplash.com/random/120x100"
           alt="random-image"
         />
-        <button>Edit</button>
+        <button>Edit </button>
         <button>Delete</button>
         <button>See more</button>
       </div>
