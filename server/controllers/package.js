@@ -1,4 +1,4 @@
-const Stage = require('../db/models/savedStages'),
+const Stage = require('../db/models/package'),
   mongoose = require('mongoose');
 
 // ***********************************************//
