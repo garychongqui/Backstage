@@ -51,7 +51,7 @@ const NewPackage = () => {
           </button>
         ))}
         {/* <input type="text"></input> */}
-        <input type="submit" value="add" />
+
         <tr>
           <th>Name</th>
           <th>Quantity</th>
