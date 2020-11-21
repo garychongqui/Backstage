@@ -6,6 +6,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.12",
+    "autoprefixer": "^9.8.6",
     "axios": "^0.21.0",
     "file-saver": "^2.0.2",
     "react": "^16.14.0",
@@ -15,7 +16,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "sweet-alert": "^2.0.5",
-    "sweetalert": "^2.1.2"
+    "sweetalert": "^2.1.2",
+    "tailwindcss": "^2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

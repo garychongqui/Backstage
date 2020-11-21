@@ -4,30 +4,37 @@ import fullEquipList from '../../../helper';
 import axios from 'axios';
 
 const MyEquip = () => {
-  // useEffect = () => {
-  //   const [selectedEquip, setSelectedEquip] = useState(null);
-  // };
-
-  console.log(fullEquipList);
-
-  const handleAddEquip = (event) => {
+  const handleEquipClick = (event) => {
     event.preventDefault();
-    console.log(event.target);
+    console.log(event.target.innerHTML);
     // axios.post('', );
   };
+
+  const handleCategorySelect = (event) => {
+    console.log(event.target.value);
+  };
+
+  const categoryList = ['Cables', 'Stands'];
+
+  // useEffect(() => {
+  //   const [category, setCategory] = useState(categoryList[0]);
+  // });
 
   return (
     <div className="my-equip-container">
       <h1>My Equipment</h1>
-      <form onSubmit={handleAddEquip}>
-        <select name="equipment-input">
-          {fullEquipList.list?.map((equipItem) => (
-            <option>{equipItem.name}</option>
-          ))}
-        </select>
-        {/* <input type="text"></input> */}
-        <input type="submit" value="add" />
-      </form>
+      <select onChange={handleCategorySelect}>
+        {categoryList.map((category) => (
+          <option value={category}>{category}</option>
+        ))}
+      </select>
+      <br></br>
+
+      {fullEquipList.list.map((equipItem) => (
+        <button onClick={handleEquipClick}>{equipItem.name}</button>
+      ))}
+      {/* <input type="text"></input> */}
+      <input type="submit" value="add" />
       <tr>
         <th>Name</th>
         <th>Quantity</th>
