@@ -6,22 +6,24 @@ const ownedEquipSchema = new Schema({
   equipItem: {
     name: {
       type: String,
-      required: true,
       trim: true
+    },
+    quantity: {
+      type: Number
     },
     description: {
       type: String,
-      required: true,
       trim: true
     },
-    icon: {
-      type: String
+    owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User, Package' }
+    // icon: {
+    //   type: String
 
-      //required: true, (<====did not require just incase)
-    }
+    //   //required: true, (<====did not require just incase)
+    // }
   }
 });
 
-const OwnedEquip = mongoose.model('ownedEquip', ownedEquipSchema);
+const OwnedEquip = mongoose.model('OwnedEquip', ownedEquipSchema);
 
 module.exports = OwnedEquip;

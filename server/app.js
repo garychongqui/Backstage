@@ -6,7 +6,7 @@ const express = require('express'),
   userRouter = require('./routes/secure/users'),
   cookieParser = require('cookie-parser'),
   equipmentRouter = require('./routes/secure/equipmentTask'),
-  stagesRouter = require('./routes/secure/saveStages'),
+  packageRouter = require('./routes/secure/package'),
   eventRouter = require('./routes/secure/events'),
   fileUpload = require('express-fileupload'),
   passport = require('./middleware/authentication');
@@ -38,7 +38,7 @@ app.use(
 app.use('/api/*', passport.authenticate('jwt', { session: false }));
 
 app.use('/api/users', userRouter);
-app.use('/api/stages', stagesRouter);
+app.use('/api/package', packageRouter);
 app.use('/api/equipment', equipmentRouter);
 app.use('/api/event', eventRouter);
 

@@ -3,7 +3,7 @@ const router = require('express').Router(),
     createStage,
     updateStage,
     deleteStage
-  } = require('../../controllers/savedStages');
+  } = require('../../controllers/package');
 
 router.post('/', createStage);
 router.put('/:id', updateStage);
