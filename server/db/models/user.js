@@ -1,8 +1,8 @@
+// import savedStagesSchema from './savedStages';
 const mongoose = require('mongoose'),
   validator = require('validator'),
   bcrypt = require('bcryptjs'),
   jwt = require('jsonwebtoken');
-
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -34,25 +34,13 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
-
+    ownedEquipment: [
+      { type: mongoose.Schema.Types.ObjectId, ref: 'equipment' }
+    ],
     userType: {
       type: String
     },
-    ownedEquip: {
-      type: Array,
-      name: String,
-      description: String
-    },
-    savedStages: [
-      {
-        type: Array,
-        stage: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'savedStages'
-        }
-      }
-    ],
-
+    // savedStages: [savedStagesSchema],
     tokens: [
       {
         token: {
@@ -69,7 +57,11 @@ const userSchema = new mongoose.Schema(
     timestamps: true
   }
 );
-
+userSchema.virtual('equipment', {
+  ref: 'equipment',
+  localField: '_id',
+  foreignField: 'owner'
+});
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
@@ -77,7 +69,6 @@ userSchema.methods.toJSON = function () {
   delete userObject.tokens;
   return userObject;
 };
-
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = jwt.sign(
@@ -85,13 +76,10 @@ userSchema.methods.generateAuthToken = async function () {
     process.env.JWT_SECRET,
     { expiresIn: '24h' }
   );
-
   user.tokens = user.tokens.concat({ token });
   await user.save();
-
   return token;
 };
-
 // find user by email and password...this is meant for the "login" portion
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
@@ -100,7 +88,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
   if (!isMatch) throw new Error('Unable to login.');
   return user;
 };
-
 // This mongoose middleware will hash our user's passwords
 // whenever a user is "created" or a user password is "updated"...Never save passwords on db without encryption.
 userSchema.pre('save', async function (next) {
@@ -109,7 +96,5 @@ userSchema.pre('save', async function (next) {
     user.password = await bcrypt.hash(user.password, 7); //the number 8 is the additional salt for the password encryption.
   next();
 });
-
 const User = mongoose.model('User', userSchema);
-
 module.exports = User;

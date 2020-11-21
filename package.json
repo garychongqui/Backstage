@@ -22,8 +22,10 @@
     "mongoose": "^5.10.15",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "react-bootstrap": "^1.4.0",
     "react-draggable": "^4.4.3",
     "react-router-dom": "^5.2.0",
+    "sweetalert": "^2.1.2",
     "validator": "^13.1.17"
   },
   "devDependencies": {

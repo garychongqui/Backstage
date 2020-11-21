@@ -1,12 +1,13 @@
 const router = require('express').Router(),
   {
-    createTask,
-    updateTask,
-    deleteTask
+    addEquipItem
+    // createTask,
+    // updateTask,
+    // deleteTask
   } = require('../../controllers/equipmentTasks');
 
-router.post('/', createTask);
-router.put('/:id', updateTask);
-router.delete('/:id', deleteTask);
+router.post('/', addEquipItem);
+// router.put('/:id', updateTask);
+// router.delete('/:id', deleteTask);
 
 module.exports = router;
