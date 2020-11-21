@@ -1,5 +1,6 @@
 import React from 'react';
 import './myStages.css';
+import '../../../App.css';
 
 const myStages = () => {
   return (
@@ -7,7 +8,7 @@ const myStages = () => {
       <h1>My Stages</h1>
       <button>Add Stage</button>
       <h2>Stage 1</h2>
-      <div className="saved-stage">
+      <div className="saved-stage bg-blue-700">
         <p>Description goes here</p>
         <img
           src="https://source.unsplash.com/random/120x100"
