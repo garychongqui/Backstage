@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const savedStageSchema = new Schema({
+const packageSchema = new Schema({
   name: String,
   area: Number,
-  user: { type: Schema.Types.ObjectId, ref: 'User' }
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  equipItem: {}
   // width: Number,
   // depth: Number,
   // includedEquip: Array,
@@ -14,6 +15,6 @@ const savedStageSchema = new Schema({
   // generalComments: String
 });
 
-const SavedStage = mongoose.model('SavedStage', savedStageSchema);
+const Package = mongoose.model('Package', packageSchema);
 
-module.exports = SavedStage;
+module.exports = Package;

@@ -1,29 +1,28 @@
-const SavedStage = require('../db/models/savedStages'),
+const Package = require('../db/models/package'),
   User = require('../db/models/user');
 mongoose = require('mongoose');
 
 // ***********************************************//
 // Create a task
 // ***********************************************//
-exports.createStage = async (req, res) => {
+exports.createPackage = async (req, res) => {
   try {
-    const stage = new SavedStage({
+    const package = new Package({
       name: req.body.name,
       area: req.body.area
       // ...req.body,
       // owner: req.user._id
     });
 
-    await stage.save();
+    await package.save();
     console.log(req);
     const theUser = await User.findOne({
       _id: req.user._id
     });
     console.log(theUser);
-    theUser.savedStages.push(stage);
+    theUser.packages.push(package);
     await theUser.save();
-
-    res.status(201).json(stage);
+    res.status(201).json(package);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
