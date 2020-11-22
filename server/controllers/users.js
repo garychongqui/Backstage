@@ -6,6 +6,7 @@ const User = require('../db/models/user'),
     forgotPasswordEmail
   } = require('../emails/index'),
   jwt = require('jsonwebtoken');
+
 //Attempt to create a user
 exports.createUser = async (req, res) => {
   // const { name, email, password } = req.body;
