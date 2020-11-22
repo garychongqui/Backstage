@@ -18,6 +18,7 @@ function App() {
   return (
     <AppContextProvider>
       <Login />
+      <br />
       <Dashboard />
       <BrowserRouter>
         <Switch>

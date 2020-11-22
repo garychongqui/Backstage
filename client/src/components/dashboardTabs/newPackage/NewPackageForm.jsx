@@ -58,59 +58,67 @@ const NewPackageForm = () => {
 
   return (
     <div>
-      <h1>Package name (click to edit)</h1>
-      <h2>Which Equip would you like to include?</h2>
-      <select onChange={handleCategorySelect}>
-        {categoryList.map((category) => (
-          <option value={categoryList.indexOf(category)}>{category}</option>
-        ))}
-      </select>
-      <br></br>
-
-      {category.map((
-        equipItem //equipItem is the full equipment obj we will send to backend
-      ) => (
-        <button type="button" value={equipItem.name} onClick={handleEquipClick}>
-          {equipItem.name}
-        </button>
-      ))}
-
-      <div className="equip-table">
-        <span>
-          <strong>Name</strong>
-        </span>
-        <span>
-          <strong>Description</strong>
-        </span>
-        <span>
-          <strong>Quantity</strong>
-        </span>
-      </div>
-      {equipToSave.map((equipItem) => {
-        // check for item quantity here?
-        return (
-          <div>
-            <span>{equipItem}</span>
-            <input type="text" placeholder="description" />
-            {/* <input
-                type="text"
-                placeholder="quantity"
-                // value={this.state.value}
-              /> */}
-            <span>{equipItem.quantity}</span>
-            <input type="text" placeholder="quantity" />
-            {/* <span>{equipQuantity}</span> */}
-            {/* <button type="button"> + </button>
-              <button type="button"> - </button> */}
-          </div>
-        );
-      })}
       <form
         name="new-package"
         method="post"
         action="/api/packages"
         onSubmit={handleFormSubmit}
       >
+        <input
+          name="name"
+          type="text"
+          placeholder="Package name (click to edit)"
+        />
+        <h2>Which Equip would you like to include?</h2>
+        <select onChange={handleCategorySelect}>
+          {categoryList.map((category) => (
+            <option value={categoryList.indexOf(category)}>{category}</option>
+          ))}
+        </select>
+        <br></br>
+
+        {category.map((
+          equipItem //equipItem is the full equipment obj we will send to backend
+        ) => (
+          <button
+            type="button"
+            value={equipItem.name}
+            onClick={handleEquipClick}
+          >
+            {equipItem.name}
+          </button>
+        ))}
+
+        <div className="equip-table">
+          <span>
+            <strong>Name</strong>
+          </span>
+          <span>
+            <strong>Description</strong>
+          </span>
+          <span>
+            <strong>Quantity</strong>
+          </span>
+        </div>
+        {equipToSave.map((equipItem) => {
+          // check for item quantity here?
+          return (
+            <div>
+              <span>{equipItem}</span>
+              <input type="text" placeholder="description" />
+
+              <span>{equipItem.quantity}</span>
+              <input type="text" placeholder="quantity" />
+              {/* <span>{equipQuantity}</span> */}
+              {/* <button type="button"> + </button>
+              <button type="button"> - </button> */}
+            </div>
+          );
+        })}
+
+        {
+          // im not sure this is necessary. All of this is handled with handleFormSubmit
+        }
         <div className="stage-dimensions new-stage-form-section">
           <h3>What are the stage dimensions?</h3>
           <label for="stage-width">Width</label>

@@ -3,10 +3,9 @@ const router = require('express').Router(),
     createPackage,
     updateStage,
     deleteStage,
-    getAllPackages
+    getAllPackages,
     updatePackage,
     deletePackage
-
   } = require('../../controllers/package');
 
 router.get('/', getAllPackages);
