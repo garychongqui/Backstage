@@ -34,21 +34,20 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
-    ownedEquipment: [
-      { type: mongoose.Schema.Types.ObjectId, ref: 'OwnedEquip' }
-    ],
+    item: [{ type: mongoose.Schema.Types.ObjectId, ref: 'OwnedEquip' }],
     userType: {
       type: String
-    },
-    ownedEquip: {
-      type: Array,
-      name: String,
-      description: String
     },
     packages: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Package'
+      }
+    ],
+    event: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Events'
       }
     ],
     tokens: [
@@ -67,11 +66,17 @@ const userSchema = new mongoose.Schema(
     timestamps: true
   }
 );
-userSchema.virtual('equipment', {
-  ref: 'equipment',
-  localField: '_id',
-  foreignField: 'owner'
-});
+// userSchema.virtual('equipment', {
+//   ref: 'OwnedEquip',
+//   localField: '_id',
+//   foreignField: 'owner'
+// });
+// userSchema.virtual('Package', {
+//   ref: 'Package',
+//   localField: '_id',
+//   foreignField: 'user'
+// });
+
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();

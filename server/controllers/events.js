@@ -1,21 +1,35 @@
-const Stage = require('../db/models/events'),
-  mongoose = require('mongoose');
+const Event = require('../db/models/events');
+User = require('../db/models/user');
+mongoose = require('mongoose');
 
 // ***********************************************//
 // Create a task
 // ***********************************************//
 exports.createEvent = async (req, res) => {
   try {
-    const stage = await new Stage({
-      ...req.body,
-      owner: req.user._id
+    const event = new Event({
+      name: req.body.name,
+      date: req.body.date,
+      artist: req.body.artst
+      // ...req.body,
+      // owner: req.user._id
     });
-    await stage.save();
-    res.status(200).send(stage);
+
+    await event.save();
+    console.log(req);
+    const theUser = await User.findOne({
+      _id: req.user._id
+    });
+    console.log(theUser);
+    theUser.event.push(event);
+    await theUser.save();
+    res.status(201).json(event);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
+
+exports.getEvent = async (req, res) => res.json(req.user);
 
 // ***********************************************//
 // Update a task
@@ -31,14 +45,14 @@ exports.updateEvent = async (req, res) => {
     return res.status(400).json({ message: 'invalid updates' });
 
   try {
-    const stage = await Stage.findOne({
+    const event = await Event.findOne({
       _id: req.params.id,
       owner: req.user._id
     });
-    if (!stage) return res.status(404).json({ message: 'Stage not found' });
-    updates.forEach((update) => (stage[update] = req.body[update]));
-    await stage.save();
-    res.status(200).json(stage);
+    if (!event) return res.status(404).json({ message: 'Event not found' });
+    updates.forEach((update) => (event[update] = req.body[update]));
+    await event.save();
+    res.status(200).json(event);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -48,12 +62,12 @@ exports.updateEvent = async (req, res) => {
 // ***********************************************//
 exports.deleteEvent = async (req, res) => {
   try {
-    const stage = await stage.findOneAndDelete({
+    const event = await event.findOneAndDelete({
       _id: req.params.id,
       owner: req.user._id
     });
-    if (!stage) return res.status(404).json({ message: 'Stage not found' });
-    res.status(200).json({ message: 'Stage has been deleted' });
+    if (!event) return res.status(404).json({ message: 'Event not found' });
+    res.status(200).json({ message: 'Event has been deleted' });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

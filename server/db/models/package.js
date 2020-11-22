@@ -4,9 +4,16 @@ const Schema = mongoose.Schema;
 
 const packageSchema = new Schema({
   name: String,
-  area: Number,
-  user: { type: Schema.Types.ObjectId, ref: 'User' },
-  equipItem: {}
+  area: String,
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
+  // equipment: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'OwnedEquip'
+  // },
+  // stages: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'Package'
+  // },
   // width: Number,
   // depth: Number,
   // includedEquip: Array,
@@ -14,6 +21,11 @@ const packageSchema = new Schema({
   // indoorOrOutdoorComments: String,
   // generalComments: String
 });
+// packageSchema.virtual('equipment, ', {
+//   ref: 'equipment',
+//   localField: '_id',
+//   foreignField: 'owner, stages'
+// });
 
 const Package = mongoose.model('Package', packageSchema);
 
