@@ -14,7 +14,7 @@ const ownedEquipSchema = new Schema({
     type: String,
     trim: true
   },
-  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User, Package' }
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   // icon: {
   //   type: String
 

@@ -32,11 +32,13 @@ exports.createPackage = async (req, res) => {
   }
 };
 
+exports.getPackage = async (req, res) => res.json(req.user);
+
 // ***********************************************//
 // Update a task
 // ***********************************************//
 
-exports.updateStage = async (req, res) => {
+exports.updatePackage = async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ['description', 'completed', 'dueDate'];
   const isValidOperation = updates.every((update) =>
@@ -61,7 +63,7 @@ exports.updateStage = async (req, res) => {
 // ***********************************************//
 // Delete a task
 // ***********************************************//
-exports.deleteStage = async (req, res) => {
+exports.deletePackage = async (req, res) => {
   try {
     const stage = await stage.findOneAndDelete({
       _id: req.params.id,

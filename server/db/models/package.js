@@ -11,6 +11,7 @@ const packageSchema = new Schema({
   anythingElse: String,
   user: { type: Schema.Types.ObjectId, ref: 'User' },
   equipItem: {}
+
   // width: Number,
   // depth: Number,
   // includedEquip: Array,
@@ -18,6 +19,11 @@ const packageSchema = new Schema({
   // indoorOrOutdoorComments: String,
   // generalComments: String
 });
+// packageSchema.virtual('equipment, ', {
+//   ref: 'equipment',
+//   localField: '_id',
+//   foreignField: 'owner, stages'
+// });
 
 const Package = mongoose.model('Package', packageSchema);
 
