@@ -6,6 +6,16 @@ import axios from 'axios';
 const MyPackages = () => {
   const [packages, setPackages] = useState([]);
 
+  // useEffect(async () => {
+  //   console.log('useeffect has run');
+  //   const result = await axios({
+  //     method: 'GET',
+  //     url: `/api/packages`,
+  //     withCredentials: true
+  //   });
+  //   setPackages(result.data);
+  // });
+
   const getPackages = async () => {
     try {
       let res = await axios({
@@ -14,20 +24,22 @@ const MyPackages = () => {
         withCredentials: true
       });
       setPackages(res.data);
-      console.log(packages);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
   };
-
+  useEffect(() => {
+    getPackages();
+    console.log(packages);
+  }, []);
   // getPackages();
-  // commented out for now; why does the 'try' statement execute infinitely when state is changed?
 
   return (
     <div>
-      <h1>My Packages</h1>
+      <h1>Here Are Your Packages</h1>
       <button>Add Package</button>
-      <h2>Package 1</h2>
+      <h2>{packages[0]?.comments}</h2>
       <div className="saved-stage bg-blue-200">
         <p>Description goes here</p>
         <img
