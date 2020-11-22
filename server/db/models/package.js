@@ -4,16 +4,14 @@ const Schema = mongoose.Schema;
 
 const packageSchema = new Schema({
   name: String,
-  area: String,
-  user: { type: Schema.Types.ObjectId, ref: 'User' }
-  // equipment: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'OwnedEquip'
-  // },
-  // stages: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'Package'
-  // },
+  width: Number,
+  depth: Number,
+  indoorOrOutdoor: String,
+  comments: String,
+  anythingElse: String,
+  user: { type: Schema.Types.ObjectId, ref: 'User' },
+  equipItem: {}
+
   // width: Number,
   // depth: Number,
   // includedEquip: Array,

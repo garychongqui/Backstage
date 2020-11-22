@@ -5,11 +5,10 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
-
 import Dashboard from './pages/dashboard/Dashboard';
 
 import Home from './pages/Home';
-import Login from './pages/Login2';
+import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import Studio from './pages/Studio/Studio';
 
@@ -18,6 +17,7 @@ import './App.css';
 function App() {
   return (
     <AppContextProvider>
+      <Login />
       <Dashboard />
       <BrowserRouter>
         <Switch>

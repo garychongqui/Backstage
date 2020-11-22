@@ -16,6 +16,12 @@ const app = express();
 //Middleware (parse incoming JSON into objects)
 app.use(express.json());
 
+app.use(
+  express.urlencoded({
+    extended: true
+  })
+);
+
 // Unauthenticated routes
 app.use('/api/users', openRoutes);
 
