@@ -1,12 +1,14 @@
 const router = require('express').Router(),
   {
     createPackage,
-    updateStage,
-    deleteStage
+    getPackage,
+    updatePackage,
+    deletePackage
   } = require('../../controllers/package');
 
 router.post('/', createPackage);
-router.put('/:id', updateStage);
-router.delete('/:id', deleteStage);
+router.get('/pack', getPackage);
+router.put('/:id', updatePackage);
+router.delete('/:id', deletePackage);
 
 module.exports = router;
