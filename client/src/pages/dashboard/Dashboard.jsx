@@ -10,7 +10,7 @@ import {
 import MyPackages from '../../components/dashboardTabs/myPackages/myPackages';
 import NewPackage from '../../components/dashboardTabs/newPackage/NewPackage';
 import MyEvents from '../../components/dashboardTabs/myEvents/myEventsTab/MyEvents';
-import CreateEvent from '../../components/dashboardTabs/createEvent/createEvent';
+import CreateEvent from '../../components/createEvent/createEvent';
 
 class Dashboard extends React.Component {
   state = { show: false };
