@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './createEvent.css';
+import EventLink from './EventLink';
 
 const CreateEvent = ({ handleClose, show }) => {
   const [packages, setPackages] = useState([]);
   const [selectedPackage, setSelectedPackage] = useState('');
   const [eventTitle, setEventTitle] = useState('');
   const [eventDate, setEventDate] = useState('');
+  const [showLinkClassName, setShowLinkClassName] = useState(false);
+  const [eventURL, setEventURL] = useState('');
   //trigger useEffect when "create event" button clicked
+  // const [isShowing, setIsShowing] = useState(false)
 
   const getPackages = async () => {
     try {
@@ -29,13 +33,18 @@ const CreateEvent = ({ handleClose, show }) => {
   };
 
   let showHideClassName = show ? 'block' : 'hidden';
-  const handleGenerateEvent = async () => {
-    await axios.post('/api/events', {
-      data: { eventTitle, eventDate, selectedPackage }
-    });
-    // close this modal like "cancel" button
-    // cause new modal to appear that will have copy link
-    // do cool transition
+
+  const handleGenerateEvent = () => {
+    axios
+      .post('/api/events', {
+        data: { eventTitle, eventDate, selectedPackage }
+      })
+      .then((results) =>
+        setEventURL(`http://localhost:3000/events${results.data._id}`)
+      );
+    setShowLinkClassName(true);
+
+    //  get eventId from axios response  eventURL
   };
   // get isUpdated as prop from parent to make sure this re-renders if user adds packages
 
@@ -146,6 +155,15 @@ const CreateEvent = ({ handleClose, show }) => {
               >
                 Cancel
               </button>
+            </div>
+            <div
+              className={
+                showLinkClassName
+                  ? 'event-link-container block'
+                  : 'event-link-container hidden'
+              }
+            >
+              <EventLink display={showLinkClassName} eventURL={eventURL} />
             </div>
           </div>
         </div>

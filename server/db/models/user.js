@@ -44,7 +44,7 @@ const userSchema = new mongoose.Schema(
         ref: 'Package'
       }
     ],
-    event: [
+    events: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Events'

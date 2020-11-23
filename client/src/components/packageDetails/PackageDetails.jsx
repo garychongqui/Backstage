@@ -7,9 +7,9 @@ const PackageDetails = () => {
   const [currentPackage, setCurrentPackage] = useState({});
   const history = useHistory();
 
-  const getPackageDetails = async () => {
+  const getPackageDetails = () => {
     const packageId = history.location.pathname.slice(10);
-    await axios
+    axios
       .get(`/api/packages/${packageId}`)
       .then((results) => setCurrentPackage(results.data));
   };

@@ -10,12 +10,14 @@ exports.createEvent = async (req, res) => {
     const thePackage = await Package.findOne({
       _id: req.body.data.selectedPackage
     });
-    const event = new Event({
+    const theEvent = new Event({
       ...req.body.data,
       user: theUser
     });
-    await event.save();
-    res.status(201).json(event);
+    await theEvent.save();
+    theUser.events.push(theEvent);
+    await theUser.save();
+    res.status(201).json(theEvent);
   } catch (error) {
     res.status(400).json(error);
   }

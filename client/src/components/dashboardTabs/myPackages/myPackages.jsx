@@ -25,7 +25,6 @@ const MyPackages = () => {
   };
   useEffect(() => {
     getPackages();
-    console.log('useEffect has run');
   }, [isUpdated]);
 
   // useEffect(() => {

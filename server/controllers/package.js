@@ -73,10 +73,8 @@ exports.updatePackage = async (req, res) => {
 // ***********************************************//
 exports.deletePackage = async (req, res) => {
   try {
-    console.log('delete controller has run');
     const package = await Package.findOneAndDelete({
       _id: req.params.id
-      // owner: req.user._id
     });
     const theUser = await User.findOne({ _id: req.user._id });
     const packageIndex = theUser.packages.indexOf(req.params.id);
