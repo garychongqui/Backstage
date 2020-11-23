@@ -156,13 +156,7 @@ const CreateEvent = ({ handleClose, show }) => {
                 Cancel
               </button>
             </div>
-            <div
-              className={
-                showLinkClassName
-                  ? 'event-link-container block'
-                  : 'event-link-container hidden'
-              }
-            >
+            <div>
               <EventLink display={showLinkClassName} eventURL={eventURL} />
             </div>
           </div>
