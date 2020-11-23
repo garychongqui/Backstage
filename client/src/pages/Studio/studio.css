@@ -1,47 +1,39 @@
 .container {
   width: 100vw;
   height: 100vh;
-  background-color: yellowgreen;
+  background-color: #232324;
 }
-
-.instruments {
-  color: red;
-}
-
-.speakerDeck {
-  color: blue;
-}
-
-.guitar {
-  color: orange;
-}
-
-.microphone {
-  color: purple;
-}
-
-.StagePlot.body {
-  display: flex;
-  justify-content: center;
-}
-.StagePlot h1 {
-  text-align: center;
-}
-.StagePlot.red-box {
-  height: 600px;
-  width: 600px;
-  border: 2px solid red;
-}
-.StagePlot.blue-box-container {
+.button {
+  background-color: #a6271f;
+  padding: 10px;
+  margin: 20px;
+  font-weight: 900;
   border: 1px solid black;
-  display: flex;
-  justify-content: center;
-  margin: 10px;
+  color: white;
 }
-.StagePlot.box {
-  height: 70px;
-  width: 70px;
-  border-radius: 10px;
+
+.stageArea {
+  padding: 20px;
+}
+
+.stagePlot {
+  background-color: orangered;
+  width: 576px;
+  height: 384px;
+  color: black;
+  padding: 20px;
+  font-weight: 600;
+}
+.instruments {
+  width: 80px;
+  height: 80px;
+}
+/* 
+.acoustic-guitar {
   background-color: blue;
-  margin: 10px;
 }
+.microphone {
+}
+.dj {
+}
+ */

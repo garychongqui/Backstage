@@ -1,57 +1,76 @@
 import React from 'react';
 import Draggable from 'react-draggable';
 import './studio.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faGuitar,
-  faMicrophone,
-  faMicrophoneAlt,
-  faMicrophoneAltSlash
-} from '@fortawesome/free-solid-svg-icons';
-import { faSpeakerDeck } from '@fortawesome/free-brands-svg-icons';
+import { jsPDF } from 'jspdf';
+import * as html2canvas from 'html2canvas';
 
-// https://www.freecodecamp.org/news/reactjs-implement-drag-and-drop-feature-without-using-external-libraries-ad8994429f1a/
+const Studio = () => {
+  const generatePdf = () => {
+    const newPlot = document.getElementById('stagePlot');
 
-const guitar = <FontAwesomeIcon icon={faGuitar} />;
-const speakerDeck = <FontAwesomeIcon icon={faSpeakerDeck} />;
-const microphone = <FontAwesomeIcon icon={faMicrophoneAlt} />;
+    html2canvas(newPlot).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'in', [10, 9]);
+      // var width = 152;
+      // var height = 111;
+      // pdf.setFontSize(40);
+      // pdf.text("hey guyz", 35, 25);
+      pdf.addImage(imgData, 'png', 0, 0);
+      pdf.save('test.pdf');
+      // Pdf.addImage("../musicIcons/acoustic-guitar.svg", "SVG", 15, 40, 180, 180);
+    });
+  };
+  return (
+    <div className="container">
+      <div className="stageArea" id="stageArea">
+        <div className="stagePlot" id="stagePlot">
+          <h1>Set your stage!</h1>
 
-class Studio extends React.Component {
-  render() {
-    return (
-      <div className="container">
-        <div className="instruments">
-          <div className="guitar">
-            <Draggable>
-              <section>
-                <FontAwesomeIcon icon={faGuitar} size="5x" />
-              </section>
-            </Draggable>
-          </div>
-
-          <div className="speakerDeck">
-            <Draggable>
-              <section>
-                <FontAwesomeIcon icon={faSpeakerDeck} size="5x" />
-              </section>
-            </Draggable>
-          </div>
-
-          <div className="microphone">
-            <Draggable>
-              <section>
-                <FontAwesomeIcon icon={faMicrophoneAlt} size="5x" />
-              </section>
-            </Draggable>
+          <div className="instruments">
+            <div className="acoustic-guitar">
+              <Draggable>
+                <section>
+                  <img
+                    src="../musicIcons/acoustic-guitar.png"
+                    alt="acoustic guitar icon"
+                  />
+                </section>
+              </Draggable>
+            </div>
+            <div className="microphone">
+              <Draggable>
+                <section>
+                  <img
+                    src="../musicIcons/microphone-with-wire.png"
+                    alt="microphone icon"
+                  />
+                </section>
+              </Draggable>
+            </div>
+            <div className="dj">
+              <Draggable>
+                <section>
+                  <img
+                    src="../musicIcons/dj-with-headphones.png"
+                    alt="dj icon"
+                  />
+                </section>
+              </Draggable>
+            </div>
+            <div className="drum-kit">
+              <Draggable>
+                <section>
+                  <img src="../musicIcons/drum-kit.png" alt="drum kit icon" />
+                </section>
+              </Draggable>
+            </div>
           </div>
         </div>
+        <button className="button" onClick={generatePdf}>
+          Download PDF
+        </button>
       </div>
-    );
-  }
-}
-
-{
-  /* <div className="red-box"></div>
-          <div className="blue-box-container"> */
-}
+    </div>
+  );
+};
 export default Studio;
