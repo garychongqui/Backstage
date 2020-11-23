@@ -35,10 +35,13 @@ const MyPackages = () => {
     try {
       setIsUpdated(!isUpdated);
       await axios.delete(`/api/packages/${packageId}`);
-      alert('deleted');
     } catch (error) {
       alert(error);
     }
+  };
+
+  const handleSeeMore = (packageId) => {
+    history.push(`/packages/${packageId}`);
   };
 
   return (
@@ -60,7 +63,9 @@ const MyPackages = () => {
               <br />
               <p>{package1?.anythingElse}</p>
               <p>{package1?._id}</p>
-              <button>See More Button</button>
+              <button onClick={() => handleSeeMore(package1?._id)}>
+                See More Button
+              </button>
               <button>Edit</button>
             </div>
             <div>

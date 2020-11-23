@@ -32,7 +32,15 @@ exports.createPackage = async (req, res) => {
   }
 };
 
-exports.getPackage = async (req, res) => res.json(req.user);
+exports.getOnePackage = async (req, res) => {
+  try {
+    const thePackage = await Package.findOne({ _id: req.params.id });
+    res.status(200).json(thePackage);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+  res.json(req.user);
+};
 
 // ***********************************************//
 // Update a task

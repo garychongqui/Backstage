@@ -1,39 +1,27 @@
 const Event = require('../db/models/events');
-User = require('../db/models/user');
-mongoose = require('mongoose');
+const User = require('../db/models/user');
+const Package = require('../db/models/package');
+const mongoose = require('mongoose');
+// const { ResponsiveEmbed } = require('react-bootstrap');
 
-// ***********************************************//
-// Create a task
-// ***********************************************//
 exports.createEvent = async (req, res) => {
   try {
+    const theUser = await User.findOne({ _id: req.user._id });
+    const thePackage = await Package.findOne({
+      _id: req.body.data.selectedPackage
+    });
     const event = new Event({
-      name: req.body.name,
-      date: req.body.date,
-      artist: req.body.artst
-      // ...req.body,
-      // owner: req.user._id
+      ...req.body.data,
+      user: theUser
     });
-
     await event.save();
-    console.log(req);
-    const theUser = await User.findOne({
-      _id: req.user._id
-    });
-    console.log(theUser);
-    theUser.event.push(event);
-    await theUser.save();
     res.status(201).json(event);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json(error);
   }
 };
 
 exports.getEvent = async (req, res) => res.json(req.user);
-
-// ***********************************************//
-// Update a task
-// ***********************************************//
 
 exports.updateEvent = async (req, res) => {
   const updates = Object.keys(req.body);
@@ -57,9 +45,7 @@ exports.updateEvent = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-// ***********************************************//
-// Delete a task
-// ***********************************************//
+
 exports.deleteEvent = async (req, res) => {
   try {
     const event = await event.findOneAndDelete({

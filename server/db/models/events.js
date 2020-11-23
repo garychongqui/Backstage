@@ -4,36 +4,22 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const eventsSchema = new Schema({
-  name: {
-    type: String,
-    trim: true,
-    required: true
-  },
-  date: {
-    type: String,
-    trim: true,
-    required: true
-  },
-  artist: {
+  eventTitle: {
     type: String,
     trim: true
   },
-  user: { type: Schema.Types.ObjectId, ref: 'User' },
-  equipment: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'OwnedEquip'
+  eventDate: {
+    type: String
   },
-  stage: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Package'
-  }
+  selectedPackage: Object,
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
-eventsSchema.virtual('equipment, stage ', {
-  ref: 'equipment',
-  localField: '_id',
-  foreignField: 'owner'
-});
+// eventsSchema.virtual('equipment, stage ', {
+//   ref: 'equipment',
+//   localField: '_id',
+//   foreignField: 'owner'
+// });
 
 const Events = mongoose.model('Events', eventsSchema);
 

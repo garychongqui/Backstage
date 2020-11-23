@@ -10,7 +10,8 @@ import {
 import MyPackages from '../../components/dashboardTabs/myPackages/myPackages';
 import NewPackage from '../../components/dashboardTabs/newPackage/NewPackage';
 import MyEvents from '../../components/dashboardTabs/myEvents/myEventsTab/MyEvents';
-import CreateEvent from '../../components/createEvent/createEvent';
+import CreateEvent from '../../components/createEvent/CreateEvent';
+import PackageDetails from '../../components/packageDetails/PackageDetails';
 
 class Dashboard extends React.Component {
   state = { show: false };
@@ -36,17 +37,18 @@ class Dashboard extends React.Component {
         <br />
         <br />
         <BrowserRouter>
-          <Link to="/my-packages">My Packages</Link>
+          <Link to="/packages">My Packages</Link>
           <br />
-          <Link to="/new-package">New Package</Link>
+          <Link to="/packages/new">New Package</Link>
           <br />
-          <Link to="/my-events">My Events</Link>
+          <Link to="/events">My Events</Link>
           <br />
           <br />
           <Switch>
-            <Route exact path="/my-packages" component={MyPackages} />
-            <Route exact path="/new-package" component={NewPackage} />
-            <Route exact path="/my-events" component={MyEvents} />
+            <Route exact path="/packages" component={MyPackages} />
+            <Route exact path="/packages/new" component={NewPackage} />
+            <Route exact path="/events" component={MyEvents} />
+            <Route exact path="/packages/:id" component={PackageDetails} />
           </Switch>
         </BrowserRouter>
       </div>
