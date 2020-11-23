@@ -3,15 +3,15 @@ const router = require('express').Router(),
     createPackage,
     updateStage,
     deleteStage,
-    getAllPackages
+    getOnePackage,
+    getAllPackages,
     updatePackage,
     deletePackage
-
   } = require('../../controllers/package');
 
 router.get('/', getAllPackages);
 router.post('/', createPackage);
-router.get('/pack', getPackage);
+router.get('/:id', getOnePackage);
 router.put('/:id', updatePackage);
 router.delete('/:id', deletePackage);
 

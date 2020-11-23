@@ -15,7 +15,9 @@ function App() {
   return (
     <AppContextProvider>
       <Login />
+      <br />
       <Dashboard />
+
       <BrowserRouter>
         <Switch>
           <Route exact path="/login" component={Login} />

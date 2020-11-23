@@ -2,65 +2,87 @@ import React, { useEffect, useState } from 'react';
 import './myPackages.css';
 import '../../../App.css';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+import { useClipboard } from 'use-clipboard-hook';
 
 const MyPackages = () => {
   const [packages, setPackages] = useState([]);
+  const [isUpdated, setIsUpdated] = useState(false);
 
-  // useEffect(async () => {
-  //   console.log('useeffect has run');
-  //   const result = await axios({
-  //     method: 'GET',
-  //     url: `/api/packages`,
-  //     withCredentials: true
-  //   });
-  //   setPackages(result.data);
-  // });
+  const history = useHistory();
 
   const getPackages = async () => {
     try {
       let res = await axios({
         method: 'GET',
-        url: `/api/packages`,
-        withCredentials: true
+        url: `/api/packages`
+        // withCredentials: true
       });
       setPackages(res.data);
-      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     getPackages();
-    console.log(packages);
-  }, []);
-  // getPackages();
+    console.log('useEffect has run');
+  }, [isUpdated]);
+
+  // useEffect(() => {
+  //   console.log('useeffect 2 has run');
+  // }, [isUpdated]);
+
+  const handlePackageDelete = async (packageId) => {
+    try {
+      setIsUpdated(!isUpdated);
+      await axios.delete(`/api/packages/${packageId}`);
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  const handleSeeMore = (packageId) => {
+    history.push(`/packages/${packageId}`);
+  };
 
   return (
     <div>
-      <h1>Here Are Your Packages</h1>
+      <br />
+      <br />
+      <div></div>
+      <br />
+      <br />
+
       <button>Add Package</button>
-      <h2>{packages[0]?.comments}</h2>
-      <div className="saved-stage bg-blue-200">
-        <p>Description goes here</p>
-        <img
-          src="https://source.unsplash.com/random/120x100"
-          alt="random-image"
-        />
-        <button>Edit </button>
-        <button>Delete</button>
-        <button>See more</button>
-      </div>
-      <h2>Package 2</h2>
-      <div className="saved-stage">
-        <p>Description goes here</p>
-        <img
-          src="https://source.unsplash.com/random/120x100"
-          alt="random-image"
-        />
-        <button>Edit</button>
-        <button>Delete</button>
-        <button>See more</button>
-      </div>
+      <br />
+      <br />
+      <h1>Here Are Your Packages</h1>
+      {packages.map((package1) => {
+        return (
+          <div>
+            <br />
+
+            <h2>{package1?.name}</h2>
+            <div className="saved-stage">
+              <span>{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
+              <br />
+              <span>{package1?.indoorOrOutdoor}</span>
+              <br />
+              <p>{package1?.anythingElse}</p>
+              <p>{package1?._id}</p>
+              <button onClick={() => handleSeeMore(package1?._id)}>
+                See More Button
+              </button>
+              <button>Edit</button>
+            </div>
+            <div>
+              <button onClick={() => handlePackageDelete(package1?._id)}>
+                Delete this package
+              </button>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };

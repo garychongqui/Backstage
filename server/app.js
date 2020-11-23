@@ -46,7 +46,7 @@ app.use('/api/*', passport.authenticate('jwt', { session: false }));
 app.use('/api/users', userRouter);
 app.use('/api/packages', packageRouter);
 app.use('/api/equipment', equipmentRouter);
-app.use('/api/event', eventRouter);
+app.use('/api/events', eventRouter);
 
 // Handle React routing, return all requests to React app
 if (process.env.NODE_ENV === 'production') {

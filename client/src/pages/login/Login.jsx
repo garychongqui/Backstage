@@ -1,4 +1,18 @@
+import axios from 'axios';
 import React from 'react';
+
+const handleLogout = async () => {
+  try {
+    await axios({
+      method: 'post',
+      url: '/api/users/logout',
+      withCredentials: true
+    });
+    alert('logout succesful');
+  } catch (error) {
+    alert(error);
+  }
+};
 
 const Login = () => {
   return (
@@ -13,6 +27,7 @@ const Login = () => {
         />
         <input type="submit" name="submit" />
       </form>
+      <button onClick={handleLogout}>Log out</button>
     </div>
   );
 };

@@ -1,0 +1,28 @@
+.individual-package {
+  border-radius: 10px;
+  width: 10rem;
+  height: 6.67rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid lightgray;
+  transition: all 150ms ease-in 0ms;
+}
+
+.individual-package:hover {
+  cursor: pointer;
+  border: 1px solid lightgray;
+  transition: all 150ms ease-in 0ms;
+}
+
+.package-select {
+  display: flex;
+}
+
+.entire-modal-inner-container * {
+  margin: 0.25rem;
+}
+
+.individual-package-container {
+  border-radius: 10px;
+  transition: all 50ms ease-in 0ms;
+}
