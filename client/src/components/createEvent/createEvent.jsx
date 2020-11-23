@@ -28,14 +28,16 @@ const CreateEvent = ({ handleClose, show }) => {
     setSelectedPackage(packageId);
   };
 
+  let showHideClassName = show ? 'block' : 'hidden';
   const handleGenerateEvent = async () => {
     await axios.post('/api/events', {
       data: { eventTitle, eventDate, selectedPackage }
     });
+    // close this modal like "cancel" button
+    // cause new modal to appear that will have copy link
+    // do cool transition
   };
   // get isUpdated as prop from parent to make sure this re-renders if user adds packages
-
-  const showHideClassName = show ? 'block' : 'hidden';
 
   return (
     <div className={showHideClassName}>

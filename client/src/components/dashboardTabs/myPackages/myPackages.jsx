@@ -3,6 +3,7 @@ import './myPackages.css';
 import '../../../App.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { useClipboard } from 'use-clipboard-hook';
 
 const MyPackages = () => {
   const [packages, setPackages] = useState([]);
@@ -46,6 +47,12 @@ const MyPackages = () => {
 
   return (
     <div>
+      <br />
+      <br />
+      <div></div>
+      <br />
+      <br />
+
       <button>Add Package</button>
       <br />
       <br />
