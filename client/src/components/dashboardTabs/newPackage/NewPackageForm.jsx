@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import './newPackage.css';
-
+import { useHistory } from 'react-router-dom';
 import lists from '../../../helper';
 import axios from 'axios';
 
 const NewPackageForm = () => {
   const [category, setCategory] = useState(lists.cables);
   const [equipToSave, setEquipToSave] = useState([]);
+  const [equipDescription, setEquipDescription] = useState([]);
   //   const [equipQuantity, setEquipQuantity] = useState(1);
+
+  const history = useHistory();
 
   const handleEquipClick = (event) => {
     //     let valuesArray = category.map((piece) => Object.values(piece));
     //     console.log(valuesArray);
+
     setEquipToSave(equipToSave.concat(event.target.value));
   };
   //   const handleEquipClick = (event) => {
@@ -51,8 +55,15 @@ const NewPackageForm = () => {
     ]
   ];
 
-  const handleFormSubmit = async (event) => {
-    alert('submitted');
+  const handleFormSubmit = async () => {
+    try {
+      await axios.post('/api/equipment', { data: equipToSave });
+      // .then((response) => alert(response));
+    } catch (error) {
+      alert(error);
+    }
+
+    history.push('/my-packages');
     //make axios call to send data from equipToSave to equipSchema
   };
 
@@ -116,9 +127,6 @@ const NewPackageForm = () => {
           );
         })}
 
-        {
-          // im not sure this is necessary. All of this is handled with handleFormSubmit
-        }
         <div className="stage-dimensions new-stage-form-section">
           <h3>What are the stage dimensions?</h3>
           <label for="stage-width">Width</label>

@@ -10,7 +10,7 @@ const router = require('express').Router(),
 
 router.get('/', getAllPackages);
 router.post('/', createPackage);
-router.get('/pack', getPackage);
+// router.get('/pack', getPackage);
 router.put('/:id', updatePackage);
 router.delete('/:id', deletePackage);
 

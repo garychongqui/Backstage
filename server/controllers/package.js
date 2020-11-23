@@ -65,12 +65,17 @@ exports.updatePackage = async (req, res) => {
 // ***********************************************//
 exports.deletePackage = async (req, res) => {
   try {
-    const stage = await stage.findOneAndDelete({
-      _id: req.params.id,
-      owner: req.user._id
+    console.log('delete controller has run');
+    const package = await Package.findOneAndDelete({
+      _id: req.params.id
+      // owner: req.user._id
     });
-    if (!stage) return res.status(404).json({ message: 'Stage not found' });
-    res.status(200).json({ message: 'Stage has been deleted' });
+    const theUser = await User.findOne({ _id: req.user._id });
+    const packageIndex = theUser.packages.indexOf(req.params.id);
+    theUser.packages.splice([packageIndex]);
+    await theUser.save();
+    if (!package) return res.status(404).json({ message: 'Package not found' });
+    res.status(200).send('Package has been deleted');
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

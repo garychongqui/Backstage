@@ -1,6 +1,8 @@
 const OwnedEquip = require('../db/models/ownedEquip');
-User = require('../db/models/user');
-mongoose = require('mongoose');
+const Package = require('../db/models/package');
+const User = require('../db/models/user');
+
+const mongoose = require('mongoose');
 
 // ***********************************************//
 // Create a task
@@ -23,27 +25,50 @@ mongoose = require('mongoose');
 // ***********************************************//
 exports.addEquipItem = async (req, res) => {
   try {
-    const ownedEquip = new OwnedEquip({
-      name: req.body.name,
-      quantity: req.body.quantity,
-      description: req.body.description
-      // ...req.body,
-      // owner: req.user._id
+    // console.log(req);
+    // await User.findOne({ _id: req.user._id });
+    const equipList = new OwnedEquip({
+      equipItems: req.body.data,
+      user: req.user._id
     });
+    await equipList.save();
+  } catch (error) {}
 
-    await ownedEquip.save();
-    console.log(req);
-    const theUser = await User.findOne({
-      _id: req.user._id
-    });
-    console.log(theUser);
-    theUser.item.push(ownedEquip);
-    await theUser.save();
-    res.status(201).json(ownedEquip);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
+  // console.log('addequip controller has run');
+  // console.log(req.data);
+  // cont;
+  // const equipArray = req.body.data;
+  // const theUser = User.findOne({ _id: req.user.id });
+  // const thePackage = Package.findOne({ user: req.user.id });
+  // const thePackage = Package.findOne({
+  //   _id: theUser.packages[0]
+  // });
+  // console.log('equiparray: ', equipArray);
+  // console.log('theUser: ', theUser);
+  // console.log('thePackage: ', thePackage);
 };
+//   try {
+//     const ownedEquip = new OwnedEquip({
+//       name: req.body.name,
+//       quantity: req.body.quantity,
+//       description: req.body.description
+//       // ...req.body,
+//       // owner: req.user._id
+//     });
+
+//     await ownedEquip.save();
+//     console.log(req);
+//     const theUser = await User.findOne({
+//       _id: req.user._id
+//     });
+//     console.log(theUser);
+//     theUser.item.push(ownedEquip);
+//     await theUser.save();
+//     res.status(201).json(ownedEquip);
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// };
 // ***********************************************//
 //  a task
 // ***********************************************//

@@ -2,26 +2,44 @@ import React, { useEffect, useState } from 'react';
 import './myPackages.css';
 import '../../../App.css';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const MyPackages = () => {
   const [packages, setPackages] = useState([]);
+  const [isUpdated, setIsUpdated] = useState(false);
+
+  const history = useHistory();
 
   const getPackages = async () => {
     try {
       let res = await axios({
         method: 'GET',
-        url: `/api/packages`,
-        withCredentials: true
+        url: `/api/packages`
+        // withCredentials: true
       });
       setPackages(res.data);
-      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     getPackages();
-  }, []);
+    console.log('useEffect has run');
+  }, [isUpdated]);
+
+  // useEffect(() => {
+  //   console.log('useeffect 2 has run');
+  // }, [isUpdated]);
+
+  const handlePackageDelete = async (packageId) => {
+    try {
+      setIsUpdated(!isUpdated);
+      await axios.delete(`/api/packages/${packageId}`);
+      alert('deleted');
+    } catch (error) {
+      alert(error);
+    }
+  };
 
   return (
     <div>
@@ -41,8 +59,15 @@ const MyPackages = () => {
               <span>{package1?.indoorOrOutdoor}</span>
               <br />
               <p>{package1?.anythingElse}</p>
+              <p>{package1?._id}</p>
+              <button>See More Button</button>
+              <button>Edit</button>
             </div>
-            <button>Delete this package</button>
+            <div>
+              <button onClick={() => handlePackageDelete(package1?._id)}>
+                Delete this package
+              </button>
+            </div>
           </div>
         );
       })}
