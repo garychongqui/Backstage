@@ -7,7 +7,7 @@ const packageSchema = new Schema(
     name: String,
     width: Number,
     depth: Number,
-    indoorOrOutdoor: String, // make this boolean?
+    stageArea: String, // make this boolean?
     comments: String,
     anythingElse: String,
     user: { type: Schema.Types.ObjectId, ref: 'User' },
@@ -16,8 +16,7 @@ const packageSchema = new Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'OwnedEquip'
       }
-    ],
-    pack: { type: Schema.Types.ObjectId, ref: 'ownedEquip' }
+    ]
   },
   { timestamps: true }
 );

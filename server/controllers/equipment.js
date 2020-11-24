@@ -83,13 +83,15 @@ exports.addEquipItem = async (req, res) => {
 exports.getEquipItem = async (req, res) => {
   const _id = req.params.id;
   if (!mongoose.Types.ObjectId.isValid(_id))
-    return res.status(400).json({ message: 'Can not get that equipment' });
+    return res.status(400).json({ message: 'Can not get Equipment' });
+
   try {
     const ownedEquip = await OwnedEquip.findOne({ _id });
-    if (!ownedEquip) return res.status(404).send();
-    res.json(ownedEquip);
+    if (!ownedEquip)
+      return res.status(400).json({ message: 'Equipment not found' });
+    res.status(200).json(ownedEquip);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -98,7 +100,7 @@ exports.getEquipItem = async (req, res) => {
 // ***********************************************//
 exports.updateEquipItem = async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ['name', 'quantity', 'description'];
+  const allowedUpdates = ['name', 'width', 'depth'];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );
@@ -108,7 +110,7 @@ exports.updateEquipItem = async (req, res) => {
     const task = await OwnedEquip.findOne({
       _id: req.params.id
     });
-    if (!task) return res.status(404).json({ message: 'task not found' });
+    if (!task) return res.status(404).json({ message: 'Equipment not found' });
     updates.forEach((update) => (task[update] = req.body[update]));
     await task.save();
     res.status(200).json(task);
