@@ -100,7 +100,7 @@ exports.getEquipItem = async (req, res) => {
 // ***********************************************//
 exports.updateEquipItem = async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ['name', 'width', 'depth'];
+  const allowedUpdates = ['name', 'quantity', 'description'];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );

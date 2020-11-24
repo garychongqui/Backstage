@@ -10,13 +10,13 @@ const packageSchema = new Schema(
     stageArea: String, // make this boolean?
     comments: String,
     anythingElse: String,
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
-    equipment: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'OwnedEquip'
-      }
-    ]
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
+    // equipment: [
+    //   {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'OwnedEquip'
+    //   }
+    // ]
   },
   { timestamps: true }
 );
