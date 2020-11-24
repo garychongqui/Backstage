@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './myPackages.css';
+import './myStages.css';
 import '../../../App.css';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { BrowserRouter, Link, useHistory } from 'react-router-dom';
 import { useClipboard } from 'use-clipboard-hook';
 
-const MyPackages = () => {
+const MyStages = () => {
   const [packages, setPackages] = useState([]);
   const [isUpdated, setIsUpdated] = useState(false);
 
@@ -25,12 +25,7 @@ const MyPackages = () => {
   };
   useEffect(() => {
     getPackages();
-    console.log('useEffect has run');
   }, [isUpdated]);
-
-  // useEffect(() => {
-  //   console.log('useeffect 2 has run');
-  // }, [isUpdated]);
 
   const handlePackageDelete = async (packageId) => {
     try {
@@ -42,21 +37,23 @@ const MyPackages = () => {
   };
 
   const handleSeeMore = (packageId) => {
-    history.push(`/packages/${packageId}`);
+    history.push(`/dashboard/stages/${packageId}`);
   };
 
   return (
     <div>
       <br />
       <br />
-      <div></div>
+      <h1>My Stages</h1>
       <br />
       <br />
+      <button onClick={() => history.push('/dashboard/stages/new')}>
+        Add A New Stage
+      </button>
 
-      <button>Add Package</button>
       <br />
       <br />
-      <h1>Here Are Your Packages</h1>
+      <h1>Here Are Your Stages</h1>
       {packages.map((package1) => {
         return (
           <div>
@@ -77,7 +74,7 @@ const MyPackages = () => {
             </div>
             <div>
               <button onClick={() => handlePackageDelete(package1?._id)}>
-                Delete this package
+                Delete this stage
               </button>
             </div>
           </div>
@@ -87,4 +84,4 @@ const MyPackages = () => {
   );
 };
 
-export default MyPackages;
+export default MyStages;

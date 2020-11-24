@@ -28,7 +28,7 @@ exports.createPackage = async (req, res) => {
     await theUser.save();
     res.status(201).json(package);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 
@@ -64,7 +64,7 @@ exports.updatePackage = async (req, res) => {
     await package.save();
     res.status(200).json(package);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 // ***********************************************//
@@ -72,10 +72,8 @@ exports.updatePackage = async (req, res) => {
 // ***********************************************//
 exports.deletePackage = async (req, res) => {
   try {
-    console.log('delete controller has run');
     const package = await Package.findOneAndDelete({
       _id: req.params.id
-      // owner: req.user._id
     });
     const theUser = await User.findOne({ _id: req.user._id });
     const packageIndex = theUser.packages.indexOf(req.params.id);
@@ -84,6 +82,6 @@ exports.deletePackage = async (req, res) => {
     if (!package) return res.status(404).json({ message: 'Package not found' });
     res.status(200).send('Package has been deleted');
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };

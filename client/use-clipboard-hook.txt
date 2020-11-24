@@ -1,5 +1,0 @@
-  const { ref, copy } = useClipboard({
-    onSuccess: (text) => alert(`Copied: ${text}`)
-  });
-  <input type='text' readonly ref={ref}>Hello</input>
-        <button onClick={copy}>copy</button>

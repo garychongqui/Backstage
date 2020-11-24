@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const ownedEquipSchema = new Schema(
+const equipmentSchema = new Schema(
   {
     equipItems: Array,
 
@@ -25,6 +25,6 @@ const ownedEquipSchema = new Schema(
   }
 );
 
-const OwnedEquip = mongoose.model('OwnedEquip', ownedEquipSchema);
+const Equipment = mongoose.model('Equipment', equipmentSchema);
 
-module.exports = OwnedEquip;
+module.exports = Equipment;

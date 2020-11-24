@@ -1,7 +1,11 @@
-const OwnedEquip = require('../db/models/ownedEquip');
+const Equipment = require('../db/models/equipment');
 const Package = require('../db/models/package');
 const User = require('../db/models/user');
 const mongoose = require('mongoose');
+// const {
+//   default: MyEquipment
+// } = require('../../client/src/components/dashboardTabs/myEquipment/MyEquipment');
+
 // ***********************************************//
 // Create a task
 // ***********************************************//
@@ -22,27 +26,29 @@ const mongoose = require('mongoose');
 // ***********************************************//
 exports.addEquipItem = async (req, res) => {
   try {
-    const ownedEquip = new OwnedEquip({
-      name: req.body.name,
-      quantity: req.body.quantity,
-      description: req.body.description
-      // ...req.body,
-      // owner: req.user._id
+    const theEquipment = new Equipment({
+      equipItems: req.body.data,
+      user: req.user._id
     });
-
-    await ownedEquip.save();
-    console.log(req);
-    const theUser = await User.findOne({
-      _id: req.user._id
-    });
-    console.log(theUser);
-    theUser.item.push(ownedEquip);
-    await theUser.save();
-    res.status(201).json(ownedEquip);
+    await theEquipment.save();
+    res.status(201).json(theEquipment);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json(error);
   }
 };
+//     await ownedEquip.save();
+//     console.log(req);
+//     const theUser = await User.findOne({
+//       _id: req.user._id
+//     });
+//     console.log(theUser);
+//     theUser.item.push(ownedEquip);
+//     await theUser.save();
+//     res.status(201).json(ownedEquip);
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// };
 // console.log('addequip controller has run');
 // console.log(req.data);
 // cont;
@@ -91,7 +97,7 @@ exports.getEquipItem = async (req, res) => {
       return res.status(400).json({ message: 'Equipment not found' });
     res.status(200).json(ownedEquip);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 
@@ -115,7 +121,7 @@ exports.updateEquipItem = async (req, res) => {
     await task.save();
     res.status(200).json(task);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 // // ***********************************************//
@@ -129,6 +135,6 @@ exports.deleteEquipItem = async (req, res) => {
     if (!equip) return res.status(404).json({ message: 'equipment not found' });
     res.status(200).json({ message: 'equipment has been deleted' });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };

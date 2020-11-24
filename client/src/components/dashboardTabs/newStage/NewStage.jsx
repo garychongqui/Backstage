@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './newPackage.css';
+import './newStage.css';
 import { useHistory } from 'react-router-dom';
 import lists from '../../../helper';
 import axios from 'axios';
 
-const NewPackageForm = () => {
+const NewStage = () => {
   const [category, setCategory] = useState(lists.cables);
   const [equipToSave, setEquipToSave] = useState([]);
   const [equipDescription, setEquipDescription] = useState([]);
@@ -55,16 +55,17 @@ const NewPackageForm = () => {
     ]
   ];
 
-  const handleFormSubmit = async () => {
+  const handleFormSubmit = () => {
     try {
-      await axios.post('/api/equipment', { data: equipToSave });
+      axios
+        .post('/api/equipment', { data: equipToSave })
+        .then((response) => console.log(response))
+        .then(alert('package created'));
+      // .then(history.push('/packages/'));
       // .then((response) => alert(response));
     } catch (error) {
       alert(error);
     }
-
-    history.push('/my-packages');
-    //make axios call to send data from equipToSave to equipSchema
   };
 
   return (
@@ -160,4 +161,4 @@ const NewPackageForm = () => {
   );
 };
 
-export default NewPackageForm;
+export default NewStage;

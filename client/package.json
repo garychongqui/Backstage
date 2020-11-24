@@ -18,7 +18,8 @@
     "react-scripts": "3.4.3",
     "sweet-alert": "^2.0.5",
     "sweetalert": "^2.1.2",
-    "tailwindcss": "^2.0.1"
+    "tailwindcss": "^2.0.1",
+    "use-clipboard-hook": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
