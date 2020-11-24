@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './myStages.css';
 import '../../../App.css';
 import axios from 'axios';
+import { AppContext } from '../../../context/AppContext';
 import { BrowserRouter, Link, useHistory } from 'react-router-dom';
 import { useClipboard } from 'use-clipboard-hook';
 
 const MyStages = () => {
+  const { currentUser } = useContext(AppContext);
   const [packages, setPackages] = useState([]);
   const [isUpdated, setIsUpdated] = useState(false);
 
   const history = useHistory();
 
+  console.log(currentUser);
   const getPackages = async () => {
     try {
       let res = await axios({
@@ -31,7 +34,8 @@ const MyStages = () => {
   const handlePackageDelete = async (packageId) => {
     try {
       setIsUpdated(!isUpdated);
-      await axios.delete(`/api/packages/${packageId}`);
+      const res = await axios.delete(`/api/packages/${packageId}`);
+      alert(res.data);
     } catch (error) {
       alert(error);
     }

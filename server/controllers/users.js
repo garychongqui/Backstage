@@ -41,6 +41,7 @@ exports.loginUser = async (req, res) => {
       sameSite: 'Strict',
       secure: process.env.NODE_ENV !== 'production' ? false : true
     });
+
     res.json(user);
   } catch (e) {
     res.status(400).json({ error: e.toString() });
@@ -94,7 +95,12 @@ exports.passwordRedirect = async (req, res) => {
 
 // Get current user
 // ***********************************************//
-exports.getCurrentUser = async (req, res) => res.json(req.user);
+exports.getCurrentUser = async (req, res) => {
+  await req.user
+    .populate({ path: 'packages', model: 'Package' })
+    .execPopulate();
+  res.json({ user: req.user, packages: req.user.packages });
+};
 
 // Update a user
 // ***********************************************//
