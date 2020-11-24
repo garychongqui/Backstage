@@ -11,7 +11,11 @@ const eventsSchema = new Schema({
   eventDate: {
     type: String
   },
-  selectedPackage: Object,
+  artist: {
+    type: String,
+    trim: true
+  },
+  // selectedPackage: Object,
   user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 

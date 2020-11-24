@@ -1,9 +1,7 @@
 const OwnedEquip = require('../db/models/ownedEquip');
 const Package = require('../db/models/package');
 const User = require('../db/models/user');
-
 const mongoose = require('mongoose');
-
 // ***********************************************//
 // Create a task
 // ***********************************************//
@@ -19,34 +17,45 @@ const mongoose = require('mongoose');
 //     res.status(400).json({ error: error.message });
 //   }
 // };
-
 // ***********************************************//
 // Add Equipment item
 // ***********************************************//
 exports.addEquipItem = async (req, res) => {
   try {
-    // console.log(req);
-    // await User.findOne({ _id: req.user._id });
-    const equipList = new OwnedEquip({
-      equipItems: req.body.data,
-      user: req.user._id
+    const ownedEquip = new OwnedEquip({
+      name: req.body.name,
+      quantity: req.body.quantity,
+      description: req.body.description
+      // ...req.body,
+      // owner: req.user._id
     });
-    await equipList.save();
-  } catch (error) {}
 
-  // console.log('addequip controller has run');
-  // console.log(req.data);
-  // cont;
-  // const equipArray = req.body.data;
-  // const theUser = User.findOne({ _id: req.user.id });
-  // const thePackage = Package.findOne({ user: req.user.id });
-  // const thePackage = Package.findOne({
-  //   _id: theUser.packages[0]
-  // });
-  // console.log('equiparray: ', equipArray);
-  // console.log('theUser: ', theUser);
-  // console.log('thePackage: ', thePackage);
+    await ownedEquip.save();
+    console.log(req);
+    const theUser = await User.findOne({
+      _id: req.user._id
+    });
+    console.log(theUser);
+    theUser.item.push(ownedEquip);
+    await theUser.save();
+    res.status(201).json(ownedEquip);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 };
+// console.log('addequip controller has run');
+// console.log(req.data);
+// cont;
+// const equipArray = req.body.data;
+// const theUser = User.findOne({ _id: req.user.id });
+// const thePackage = Package.findOne({ user: req.user.id });
+// const thePackage = Package.findOne({
+//   _id: theUser.packages[0]
+// });
+// console.log('equiparray: ', equipArray);
+// console.log('theUser: ', theUser);
+// console.log('thePackage: ', thePackage);
+
 //   try {
 //     const ownedEquip = new OwnedEquip({
 //       name: req.body.name,
@@ -55,7 +64,6 @@ exports.addEquipItem = async (req, res) => {
 //       // ...req.body,
 //       // owner: req.user._id
 //     });
-
 //     await ownedEquip.save();
 //     console.log(req);
 //     const theUser = await User.findOne({
@@ -72,39 +80,33 @@ exports.addEquipItem = async (req, res) => {
 // ***********************************************//
 //  a task
 // ***********************************************//
-
 exports.getEquipItem = async (req, res) => {
   const _id = req.params.id;
   if (!mongoose.Types.ObjectId.isValid(_id))
-    return res.status(400).json({ message: 'Cant get that equipment' });
-
+    return res.status(400).json({ message: 'Can not get that equipment' });
   try {
-    const ownedEquip = await OwnedEquip.findOne({ _id, owner: req.user._id });
-    if (!ownedEquip)
-      return res.status(400).json({ message: 'Equipment not found' });
-    res.status(200).json(ownedEquip);
+    const ownedEquip = await OwnedEquip.findOne({ _id });
+    if (!ownedEquip) return res.status(404).send();
+    res.json(ownedEquip);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 };
 
 // ***********************************************//
 // Update a task
 // ***********************************************//
-
 exports.updateEquipItem = async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ['description', 'name', 'icon'];
+  const allowedUpdates = ['name', 'quantity', 'description'];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );
   if (!isValidOperation)
     return res.status(400).json({ message: 'invalid updates' });
-
   try {
-    const task = await Task.findOne({
-      _id: req.params.id,
-      owner: req.user._id
+    const task = await OwnedEquip.findOne({
+      _id: req.params.id
     });
     if (!task) return res.status(404).json({ message: 'task not found' });
     updates.forEach((update) => (task[update] = req.body[update]));
@@ -117,12 +119,10 @@ exports.updateEquipItem = async (req, res) => {
 // // ***********************************************//
 // // Delete a task
 // // ***********************************************//
-
 exports.deleteEquipItem = async (req, res) => {
   try {
     const equip = await OwnedEquip.findOneAndDelete({
-      _id: req.params.id,
-      owner: req.user._id
+      _id: req.params.id
     });
     if (!equip) return res.status(404).json({ message: 'equipment not found' });
     res.status(200).json({ message: 'equipment has been deleted' });

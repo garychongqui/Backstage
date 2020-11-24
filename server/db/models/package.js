@@ -16,7 +16,8 @@ const packageSchema = new Schema(
         type: mongoose.Schema.Types.ObjectId,
         ref: 'OwnedEquip'
       }
-    ]
+    ],
+    pack: { type: Schema.Types.ObjectId, ref: 'ownedEquip' }
   },
   { timestamps: true }
 );
