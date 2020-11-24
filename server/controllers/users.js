@@ -99,7 +99,14 @@ exports.getCurrentUser = async (req, res) => {
   await req.user
     .populate({ path: 'packages', model: 'Package' })
     .execPopulate();
-  res.json({ user: req.user, packages: req.user.packages });
+  await req.user
+    .populate({ path: 'equipment', model: 'Equipment' })
+    .execPopulate();
+  res.json({
+    user: req.user,
+    packages: req.user.packages,
+    equipment: req.user.equipment
+  });
 };
 
 // Update a user

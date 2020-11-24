@@ -66,11 +66,12 @@ const userSchema = new mongoose.Schema(
     timestamps: true
   }
 );
-// userSchema.virtual('equipment', {
-//   ref: 'OwnedEquip',
-//   localField: '_id',
-//   foreignField: 'user'
-// });
+userSchema.virtual('equipment', {
+  ref: 'Equipment',
+  localField: '_id',
+  foreignField: 'user'
+});
+
 userSchema.virtual('packages', {
   ref: 'Package',
   localField: '_id',
