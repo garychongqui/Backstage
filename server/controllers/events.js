@@ -6,9 +6,6 @@ const mongoose = require('mongoose');
 exports.createEvent = async (req, res) => {
   try {
     const theUser = await User.findOne({ _id: req.user._id });
-    const thePackage = await Package.findOne({
-      _id: req.body.data.selectedPackage
-    });
     const theEvent = new Event({
       ...req.body.data,
       user: theUser
@@ -17,43 +14,10 @@ exports.createEvent = async (req, res) => {
     theUser.events.push(theEvent);
     await theUser.save();
     res.status(201).json(theEvent);
-    // const event = new Event({
-    //   name: req.body.name,
-    //   date: req.body.date,
-    //   artist: req.body.artst
-    //   // ...req.body,
-    //   // owner: req.user._id
-    // });
-
-    // await event.save();
-    // console.log(req);
-    // const theUser = await User.findOne({
-    //   _id: req.user._id
-    // });
-    // console.log(theUser);
-    // theUser.event.push(event);
-    // await theUser.save();
-    // res.status(201).json(event);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
 };
-// exports.createEvent = async (req, res) => {
-//   try {
-//     const theUser = await User.findOne({ _id: req.user._id });
-//     const thePackage = await Package.findOne({
-//       _id: req.body.data.selectedPackage
-//     });
-//     const event = new Event({
-//       ...req.body.data,
-//       user: theUser
-//     });
-//     await event.save();
-//     res.status(201).json(event);
-//   } catch (error) {
-//     res.status(400).json(error);
-//   }
-// };
 
 exports.getEvent = async (req, res) => {
   // const theEvent = Events.findOne({ _id: req.params.id });

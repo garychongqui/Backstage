@@ -1,10 +1,9 @@
 import React from 'react';
 import { useClipboard } from 'use-clipboard-hook';
+import './eventLink.css';
 
 const EventLink = ({ display, eventURL }) => {
-  let showLinkClassName = display
-    ? 'opacity-100 duration-700'
-    : 'opacity-0 duration-700';
+  let showLinkClassName = display ? 'block' : 'hidden';
 
   const { ref, copy } = useClipboard({
     onSuccess: (text) => alert(`Copied: ${text}`)
@@ -25,10 +24,10 @@ const EventLink = ({ display, eventURL }) => {
             value={eventURL}
             ref={ref}
           />
-          <div class="absolute inset-y-0 right-0 flex items-center">
+          <div class="clipboard-button absolute inset-y-0 right-0 flex items-center">
             <svg
               onClick={copy}
-              class="w-6 h-6"
+              class="w-6 h-6 "
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

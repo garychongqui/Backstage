@@ -10,8 +10,6 @@ const CreateEvent = ({ handleClose, show }) => {
   const [eventDate, setEventDate] = useState('');
   const [showLinkClassName, setShowLinkClassName] = useState(false);
   const [eventURL, setEventURL] = useState('');
-  //trigger useEffect when "create event" button clicked
-  // const [isShowing, setIsShowing] = useState(false)
 
   const getPackages = async () => {
     try {
@@ -43,8 +41,6 @@ const CreateEvent = ({ handleClose, show }) => {
         setEventURL(`http://localhost:3000/events/${results.data._id}`)
       );
     setShowLinkClassName(true);
-
-    //  get eventId from axios response  eventURL
   };
   // get isUpdated as prop from parent to make sure this re-renders if user adds packages
 
@@ -71,8 +67,8 @@ const CreateEvent = ({ handleClose, show }) => {
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
-                <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
-                  <svg
+                {/* <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10"> */}
+                {/* <svg
                     class="w-6 h-6"
                     fill="none"
                     stroke="currentColor"
@@ -85,8 +81,8 @@ const CreateEvent = ({ handleClose, show }) => {
                       stroke-width="2"
                       d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
                     ></path>
-                  </svg>
-                </div>
+                  </svg> */}
+                {/* </div> */}
                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                   <h3
                     class="text-lg leading-6 font-medium text-gray-900"

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './myPackages.css';
+import './myStages.css';
 import '../../../App.css';
 import axios from 'axios';
 import { BrowserRouter, Link, useHistory } from 'react-router-dom';
@@ -26,10 +26,6 @@ const MyStages = () => {
   useEffect(() => {
     getPackages();
   }, [isUpdated]);
-
-  // useEffect(() => {
-  //   console.log('useeffect 2 has run');
-  // }, [isUpdated]);
 
   const handlePackageDelete = async (packageId) => {
     try {

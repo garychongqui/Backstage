@@ -12,25 +12,12 @@ const MyEquipment = () => {
 
   const history = useHistory();
 
-  const handleEquipClick = (event) => {
-    //     let valuesArray = category.map((piece) => Object.values(piece));
-    //     console.log(valuesArray);
-
-    setEquipToSave(equipToSave.concat(event.target.value));
-  };
-  //   const handleEquipClick = (event) => {
-  //     setEquipToSave(equipToSave.concat(event.target.value));
-  //   };
-
-  //   const handlePlusQuantity = () => {
-  //     console.log('+');
-  //   };
-  //   const handleMinusQuantity = () => {
-  //     console.log('-');
-  //   };
-
   const handleCategorySelect = (event) => {
     setCategory(equipList[event.target.value]);
+  };
+
+  const handleEquipClick = (event) => {
+    setEquipToSave(equipToSave.concat(event.target.value));
   };
 
   const categoryList = ['Cables', 'Stands'];
@@ -55,13 +42,14 @@ const MyEquipment = () => {
     ]
   ];
 
+  //maybe: 4 state values: name, user desc., quantity, and correspondind number for each line;
+  // in handleSave function, loop through each and concat all of those, by index, into an object. then send that obj
+
   const handleSaveEquip = () => {
     try {
       axios
         .post('/api/equipment', { data: equipToSave })
-        .then(history.push('/dashboard'));
-      // .then(history.push('/packages/'));
-      // .then((response) => alert(response));
+        .then(alert('equipment saved'));
     } catch (error) {
       alert(error);
     }
