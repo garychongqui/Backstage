@@ -7,11 +7,11 @@ import {
   Link,
   useHistory
 } from 'react-router-dom';
-import MyStages from '../../components/dashboardTabs/myPackages/MyStages';
+import MyStages from '../../components/dashboardTabs/myStages/MyStages';
 import NewStage from '../../components/dashboardTabs/newStage/NewStage';
 import MyEvents from '../../components/dashboardTabs/myEvents/myEventsTab/MyEvents';
 import CreateEvent from '../../components/createEvent/CreateEvent';
-import PackageDetails from '../../components/dashboardTabs/myPackages/packageDetails/PackageDetails';
+import PackageDetails from '../../components/dashboardTabs/myStages/packageDetails/PackageDetails';
 import MyEquipment from '../../components/dashboardTabs/myEquipment/MyEquipment';
 
 class Dashboard extends React.Component {

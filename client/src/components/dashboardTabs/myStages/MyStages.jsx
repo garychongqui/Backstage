@@ -48,14 +48,13 @@ const MyStages = () => {
     <div>
       <br />
       <br />
-      <div></div>
+      <h1>My Stages</h1>
       <br />
       <br />
-
       <button onClick={() => history.push('/dashboard/stages/new')}>
         Add A New Stage Button
       </button>
-      <br />
+
       <br />
       <br />
       <h1>Here Are Your Stages</h1>

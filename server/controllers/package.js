@@ -48,7 +48,7 @@ exports.getOnePackage = async (req, res) => {
 
 exports.updatePackage = async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ['description', 'completed', 'dueDate'];
+  const allowedUpdates = ['name', 'width', 'depth'];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );
@@ -56,14 +56,13 @@ exports.updatePackage = async (req, res) => {
     return res.status(400).json({ message: 'invalid updates' });
 
   try {
-    const stage = await Stage.findOne({
-      _id: req.params.id,
-      owner: req.user._id
+    const package = await Package.findOne({
+      _id: req.params.id
     });
-    if (!stage) return res.status(404).json({ message: 'Stage not found' });
-    updates.forEach((update) => (stage[update] = req.body[update]));
-    await stage.save();
-    res.status(200).json(stage);
+    if (!package) return res.status(404).json({ message: 'Stage not found' });
+    updates.forEach((update) => (package[update] = req.body[update]));
+    await package.save();
+    res.status(200).json(package);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

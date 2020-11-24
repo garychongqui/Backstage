@@ -69,7 +69,7 @@ const userSchema = new mongoose.Schema(
 // userSchema.virtual('equipment', {
 //   ref: 'OwnedEquip',
 //   localField: '_id',
-//   foreignField: 'owner'
+//   foreignField: 'user'
 // });
 // userSchema.virtual('Package', {
 //   ref: 'Package',
