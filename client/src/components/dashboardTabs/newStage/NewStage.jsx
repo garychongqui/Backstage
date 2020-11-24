@@ -33,7 +33,14 @@ const NewStage = () => {
     setCategory(equipList[event.target.value]);
   };
 
-  const categoryList = ['Cables', 'Stands'];
+  const categoryList = [
+    'Cables',
+    'DJ Equipment',
+    'Instruments',
+    'Microphones',
+    'Stands',
+    'Speakers'
+  ]; // make render
 
   const equipList = [
     [
@@ -79,54 +86,8 @@ const NewStage = () => {
         <input
           name="name"
           type="text"
-          placeholder="Package name (click to edit)"
+          placeholder="Stage name (click to edit)"
         />
-        <h2>Which Equip would you like to include?</h2>
-        <select onChange={handleCategorySelect}>
-          {categoryList.map((category) => (
-            <option value={categoryList.indexOf(category)}>{category}</option>
-          ))}
-        </select>
-        <br></br>
-
-        {category.map((
-          equipItem //equipItem is the full equipment obj we will send to backend
-        ) => (
-          <button
-            type="button"
-            value={equipItem.name}
-            onClick={handleEquipClick}
-          >
-            {equipItem.name}
-          </button>
-        ))}
-
-        <div className="equip-table">
-          <span>
-            <strong>Name</strong>
-          </span>
-          <span>
-            <strong>Description</strong>
-          </span>
-          <span>
-            <strong>Quantity</strong>
-          </span>
-        </div>
-        {equipToSave.map((equipItem) => {
-          // check for item quantity here?
-          return (
-            <div>
-              <span>{equipItem}</span>
-              <input type="text" placeholder="description" />
-
-              <span>{equipItem.quantity}</span>
-              <input type="text" placeholder="quantity" />
-              {/* <span>{equipQuantity}</span> */}
-              {/* <button type="button"> + </button>
-              <button type="button"> - </button> */}
-            </div>
-          );
-        })}
 
         <div className="stage-dimensions new-stage-form-section">
           <h3>What are the stage dimensions?</h3>
@@ -138,13 +99,52 @@ const NewStage = () => {
           <input id="stage-depth" type="number" name="depth"></input>
         </div>
         <div className="indoorOrOutdoor new-stage-form-section">
-          <h3>Indoor or Outdoor?</h3>
-          <select name="indoorOrOutdoor" id="indoor-or-outdoor">
-            <option value="indoor">Indoor</option>
-            <option value="outdoor-uncovered">Outdoor Uncovered</option>
-            <option value="outdoor-covered">Outdoor Covered</option>
-          </select>
-          <textarea placeholder="comments" name="comments" rows="5" cols="35" />
+          {/* <h3>Indoor or Outdoor?</h3> */}
+          <label for="outdoor-checkbox">Is the stage outdoor?</label>
+          <input
+            type="checkbox"
+            name="isOutdoor"
+            id="outdoor-checkbox"
+            value="true"
+          />
+          {/* <label for="indoor-checkbox">Indoor</label>
+          <input
+            type="checkbox"
+            name="isOutdoor"
+            id="indoor-checkbox"
+            value="false"
+          />
+            */}
+
+          {/* <div class="flex items-center justify-center w-full mb-24">
+            <label for="toogleA" class="flex items-center cursor-pointer">
+              <div class="relative">
+                <input id="toogleA" type="checkbox" class="hidden" />
+
+                <div class="toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner"></div>
+
+                <div class="toggle__dot absolute w-6 h-6 bg-white rounded-full shadow inset-y-0 left-0"></div>
+              </div>
+
+              <div class="ml-3 text-gray-700 font-medium">Toggle Me!</div>
+            </label>
+          </div> */}
+
+          {/* <label for="outdoor">Outdoor</label>
+          <input id="outdoor" type="radio" name="isOutdoor" value="true" />
+          <label for="indoor">Indoor</label>
+          <input id="indoor" type="radio" name="isIndoor" value="false" /> */}
+          {/*           
+          <select name="isOutdoor" id="indoor-or-outdoor">
+            <option value="true">Indoor</option>
+            <option value="outdoor">Outdoor</option>
+          </select> */}
+          <textarea
+            placeholder="If outdoor, is the stage covered? Anything else?"
+            name="comments"
+            rows="5"
+            cols="35"
+          />
         </div>
         <div className="additional-comments new-stage-form-selection">
           <h3>Anything else?</h3>

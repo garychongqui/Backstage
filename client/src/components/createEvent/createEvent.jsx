@@ -5,7 +5,7 @@ import EventLink from './EventLink';
 
 const CreateEvent = ({ handleClose, show }) => {
   const [packages, setPackages] = useState([]);
-  const [selectedPackage, setSelectedPackage] = useState('');
+  const [selectedPackage, setSelectedPackage] = useState({});
   const [eventTitle, setEventTitle] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [showLinkClassName, setShowLinkClassName] = useState(false);

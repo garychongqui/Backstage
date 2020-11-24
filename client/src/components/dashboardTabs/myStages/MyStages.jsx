@@ -19,13 +19,14 @@ const MyStages = () => {
         // withCredentials: true
       });
       setPackages(res.data);
+      setIsUpdated(!isUpdated);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
     getPackages();
-  }, [isUpdated]);
+  }, []);
 
   const handlePackageDelete = async (packageId) => {
     try {
