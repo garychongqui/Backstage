@@ -7,11 +7,12 @@ import {
   Link,
   useHistory
 } from 'react-router-dom';
-import MyPackages from '../../components/dashboardTabs/myPackages/myPackages';
-import NewPackage from '../../components/dashboardTabs/newPackage/NewPackage';
+import MyStages from '../../components/dashboardTabs/myPackages/MyStages';
+import NewStage from '../../components/dashboardTabs/newStage/NewStage';
 import MyEvents from '../../components/dashboardTabs/myEvents/myEventsTab/MyEvents';
 import CreateEvent from '../../components/createEvent/CreateEvent';
-import PackageDetails from '../../components/packageDetails/PackageDetails';
+import PackageDetails from '../../components/dashboardTabs/myPackages/packageDetails/PackageDetails';
+import MyEquipment from '../../components/dashboardTabs/myEquipment/MyEquipment';
 
 class Dashboard extends React.Component {
   state = { show: false };
@@ -37,19 +38,31 @@ class Dashboard extends React.Component {
 
         <br />
         <br />
+
         <BrowserRouter>
-          <Link to="/packages">My Packages</Link>
+          <Link to="/dashboard/equipment">My Equipment</Link>
           <br />
-          <Link to="/packages/new">New Package</Link>
+          <Link to="/dashboard/stages">My Stages</Link>
           <br />
-          <Link to="/events">My Events</Link>
+          {/* <Link to="/dashboard/stages/new">New Package</Link>
+          <br /> */}
+          <Link to="/dashboard/events">My Events</Link>
           <br />
           <br />
           <Switch>
-            <Route exact path="/packages" component={MyPackages} />
-            <Route exact path="/packages/new" component={NewPackage} />
-            <Route exact path="/events" component={MyEvents} />
-            <Route exact path="/packages/:id" component={PackageDetails} />
+            <Route exact path="/dashboard/equipment" component={MyEquipment} />
+            <Route exact path="/dashboard/stages" component={MyStages} />
+            <Route
+              exact
+              path="/dashboard/stages/new"
+              component={NewStage} //should this be somewhere else?
+            />
+            <Route exact path="/dashboard/events" component={MyEvents} />
+            <Route
+              exact
+              path="/dashboard/stages/:id"
+              component={PackageDetails}
+            />
           </Switch>
         </BrowserRouter>
       </div>

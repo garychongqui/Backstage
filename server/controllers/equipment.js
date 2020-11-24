@@ -1,8 +1,11 @@
-const OwnedEquip = require('../db/models/ownedEquip');
+const Equipment = require('../db/models/equipment');
 const Package = require('../db/models/package');
 const User = require('../db/models/user');
 
 const mongoose = require('mongoose');
+// const {
+//   default: MyEquipment
+// } = require('../../client/src/components/dashboardTabs/myEquipment/MyEquipment');
 
 // ***********************************************//
 // Create a task
@@ -25,14 +28,16 @@ const mongoose = require('mongoose');
 // ***********************************************//
 exports.addEquipItem = async (req, res) => {
   try {
-    // console.log(req);
-    // await User.findOne({ _id: req.user._id });
-    const equipList = new OwnedEquip({
+    const theEquipment = new Equipment({
       equipItems: req.body.data,
       user: req.user._id
     });
-    await equipList.save();
-  } catch (error) {}
+    console.log(theEquipment);
+    await theEquipment.save();
+    res.status(201).json(theEquipment);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 
   // console.log('addequip controller has run');
   // console.log(req.data);

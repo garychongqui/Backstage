@@ -23,7 +23,11 @@ exports.createEvent = async (req, res) => {
   }
 };
 
-exports.getEvent = async (req, res) => res.json(req.user);
+exports.getEvent = async (req, res) => {
+  console.log('rin');
+  // const theEvent = Events.findOne({ _id: req.params.id });
+  // console.log(theEvent);
+};
 
 exports.updateEvent = async (req, res) => {
   const updates = Object.keys(req.body);

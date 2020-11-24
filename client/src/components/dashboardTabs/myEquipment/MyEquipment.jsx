@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import './newPackage.css';
+import './myEquipment.css';
 import { useHistory } from 'react-router-dom';
 import lists from '../../../helper';
 import axios from 'axios';
 
-const NewPackageForm = () => {
+const MyEquipment = () => {
   const [category, setCategory] = useState(lists.cables);
   const [equipToSave, setEquipToSave] = useState([]);
   const [equipDescription, setEquipDescription] = useState([]);
@@ -55,32 +55,22 @@ const NewPackageForm = () => {
     ]
   ];
 
-  const handleFormSubmit = async () => {
+  const handleSaveEquip = () => {
     try {
-      await axios.post('/api/equipment', { data: equipToSave });
+      axios
+        .post('/api/equipment', { data: equipToSave })
+        .then(history.push('/dashboard'));
+      // .then(history.push('/packages/'));
       // .then((response) => alert(response));
     } catch (error) {
       alert(error);
     }
-
-    history.push('/my-packages');
-    //make axios call to send data from equipToSave to equipSchema
   };
 
   return (
-    <div>
-      <form
-        name="new-package"
-        method="post"
-        action="/api/packages"
-        onSubmit={handleFormSubmit}
-      >
-        <input
-          name="name"
-          type="text"
-          placeholder="Package name (click to edit)"
-        />
-        <h2>Which Equip would you like to include?</h2>
+    <div className="my-equipment-component">
+      <h1>My Equipment</h1>
+      <form name="equipmentList" method="post" action="/api/equipment">
         <select onChange={handleCategorySelect}>
           {categoryList.map((category) => (
             <option value={categoryList.indexOf(category)}>{category}</option>
@@ -119,45 +109,19 @@ const NewPackageForm = () => {
               <input type="text" placeholder="description" />
 
               <span>{equipItem.quantity}</span>
-              <input type="text" placeholder="quantity" />
-              {/* <span>{equipQuantity}</span> */}
-              {/* <button type="button"> + </button>
-              <button type="button"> - </button> */}
+              <input type="number" placeholder="quantity" />
             </div>
           );
         })}
-
-        <div className="stage-dimensions new-stage-form-section">
-          <h3>What are the stage dimensions?</h3>
-          <label for="stage-width">Width</label>
-          {/*  get rid of up/down arrows in input box */}
-          <input id="stage-width" type="number" name="width"></input>
-          <br></br>
-          <label for="stage-depth">Depth</label>
-          <input id="stage-depth" type="number" name="depth"></input>
-        </div>
-        <div className="indoorOrOutdoor new-stage-form-section">
-          <h3>Indoor or Outdoor?</h3>
-          <select name="indoorOrOutdoor" id="indoor-or-outdoor">
-            <option value="indoor">Indoor</option>
-            <option value="outdoor-uncovered">Outdoor Uncovered</option>
-            <option value="outdoor-covered">Outdoor Covered</option>
-          </select>
-          <textarea placeholder="comments" name="comments" rows="5" cols="35" />
-        </div>
-        <div className="additional-comments new-stage-form-selection">
-          <h3>Anything else?</h3>
-          <textarea
-            name="anythingElse"
-            rows="5"
-            cols="35"
-            placeholder="placeholder"
-          />
-        </div>
-        <input type="submit" />
+        <button type="button" onClick={handleSaveEquip}>
+          Save
+        </button>
+        {/* <button type="button" onClick={handleSaveEquip}>
+        Save
+      </button> */}
       </form>
     </div>
   );
 };
 
-export default NewPackageForm;
+export default MyEquipment;

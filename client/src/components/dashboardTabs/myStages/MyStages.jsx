@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './myPackages.css';
 import '../../../App.css';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { BrowserRouter, Link, useHistory } from 'react-router-dom';
 import { useClipboard } from 'use-clipboard-hook';
 
-const MyPackages = () => {
+const MyStages = () => {
   const [packages, setPackages] = useState([]);
   const [isUpdated, setIsUpdated] = useState(false);
 
@@ -41,7 +41,7 @@ const MyPackages = () => {
   };
 
   const handleSeeMore = (packageId) => {
-    history.push(`/packages/${packageId}`);
+    history.push(`/dashboard/stages/${packageId}`);
   };
 
   return (
@@ -52,10 +52,13 @@ const MyPackages = () => {
       <br />
       <br />
 
-      <button>Add Package</button>
+      <button onClick={() => history.push('/dashboard/stages/new')}>
+        Add A New Stage Button
+      </button>
       <br />
       <br />
-      <h1>Here Are Your Packages</h1>
+      <br />
+      <h1>Here Are Your Stages</h1>
       {packages.map((package1) => {
         return (
           <div>
@@ -76,7 +79,7 @@ const MyPackages = () => {
             </div>
             <div>
               <button onClick={() => handlePackageDelete(package1?._id)}>
-                Delete this package
+                Delete this stage
               </button>
             </div>
           </div>
@@ -86,4 +89,4 @@ const MyPackages = () => {
   );
 };
 
-export default MyPackages;
+export default MyStages;

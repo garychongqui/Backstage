@@ -8,7 +8,7 @@ const router = require('express').Router(),
 
 router.post('/', createEvent);
 router.put('/:id', updateEvent);
-router.get('/show', getEvent);
+router.get('/:id', getEvent);
 router.delete('/:id', deleteEvent);
 
 module.exports = router;
