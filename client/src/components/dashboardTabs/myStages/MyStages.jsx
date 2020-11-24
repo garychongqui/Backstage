@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './myStages.css';
-import '../../../App.css';
 import axios from 'axios';
 import { BrowserRouter, Link, useHistory } from 'react-router-dom';
 import { useClipboard } from 'use-clipboard-hook';

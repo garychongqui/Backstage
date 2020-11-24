@@ -1,6 +1,5 @@
 import React from 'react';
 import { useClipboard } from 'use-clipboard-hook';
-import './eventLink.css';
 
 const EventLink = ({ display, eventURL }) => {
   let showLinkClassName = display ? 'block' : 'hidden';

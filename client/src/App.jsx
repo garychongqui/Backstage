@@ -8,8 +8,9 @@ import Home from './pages/Home';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
 import Studio from './pages/Studio/Studio';
+import test from './components/test';
 
-import './App.css';
+//
 import ArtistCollab from './pages/artistCollab/ArtistCollab';
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/" component={Home} />
           <Route exact path="/studio" component={Studio} />
+          <Route exact path="/test" component={test} />
         </Switch>
       </BrowserRouter>
     </AppContextProvider>
