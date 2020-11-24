@@ -15,7 +15,7 @@ exports.createEvent = async (req, res) => {
     await theUser.save();
     res.status(201).json(theEvent);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 
@@ -30,7 +30,7 @@ exports.getEvent = async (req, res) => {
     if (!event) return res.status(404).send();
     res.json(event);
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    res.status(500).json({ error });
   }
 };
 
@@ -51,7 +51,7 @@ exports.updateEvent = async (req, res) => {
     await event.save();
     res.status(200).json(event);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 exports.deleteEvent = async (req, res) => {
@@ -62,6 +62,6 @@ exports.deleteEvent = async (req, res) => {
     if (!event) return res.status(404).json({ message: 'Event not found' });
     res.status(200).json({ message: 'Event has been deleted' });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };

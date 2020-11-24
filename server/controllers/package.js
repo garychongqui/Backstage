@@ -28,7 +28,7 @@ exports.createPackage = async (req, res) => {
     await theUser.save();
     res.status(201).json(package);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 
@@ -64,7 +64,7 @@ exports.updatePackage = async (req, res) => {
     await package.save();
     res.status(200).json(package);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
 // ***********************************************//
@@ -82,6 +82,6 @@ exports.deletePackage = async (req, res) => {
     if (!package) return res.status(404).json({ message: 'Package not found' });
     res.status(200).send('Package has been deleted');
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error });
   }
 };
