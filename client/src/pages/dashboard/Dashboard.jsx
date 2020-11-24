@@ -10,9 +10,10 @@ import {
 import MyStages from '../../components/dashboardTabs/myStages/MyStages';
 import NewStage from '../../components/dashboardTabs/newStage/NewStage';
 import MyEvents from '../../components/dashboardTabs/myEvents/myEventsTab/MyEvents';
-import CreateEvent from '../../components/createEvent/createEvent';
+import CreateEvent from '../../components/createEvent/CreateEvent';
 import PackageDetails from '../../components/dashboardTabs/myStages/packageDetails/PackageDetails';
 import MyEquipment from '../../components/dashboardTabs/myEquipment/MyEquipment';
+import ProfileHeader from './ProfileHeader.jsx';
 
 class Dashboard extends React.Component {
   state = { show: false };
@@ -28,7 +29,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h1>Dashboard</h1>
+        <h1>Venue Name Goes Here</h1>
 
         <br></br>
         <CreateEvent show={this.state.show} handleClose={this.hideModal} />
@@ -38,14 +39,12 @@ class Dashboard extends React.Component {
 
         <br />
         <br />
-
         <BrowserRouter>
+          {/* <ProfileHeader /> */}
           <Link to="/dashboard/equipment">My Equipment</Link>
           <br />
           <Link to="/dashboard/stages">My Stages</Link>
           <br />
-          {/* <Link to="/dashboard/stages/new">New Package</Link>
-          <br /> */}
           <Link to="/dashboard/events">My Events</Link>
           <br />
           <br />

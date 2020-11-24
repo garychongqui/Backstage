@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react';
-import './myStages.css';
-import '../../../App.css';
 import axios from 'axios';
 import { AppContext } from '../../../context/AppContext';
 import { BrowserRouter, Link, useHistory } from 'react-router-dom';

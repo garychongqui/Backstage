@@ -29,7 +29,7 @@ const Login = () => {
     e.preventDefault();
     const response = await axios.post('/api/users/login', formData);
     setCurrentUser(response.data);
-    history.push('/');
+    history.push('/home');
   };
   return (
     <div>

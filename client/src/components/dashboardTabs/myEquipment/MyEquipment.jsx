@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './myEquipment.css';
 import { useHistory } from 'react-router-dom';
 import lists from '../../../helper';
 import axios from 'axios';
