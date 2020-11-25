@@ -78,6 +78,9 @@ class MyEquipment extends React.Component {
     this.setState({
       equipNames: this.state.equipNames.concat(event.target.value)
     });
+    console.log(this.state.equipNames);
+
+    console.log(this.state.activeCategory[index]);
     // this.setState({
     //   inputFields: {
     //     equipItem: this.state.inputFields.equipItem.concat(event.target.value),
@@ -122,7 +125,7 @@ class MyEquipment extends React.Component {
       inputValues[index].quantity = event.target.value;
     }
     this.setState({ inputFields: inputValues });
-    // console.log(this.state.inputFields);
+    console.log(this.state.inputFields);
   };
   render() {
     return (
