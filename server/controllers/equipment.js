@@ -1,16 +1,16 @@
 const Equipment = require('../db/models/equipment');
-const Package = require('../db/models/package');
-const User = require('../db/models/user');
 const mongoose = require('mongoose');
-
-//***********************************************//
 // Add Equipment item
 // ***********************************************//
 exports.addEquipItem = async (req, res) => {
   try {
     const theEquipment = new Equipment({
       name: req.body.name,
+
       user: req.user._id,
+
+      quantity: req.body.quantity,
+
       description: req.body.description
     });
     await theEquipment.save();
@@ -19,14 +19,11 @@ exports.addEquipItem = async (req, res) => {
     res.status(400).json(error);
   }
 };
-// ***********************************************//
-//  get a specific task
-// ***********************************************//
+
 exports.getEquipItem = async (req, res) => {
   const _id = req.params.id;
   if (!mongoose.Types.ObjectId.isValid(_id))
     return res.status(400).json({ message: 'Can not get Equipment' });
-
   try {
     const theEquipment = await Equipment.findOne({ _id });
     if (!theEquipment)
@@ -37,9 +34,6 @@ exports.getEquipItem = async (req, res) => {
   }
 };
 
-// ***********************************************//
-// Update a task
-// ***********************************************//
 exports.updateEquipItem = async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ['name', 'quantity', 'description'];
@@ -68,12 +62,15 @@ exports.updateEquipItem = async (req, res) => {
 exports.deleteEquipItem = async (req, res) => {
   try {
     const theEquipment = await Equipment.findOneAndDelete({
+
       _id: req.params.id,
       user: req.user._id
     });
     if (!theEquipment)
       return res.status(404).json({ message: 'equipment not found' });
     res.status(200).send('Equipment has been deleted');
+
+   
   } catch (error) {
     res.status(400).json({ error });
   }
