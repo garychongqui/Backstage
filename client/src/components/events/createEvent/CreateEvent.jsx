@@ -37,7 +37,7 @@ const CreateEvent = ({ handleClose, show }) => {
         data: { eventTitle, eventDate, selectedPackage }
       })
       .then((results) =>
-        setEventURL(`http://localhost:3000/events/${results.data._id}`)
+        setEventURL(`http://localhost:3000/artist/${results.data._id}`)
       );
     setShowLinkClassName(true);
   };

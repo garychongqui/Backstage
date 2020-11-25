@@ -1,0 +1,17 @@
+.artist-collab-container {
+  display: flex;
+}
+
+.icon-selection-container {
+  height: 24rem;
+  width: 14rem;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.icon-to-select {
+  height: 5rem;
+  width: 5rem;
+  background-size: 100% 100%;
+}

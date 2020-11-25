@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const eventsSchema = new Schema(
   {
-    evenTitle: {
+    eventTitle: {
       type: String,
       trim: true
     },

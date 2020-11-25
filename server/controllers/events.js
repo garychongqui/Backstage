@@ -5,14 +5,14 @@ const mongoose = require('mongoose');
 // const { ResponsiveEmbed } = require('react-bootstrap');
 exports.createEvent = async (req, res) => {
   try {
-    const theUser = await User.findOne({ _id: req.user._id });
+    // const theUser = await User.findOne({ _id: req.user._id });
     const theEvent = new Event({
-      ...req.body.data,
-      user: theUser
+      ...req.body.data
+      // user: theUser
     });
     await theEvent.save();
-    theUser.events.push(theEvent);
-    await theUser.save();
+    // theUser.events.push(theEvent);
+    // await theUser.save();
     res.status(201).json(theEvent);
   } catch (error) {
     res.status(400).json({ error });

@@ -8,25 +8,6 @@ const categoryList = [
   'Speakers',
   'Stands'
 ];
-const equipList = [
-  [
-    { name: 'XLR Cable', description: '', iconURL: 'something' },
-    {
-      name: 'Quarter-Inch Cable',
-      description: '',
-      iconURL: 'something'
-    }
-  ],
-  [
-    { name: 'Mic Stand', description: '', iconURL: 'something' },
-    {
-      name: 'Guitar Stand',
-      description: '',
-      iconURL: 'drum-kit',
-      quantity: 2
-    }
-  ]
-];
 
 let arrayOfEquip = [];
 

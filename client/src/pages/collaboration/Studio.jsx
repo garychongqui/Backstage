@@ -2,9 +2,10 @@ import React from 'react';
 import Draggable from 'react-draggable';
 import { jsPDF } from 'jspdf';
 import * as html2canvas from 'html2canvas';
+import './draggable.css';
 
-const Studio = () => {
-  const generatePdf = () => {
+class Studio extends React.Component {
+  generatePdf = () => {
     const newPlot = document.getElementById('stagePlot');
 
     html2canvas(newPlot).then((canvas) => {
@@ -19,57 +20,54 @@ const Studio = () => {
       // Pdf.addImage("../musicIcons/acoustic-guitar.svg", "SVG", 15, 40, 180, 180);
     });
   };
-  return (
-    <div className="container">
-      <div className="stageArea" id="stageArea">
-        <div className="stagePlot" id="stagePlot">
-          <h1>Set your stage!</h1>
 
-          <div className="instruments">
-            <div className="acoustic-guitar">
-              <Draggable>
-                <section>
-                  <img
-                    src="../musicIcons/acoustic-guitar.png"
-                    alt="acoustic guitar icon"
-                  />
-                </section>
-              </Draggable>
-            </div>
-            <div className="microphone">
-              <Draggable>
-                <section>
-                  <img
-                    src="../musicIcons/microphone-with-wire.png"
-                    alt="microphone icon"
-                  />
-                </section>
-              </Draggable>
-            </div>
-            <div className="dj">
-              <Draggable>
-                <section>
-                  <img
-                    src="../musicIcons/dj-with-headphones.png"
-                    alt="dj icon"
-                  />
-                </section>
-              </Draggable>
-            </div>
-            <div className="drum-kit">
-              <Draggable>
-                <section>
-                  <img src="../musicIcons/drum-kit.png" alt="drum kit icon" />
-                </section>
-              </Draggable>
-            </div>
-          </div>
-        </div>
-        <button className="button" onClick={generatePdf}>
-          Download PDF
-        </button>
-      </div>
-    </div>
-  );
-};
+  render() {
+    return (
+      <Draggable>
+        <div className="draggable-div"></div>
+      </Draggable>
+
+      // <div className="container">
+      //   <div className="stageArea" id="stageArea">
+      //     <div className="stagePlot" id="stagePlot">
+      //       <h1>Set your stage!</h1>
+
+      //       <div className="instruments">
+      //         <div className="acoustic-guitar h-20 w-20">
+      //           <section>
+      //             <Draggable>
+      //               <img
+      //                 src="../musicIcons/acoustic-guitar.png"
+      //                 alt="acoustic guitar icon"
+      //               />
+      //             </Draggable>
+      //           </section>
+      //         </div>
+      //         <div className="dj h-20 w-20">
+      //           <Draggable>
+      //             <section>
+      //               <img
+      //                 src="../musicIcons/dj-with-headphones.png"
+      //                 alt="dj icon"
+      //               />
+      //             </section>
+      //           </Draggable>
+      //         </div>
+      //         <div className="drum-kit h-20 w-20">
+      //           <Draggable>
+      //             <section>
+      //               <img src="../musicIcons/drum-kit.png" alt="drum kit icon" />
+      //             </section>
+      //           </Draggable>
+      //         </div>
+      //       </div>
+      //     </div>
+      //     <button className="button" onClick={this.generatePdf}>
+      //       Download PDF
+      //     </button>
+      //   </div>
+      // </div>
+    );
+  }
+}
 export default Studio;
