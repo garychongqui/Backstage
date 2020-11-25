@@ -38,18 +38,6 @@ const userSchema = new mongoose.Schema(
     userType: {
       type: String
     },
-    packages: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Package'
-      }
-    ],
-    events: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Events'
-      }
-    ],
     tokens: [
       {
         token: {
@@ -66,16 +54,6 @@ const userSchema = new mongoose.Schema(
     timestamps: true
   }
 );
-// userSchema.virtual('equipment', {
-//   ref: 'OwnedEquip',
-//   localField: '_id',
-//   foreignField: 'user'
-// });
-// userSchema.virtual('Package', {
-//   ref: 'Package',
-//   localField: '_id',
-//   foreignField: 'user'
-// });
 
 userSchema.methods.toJSON = function () {
   const user = this;

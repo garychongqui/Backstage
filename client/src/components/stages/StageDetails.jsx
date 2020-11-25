@@ -7,10 +7,11 @@ const StageDetails = () => {
   const history = useHistory();
 
   const getPackageDetails = () => {
-    const packageId = history.location.pathname.slice(10);
+    const packageId = history.location.pathname.slice(18);
     axios
       .get(`/api/packages/${packageId}`)
-      .then((results) => setCurrentPackage(results.data));
+      .then((results) => setCurrentPackage(results.data))
+      .catch((error) => alert(error));
   };
 
   useEffect(() => {

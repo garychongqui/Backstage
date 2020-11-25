@@ -21,11 +21,6 @@ exports.createPackage = async (req, res) => {
       user: req.user._id
     });
     await package.save();
-    const theUser = await User.findOne({
-      _id: req.user._id
-    });
-    theUser.packages.push(package);
-    await theUser.save();
     res.status(201).json(package);
   } catch (error) {
     res.status(400).json({ error });

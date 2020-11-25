@@ -1,5 +1,7 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState, useContext } from 'react';
+import { AppContext } from '../context/AppContext';
+import { useHistory } from 'react-router-dom';
 
 const handleLogout = async () => {
   try {
@@ -15,15 +17,36 @@ const handleLogout = async () => {
 };
 
 const Login = () => {
+  const [formData, setFormData] = useState(null);
+  const { setCurrentUser } = useContext(AppContext);
+  const history = useHistory();
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await axios.post('/api/users/login', formData);
+    setCurrentUser(response.data);
+    history.push('/home');
+  };
   return (
     <div>
-      <form name="login-form" method="POST" action="/api/users/login">
-        <input type="email" placeholder="email" name="email" id="email" />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="email"
+          name="email"
+          id="email"
+          onChange={handleChange}
+        />
         <input
           type="password"
           placeholder="password"
           name="password"
           id="password"
+          onChange={handleChange}
         />
         <input type="submit" name="submit" />
       </form>

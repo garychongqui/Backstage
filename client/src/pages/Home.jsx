@@ -28,14 +28,14 @@ const Home = () => {
         </Route>
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/" component={Home} />
           <Route exact path="/studio" component={Studio} />
           <Route exact path="/test" component={test} />
         </Switch>
+
+        <Link className="mt-4" to="/studio">
+          Drag n Drop
+        </Link>
       </BrowserRouter>
-      <Link className="mt-4" to="/studio">
-        Drag n Drop
-      </Link>
     </div>
   );
 };

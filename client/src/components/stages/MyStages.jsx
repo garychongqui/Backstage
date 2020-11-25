@@ -18,13 +18,11 @@ const MyStages = () => {
         // withCredentials: true
       });
       setPackages(res.data);
-      setIsUpdated(!isUpdated);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    console.log('useEffect has run');
     getPackages();
   }, [isUpdated]);
 
@@ -32,7 +30,6 @@ const MyStages = () => {
     try {
       setIsUpdated(!isUpdated);
       const res = await axios.delete(`/api/packages/${packageId}`);
-      alert(res.data);
     } catch (error) {
       alert(error);
     }

@@ -1,8 +1,6 @@
 const router = require('express').Router(),
   {
     createPackage,
-    updateStage,
-    deleteStage,
     getOnePackage,
     getAllPackages,
     updatePackage,
