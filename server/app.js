@@ -3,14 +3,14 @@ require('./db/config');
 const express = require('express'),
   path = require('path'),
   openRoutes = require('./routes/open/index'),
-  artistRoutes = require('./routes/open/artist');
-(userRouter = require('./routes/secure/users')),
-  (cookieParser = require('cookie-parser')),
-  (equipmentRouter = require('./routes/secure/equipment')),
-  (packageRouter = require('./routes/secure/package')),
-  (eventRouter = require('./routes/secure/events')),
-  (fileUpload = require('express-fileupload')),
-  (passport = require('./middleware/authentication'));
+  artistRoutes = require('./routes/open/artist'),
+  userRouter = require('./routes/secure/users'),
+  cookieParser = require('cookie-parser'),
+  equipmentRouter = require('./routes/secure/equipment'),
+  packageRouter = require('./routes/secure/package'),
+  eventRouter = require('./routes/secure/events'),
+  fileUpload = require('express-fileupload'),
+  passport = require('./middleware/authentication');
 
 const app = express();
 

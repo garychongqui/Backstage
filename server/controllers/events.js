@@ -3,16 +3,46 @@ const User = require('../db/models/user');
 const Package = require('../db/models/package');
 const mongoose = require('mongoose');
 // const { ResponsiveEmbed } = require('react-bootstrap');
+// exports.createEvent = async (req, res) => {
+//   try {
+//     const event = new Event({
+//       // ...req.body
+//       eventTitle: req.body.eventTitle,
+//       eventDate: req.body.eventDate,
+//       selectedPackage: req.body.selectedPackage
+//       // owner: req.user._id
+//     });
+
+//     await event.save();
+//     // console.log(req);
+//     // const theUser = await User.findOne({
+//     //   _id: req.user._id
+//     // });
+//     // console.log(theUser);
+//     // theUser.events.push(event);
+//     // await theUser.save();
+//     res.status(201).json(event);
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// };
+
 exports.createEvent = async (req, res) => {
+  // try {
+  //   const theUser = await User.findOne({ _id: req.user._id });
+  //   const theEvent = new Event({
+  //     ...req.body.data,
+  //     user: theUser
+  //   });
   try {
-    const theUser = await User.findOne({ _id: req.user._id });
     const theEvent = new Event({
-      ...req.body.data,
-      user: theUser
+      eventTitle: req.body.eventTitle,
+      eventDate: req.body.eventDate,
+      selectedPackage: req.body.selectedPackage
     });
     await theEvent.save();
-    theUser.events.push(theEvent);
-    await theUser.save();
+    // theUser.events.push(theEvent);
+    // await theUser.save();
     res.status(201).json(theEvent);
   } catch (error) {
     res.status(400).json({ error });
@@ -36,7 +66,7 @@ exports.getEvent = async (req, res) => {
 
 exports.updateEvent = async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ['name', 'date', 'artist'];
+  const allowedUpdates = ['eventTitle', 'eventDate', 'selectedPackage'];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );

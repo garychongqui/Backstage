@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-
 const packageSchema = new Schema(
   {
     name: String,
@@ -20,7 +18,5 @@ const packageSchema = new Schema(
   },
   { timestamps: true }
 );
-
 const Package = mongoose.model('Package', packageSchema);
-
 module.exports = Package;
