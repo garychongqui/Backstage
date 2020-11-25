@@ -17,16 +17,41 @@ module.exports = {
       current: 'currentColor',
 
       black: colors.black,
-      white: colors.white,
-      gray: colors.coolGray,
-      red: colors.red,
+      white: {
+        base: '#FFF7F1',
+        DEFAULT: '#FFF7F1'
+      },
+
+      gray: {
+        light: '#D2CDC9',
+        base: '#616161',
+        dark: '#222222',
+        DEFAULT: '#222222'
+      },
+
+      red: {
+        base: '#A6271F',
+        DEFAULT: '#A6271F'
+      },
+
       yellow: colors.amber,
-      green: colors.emerald,
+
+      green: {
+        light: '#6E7351',
+        base: '#494A14',
+        DEFAULT: '#494A14'
+      },
+
       blue: colors.blue,
+
       indigo: colors.indigo,
+
       purple: colors.violet,
+
       pink: colors.pink,
+
       orange: colors.orange,
+
       gold: {
         light: '#ddbf5f',
         base: '#d4af37',
@@ -80,7 +105,7 @@ module.exports = {
 
     backgroundColor: (theme) => ({
       ...theme('colors'),
-      primary: '#3490dc',
+      primary: '#616161',
       secondary: '#ffed4a',
       danger: '#e3342f'
     }),
@@ -104,7 +129,7 @@ module.exports = {
     },
     borderColor: (theme) => ({
       ...theme('colors'),
-      DEFAULT: theme('colors.gray.200', 'currentColor')
+      DEFAULT: theme('colors.white.200', 'currentColor')
     }),
     borderOpacity: (theme) => theme('opacity'),
     borderRadius: {
