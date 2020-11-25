@@ -52,3 +52,17 @@
 .text-ob {
   @apply text-white p-4 px-8 m-3 content-center text-4xl font-bold;
 }
+
+/* *********************STAGE**********************  */
+
+.stageArea {
+  @apply bg-gray m-4;
+}
+
+.stagePlot {
+  @apply bg-green-light min-w-full;
+}
+
+.instruments {
+  @apply h-40 w-40;
+}
