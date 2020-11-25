@@ -28,6 +28,8 @@ const equipList = [
   ]
 ];
 
+let arrayOfEquip = [];
+
 class MyEquipment extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,7 @@ class MyEquipment extends React.Component {
       equipData: null,
       numberOfItems: 0,
       descriptionValues: [],
-      inputFields: [{ equipItem: [], description: '', quantity: '' }]
+      inputFields: { description: '', quantity: '' }
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -73,27 +75,11 @@ class MyEquipment extends React.Component {
     // console.log(this.state.activeCategory);
   };
 
-  handleEquipClick = (index, event) => {
-    console.log(index);
+  handleEquipClick = (event) => {
     this.setState({
       equipNames: this.state.equipNames.concat(event.target.value)
     });
-    console.log(this.state.equipNames);
-
-    console.log(this.state.activeCategory[index]);
-    // this.setState({
-    //   inputFields: {
-    //     equipItem: this.state.inputFields.equipItem.concat(event.target.value),
-    //     description: '',
-    //     quantity: ''
-    //   }
-    // });
-    // console.log(this.state.equipNames);
-    // this.setState({ numberOfItems: this.numberOfItems + 1 });
   };
-
-  //maybe: 4 state values: name, user desc., quantity, and correspondind number for each line;
-  // in handleSave function, loop through each and concat all of those, by index, into an object. then send that obj
 
   // const handleSaveEquip = () => {
   //   try {
@@ -118,14 +104,24 @@ class MyEquipment extends React.Component {
   // setEquipData();
 
   handleInputChange = (index, event) => {
-    const inputValues = [...this.state.inputFields];
+    let inputValues = [this.state.inputFields];
     if (event.target.name === 'description') {
-      inputValues[index].description = event.target.value;
+      inputValues = {
+        ...inputValues,
+        description: event.target.value,
+        index: index
+      };
     } else {
-      inputValues[index].quantity = event.target.value;
+      inputValues = {
+        ...inputValues,
+        quantity: event.target.value,
+        index: index
+      };
     }
     this.setState({ inputFields: inputValues });
     console.log(this.state.inputFields);
+    arrayOfEquip.push(this.state.inputFields);
+    console.log(arrayOfEquip);
   };
   render() {
     return (
@@ -142,7 +138,7 @@ class MyEquipment extends React.Component {
               key={index}
               type="button"
               value={equipItem.name}
-              onClick={(event) => this.handleEquipClick(index, event)}
+              onClick={(event) => this.handleEquipClick(event)}
             >
               {equipItem.name}
             </button>
