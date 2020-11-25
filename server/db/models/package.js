@@ -11,6 +11,7 @@ const packageSchema = new Schema(
     },
     comments: String,
     anythingElse: String,
+
     user: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }

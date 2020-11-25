@@ -7,9 +7,13 @@ exports.createEvent = async (req, res) => {
     const theEvent = new Event({
       eventTitle: req.body.eventTitle,
       eventDate: req.body.eventDate,
-      selectedPackage: req.body.selectedPackage
+
+      selectedPackage: req.body.selectedPackage,
+      user: req.user._id
     });
     await theEvent.save();
+
+
     res.status(201).json(theEvent);
   } catch (error) {
     res.status(400).json({ error });
@@ -28,7 +32,6 @@ exports.getEvent = async (req, res) => {
     res.status(500).json({ error });
   }
 };
-
 exports.updateEvent = async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ['eventTitle', 'eventDate', 'selectedPackage'];

@@ -33,6 +33,7 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
+
     userType: {
       type: String
     },
@@ -67,6 +68,7 @@ userSchema.virtual('packages', {
   localField: '_id',
   foreignField: 'user'
 });
+
 userSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();

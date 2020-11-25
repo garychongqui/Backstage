@@ -104,6 +104,7 @@ exports.getCurrentUser = async (req, res) => {
     events: req.user.events
   });
 };
+
 // Update a user
 // ***********************************************//
 exports.updateCurrentUser = async (req, res) => {
