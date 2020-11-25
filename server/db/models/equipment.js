@@ -14,7 +14,6 @@ const equipmentSchema = new Schema(
       type: String,
       trim: true
     },
-    // Items: { type: Schema.Types.ObjectId, ref: 'Package' },
     user: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   {

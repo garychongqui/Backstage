@@ -8,7 +8,6 @@ const User = require('../db/models/user'),
   jwt = require('jsonwebtoken');
 //Attempt to create a user
 exports.createUser = async (req, res) => {
-  // const { name, email, password } = req.body;
   try {
     const user = new User({
       name: req.body.name,

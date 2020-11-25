@@ -33,22 +33,9 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
-    // item: [{ type: mongoose.Schema.Types.ObjectId, ref: 'OwnedEquip' }],
     userType: {
       type: String
     },
-    // packages: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Package'
-    //   }
-    // ],
-    // events: [
-    //   {
-    //     type: mongoose.Schema.Types.ObjectId,
-    //     ref: 'Events'
-    //   }
-    // ],
     tokens: [
       {
         token: {
