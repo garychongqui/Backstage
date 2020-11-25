@@ -1,7 +1,6 @@
 const Package = require('../db/models/package'),
   User = require('../db/models/user');
 mongoose = require('mongoose');
-
 // ***********************************************//
 // Create a task
 // ***********************************************//
@@ -13,7 +12,6 @@ exports.getAllPackages = async (req, res) => {
     res.status(400).json(error);
   }
 };
-
 exports.createPackage = async (req, res) => {
   try {
     const package = new Package({
@@ -26,7 +24,6 @@ exports.createPackage = async (req, res) => {
     res.status(400).json({ error });
   }
 };
-
 exports.getOnePackage = async (req, res) => {
   try {
     const thePackage = await Package.findOne({ _id: req.params.id });
@@ -36,11 +33,9 @@ exports.getOnePackage = async (req, res) => {
   }
   res.json(req.user);
 };
-
 // ***********************************************//
 // Update a task
 // ***********************************************//
-
 exports.updatePackage = async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ['name', 'width', 'depth'];
@@ -49,7 +44,6 @@ exports.updatePackage = async (req, res) => {
   );
   if (!isValidOperation)
     return res.status(400).json({ message: 'invalid updates' });
-
   try {
     const package = await Package.findOne({
       _id: req.params.id
@@ -67,16 +61,12 @@ exports.updatePackage = async (req, res) => {
 // ***********************************************//
 exports.deletePackage = async (req, res) => {
   try {
-    const package = await Package.findOneAndDelete({
-      _id: req.params.id
+    const packageToDelete = await Package.findOneAndDelete({
+      _id: req.params.id,
+      user: req.user._id
     });
-    const theUser = await User.findOne({ _id: req.user._id });
-    // const packageIndex = theUser.packages.indexOf(req.params.id);
-    // theUser.packages.splice([packageIndex]);
-    await theUser.save();
-    if (!package) return res.status(404).json({ message: 'Package not found' });
     res.status(200).send('Package has been deleted');
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };

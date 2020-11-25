@@ -5,7 +5,6 @@ const mongoose = require('mongoose');
 // const {
 //   default: MyEquipment
 // } = require('../../client/src/components/dashboardTabs/myEquipment/MyEquipment');
-
 // ***********************************************//
 // Create a task
 // ***********************************************//
@@ -27,8 +26,9 @@ const mongoose = require('mongoose');
 exports.addEquipItem = async (req, res) => {
   try {
     const theEquipment = new Equipment({
-      equipItems: req.body.data,
-      user: req.user._id
+      name: req.body.name,
+      quantity: req.body.quantity,
+      description: req.body.description
     });
     await theEquipment.save();
     res.status(201).json(theEquipment);
@@ -36,7 +36,7 @@ exports.addEquipItem = async (req, res) => {
     res.status(400).json(error);
   }
 };
-//     await ownedEquip.save();
+//     await theEquipment.save();
 //     console.log(req);
 //     const theUser = await User.findOne({
 //       _id: req.user._id
@@ -61,7 +61,6 @@ exports.addEquipItem = async (req, res) => {
 // console.log('equiparray: ', equipArray);
 // console.log('theUser: ', theUser);
 // console.log('thePackage: ', thePackage);
-
 //   try {
 //     const ownedEquip = new OwnedEquip({
 //       name: req.body.name,
@@ -90,17 +89,15 @@ exports.getEquipItem = async (req, res) => {
   const _id = req.params.id;
   if (!mongoose.Types.ObjectId.isValid(_id))
     return res.status(400).json({ message: 'Can not get Equipment' });
-
   try {
-    const ownedEquip = await OwnedEquip.findOne({ _id });
-    if (!ownedEquip)
+    const theEquipment = await Equipment.findOne({ _id });
+    if (!theEquipment)
       return res.status(400).json({ message: 'Equipment not found' });
-    res.status(200).json(ownedEquip);
+    res.status(200).json(theEquipment);
   } catch (error) {
     res.status(400).json({ error });
   }
 };
-
 // ***********************************************//
 // Update a task
 // ***********************************************//
@@ -113,13 +110,14 @@ exports.updateEquipItem = async (req, res) => {
   if (!isValidOperation)
     return res.status(400).json({ message: 'invalid updates' });
   try {
-    const task = await OwnedEquip.findOne({
+    const theEquipment = await Equipment.findOne({
       _id: req.params.id
     });
-    if (!task) return res.status(404).json({ message: 'Equipment not found' });
-    updates.forEach((update) => (task[update] = req.body[update]));
-    await task.save();
-    res.status(200).json(task);
+    if (!theEquipment)
+      return res.status(404).json({ message: 'Equipment not found' });
+    updates.forEach((update) => (theEquipment[update] = req.body[update]));
+    await theEquipment.save();
+    res.status(200).json(theEquipment);
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -129,10 +127,11 @@ exports.updateEquipItem = async (req, res) => {
 // // ***********************************************//
 exports.deleteEquipItem = async (req, res) => {
   try {
-    const equip = await OwnedEquip.findOneAndDelete({
+    const theEquipment = await Equipment.findOneAndDelete({
       _id: req.params.id
     });
-    if (!equip) return res.status(404).json({ message: 'equipment not found' });
+    if (!theEquipment)
+      return res.status(404).json({ message: 'equipment not found' });
     res.status(200).json({ message: 'equipment has been deleted' });
   } catch (error) {
     res.status(400).json({ error });
