@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const equipmentSchema = new Schema(
   {
-    equipItems: Array,
+    // equipItems: Array,
 
     name: {
       type: String,
@@ -17,7 +17,7 @@ const equipmentSchema = new Schema(
       type: String,
       trim: true
     },
-    Items: { type: Schema.Types.ObjectId, ref: 'Package' },
+    // Items: { type: Schema.Types.ObjectId, ref: 'Package' },
     user: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   {

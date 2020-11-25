@@ -94,7 +94,21 @@ exports.passwordRedirect = async (req, res) => {
 
 // Get current user
 // ***********************************************//
-exports.getCurrentUser = async (req, res) => res.json(req.user);
+exports.getCurrentUser = async (req, res) => {
+  await req.user
+    .populate({ path: 'packages', model: 'Package' })
+    .execPopulate();
+  await req.user
+    .populate({ path: 'equipment', model: 'Equipment' })
+    .execPopulate();
+  await req.user.populate({ path: 'events', model: 'Events' }).execPopulate();
+  res.json({
+    user: req.user,
+    packages: req.user.packages,
+    equipment: req.user.equipment,
+    events: req.user.events
+  });
+};
 
 // Update a user
 // ***********************************************//

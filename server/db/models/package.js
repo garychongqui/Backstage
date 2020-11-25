@@ -10,7 +10,7 @@ const packageSchema = new Schema(
     stageArea: String, // make this boolean?
     comments: String,
     anythingElse: String,
-    user: { type: Schema.Types.ObjectId, ref: 'User' }
+    user: { type: Schema.Types.ObjectId, ref: 'Equipment' }
     // equipment: [
     //   {
     //     type: mongoose.Schema.Types.ObjectId,

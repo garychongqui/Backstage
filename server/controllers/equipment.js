@@ -2,33 +2,16 @@ const Equipment = require('../db/models/equipment');
 const Package = require('../db/models/package');
 const User = require('../db/models/user');
 const mongoose = require('mongoose');
-// const {
-//   default: MyEquipment
-// } = require('../../client/src/components/dashboardTabs/myEquipment/MyEquipment');
 
-// ***********************************************//
-// Create a task
-// ***********************************************//
-// exports.createTask = async (req, res) => {
-//   try {
-//     const task = await new Task({
-//       ...req.body,
-//       owner: req.user._id
-//     });
-//     await task.save();
-//     res.status(200).send(task);
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// };
-// ***********************************************//
+//***********************************************//
 // Add Equipment item
 // ***********************************************//
 exports.addEquipItem = async (req, res) => {
   try {
     const theEquipment = new Equipment({
-      equipItems: req.body.data,
-      user: req.user._id
+      name: req.body.name,
+      user: req.user._id,
+      description: req.body.description
     });
     await theEquipment.save();
     res.status(201).json(theEquipment);
@@ -36,55 +19,8 @@ exports.addEquipItem = async (req, res) => {
     res.status(400).json(error);
   }
 };
-//     await ownedEquip.save();
-//     console.log(req);
-//     const theUser = await User.findOne({
-//       _id: req.user._id
-//     });
-//     console.log(theUser);
-//     theUser.item.push(ownedEquip);
-//     await theUser.save();
-//     res.status(201).json(ownedEquip);
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// };
-// console.log('addequip controller has run');
-// console.log(req.data);
-// cont;
-// const equipArray = req.body.data;
-// const theUser = User.findOne({ _id: req.user.id });
-// const thePackage = Package.findOne({ user: req.user.id });
-// const thePackage = Package.findOne({
-//   _id: theUser.packages[0]
-// });
-// console.log('equiparray: ', equipArray);
-// console.log('theUser: ', theUser);
-// console.log('thePackage: ', thePackage);
-
-//   try {
-//     const ownedEquip = new OwnedEquip({
-//       name: req.body.name,
-//       quantity: req.body.quantity,
-//       description: req.body.description
-//       // ...req.body,
-//       // owner: req.user._id
-//     });
-//     await ownedEquip.save();
-//     console.log(req);
-//     const theUser = await User.findOne({
-//       _id: req.user._id
-//     });
-//     console.log(theUser);
-//     theUser.item.push(ownedEquip);
-//     await theUser.save();
-//     res.status(201).json(ownedEquip);
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// };
 // ***********************************************//
-//  a task
+//  get a specific task
 // ***********************************************//
 exports.getEquipItem = async (req, res) => {
   const _id = req.params.id;
@@ -92,10 +28,10 @@ exports.getEquipItem = async (req, res) => {
     return res.status(400).json({ message: 'Can not get Equipment' });
 
   try {
-    const ownedEquip = await OwnedEquip.findOne({ _id });
-    if (!ownedEquip)
+    const theEquipment = await Equipment.findOne({ _id });
+    if (!theEquipment)
       return res.status(400).json({ message: 'Equipment not found' });
-    res.status(200).json(ownedEquip);
+    res.status(200).json(theEquipment);
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -113,13 +49,15 @@ exports.updateEquipItem = async (req, res) => {
   if (!isValidOperation)
     return res.status(400).json({ message: 'invalid updates' });
   try {
-    const task = await OwnedEquip.findOne({
+    const theEquipment = await Equipment.findOne({
       _id: req.params.id
+      // user: req.user._id
     });
-    if (!task) return res.status(404).json({ message: 'Equipment not found' });
-    updates.forEach((update) => (task[update] = req.body[update]));
-    await task.save();
-    res.status(200).json(task);
+    if (!theEquipment)
+      return res.status(404).json({ message: 'Equipment not found' });
+    updates.forEach((update) => (theEquipment[update] = req.body[update]));
+    await theEquipment.save();
+    res.status(200).json(theEquipment);
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -129,11 +67,13 @@ exports.updateEquipItem = async (req, res) => {
 // // ***********************************************//
 exports.deleteEquipItem = async (req, res) => {
   try {
-    const equip = await OwnedEquip.findOneAndDelete({
-      _id: req.params.id
+    const theEquipment = await Equipment.findOneAndDelete({
+      _id: req.params.id,
+      user: req.user._id
     });
-    if (!equip) return res.status(404).json({ message: 'equipment not found' });
-    res.status(200).json({ message: 'equipment has been deleted' });
+    if (!theEquipment)
+      return res.status(404).json({ message: 'equipment not found' });
+    res.status(200).send('Equipment has been deleted');
   } catch (error) {
     res.status(400).json({ error });
   }
