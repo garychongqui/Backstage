@@ -6,7 +6,6 @@ const User = require('../db/models/user'),
     forgotPasswordEmail
   } = require('../emails/index'),
   jwt = require('jsonwebtoken');
-
 //Attempt to create a user
 exports.createUser = async (req, res) => {
   // const { name, email, password } = req.body;
@@ -46,7 +45,6 @@ exports.loginUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
-
 // Password Reset Request
 // This route sends an email that the
 // user must click within 10 minutes
@@ -71,7 +69,6 @@ exports.requestPasswordReset = async (req, res) => {
     res.json({ error: e.toString() });
   }
 };
-
 // ******************************
 // Redirect to password reset page
 // ******************************
@@ -91,11 +88,23 @@ exports.passwordRedirect = async (req, res) => {
     res.json({ error: e.toString() });
   }
 };
-
 // Get current user
 // ***********************************************//
-exports.getCurrentUser = async (req, res) => res.json(req.user);
-
+exports.getCurrentUser = async (req, res) => {
+  await req.user
+    .populate({ path: 'packages', model: 'Package' })
+    .execPopulate();
+  await req.user
+    .populate({ path: 'equipment', model: 'Equipment' })
+    .execPopulate();
+  await req.user.populate({ path: 'events', model: 'Events' }).execPopulate();
+  res.json({
+    user: req.user,
+    packages: req.user.packages,
+    equipment: req.user.equipment,
+    events: req.user.events
+  });
+};
 // Update a user
 // ***********************************************//
 exports.updateCurrentUser = async (req, res) => {
@@ -114,7 +123,6 @@ exports.updateCurrentUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
-
 // Logout a user
 // ***********************************************//
 exports.logoutUser = async (req, res) => {
@@ -129,7 +137,6 @@ exports.logoutUser = async (req, res) => {
     res.status(500).json({ error: e.toString() });
   }
 };
-
 // Logout all devices
 // ***********************************************//
 exports.logoutAllDevices = async (req, res) => {
@@ -142,7 +149,6 @@ exports.logoutAllDevices = async (req, res) => {
     res.status(500).send();
   }
 };
-
 // Delete a user
 // ***********************************************//
 exports.deleteUser = async (req, res) => {
@@ -155,7 +161,6 @@ exports.deleteUser = async (req, res) => {
     res.status(500).json({ error: e.toString() });
   }
 };
-
 // Upload avatar
 // ***********************************************//
 exports.uploadAvatar = async (req, res) => {
@@ -170,7 +175,6 @@ exports.uploadAvatar = async (req, res) => {
     res.json({ error: e.toString() });
   }
 };
-
 // Update password
 // ******************************
 exports.updatePassword = async (req, res) => {
