@@ -1,6 +1,5 @@
 const Package = require('../db/models/package'),
-  User = require('../db/models/user');
-mongoose = require('mongoose');
+  mongoose = require('mongoose');
 // ***********************************************//
 // Create a task
 // ***********************************************//
@@ -19,11 +18,6 @@ exports.createPackage = async (req, res) => {
       user: req.user._id
     });
     await package.save();
-    // const theUser = await User.findOne({
-    //   _id: req.user._id
-    // });
-    // theUser.packages.push(package);
-    // await theUser.save();
     res.status(201).json(package);
   } catch (error) {
     res.status(400).json({ error });
@@ -71,14 +65,6 @@ exports.deletePackage = async (req, res) => {
       user: req.user._id
     });
     console.log(packageToDelete);
-    // const theUser = await User.findOne({ _id: req.user._id });
-    // theUser.packages = await theUser.packages.filter(
-    //   (package) => packageToDelete._id !== package
-    // );
-    // const packageIndex = theUser.packages.indexOf(req.params.id);
-    // await theUser.packages.splice(packageIndex);
-    // if (!thePackage) return res.status(404).json({ message: 'Package not found' });
-    // await theUser.save();
     res.status(200).send('Package has been deleted');
   } catch (error) {
     res.status(400).json({ error: error.message });
