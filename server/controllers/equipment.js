@@ -1,13 +1,16 @@
 const Equipment = require('../db/models/equipment');
 const mongoose = require('mongoose');
-// ***********************************************//
 // Add Equipment item
 // ***********************************************//
 exports.addEquipItem = async (req, res) => {
   try {
     const theEquipment = new Equipment({
       name: req.body.name,
+
+      user: req.user._id,
+
       quantity: req.body.quantity,
+
       description: req.body.description
     });
     await theEquipment.save();
@@ -17,9 +20,6 @@ exports.addEquipItem = async (req, res) => {
   }
 };
 
-// ***********************************************//
-//  Get a task
-// ***********************************************//
 exports.getEquipItem = async (req, res) => {
   const _id = req.params.id;
   if (!mongoose.Types.ObjectId.isValid(_id))
@@ -33,9 +33,7 @@ exports.getEquipItem = async (req, res) => {
     res.status(400).json({ error });
   }
 };
-// ***********************************************//
-// Update a task
-// ***********************************************//
+
 exports.updateEquipItem = async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ['name', 'quantity', 'description'];
@@ -47,6 +45,7 @@ exports.updateEquipItem = async (req, res) => {
   try {
     const theEquipment = await Equipment.findOne({
       _id: req.params.id
+      // user: req.user._id
     });
     if (!theEquipment)
       return res.status(404).json({ message: 'Equipment not found' });
@@ -63,11 +62,15 @@ exports.updateEquipItem = async (req, res) => {
 exports.deleteEquipItem = async (req, res) => {
   try {
     const theEquipment = await Equipment.findOneAndDelete({
-      _id: req.params.id
+
+      _id: req.params.id,
+      user: req.user._id
     });
     if (!theEquipment)
       return res.status(404).json({ message: 'equipment not found' });
-    res.status(200).json({ message: 'equipment has been deleted' });
+    res.status(200).send('Equipment has been deleted');
+
+   
   } catch (error) {
     res.status(400).json({ error });
   }

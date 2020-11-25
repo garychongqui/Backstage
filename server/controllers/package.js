@@ -1,8 +1,8 @@
 const Package = require('../db/models/package'),
-  mongoose = require('mongoose');
-// ***********************************************//
-// Create a task
-// ***********************************************//
+
+mongoose = require('mongoose');
+
+
 exports.getAllPackages = async (req, res) => {
   try {
     const thePackages = await Package.find({ user: req.user._id });
@@ -11,6 +11,7 @@ exports.getAllPackages = async (req, res) => {
     res.status(400).json(error);
   }
 };
+
 exports.createPackage = async (req, res) => {
   try {
     const package = new Package({
@@ -18,11 +19,23 @@ exports.createPackage = async (req, res) => {
       user: req.user._id
     });
     await package.save();
+
     res.status(201).json(package);
   } catch (error) {
     res.status(400).json({ error });
   }
 };
+
+
+exports.getAllPackages = async (req, res) => {
+  try {
+    const thePackage = await Package.find({ user: req.user._id });
+    res.status(200).json(thePackage);
+  } catch (error) {
+    res.status(400).json(error);
+  }
+};
+
 exports.getOnePackage = async (req, res) => {
   try {
     const thePackage = await Package.findOne({ _id: req.params.id });
@@ -33,11 +46,18 @@ exports.getOnePackage = async (req, res) => {
   res.json(req.user);
 };
 // ***********************************************//
-// Update a task
+// Update a package
 // ***********************************************//
 exports.updatePackage = async (req, res) => {
   const updates = Object.keys(req.body);
-  const allowedUpdates = ['name', 'width', 'depth'];
+  const allowedUpdates = [
+    'name',
+    'width',
+    'depth',
+    'stageArea',
+    'comments',
+    'anythingElse'
+  ];
   const isValidOperation = updates.every((update) =>
     allowedUpdates.includes(update)
   );
@@ -56,7 +76,7 @@ exports.updatePackage = async (req, res) => {
   }
 };
 // ***********************************************//
-// Delete a task
+// Delete a package
 // ***********************************************//
 exports.deletePackage = async (req, res) => {
   try {
@@ -65,6 +85,7 @@ exports.deletePackage = async (req, res) => {
       user: req.user._id
     });
     console.log(packageToDelete);
+
     res.status(200).send('Package has been deleted');
   } catch (error) {
     res.status(400).json({ error: error.message });
