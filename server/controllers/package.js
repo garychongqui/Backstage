@@ -1,6 +1,5 @@
 const Package = require('../db/models/package'),
-  User = require('../db/models/user');
-mongoose = require('mongoose');
+  mongoose = require('mongoose');
 // ***********************************************//
 // Create a task
 // ***********************************************//
