@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter, Link, useHistory } from 'react-router-dom';
-import { useClipboard } from 'use-clipboard-hook';
+import { useHistory } from 'react-router-dom';
 
 const MyStages = () => {
   const [packages, setPackages] = useState([]);
