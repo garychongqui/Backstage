@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { AppContext } from '../../context/AppContext';
 
 const MyStages = () => {
+  const { currentUser } = useContext(AppContext);
   const [packages, setPackages] = useState([]);
   const [isUpdated, setIsUpdated] = useState(false);
 
@@ -16,18 +18,21 @@ const MyStages = () => {
         // withCredentials: true
       });
       setPackages(res.data);
+      setIsUpdated(!isUpdated);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
+    console.log('useEffect has run');
     getPackages();
   }, [isUpdated]);
 
   const handlePackageDelete = async (packageId) => {
     try {
       setIsUpdated(!isUpdated);
-      await axios.delete(`/api/packages/${packageId}`);
+      const res = await axios.delete(`/api/packages/${packageId}`);
+      alert(res.data);
     } catch (error) {
       alert(error);
     }

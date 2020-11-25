@@ -76,8 +76,8 @@ exports.deletePackage = async (req, res) => {
       _id: req.params.id
     });
     const theUser = await User.findOne({ _id: req.user._id });
-    const packageIndex = theUser.packages.indexOf(req.params.id);
-    theUser.packages.splice([packageIndex]);
+    // const packageIndex = theUser.packages.indexOf(req.params.id);
+    // theUser.packages.splice([packageIndex]);
     await theUser.save();
     if (!package) return res.status(404).json({ message: 'Package not found' });
     res.status(200).send('Package has been deleted');
