@@ -1,9 +1,8 @@
-import Axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
-const PackageDetails = () => {
+const StageDetails = () => {
   const [currentPackage, setCurrentPackage] = useState({});
   const history = useHistory();
 
@@ -32,4 +31,4 @@ const PackageDetails = () => {
   );
 };
 
-export default PackageDetails;
+export default StageDetails;

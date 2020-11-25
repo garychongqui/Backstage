@@ -1,18 +1,12 @@
 import React from 'react';
 
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Link,
-  useHistory
-} from 'react-router-dom';
-import MyStages from '../../components/dashboardTabs/myStages/MyStages';
-import NewStage from '../../components/dashboardTabs/newStage/NewStage';
-import MyEvents from '../../components/dashboardTabs/myEvents/myEventsTab/MyEvents';
-import CreateEvent from '../../components/createEvent/CreateEvent';
-import PackageDetails from '../../components/dashboardTabs/myStages/packageDetails/PackageDetails';
-import MyEquipment from '../../components/dashboardTabs/myEquipment/MyEquipment';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import MyStages from '../components/stages/MyStages';
+import NewStage from '../components/stages/NewStage';
+import MyEvents from '../components/events/MyEvents';
+import CreateEvent from '../components/events/createEvent/CreateEvent';
+import MyEquipment from '../components/equipment/MyEquipment';
+import StageDetails from '../components/stages/StageDetails';
 
 class Dashboard extends React.Component {
   state = { show: false };
@@ -44,8 +38,6 @@ class Dashboard extends React.Component {
           <br />
           <Link to="/dashboard/stages">My Stages</Link>
           <br />
-          {/* <Link to="/dashboard/stages/new">New Package</Link>
-          <br /> */}
           <Link to="/dashboard/events">My Events</Link>
           <br />
           <br />
@@ -61,7 +53,7 @@ class Dashboard extends React.Component {
             <Route
               exact
               path="/dashboard/stages/:id"
-              component={PackageDetails}
+              component={StageDetails}
             />
           </Switch>
         </BrowserRouter>

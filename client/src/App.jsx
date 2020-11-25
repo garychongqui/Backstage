@@ -1,17 +1,13 @@
 import React from 'react';
 import { AppContextProvider } from './context/AppContext';
-import ContextDemo from './components/ContextDemo';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-import Dashboard from './pages/dashboard/Dashboard';
-
+import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
-import Login from './pages/login/Login';
-import Signup from './pages/signup/Signup';
-import Studio from './pages/Studio/Studio';
+import Login from './components/Login';
+import Studio from './pages/collaboration/Studio';
 import test from './components/test';
 
-//
-import ArtistCollab from './pages/artistCollab/ArtistCollab';
+import ArtistCollab from './pages/collaboration/ArtistCollab';
 
 function App() {
   return (
@@ -34,7 +30,6 @@ function App() {
         </Route>
         <Switch>
           <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={Signup} />
           <Route exact path="/" component={Home} />
           <Route exact path="/studio" component={Studio} />
           <Route exact path="/test" component={test} />

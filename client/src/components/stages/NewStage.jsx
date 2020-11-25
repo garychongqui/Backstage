@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import lists from '../../../helper';
+import React, { useState } from 'react';
+import lists from '../../helper';
 import axios from 'axios';
 
 const NewStage = () => {
   const [category, setCategory] = useState(lists.cables);
   const [equipToSave, setEquipToSave] = useState([]);
-  const [equipDescription, setEquipDescription] = useState([]);
+  // const [equipDescription, setEquipDescription] = useState([]);
   //   const [equipQuantity, setEquipQuantity] = useState(1);
 
-  const history = useHistory();
+  // const history = useHistory();
 
   const handleEquipClick = (event) => {
     //     let valuesArray = category.map((piece) => Object.values(piece));

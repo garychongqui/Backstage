@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import lists from '../../../helper';
+import React, { useState } from 'react';
+import lists from '../../helper';
 import axios from 'axios';
 
 const MyEquipment = () => {
   const [category, setCategory] = useState(lists.cables);
   const [equipToSave, setEquipToSave] = useState([]);
-  const [equipDescription, setEquipDescription] = useState([]);
+  // const [equipDescription, setEquipDescription] = useState([]);
   //   const [equipQuantity, setEquipQuantity] = useState(1);
-
-  const history = useHistory();
 
   const handleCategorySelect = (event) => {
     setCategory(equipList[event.target.value]);
