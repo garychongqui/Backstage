@@ -1,6 +1,5 @@
 import React from 'react';
 import Draggable from 'react-draggable';
-import './studio.css';
 import { jsPDF } from 'jspdf';
 import * as html2canvas from 'html2canvas';
 
