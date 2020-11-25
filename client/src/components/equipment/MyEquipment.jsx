@@ -40,7 +40,10 @@ class MyEquipment extends React.Component {
       equipData: null,
       numberOfItems: 0,
       descriptionValues: [],
-      inputFields: { description: '', quantity: '' }
+      inputFields: { description: '', quantity: '' },
+      descriptionValue: '',
+      descriptionArray: [{}],
+      quantityArray: [{}]
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -54,25 +57,10 @@ class MyEquipment extends React.Component {
 
   handleChange(i, event) {
     let descriptionValues = [...this.state.values];
-    // descriptionValues[i] = event.target.value;
-    // console.log(descriptionValues);
   }
 
-  // const [category, setCategory] = useState equipLists.cables);
-
-  // const [equipToSave, setEquipToSave] = useState([]);
-
-  // const [equipData, setEquipData] = useState(null);
-
-  // const [numberOfItems, setNumberOfItems] = useState(0);
-
-  // const [equipDescription, setEquipDescription] = useState([]);
-  //   const [equipQuantity, setEquipQuantity] = useState(1);
-
   handleCategorySelect = (event) => {
-    // console.log(event.target.value);
     this.setState({ activeCategory: equipLists[event.target.value] });
-    // console.log(this.state.activeCategory);
   };
 
   handleEquipClick = (event) => {
@@ -81,48 +69,25 @@ class MyEquipment extends React.Component {
     });
   };
 
-  // const handleSaveEquip = () => {
-  //   try {
-  //     axios
-  //       .post('/api/equipment', { data: equipToSave })
-  //       .then(alert('equipment saved'));
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-  // };
-
-  // handleChange = async (event) => {
-  //   this.setEquipData({
-  //     ...equipData.equipData,
-  //     [event.target.name]: event.target.value
-  //   });
-  // };
-
   handleFormSubmit = (event) => {
     event.preventDefault();
   };
-  // setEquipData();
 
-  handleInputChange = (index, event) => {
-    let inputValues = [this.state.inputFields];
-    if (event.target.name === 'description') {
-      inputValues = {
-        ...inputValues,
-        description: event.target.value,
-        index: index
-      };
-    } else {
-      inputValues = {
-        ...inputValues,
-        quantity: event.target.value,
-        index: index
-      };
-    }
-    this.setState({ inputFields: inputValues });
-    console.log(this.state.inputFields);
-    arrayOfEquip.push(this.state.inputFields);
-    console.log(arrayOfEquip);
+  handleDescriptionBlur = (index, event) => {
+    this.setState({
+      descriptionValue: event.target.value
+    });
+    this.setState({
+      descriptionArray: [
+        this.state.descriptionArray.concat({
+          index: index,
+          value: this.state.descriptionValue
+        })
+      ]
+    });
+    console.log(this.state.descriptionArray);
   };
+
   render() {
     return (
       <div className="my-equipment-component">
@@ -164,24 +129,21 @@ class MyEquipment extends React.Component {
                     name="description"
                     type="text"
                     placeholder="description"
-                    onChange={(event) => this.handleInputChange(index, event)}
+                    onBlur={(event) => this.handleDescriptionBlur(index, event)}
                   />
 
                   <span>{equipItem?.quantity}</span>
                   <input
                     name="quantity"
-                    type="text"
+                    type="number"
                     placeholder="quantity"
-                    onChange={(event) => this.handleInputChange(index, event)}
+                    onblur={(event) => this.handleChangeTest(index, event)}
                   />
                 </div>
               );
             })}
           </div>
-          <button type="submit">
-            {/* onClick={handleSaveEquip} */}
-            Save
-          </button>
+          <button type="submit">Save</button>
         </form>
       </div>
     );
