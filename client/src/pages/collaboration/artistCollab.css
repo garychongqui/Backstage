@@ -5,7 +5,7 @@
 .icon-selection-container {
   height: 18rem;
   width: 14rem;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 10px;
   margin: 2rem;
 }
@@ -14,4 +14,25 @@
   height: 4rem;
   width: 4rem;
   background-size: 100% 100%;
+}
+
+.venue-equip-container {
+  height: 18rem;
+  width: 14rem;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 2rem;
+}
+
+.stage-characteristics {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 2rem;
+  width: 24rem;
+  height: 6rem;
+}
+
+.stage-and-characteristics-container {
+  display: flex;
+  flex-direction: column;
 }

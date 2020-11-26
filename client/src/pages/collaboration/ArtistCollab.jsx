@@ -46,7 +46,6 @@ const ArtistCollab = () => {
         <h2>{eventData?.eventTitle}</h2>
         <h2>{eventData?.eventDate}</h2>
       </div>
-
       <div className="artist-collab-container">
         <div className="icon-selection-container">
           <select onChange={handleCategorySelect}>
@@ -72,7 +71,25 @@ const ArtistCollab = () => {
 
           <div className="icon-to-select"></div>
         </div>
-        <Stage iconsForStage={iconsForStage} />
+        <div className="stage-and-characteristics-container">
+          <Stage iconsForStage={iconsForStage} />
+          <div className="stage-characteristics">
+            <h2>
+              <strong>Stage Characteristics </strong>
+            </h2>
+            <span>
+              Stage Dimensions: {eventData?.selectedPackage.width} x
+              {eventData?.selectedPackage.depth}
+            </span>
+            <br />
+            <span>
+              Comments from venue: {eventData?.selectedPackage.anythingElse}
+            </span>
+          </div>
+        </div>
+        <div className="venue-equip-container">
+          <h2>Equip offered by venue:</h2>
+        </div>
       </div>
     </>
   );
