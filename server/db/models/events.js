@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const eventsSchema = new Schema(
+const eventSchema = new Schema(
   {
     eventTitle: {
       type: String,
@@ -21,9 +21,9 @@ const eventsSchema = new Schema(
   { timestamps: true }
 );
 
-const Events = mongoose.model('Events', eventsSchema);
+const Event = mongoose.model('Event', eventSchema);
 
-module.exports = Events;
+module.exports = Event;
 
 // const mongoose = require('mongoose');
 

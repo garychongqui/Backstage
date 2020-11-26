@@ -3,31 +3,41 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const StageDetails = () => {
-  const [currentPackage, setCurrentPackage] = useState({});
+  const [currentStage, setCurrentStage] = useState({});
   const history = useHistory();
 
-  const getPackageDetails = () => {
+  const getStageDetails = () => {
     const packageId = history.location.pathname.slice(18);
     axios
       .get(`/api/packages/${packageId}`)
-      .then((results) => setCurrentPackage(results.data))
+      .then((results) => setCurrentStage(results.data))
       .catch((error) => alert(error));
   };
 
   useEffect(() => {
-    getPackageDetails();
+    getStageDetails();
   }, []);
 
   return (
     <div>
-      <h4>name: {currentPackage.name}</h4>
-      <h4>width: {currentPackage.width}</h4>
-      <h4>depth: {currentPackage.depth}</h4>
-      <h4>indoor / outdoor: {currentPackage.indoorOrOutdoor}</h4>
-      <h4>indoor / outdoor comments: {currentPackage.comments}</h4>
-      <h4>General comments: {currentPackage.anythingElse}</h4>
+      <span>Name:</span>
+      <input type="text" placeholder={currentStage.name} />
       <br />
-      <h4>Equipment Included: **TBD**</h4>
+      <span>Width:</span>
+      <input type="number" placeholder={currentStage.width} />
+      <br />
+      <span>Depth:</span>
+      <input type="number" placeholder={currentStage.depth} />
+      <h4>indoor / outdoor: {currentStage.indoorOrOutdoor}</h4>
+      <h4>indoor / outdoor comments: {currentStage.comments}</h4>
+      <span>General comments:</span>{' '}
+      <textarea
+        placeholder={currentStage.anythingElse}
+        cols="30"
+        rows="4"
+      ></textarea>
+      <br />
+      <button>Save</button>
     </div>
   );
 };

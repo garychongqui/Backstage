@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.artist-collab-container * {
+  margin: 0.5rem;
+}
+
 .icon-selection-container {
   height: 18rem;
   width: 14rem;

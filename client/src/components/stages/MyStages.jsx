@@ -35,7 +35,7 @@ const MyStages = () => {
     }
   };
 
-  const handleSeeMore = (packageId) => {
+  const handleEditClick = (packageId) => {
     history.push(`/dashboard/stages/${packageId}`);
   };
 
@@ -66,10 +66,9 @@ const MyStages = () => {
               <br />
               <p>{package1?.anythingElse}</p>
               <p>{package1?._id}</p>
-              <button onClick={() => handleSeeMore(package1?._id)}>
-                See More Button
+              <button onClick={() => handleEditClick(package1?._id)}>
+                Edit
               </button>
-              <button>Edit</button>
             </div>
             <div>
               <button onClick={() => handlePackageDelete(package1?._id)}>
