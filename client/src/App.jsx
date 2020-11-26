@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Login from './components/Login';
 import Studio from './pages/collaboration/Studio';
 import test from './components/test';
+import MainNav from './components/mainNav/MainNav';
 
 import ArtistCollab from './pages/collaboration/ArtistCollab';
 
@@ -13,6 +14,7 @@ function App() {
   return (
     <AppContextProvider>
       <BrowserRouter>
+        <MainNav />
         <Login />
         <br />
         <Link to="/dashboard">Click here for dashboard</Link>

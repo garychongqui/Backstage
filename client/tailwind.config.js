@@ -226,7 +226,8 @@ module.exports = {
         '"Liberation Mono"',
         '"Courier New"',
         'monospace'
-      ]
+      ],
+      cursive: ['Audiowide']
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -822,7 +823,7 @@ module.exports = {
     clear: ['responsive'],
     container: ['responsive'],
     cursor: ['responsive'],
-    display: ['responsive'],
+    display: ['responsive', 'group-hover'],
     divideColor: ['responsive', 'dark'],
     divideOpacity: ['responsive'],
     divideStyle: ['responsive'],
