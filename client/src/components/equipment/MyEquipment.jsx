@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import equipLists from '../../helper';
+import './myEquipment.css';
 
 const categoryList = [
   'Cables',
@@ -70,6 +71,7 @@ class MyEquipment extends React.Component {
       event.target.value
     );
     descriptionArray.push(equipWithDescription);
+    console.log(descriptionArray);
   };
   handleQuantityChange = (event, index) => {
     const equipWithQuantity = new EquipWithQuantity(
@@ -78,6 +80,7 @@ class MyEquipment extends React.Component {
       event.target.value
     );
     quantityArray.push(equipWithQuantity);
+    console.log(quantityArray);
   };
   // this.setState({
   //   equipObj: {
@@ -90,20 +93,20 @@ class MyEquipment extends React.Component {
 
   //onBlur, push objects to array
 
-  handleSave = () => {
-    console.log('d: ', descriptionArray);
-    console.log('q: ', quantityArray);
-    let uniqueDescriptions = [];
-    for (let i = 0; i < descriptionArray.length; i++) {
-      for (let j = 0; j < uniqueDescriptions.length + 1; j++) {
-        console.log(descriptionArray[i]?.index);
-        if (uniqueDescriptions[j]?.index !== descriptionArray[i]?.index) {
-          uniqueDescriptions.push(descriptionArray[i]);
-        }
-      }
-    }
-    console.log(uniqueDescriptions);
-  };
+  // handleSave = () => {
+  //   console.log('d: ', descriptionArray);
+  //   console.log('q: ', quantityArray);
+  //   let uniqueDescriptions = [];
+  //   for (let i = 0; i < descriptionArray.length; i++) {
+  //     for (let j = 0; j < uniqueDescriptions.length + 1; j++) {
+  //       console.log(descriptionArray[i]?.index);
+  //       if (uniqueDescriptions[j]?.index !== descriptionArray[i]?.index) {
+  //         uniqueDescriptions.push(descriptionArray[i]);
+  //       }
+  //     }
+  //   }
+  //   console.log(uniqueDescriptions);
+  // };
 
   render() {
     return (
@@ -162,6 +165,20 @@ class MyEquipment extends React.Component {
                     onBlur={(event) => this.handleQuantityChange(event, index)}
                     onblur={(event) => this.handleChangeTest(index, event)}
                   />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    width="40"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
                 </div>
               );
             })}

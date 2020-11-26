@@ -78,7 +78,7 @@ const ArtistCollab = () => {
           <Stage iconsForStage={iconsForStage} />
           <div className="stage-characteristics">
             <h2>
-              <strong>Stage Characteristics </strong>
+              <strong>Stage Characteristics</strong>
             </h2>
             <span>
               Stage Dimensions: {eventData?.selectedPackage.width} x

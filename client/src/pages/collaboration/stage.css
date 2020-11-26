@@ -6,6 +6,8 @@
   margin-top: 2rem;
   display: flex;
   position: relative;
+  flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .icon-on-stage:hover {
