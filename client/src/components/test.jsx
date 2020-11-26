@@ -1,28 +1,7 @@
-import React, { useState, useContext } from 'react';
-import { AppContext } from '../context/AppContext';
-import axios from 'axios';
 
-const Login = ({ history }) => {
-  const { setCurrentUser } = useContext(AppContext);
-  const [formData, setFormData] = useState(null);
+import React from 'react';
+const test = () => {
 
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
-    console.log(formData);
-    console.log(event);
-  };
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('/api/login', formData);
-      setCurrentUser(response.data);
-      sessionStorage.setItem('user', response.data);
-      history.push('/');
-    } catch (error) {
-      alert(error);
-    }
-  };
   return (
     <div className="container">
       <div className="main-area">
@@ -48,12 +27,13 @@ const Login = ({ history }) => {
               onChange={handleChange}
             />
           </div>
-          <section className="inner-form">
-            <button className="btn-3" type="button">
-              Log in
+          <section>
+            <button className="btn-1" type="button">
+              PRIMARY
             </button>
           </section>
-          {/* <section>
+          <section>
+
             <button className="btn-2" type="button">
               SECONDARY
             </button>
@@ -73,10 +53,14 @@ const Login = ({ history }) => {
               5TH
             </button>
           </section>
-          <div></div> */}
+
+          <div></div>
+
         </form>
       </div>
     </div>
   );
 };
-export default Login;
+
+export default test;
+

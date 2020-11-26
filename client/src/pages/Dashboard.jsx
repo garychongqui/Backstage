@@ -21,12 +21,12 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>Dashboard</h1>
 
         <br></br>
         <CreateEvent show={this.state.show} handleClose={this.hideModal} />
-        <button type="button" onClick={this.showModal}>
+        <button className="btn-1" type="button" onClick={this.showModal}>
           Create Event
         </button>
 
@@ -34,28 +34,43 @@ class Dashboard extends React.Component {
         <br />
 
         <BrowserRouter>
-          <Link to="/dashboard/equipment">My Equipment</Link>
-          <br />
-          <Link to="/dashboard/stages">My Stages</Link>
-          <br />
-          <Link to="/dashboard/events">My Events</Link>
-          <br />
-          <br />
-          <Switch>
-            <Route exact path="/dashboard/equipment" component={MyEquipment} />
-            <Route exact path="/dashboard/stages" component={MyStages} />
-            <Route
-              exact
-              path="/dashboard/stages/new"
-              component={NewStage} //should this be somewhere else?
-            />
-            <Route exact path="/dashboard/events" component={MyEvents} />
-            <Route
-              exact
-              path="/dashboard/stages/:id"
-              component={StageDetails}
-            />
-          </Switch>
+          <div className="dash-nav-area">
+            <nav className="dash-nav">
+              <Link to="/dashboard/events" className="dash-nav-1">
+                My Events
+              </Link>
+              <br />
+              <Link to="/dashboard/stages" className="dash-nav-btn">
+                My Stages
+              </Link>
+              <br />
+              <Link to="/dashboard/equipment" className="dash-nav-btn">
+                My Equipment
+              </Link>
+              <br />
+              <br />
+            </nav>
+
+            <Switch>
+              <Route exact path="/dashboard/events" component={MyEvents} />
+              <Route
+                exact
+                path="/dashboard/stages/:id"
+                component={StageDetails}
+              />
+              <Route exact path="/dashboard/stages" component={MyStages} />
+              <Route
+                exact
+                path="/dashboard/stages/new"
+                component={NewStage} //should this be somewhere else?
+              />
+              <Route
+                exact
+                path="/dashboard/equipment"
+                component={MyEquipment}
+              />
+            </Switch>
+          </div>
         </BrowserRouter>
       </div>
     );

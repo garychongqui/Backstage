@@ -49,6 +49,37 @@ class MyEquipment extends React.Component {
     });
   };
 
+
+
+/*  return (
+    <div className="my-equipment-component">
+      <br />
+      <h1 className="dash-h1">My Equipment</h1>
+      <form name="equipmentList" method="post" action="/api/equipment">
+        <select onChange={handleCategorySelect}>
+          {categoryList.map((category) => (
+            <option value={categoryList.indexOf(category)}>{category}</option>
+          ))}
+        </select>
+        <br></br>
+
+        {category.map((
+          equipItem //equipItem is the full equipment obj we will send to backend
+        ) => (
+          <button
+            className="btn-2"
+            type="button"
+            value={equipItem.name}
+            onClick={handleEquipClick}
+          >
+            {equipItem.name}
+          </button>
+        ))} */
+
+/*  handleFormSubmit = (event) => {
+    event.preventDefault();
+  };
+
   // handleDescriptionBlur = (index, event) => {
   //   this.setState({
   //     descriptionValue: event.target.value
@@ -63,6 +94,7 @@ class MyEquipment extends React.Component {
   //   });
   //   console.log(this.state.descriptionArray);
   // };
+
 
   handleDescriptionChange = (event, index) => {
     const equipWithDescription = new EquipWithDescription(
@@ -127,7 +159,8 @@ class MyEquipment extends React.Component {
             >
               {item.name}
             </button>
-          ))}
+          ))} */
+
 
           <div className="equip-table">
             <span>

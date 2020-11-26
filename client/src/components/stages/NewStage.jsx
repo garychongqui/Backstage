@@ -44,8 +44,57 @@ const NewStage = () => {
           placeholder="Stage name (click to edit)"
           onChange={handleChange}
         />
+
+        <h2 className="dash-h2">Which Equip would you like to include?</h2>
+        <select onChange={handleCategorySelect}>
+          {categoryList.map((category) => (
+            <option value={categoryList.indexOf(category)}>{category}</option>
+          ))}
+        </select>
+        <br></br>
+
+        {category.map((
+          equipItem //equipItem is the full equipment obj we will send to backend
+        ) => (
+          <button
+            type="button"
+            value={equipItem.name}
+            onClick={handleEquipClick}
+          >
+            {equipItem.name}
+          </button>
+        ))}
+
+        <div className="equip-table">
+          <span>
+            <strong>Name</strong>
+          </span>
+          <span>
+            <strong>Description</strong>
+          </span>
+          <span>
+            <strong>Quantity</strong>
+          </span>
+        </div>
+        {equipToSave.map((equipItem) => {
+          // check for item quantity here?
+          return (
+            <div>
+              <span>{equipItem}</span>
+              <input type="text" placeholder="description" />
+
+              <span>{equipItem.quantity}</span>
+              <input type="text" placeholder="quantity" />
+              {/* <span>{equipQuantity}</span> */}
+              {/* <button type="button"> + </button>
+              <button type="button"> - </button> */}
+            </div>
+          );
+        })}
+
+
         <div className="stage-dimensions new-stage-form-section">
-          <h3>What are the stage dimensions?</h3>
+          <h3 className="dash-h3">What are the stage dimensions?</h3>
           <label for="stage-width">Width</label>
           {/*  get rid of up/down arrows in input box */}
           <input
@@ -64,7 +113,16 @@ const NewStage = () => {
           ></input>
         </div>
         <div className="indoorOrOutdoor new-stage-form-section">
-          <label for="outdoor-checkbox">Is the stage outdoor?</label>
+
+          <h3 className="dash-h3">Indoor or Outdoor?</h3>
+          <select name="indoorOrOutdoor" id="indoor-or-outdoor">
+            <option value="indoor">Indoor</option>
+            <option value="outdoor-uncovered">Outdoor Uncovered</option>
+            <option value="outdoor-covered">Outdoor Covered</option>
+          </select>
+          <textarea placeholder="comments" name="comments" rows="5" cols="35" />
+
+        /*  <label for="outdoor-checkbox">Is the stage outdoor?</label>
           <input
             type="checkbox"
             name="isOutdoor"
@@ -72,9 +130,20 @@ const NewStage = () => {
             value="true"
             onChange={handleChange}
           />
+
+          <textarea
+            placeholder="If outdoor, is the stage covered? Anything else?"
+            name="comments"
+            rows="5"
+            cols="35"
+            onChange={handleChange}
+          /> */
+
+
+
         </div>
         <div className="additional-comments new-stage-form-selection">
-          <h3>Anything else?</h3>
+          <h3 className="dash-h3">Anything else?</h3>
           <textarea
             name="anythingElse"
             rows="5"

@@ -3,8 +3,19 @@
 @tailwind utilities;
 
 
+/* * {
+  border: 1px solid blue;
+} */
+
+/* **********************BUTTONS**************************  */
+
+.btn-1 {
+  @apply bg-red hover:bg-red text-white p-2 text-center content-center m-6 w-32 h-16;
+
+
 label:hover {
   cursor: pointer;
+
 }
 
 
@@ -13,25 +24,36 @@ label:hover {
   @apply bg-red hover:bg-red text-white p-2 m-6 content-center w-32 h-16;
 }
 .btn-2 {
-  @apply bg-green hover:bg-green-light text-white p-2 m-6 content-center w-32 h-16;
+
+  @apply bg-green hover:bg-green-light text-white p-2 text-center content-center m-6 w-32 h-16;
+
 }
 .btn-3 {
   @apply bg-black hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16;
 }
 .btn-4 {
-  @apply bg-gray hover:bg-gray-light text-white p-2 m-6 content-center w-32 h-16 border-solid border-white border-2;
+
+  @apply bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16 border-solid border-white border-2;
+
 }
 .btn-5 {
-  @apply bg-white hover:bg-green-light text-black p-2 m-6 content-center w-32 h-16;
+
+  @apply bg-white hover:bg-green-light text-black p-2 m-6 text-center content-center m-6 h-16;
 }
+
+
 .btn-area {
   @apply text-center;
 }
 /* ***************************AREAS********************************  */
 .container {
 
-  @apply bg-gray-dark content-center;
-r
+  @apply bg-gray-dark content-center justify-center;
+}
+
+.main-area {
+  @apply content-center justify-center;
+
 }
 .main-area {
 
@@ -51,16 +73,59 @@ r
 .text-ob {
   @apply text-white p-4 px-8 m-3 content-center text-4xl font-bold justify-center;
 }
+
+
 /* *********************STAGE**********************  */
+
 .stageArea {
   @apply bg-gray m-4;
 }
+
 .stagePlot {
   @apply bg-green-light min-w-full;
 }
+
+
 .instruments {
   @apply h-40 w-40;
 }
+
+/* *******************DASH-NAV******************* */
+
+.dash-nav-1 {
+  @apply text-white py-4 px-6 block hover:text-white focus:outline-none text-white border-b-2 font-medium border-white;
+}
+
+.dash-nav-btn {
+  @apply text-white py-4 px-6 block hover:text-white hover:text-white focus:outline-none text-red border-b-2 font-medium border-red;
+}
+
+.dash-nav {
+  @apply flex flex-col sm:flex-row p-4;
+}
+
+.dash-nav-area {
+  @apply bg-gray p-2;
+}
+
+.dash-h1 {
+  @apply text-white text-4xl;
+}
+
+.dash-h2 {
+  @apply text-white text-3xl;
+}
+
+.dash-h3 {
+  @apply text-white text-2xl;
+}
+
+.dash-h4 {
+  @apply text-white text-xl;
+}
+
+.equipment-list {
+  @apply text-white text-xl p-4;
 
 
 .main-nav {
@@ -133,4 +198,4 @@ r
 .dropdown:hover .dropdown-content {
   display: block;
 }
-r
+

@@ -17,6 +17,7 @@ module.exports = {
       current: 'currentColor',
 
       black: colors.black,
+
       white: {
         base: '#FFF7F1',
         DEFAULT: '#FFF7F1'
@@ -567,8 +568,8 @@ module.exports = {
     },
     outline: {
       none: ['2px solid transparent', '2px'],
-      white: ['2px dotted white', '2px'],
-      black: ['2px dotted black', '2px']
+      white: ['2px solid white', '2px'],
+      black: ['2px solid black', '2px']
     },
     padding: (theme) => theme('spacing'),
     placeholderColor: (theme) => theme('colors'),
