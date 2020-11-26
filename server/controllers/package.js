@@ -5,14 +5,6 @@ mongoose = require('mongoose');
 // ***********************************************//
 // Create a task
 // ***********************************************//
-exports.getAllPackages = async (req, res) => {
-  try {
-    const thePackages = await Package.find({ user: req.user._id });
-    res.status(200).json(thePackages);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-};
 
 exports.createPackage = async (req, res) => {
   try {
@@ -22,6 +14,15 @@ exports.createPackage = async (req, res) => {
     });
     await package.save();
     res.status(201).json(package);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+exports.getAllPackages = async (req, res) => {
+  try {
+    const thePackages = await Package.find({ user: req.user._id });
+    res.status(200).json(thePackages);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
