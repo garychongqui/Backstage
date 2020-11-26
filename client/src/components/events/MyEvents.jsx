@@ -56,6 +56,8 @@ const MyEvents = () => {
             <div className="saved-stage">
               <span>{`Date: ${event1?.eventDate}`}</span>
               <br />
+              <span>{`Status: ${event1?.status}`}</span>
+              <br />
 
               <button>Edit</button>
             </div>

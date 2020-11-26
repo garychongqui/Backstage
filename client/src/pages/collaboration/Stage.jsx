@@ -39,8 +39,8 @@ class Stage extends React.Component {
                 style={{
                   backgroundImage:
                     'url("https://source.unsplash.com/random/80x80")',
-                  height: '4rem',
-                  width: '4rem'
+                  height: `3.5rem`,
+                  width: `3.5rem`
                 }}
               >
                 <span style={{ color: 'white', fontWeight: 'bold' }}>

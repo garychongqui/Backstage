@@ -38,6 +38,9 @@ const ArtistCollab = () => {
     setIconsForStage(iconsForStage.concat(event.target.value));
     console.log(iconsForStage);
   };
+
+  // const iconRatio = (eventData?.width * eventData?.depth) / 120;
+
   return (
     <>
       <h1>This is the artist collab page</h1>

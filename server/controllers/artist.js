@@ -8,6 +8,8 @@ exports.getEventForArtist = async (req, res) => {
         model: 'Package'
       })
       .exec();
+    theEvent.status = 'Opened';
+    await theEvent.save();
     res.status(200).json(theEvent);
   } catch (error) {
     res.status(400).json({ error: error.message });

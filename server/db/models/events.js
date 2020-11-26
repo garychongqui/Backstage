@@ -9,13 +9,9 @@ const eventSchema = new Schema(
       type: String,
       trim: true
     },
-    eventDate: {
-      type: String,
-      trim: true
-    },
-    selectedPackage: {
-      type: Object
-    },
+    eventDate: String,
+    selectedPackage: Object,
+    status: String,
     user: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
