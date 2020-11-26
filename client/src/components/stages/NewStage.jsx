@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const NewStage = () => {
   const [stageData, setStageData] = useState(null);
+
+  const history = useHistory();
   // const handleFormSubmit = () => {
   //   try {
   //     axios
@@ -20,6 +23,7 @@ const NewStage = () => {
     event.preventDefault();
     const response = await axios.post('/api/packages', stageData);
     alert('stage saved');
+    history.push('/dashboard/stages');
   };
 
   const handleChange = async (event) => {
@@ -66,13 +70,6 @@ const NewStage = () => {
             name="isOutdoor"
             id="outdoor-checkbox"
             value="true"
-            onChange={handleChange}
-          />
-          <textarea
-            placeholder="If outdoor, is the stage covered? Anything else?"
-            name="comments"
-            rows="5"
-            cols="35"
             onChange={handleChange}
           />
         </div>

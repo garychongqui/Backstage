@@ -3,6 +3,11 @@ const Package = require('../db/models/package'),
 mongoose = require('mongoose');
 
 
+// ***********************************************//
+// Create a package
+// ***********************************************//
+
+
 exports.getAllPackages = async (req, res) => {
   try {
     const thePackages = await Package.find({ user: req.user._id });
@@ -11,6 +16,7 @@ exports.getAllPackages = async (req, res) => {
     res.status(400).json(error);
   }
 };
+
 
 exports.createPackage = async (req, res) => {
   try {
@@ -22,7 +28,16 @@ exports.createPackage = async (req, res) => {
 
     res.status(201).json(package);
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
+  }
+};
+
+exports.getAllPackages = async (req, res) => {
+  try {
+    const thePackages = await Package.find({ user: req.user._id });
+    res.status(200).json(thePackages);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -41,7 +56,7 @@ exports.getOnePackage = async (req, res) => {
     const thePackage = await Package.findOne({ _id: req.params.id });
     res.status(200).json(thePackage);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json({ error: error.message });
   }
   res.json(req.user);
 };
@@ -72,7 +87,7 @@ exports.updatePackage = async (req, res) => {
     await package.save();
     res.status(200).json(package);
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };
 // ***********************************************//

@@ -34,10 +34,10 @@ const CreateEvent = ({ handleClose, show }) => {
   const handleGenerateEvent = () => {
     axios
       .post('/api/events', {
-        data: { eventTitle, eventDate, selectedPackage }
+        data: { eventTitle, eventDate, selectedPackage, status: 'Unopened' }
       })
       .then((results) =>
-        setEventURL(`http://localhost:3000/events/${results.data._id}`)
+        setEventURL(`http://localhost:3000/artist/${results.data._id}`)
       );
     setShowLinkClassName(true);
   };
@@ -108,7 +108,7 @@ const CreateEvent = ({ handleClose, show }) => {
                     <label for="package-select">Select Package</label>
 
                     <div
-                      className="package-select overflow-x-auto w-96"
+                      className="package-select overflow-y-auto w-96"
                       id="package-select"
                     >
                       {packages.map((package1) => {

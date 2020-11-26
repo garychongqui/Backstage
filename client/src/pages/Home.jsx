@@ -15,15 +15,13 @@ const Home = () => {
         <br />
         <Link to="/dashboard">Click here for dashboard</Link>
         <br />
-        <Link to="/events/artist">
-          Click here for artist collaboration page
-        </Link>
+        <Link to="/artist">Click here for artist collaboration page</Link>
         <br />
         <br />
         <Route path="/dashboard">
           <Dashboard />
         </Route>
-        <Route path="/events/artist">
+        <Route path="/artist">
           <ArtistCollab />
         </Route>
         <Switch>
