@@ -8,7 +8,7 @@ module.exports = [
   ],
   [
     { name: 'Mixer', iconURL: 'https://source.unsplash.com/random/80x80' },
-    { name: 'Headphones', iconURL: 'drum-kit' }
+    { name: 'Headphones', iconURL: 'https://source.unsplash.com/random/80x80' }
   ],
   [
     {
@@ -22,7 +22,7 @@ module.exports = [
   ],
   [
     { name: 'Monitor', iconURL: 'https://source.unsplash.com/random/80x80' },
-    { name: 'House Sound', iconURL: 'drum-kit' }
+    { name: 'House Sound', iconURL: 'https://source.unsplash.com/random/80x80' }
   ],
   [
     { name: 'Mic Stand', iconURL: 'https://source.unsplash.com/random/80x80' },

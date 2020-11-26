@@ -5,12 +5,14 @@ const packageSchema = new Schema(
     name: String,
     width: Number,
     depth: Number,
-    stageArea: {
-      type: Boolean,
-      default: false
-    },
+
+    isOutdoor: { type: Boolean, default: false },
     comments: String,
-    anythingElse: String,
+
+  
+
+    
+
 
     user: { type: Schema.Types.ObjectId, ref: 'User' }
   },

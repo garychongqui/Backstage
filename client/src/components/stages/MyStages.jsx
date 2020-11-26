@@ -14,8 +14,8 @@ const MyStages = () => {
     try {
       let res = await axios({
         method: 'GET',
-        url: `/api/packages`
-        // withCredentials: true
+        url: `/api/packages`,
+        withCredentials: true
       });
       setPackages(res.data);
     } catch (error) {
@@ -35,7 +35,7 @@ const MyStages = () => {
     }
   };
 
-  const handleSeeMore = (packageId) => {
+  const handleEditClick = (packageId) => {
     history.push(`/dashboard/stages/${packageId}`);
   };
 
@@ -51,7 +51,9 @@ const MyStages = () => {
 
       <br />
       <br />
+
       <h3 className="dash-h3">Here Are Your Stages</h3>
+
       {packages.map((package1) => {
         return (
           <div>
@@ -61,17 +63,18 @@ const MyStages = () => {
             <div className="saved-stage">
               <span>{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
               <br />
-              <span>{package1?.indoorOrOutdoor}</span>
+              <span>{package1?.isOutdoor ? 'Outdoor' : 'Indoor'}</span>
               <br />
-              <p>{package1?.anythingElse}</p>
-              <p>{package1?._id}</p>
+
+              <p>{package1?.comments}</p>
+     
               <button
                 className="btn-2"
-                onClick={() => handleSeeMore(package1?._id)}
+                onClick={() => handleEditClick(package1?._id)}
               >
-                See More Button
+                Edit
+
               </button>
-              <button>Edit</button>
             </div>
             <div>
               <button onClick={() => handlePackageDelete(package1?._id)}>

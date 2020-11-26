@@ -16,7 +16,9 @@ const Home = () => {
         <Link to="/dashboard">Click here for dashboard</Link>
         <br />
 
+
         <Link to="/artist">Click here for artist collaboration page</Link>
+
 
         <br />
         <br />
@@ -24,7 +26,9 @@ const Home = () => {
           <Dashboard />
         </Route>
 
+
         <Route path="/artist">
+
 
           <ArtistCollab />
         </Route>

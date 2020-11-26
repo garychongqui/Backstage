@@ -1,9 +1,11 @@
+
 import React from 'react';
 const test = () => {
+
   return (
     <div className="container">
       <div className="main-area">
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={handleLogin}>
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>
             <input
@@ -12,15 +14,17 @@ const test = () => {
               id=""
               className="text-input"
               placeholder="Enter your e-mail"
+              onChange={handleChange}
             />
           </div>
           <div className="inner-form">
             <input
               type="password"
-              name="email"
+              name="password"
               id=""
               className="text-input"
               placeholder="Enter your password"
+              onChange={handleChange}
             />
           </div>
           <section>
@@ -29,6 +33,7 @@ const test = () => {
             </button>
           </section>
           <section>
+
             <button className="btn-2" type="button">
               SECONDARY
             </button>
@@ -48,10 +53,14 @@ const test = () => {
               5TH
             </button>
           </section>
+
           <div></div>
+
         </form>
       </div>
     </div>
   );
 };
+
 export default test;
+
