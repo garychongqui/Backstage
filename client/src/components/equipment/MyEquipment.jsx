@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import equipLists, { lastIndexOf } from '../../helper';
+import equipLists from '../../helper';
 
 const categoryList = [
   'Cables',
@@ -9,35 +9,15 @@ const categoryList = [
   'Stands'
 ];
 
-let arrayOfEquip = [];
-
 class MyEquipment extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      values: [],
       activeCategory: equipLists[0],
       equipNames: [],
-      equipData: null,
-      numberOfItems: 0,
       descriptionValues: [],
-      inputFields: { description: '', quantity: '' },
-      descriptionValue: '',
-      descriptionArray: [{}],
-      quantityArray: [{}]
+      descriptionArray: [{}]
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(event) {
-    alert(
-      'A description was submitted: ' + this.state.descriptionValues.join(', ')
-    );
-    event.preventDefault();
-  }
-
-  handleChange(i, event) {
-    let descriptionValues = [...this.state.values];
   }
 
   handleCategorySelect = (event) => {
@@ -48,10 +28,6 @@ class MyEquipment extends React.Component {
     this.setState({
       equipNames: this.state.equipNames.concat(event.target.value)
     });
-  };
-
-  handleFormSubmit = (event) => {
-    event.preventDefault();
   };
 
   handleDescriptionBlur = (index, event) => {

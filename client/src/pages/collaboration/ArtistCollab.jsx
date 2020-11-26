@@ -16,7 +16,7 @@ const categoryList = [
 
 const ArtistCollab = () => {
   const [activeCategory, setActiveCategory] = useState(equipLists[0]);
-  const [iconsForStage, setIconsForStage] = useState(['d', 'the']);
+  const [iconsForStage, setIconsForStage] = useState([]);
   const [eventData, setEventData] = useState(null);
 
   const history = useHistory();
@@ -28,7 +28,7 @@ const ArtistCollab = () => {
 
   useEffect(() => {
     getEventInfo();
-  }, []);
+  }, [iconsForStage]);
 
   const handleCategorySelect = (event) => {
     setActiveCategory(equipLists[event.target.value]);
@@ -36,6 +36,7 @@ const ArtistCollab = () => {
 
   const handleIconClick = (event) => {
     setIconsForStage(iconsForStage.concat(event.target.value));
+    console.log(iconsForStage);
   };
   return (
     <>
@@ -60,14 +61,18 @@ const ArtistCollab = () => {
               value={object.name}
               onClick={(event) => handleIconClick(event)}
               style={{
-                backgroundImage: `url(${object.iconURL})`
+                backgroundImage: `url(${object.iconURL})`,
+                color: 'white',
+                fontWeight: 'bold'
               }}
-            />
+            >
+              {object.name}
+            </button>
           ))}
 
           <div className="icon-to-select"></div>
         </div>
-        <Stage iconsForStage={['hello', 'wonton']} />
+        <Stage iconsForStage={iconsForStage} />
       </div>
     </>
   );
