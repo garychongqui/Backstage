@@ -84,8 +84,6 @@ exports.deletePackage = async (req, res) => {
       _id: req.params.id,
       user: req.user._id
     });
-    console.log(packageToDelete);
-
     res.status(200).send('Package has been deleted');
   } catch (error) {
     res.status(400).json({ error: error.message });

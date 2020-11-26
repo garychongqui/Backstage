@@ -5,6 +5,7 @@ import Login from '../components/Login';
 import Studio from './collaboration/Studio';
 import test from '../components/test';
 import ArtistCollab from './collaboration/ArtistCollab';
+
 const Home = () => {
   return (
     <div>
@@ -14,13 +15,17 @@ const Home = () => {
         <br />
         <Link to="/dashboard">Click here for dashboard</Link>
         <br />
+
         <Link to="/artist">Click here for artist collaboration page</Link>
+
         <br />
         <br />
         <Route path="/dashboard">
           <Dashboard />
         </Route>
+
         <Route path="/artist">
+
           <ArtistCollab />
         </Route>
         <Switch>
@@ -28,6 +33,7 @@ const Home = () => {
           <Route exact path="/studio" component={Studio} />
           <Route exact path="/test" component={test} />
         </Switch>
+
         <Link className="mt-4" to="/studio">
           Drag n Drop
         </Link>

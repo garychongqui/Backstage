@@ -1,55 +1,74 @@
 import React, { useState } from 'react';
-import lists from '../../helper';
-import axios from 'axios';
+import equipLists, { lastIndexOf } from '../../helper';
 
-const MyEquipment = () => {
-  const [category, setCategory] = useState(lists.cables);
-  const [equipToSave, setEquipToSave] = useState([]);
-  // const [equipDescription, setEquipDescription] = useState([]);
-  //   const [equipQuantity, setEquipQuantity] = useState(1);
-
-  const handleCategorySelect = (event) => {
-    setCategory(equipList[event.target.value]);
-  };
-
-  const handleEquipClick = (event) => {
-    setEquipToSave(equipToSave.concat(event.target.value));
-  };
-
-  const categoryList = ['Cables', 'Stands'];
-
-  const equipList = [
-    [
-      { name: 'XLR Cable', description: '', iconURL: 'something' },
-      {
-        name: 'Quarter-Inch Cable',
-        description: '',
-        iconURL: 'something'
-      }
-    ],
-    [
-      { name: 'Mic Stand', description: '', iconURL: 'something' },
-      {
-        name: 'Guitar Stand',
-        description: '',
-        iconURL: 'drum-kit',
-        quantity: 2
-      }
-    ]
-  ];
-
-  //maybe: 4 state values: name, user desc., quantity, and correspondind number for each line;
-  // in handleSave function, loop through each and concat all of those, by index, into an object. then send that obj
-
-  const handleSaveEquip = () => {
-    try {
-      axios
-        .post('/api/equipment', { data: equipToSave })
-        .then(alert('equipment saved'));
-    } catch (error) {
-      alert(error);
+const categoryList = [
+  'Cables',
+  'DJ Equipment',
+  'Microphones',
+  'Speakers',
+  'Stands'
+];
+const equipList = [
+  [
+    { name: 'XLR Cable', description: '', iconURL: 'something' },
+    {
+      name: 'Quarter-Inch Cable',
+      description: '',
+      iconURL: 'something'
     }
+  ],
+  [
+    { name: 'Mic Stand', description: '', iconURL: 'something' },
+    {
+      name: 'Guitar Stand',
+      description: '',
+      iconURL: 'drum-kit',
+      quantity: 2
+    }
+  ]
+];
+
+let arrayOfEquip = [];
+
+class MyEquipment extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      values: [],
+      activeCategory: equipLists[0],
+      equipNames: [],
+      equipData: null,
+      numberOfItems: 0,
+      descriptionValues: [],
+      inputFields: { description: '', quantity: '' },
+      descriptionValue: '',
+      descriptionArray: [{}],
+      quantityArray: [{}]
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(event) {
+    alert(
+      'A description was submitted: ' + this.state.descriptionValues.join(', ')
+    );
+    event.preventDefault();
+  }
+
+  handleChange(i, event) {
+    let descriptionValues = [...this.state.values];
+  }
+
+  handleCategorySelect = (event) => {
+    this.setState({ activeCategory: equipLists[event.target.value] });
   };
+
+  handleEquipClick = (event) => {
+    this.setState({
+      equipNames: this.state.equipNames.concat(event.target.value)
+    });
+  };
+
 
   return (
     <div className="my-equipment-component">
@@ -76,38 +95,86 @@ const MyEquipment = () => {
           </button>
         ))}
 
-        <div className="equip-table">
-          <span>
-            <strong>Name</strong>
-          </span>
-          <span>
-            <strong>Description</strong>
-          </span>
-          <span>
-            <strong>Quantity</strong>
-          </span>
-        </div>
-        {equipToSave.map((equipItem) => {
-          // check for item quantity here?
-          return (
-            <div>
-              <span>{equipItem}</span>
-              <input type="text" placeholder="description" />
+/*  handleFormSubmit = (event) => {
+    event.preventDefault();
+  };
 
-              <span>{equipItem.quantity}</span>
-              <input type="number" placeholder="quantity" />
-            </div>
-          );
-        })}
-        <button type="button" onClick={handleSaveEquip}>
-          Save
-        </button>
-        {/* <button type="button" onClick={handleSaveEquip}>
-        Save
-      </button> */}
-      </form>
-    </div>
-  );
-};
+  handleDescriptionBlur = (index, event) => {
+    this.setState({
+      descriptionValue: event.target.value
+    });
+    this.setState({
+      descriptionArray: [
+        this.state.descriptionArray.concat({
+          index: index,
+          value: this.state.descriptionValue
+        })
+      ]
+    });
+    console.log(this.state.descriptionArray);
+  };
+
+  render() {
+    return (
+      <div className="my-equipment-component">
+        <h1>My Equipment</h1>
+        <form name="equipmentList" onSubmit={this.handleFormSubmit}>
+          <select onChange={this.handleCategorySelect}>
+            {categoryList.map((item) => (
+              <option value={categoryList.indexOf(item)}>{item}</option>
+            ))}
+          </select>
+          {this.state.activeCategory.map((equipItem, index) => (
+            <button
+              key={index}
+              type="button"
+              value={equipItem.name}
+              onClick={(event) => this.handleEquipClick(event)}
+            >
+              {equipItem.name}
+            </button>
+          ))} */
+
+
+          <div className="equip-table">
+            <span>
+              <strong>Name</strong>
+            </span>
+            <span>
+              <strong>Description</strong>
+            </span>
+            <span>
+              <strong>Quantity</strong>
+            </span>
+          </div>
+          <div className="button-mapping">
+            {this.state.equipNames.map((equipItem, index) => {
+              return (
+                <div>
+                  <span>{equipItem}</span>
+                  <input
+                    name="description"
+                    type="text"
+                    placeholder="description"
+                    onBlur={(event) => this.handleDescriptionBlur(index, event)}
+                  />
+
+                  <span>{equipItem?.quantity}</span>
+                  <input
+                    name="quantity"
+                    type="number"
+                    placeholder="quantity"
+                    onblur={(event) => this.handleChangeTest(index, event)}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <button type="submit">Save</button>
+        </form>
+      </div>
+    );
+  }
+}
 
 export default MyEquipment;
