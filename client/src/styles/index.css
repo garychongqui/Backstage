@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* * {
   border: 1px solid blue;
 } */
@@ -11,54 +10,42 @@
 
 .btn-1 {
   @apply bg-red hover:bg-red text-white p-2 text-center content-center m-6 w-32 h-16;
-
+}
 
 label:hover {
   cursor: pointer;
-
 }
-
 
 /* **********************BUTTONS**************************  */
 .btn-1 {
   @apply bg-red hover:bg-red text-white p-2 m-6 content-center w-32 h-16;
 }
 .btn-2 {
-
   @apply bg-green hover:bg-green-light text-white p-2 text-center content-center m-6 w-32 h-16;
-
 }
 .btn-3 {
   @apply bg-black hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16;
 }
 .btn-4 {
-
   @apply bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16 border-solid border-white border-2;
-
 }
 .btn-5 {
-
   @apply bg-white hover:bg-green-light text-black p-2 m-6 text-center content-center m-6 h-16;
 }
-
 
 .btn-area {
   @apply text-center;
 }
 /* ***************************AREAS********************************  */
 .container {
-
   @apply bg-gray-dark content-center justify-center;
 }
 
 .main-area {
   @apply content-center justify-center;
-
 }
 .main-area {
-
   @apply bg-gray-dark content-center;
-
 }
 /* *********************FORMS AND ONBOARDING**********************  */
 .form {
@@ -74,7 +61,6 @@ label:hover {
   @apply text-white p-4 px-8 m-3 content-center text-4xl font-bold justify-center;
 }
 
-
 /* *********************STAGE**********************  */
 
 .stageArea {
@@ -84,7 +70,6 @@ label:hover {
 .stagePlot {
   @apply bg-green-light min-w-full;
 }
-
 
 .instruments {
   @apply h-40 w-40;
@@ -126,7 +111,7 @@ label:hover {
 
 .equipment-list {
   @apply text-white text-xl p-4;
-
+}
 
 .main-nav {
   @apply bg-gray-dark;
@@ -198,4 +183,3 @@ label:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-

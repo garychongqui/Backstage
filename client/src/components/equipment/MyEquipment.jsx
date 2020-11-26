@@ -49,9 +49,9 @@ class MyEquipment extends React.Component {
     });
   };
 
-
-
-/*  return (
+  render() {
+    return (
+      /* 
     <div className="my-equipment-component">
       <br />
       <h1 className="dash-h1">My Equipment</h1>
@@ -76,7 +76,7 @@ class MyEquipment extends React.Component {
           </button>
         ))} */
 
-/*  handleFormSubmit = (event) => {
+      /*  handleFormSubmit = (event) => {
     event.preventDefault();
   };
 
@@ -160,66 +160,62 @@ class MyEquipment extends React.Component {
               {item.name}
             </button>
           ))} */
-
-
-          <div className="equip-table">
-            <span>
-              <strong>Name</strong>
-            </span>
-            <span>
-              <strong>Description</strong>
-            </span>
-            <span>
-              <strong>Quantity</strong>
-            </span>
-          </div>
-          <div className="button-mapping">
-            {this.state.equipNames.map((item, index) => {
-              return (
-                <div>
-                  <span>{item}</span>
-                  <input
-                    placeholder="description"
-                    name={item}
-                    type="text"
-                    size="30"
-                    onBlur={(event) =>
-                      this.handleDescriptionChange(event, index)
-                    }
-                    // onBlur={(event) => this.handleDescriptionBlur(index, event)}
+      <div>
+        <div className="equip-table">
+          <span>
+            <strong>Name</strong>
+          </span>
+          <span>
+            <strong>Description</strong>
+          </span>
+          <span>
+            <strong>Quantity</strong>
+          </span>
+        </div>
+        <div className="button-mapping">
+          {this.state.equipNames.map((item, index) => {
+            return (
+              <div>
+                <span>{item}</span>
+                <input
+                  placeholder="description"
+                  name={item}
+                  type="text"
+                  size="30"
+                  onBlur={(event) => this.handleDescriptionChange(event, index)}
+                  // onBlur={(event) => this.handleDescriptionBlur(index, event)}
+                />
+                <input
+                  // name={`${equipItem?.}`}
+                  placeholder="quantity"
+                  name={item}
+                  min="0"
+                  size="4"
+                  type="number"
+                  onBlur={(event) => this.handleQuantityChange(event, index)}
+                  onblur={(event) => this.handleChangeTest(index, event)}
+                />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  width="40"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
-                  <input
-                    // name={`${equipItem?.}`}
-                    placeholder="quantity"
-                    name={item}
-                    min="0"
-                    size="4"
-                    type="number"
-                    onBlur={(event) => this.handleQuantityChange(event, index)}
-                    onblur={(event) => this.handleChangeTest(index, event)}
-                  />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    width="40"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-              );
-            })}
-          </div>
-          <button type="button" onClick={this.handleSave}>
-            Save
-          </button>
-        </form>
+                </svg>
+              </div>
+            );
+          })}
+        </div>
+        <button type="button" onClick={this.handleSave}>
+          Save
+        </button>
       </div>
     );
   }
