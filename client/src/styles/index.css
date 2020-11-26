@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+label:hover {
+  cursor: pointer;
+}
+
+
 /* **********************BUTTONS**************************  */
 .btn-1 {
   @apply bg-red hover:bg-red text-white p-2 m-6 content-center w-32 h-16;
@@ -55,6 +61,7 @@ r
 .instruments {
   @apply h-40 w-40;
 }
+
 
 .main-nav {
   @apply bg-gray-dark;
@@ -126,3 +133,4 @@ r
 .dropdown:hover .dropdown-content {
   display: block;
 }
+r

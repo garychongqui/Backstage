@@ -5,7 +5,7 @@ const EventLink = ({ display, eventURL }) => {
   let showLinkClassName = display ? 'block' : 'hidden';
 
   const { ref, copy } = useClipboard({
-    onSuccess: (text) => alert(`Copied: ${text}`)
+    onSuccess: (text) => console.log(`Copied: ${text}`)
   });
 
   return (
