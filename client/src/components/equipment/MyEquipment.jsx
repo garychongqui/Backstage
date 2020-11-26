@@ -53,7 +53,8 @@ const MyEquipment = () => {
 
   return (
     <div className="my-equipment-component">
-      <h1>My Equipment</h1>
+      <br />
+      <h1 className="dash-h1">My Equipment</h1>
       <form name="equipmentList" method="post" action="/api/equipment">
         <select onChange={handleCategorySelect}>
           {categoryList.map((category) => (
@@ -66,6 +67,7 @@ const MyEquipment = () => {
           equipItem //equipItem is the full equipment obj we will send to backend
         ) => (
           <button
+            className="btn-2"
             type="button"
             value={equipItem.name}
             onClick={handleEquipClick}

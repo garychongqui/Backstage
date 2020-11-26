@@ -40,8 +40,7 @@ const MyStages = () => {
   return (
     <div>
       <br />
-      <br />
-      <h1>My Stages</h1>
+      <h1 className="dash-h1">My Stages</h1>
       <br />
       <br />
       <button onClick={() => history.push('/dashboard/stages/new')}>
@@ -50,13 +49,13 @@ const MyStages = () => {
 
       <br />
       <br />
-      <h1>Here Are Your Stages</h1>
+      <h3 className="dash-h3">Here Are Your Stages</h3>
       {packages.map((package1) => {
         return (
           <div>
             <br />
 
-            <h2>{package1?.name}</h2>
+            <h2 className="dash-h2">{package1?.name}</h2>
             <div className="saved-stage">
               <span>{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
               <br />
@@ -64,7 +63,10 @@ const MyStages = () => {
               <br />
               <p>{package1?.anythingElse}</p>
               <p>{package1?._id}</p>
-              <button onClick={() => handleSeeMore(package1?._id)}>
+              <button
+                className="btn-2"
+                onClick={() => handleSeeMore(package1?._id)}
+              >
                 See More Button
               </button>
               <button>Edit</button>

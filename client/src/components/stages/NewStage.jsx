@@ -79,7 +79,7 @@ const NewStage = () => {
           type="text"
           placeholder="Package name (click to edit)"
         />
-        <h2>Which Equip would you like to include?</h2>
+        <h2 className="dash-h2">Which Equip would you like to include?</h2>
         <select onChange={handleCategorySelect}>
           {categoryList.map((category) => (
             <option value={categoryList.indexOf(category)}>{category}</option>
@@ -127,7 +127,7 @@ const NewStage = () => {
         })}
 
         <div className="stage-dimensions new-stage-form-section">
-          <h3>What are the stage dimensions?</h3>
+          <h3 className="dash-h3">What are the stage dimensions?</h3>
           <label for="stage-width">Width</label>
           {/*  get rid of up/down arrows in input box */}
           <input id="stage-width" type="number" name="width"></input>
@@ -136,7 +136,7 @@ const NewStage = () => {
           <input id="stage-depth" type="number" name="depth"></input>
         </div>
         <div className="indoorOrOutdoor new-stage-form-section">
-          <h3>Indoor or Outdoor?</h3>
+          <h3 className="dash-h3">Indoor or Outdoor?</h3>
           <select name="indoorOrOutdoor" id="indoor-or-outdoor">
             <option value="indoor">Indoor</option>
             <option value="outdoor-uncovered">Outdoor Uncovered</option>
@@ -145,7 +145,7 @@ const NewStage = () => {
           <textarea placeholder="comments" name="comments" rows="5" cols="35" />
         </div>
         <div className="additional-comments new-stage-form-selection">
-          <h3>Anything else?</h3>
+          <h3 className="dash-h3">Anything else?</h3>
           <textarea
             name="anythingElse"
             rows="5"

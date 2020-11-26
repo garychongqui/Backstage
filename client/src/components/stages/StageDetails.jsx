@@ -19,14 +19,20 @@ const StageDetails = () => {
 
   return (
     <div>
-      <h4>name: {currentPackage.name}</h4>
-      <h4>width: {currentPackage.width}</h4>
-      <h4>depth: {currentPackage.depth}</h4>
-      <h4>indoor / outdoor: {currentPackage.indoorOrOutdoor}</h4>
-      <h4>indoor / outdoor comments: {currentPackage.comments}</h4>
-      <h4>General comments: {currentPackage.anythingElse}</h4>
+      <h4 className="dash-h4">name: {currentPackage.name}</h4>
+      <h4 className="dash-h4">width: {currentPackage.width}</h4>
+      <h4 className="dash-h4">depth: {currentPackage.depth}</h4>
+      <h4 className="dash-h4">
+        indoor / outdoor: {currentPackage.indoorOrOutdoor}
+      </h4>
+      <h4 className="dash-h4">
+        indoor / outdoor comments: {currentPackage.comments}
+      </h4>
+      <h4 className="dash-h4">
+        General comments: {currentPackage.anythingElse}
+      </h4>
       <br />
-      <h4>Equipment Included: **TBD**</h4>
+      <h4 className="dash-h4">Equipment Included: **TBD**</h4>
     </div>
   );
 };

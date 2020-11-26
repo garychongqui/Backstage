@@ -17,6 +17,7 @@ module.exports = {
       current: 'currentColor',
 
       black: colors.black,
+
       white: {
         base: '#FFF7F1',
         DEFAULT: '#FFF7F1'
