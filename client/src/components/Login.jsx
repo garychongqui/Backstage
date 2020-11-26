@@ -32,7 +32,6 @@ const Login = () => {
     history.push('/home');
   };
   return (
-
     <div className="container">
       <div className="main-area">
         <form className="form">
@@ -63,7 +62,7 @@ const Login = () => {
         </form>
       </div>
 
- /*   <div>
+      {/*   <div>
       <form onSubmit={handleSubmit}>
         <input
           type="email"
@@ -81,8 +80,7 @@ const Login = () => {
         />
         <input type="submit" name="submit" />
       </form>
-      <button onClick={handleLogout}>Log out</button> */
-
+      <button onClick={handleLogout}>Log out</button> */}
     </div>
   );
 };
