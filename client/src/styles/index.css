@@ -1,54 +1,53 @@
 @tailwind base;
 @tailwind components;
-
 @tailwind utilities;
 
 /* **********************BUTTONS**************************  */
-
 .btn-1 {
-  @apply bg-red hover:bg-red text-white p-2 m-3 content-center w-32 h-16;
+  @apply bg-red hover:bg-red text-white p-2 m-6 content-center w-32 h-16;
 }
-
 .btn-2 {
-  @apply bg-green hover:bg-green-light text-white p-2 m-3 content-center w-32 h-16;
+  @apply bg-green hover:bg-green-light text-white p-2 m-6 content-center w-32 h-16;
 }
-
 .btn-3 {
-  @apply bg-black hover:bg-gray-light text-white p-2 m-3 content-center w-32 h-16;
+  @apply bg-black hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16;
 }
-
 .btn-4 {
-  @apply bg-gray hover:bg-gray-light text-white p-2 m-3 content-center w-32 h-16 border-solid border-white border-2;
+  @apply bg-gray hover:bg-gray-light text-white p-2 m-6 content-center w-32 h-16 border-solid border-white border-2;
 }
-
 .btn-5 {
-  @apply bg-white hover:bg-green-light text-black p-2 m-3 content-center w-32 h-16;
+  @apply bg-white hover:bg-green-light text-black p-2 m-6 content-center w-32 h-16;
 }
-
+.btn-area {
+  @apply text-center;
+}
 /* ***************************AREAS********************************  */
-
 .container {
-  @apply bg-red content-center;
+  @apply bg-gray-dark content-center justify-center;
 }
-
 .main-area {
-  @apply content-center;
+  @apply content-center justify-center;
 }
-
 /* *********************FORMS AND ONBOARDING**********************  */
-
 .form {
-  @apply bg-gray-dark shadow-md rounded p-8 content-center;
+  @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
 }
-
 .inner-form {
-  @apply px-4 pb-4 content-center;
+  @apply font-bold text-center p-2;
 }
-
 .text-input {
   @apply bg-white shadow-md rounded px-2 py-2 content-center;
 }
-
 .text-ob {
-  @apply text-white p-4 px-8 m-3 content-center text-4xl font-bold;
+  @apply text-white p-4 px-8 m-3 content-center text-4xl font-bold justify-center;
+}
+/* *********************STAGE**********************  */
+.stageArea {
+  @apply bg-gray m-4;
+}
+.stagePlot {
+  @apply bg-green-light min-w-full;
+}
+.instruments {
+  @apply h-40 w-40;
 }
