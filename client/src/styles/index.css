@@ -3,6 +3,59 @@
 
 @tailwind utilities;
 
+
 label:hover {
   cursor: pointer;
 }
+
+
+/* **********************BUTTONS**************************  */
+
+.btn-1 {
+  @apply bg-red hover:bg-red text-white p-2 m-3 content-center w-32 h-16;
+}
+
+.btn-2 {
+  @apply bg-green hover:bg-green-light text-white p-2 m-3 content-center w-32 h-16;
+}
+
+.btn-3 {
+  @apply bg-black hover:bg-gray-light text-white p-2 m-3 content-center w-32 h-16;
+}
+
+.btn-4 {
+  @apply bg-gray hover:bg-gray-light text-white p-2 m-3 content-center w-32 h-16 border-solid border-white border-2;
+}
+
+.btn-5 {
+  @apply bg-white hover:bg-green-light text-black p-2 m-3 content-center w-32 h-16;
+}
+
+/* ***************************AREAS********************************  */
+
+.container {
+  @apply bg-red content-center;
+}
+
+.main-area {
+  @apply content-center;
+}
+
+/* *********************FORMS AND ONBOARDING**********************  */
+
+.form {
+  @apply bg-gray-dark shadow-md rounded p-8 content-center;
+}
+
+.inner-form {
+  @apply px-4 pb-4 content-center;
+}
+
+.text-input {
+  @apply bg-white shadow-md rounded px-2 py-2 content-center;
+}
+
+.text-ob {
+  @apply text-white p-4 px-8 m-3 content-center text-4xl font-bold;
+}
+

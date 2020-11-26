@@ -2,38 +2,62 @@ import React from 'react';
 
 const test = () => {
   return (
-    <div className="w-full max-w-md bg-gray-800">
-      <form action="" className=" bg-white shadow-md rounded px-8 py-8 pt-8">
-        <div className="px-4 pb-4">
-          <label htmlFor="email" className="text-sm block font-bold  pb-2">
-            EMAIL ADDRESS
-          </label>
-          <input
-            type="email"
-            name="email"
-            id=""
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300 "
-            placeholder="Johnbull@example.com"
-          />
-        </div>
-        <div className="px-4 pb-4">
-          <label htmlFor="password" className="text-sm block font-bold pb-2">
-            PASSWORD
-          </label>
-          <input
-            type="password"
-            name="email"
-            id=""
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
-            placeholder="Enter your password"
-          />
-        </div>
-        <div>
-          <button className="btn btn-test animate-spin" type="button">
-            Sign In
-          </button>
-        </div>
-      </form>
+    <div className="container">
+      <div className="main-area">
+        <form action="" className="form">
+          <div className="inner-form">
+            <h1 className="text-ob">Welcome Backstage</h1>
+            <input
+              type="email"
+              name="email"
+              id=""
+              className="text-input"
+              placeholder="Enter your e-mail"
+            />
+          </div>
+          <div className="inner-form">
+            <input
+              type="password"
+              name="email"
+              id=""
+              className="text-input"
+              placeholder="Enter your password"
+            />
+          </div>
+
+          <section>
+            <button className="btn-1" type="button">
+              PRIMARY
+            </button>
+          </section>
+
+          <section>
+            <button className="btn-2" type="button">
+              SECONDARY
+            </button>
+          </section>
+
+          <section>
+            <button className="btn-3" type="button">
+              3RD
+            </button>
+          </section>
+
+          <section>
+            <button className="btn-4" type="button">
+              4TH
+            </button>
+          </section>
+
+          <section>
+            <button className="btn-5" type="button">
+              5TH
+            </button>
+          </section>
+
+          <div></div>
+        </form>
+      </div>
     </div>
   );
 };
