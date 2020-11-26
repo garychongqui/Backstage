@@ -26,8 +26,8 @@ exports.createUser = async (req, res) => {
       secure: process.env.NODE_ENV !== 'production' ? false : true
     });
     res.status(201).json(user);
-  } catch (e) {
-    res.status(400).json({ error: e.toString() });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 // Login a user
@@ -42,8 +42,8 @@ exports.loginUser = async (req, res) => {
       secure: process.env.NODE_ENV !== 'production' ? false : true
     });
     res.json(user);
-  } catch (e) {
-    res.status(400).json({ error: e.toString() });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -67,8 +67,8 @@ exports.requestPasswordReset = async (req, res) => {
     );
     forgotPasswordEmail(email, token);
     res.json({ message: 'reset password email sent' });
-  } catch (e) {
-    res.json({ error: e.toString() });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -87,8 +87,8 @@ exports.passwordRedirect = async (req, res) => {
       sameSite: 'Strict'
     });
     res.redirect(process.env.URL + '/update-password');
-  } catch (e) {
-    res.json({ error: e.toString() });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };
 

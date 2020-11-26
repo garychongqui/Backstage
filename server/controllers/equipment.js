@@ -33,7 +33,7 @@ exports.addEquipItem = async (req, res) => {
     await theEquipment.save();
     res.status(201).json(theEquipment);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json({ error: error.message });
   }
 };
 //     await ownedEquip.save();
@@ -97,7 +97,7 @@ exports.getEquipItem = async (req, res) => {
       return res.status(400).json({ message: 'Equipment not found' });
     res.status(200).json(ownedEquip);
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -121,7 +121,7 @@ exports.updateEquipItem = async (req, res) => {
     await task.save();
     res.status(200).json(task);
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };
 // // ***********************************************//
@@ -135,6 +135,6 @@ exports.deleteEquipItem = async (req, res) => {
     if (!equip) return res.status(404).json({ message: 'equipment not found' });
     res.status(200).json({ message: 'equipment has been deleted' });
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };

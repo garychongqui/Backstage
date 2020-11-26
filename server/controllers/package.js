@@ -10,7 +10,7 @@ exports.getAllPackages = async (req, res) => {
     const thePackages = await Package.find({ user: req.user._id });
     res.status(200).json(thePackages);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -23,7 +23,7 @@ exports.createPackage = async (req, res) => {
     await package.save();
     res.status(201).json(package);
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };
 
@@ -32,7 +32,7 @@ exports.getOnePackage = async (req, res) => {
     const thePackage = await Package.findOne({ _id: req.params.id });
     res.status(200).json(thePackage);
   } catch (error) {
-    res.status(400).json(error);
+    res.status(400).json({ error: error.message });
   }
   res.json(req.user);
 };
@@ -59,7 +59,7 @@ exports.updatePackage = async (req, res) => {
     await package.save();
     res.status(200).json(package);
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };
 // ***********************************************//
@@ -77,6 +77,6 @@ exports.deletePackage = async (req, res) => {
     if (!package) return res.status(404).json({ message: 'Package not found' });
     res.status(200).send('Package has been deleted');
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };

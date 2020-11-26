@@ -15,22 +15,17 @@ exports.createEvent = async (req, res) => {
     // await theUser.save();
     res.status(201).json(theEvent);
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };
 
 exports.getEvent = async (req, res) => {
-  // const theEvent = Events.findOne({ _id: req.params.id });
-  // console.log(theEvent);
-  const _id = req.params.id;
-  if (!mongoose.Types.ObjectId.isValid(_id))
-    return res.status(400).json({ message: 'Can not get that equipment' });
   try {
-    const event = await Event.findOne({ _id });
-    if (!event) return res.status(404).send();
+    const event = await Event.findOne({ _id: req.params._id });
+    if (!event) return res.status(404).json('Event does not exist');
     res.json(event);
   } catch (error) {
-    res.status(500).json({ error });
+    res.status(500).json({ error: error.message });
   }
 };
 
@@ -51,7 +46,7 @@ exports.updateEvent = async (req, res) => {
     await event.save();
     res.status(200).json(event);
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };
 exports.deleteEvent = async (req, res) => {
@@ -62,6 +57,6 @@ exports.deleteEvent = async (req, res) => {
     if (!event) return res.status(404).json({ message: 'Event not found' });
     res.status(200).json({ message: 'Event has been deleted' });
   } catch (error) {
-    res.status(400).json({ error });
+    res.status(400).json({ error: error.message });
   }
 };
