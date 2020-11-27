@@ -5,12 +5,14 @@ import '../../styles/index.css';
 
 const StageDetails = () => {
   const [currentStage, setCurrentStage] = useState({});
+  const [stageData, setStageData] = useState(null);
+
   const history = useHistory();
 
   const getStageDetails = () => {
-    const packageId = history.location.pathname.slice(18);
+    const stageId = history.location.pathname.slice(18);
     axios
-      .get(`/api/packages/${packageId}`)
+      .get(`/api/packages/${stageId}`)
       .then((results) => setCurrentStage(results.data))
       .catch((error) => alert(error));
   };
@@ -19,47 +21,85 @@ const StageDetails = () => {
     getStageDetails();
   }, []);
 
+  const handleChange = async (event) => {
+    setStageData({ ...stageData, [event.target.name]: event.target.value });
+    console.log(stageData);
+  };
+
+  const handleUpdateStage = async () => {
+    console.log('cuad');
+    const stageId = history.location.pathname.slice(18);
+    await axios
+      .patch(`/api/packages/${stageId}`, stageData)
+      .then((results) => console.log(results));
+  };
+
   return (
     <div>
-      {/*
-      <h4 className="dash-h4">name: {currentPackage.name}</h4>
-      <h4 className="dash-h4">width: {currentPackage.width}</h4>
-      <h4 className="dash-h4">depth: {currentPackage.depth}</h4>
-      <h4 className="dash-h4">
-        indoor / outdoor: {currentPackage.indoorOrOutdoor}
-      </h4>
-      <h4 className="dash-h4">
-        indoor / outdoor comments: {currentPackage.comments}
-      </h4>
-      <h4 className="dash-h4">
-        General comments: {currentPackage.anythingElse}
-      </h4>
+      <label for="name" className="dash-h4">
+        Name
+      </label>
+      <input
+        name="name"
+        id="name"
+        type="text"
+        placeholder={currentStage.name}
+        onChange={handleChange}
+      />
       <br />
-      <h4 className="dash-h4">Equipment Included: **TBD**</h4>
-*/}
-      <label for="name">Name</label>
-      <input id="name" type="text" placeholder={currentStage.name} />
+      <label for="width" className="dash-h4">
+        Width
+      </label>
+      <input
+        name="width"
+        id="width"
+        type="number"
+        placeholder={currentStage.width}
+        onChange={handleChange}
+      />
       <br />
-      <label for="width">Width</label>
-      <input id="width" type="number" placeholder={currentStage.width} />
-      <br />
-      <label for="depth">Depth</label>
-      <input id="depth" type="number" placeholder={currentStage.depth} />
-      <label for="isOutoor">Outdoor Stage</label>
+      <label for="depth" className="dash-h4">
+        Depth
+      </label>
+      <input
+        name="depth"
+        id="depth"
+        type="number"
+        placeholder={currentStage.depth}
+        onChange={handleChange}
+      />
+      <label for="isOutoor" className="dash-h4">
+        Outdoor Stage
+      </label>
       {currentStage.isOutdoor ? (
-        <input id="isOutdoor" type="checkbox" checked />
+        <input
+          name="isOutdoor"
+          id="isOutdoor"
+          type="checkbox"
+          checked
+          onChange={handleChange}
+        />
       ) : (
-        <input id="isOutdoor" type="checkbox" />
+        <input
+          name="isOutdoor"
+          id="isOutdoor"
+          type="checkbox"
+          onChange={handleChange}
+        />
       )}
-      <label for="general-comments">Comments</label>{' '}
+      <label for="comments" className="dash-h4">
+        Comments
+      </label>{' '}
       <textarea
-        id="general-comments"
-        placeholder={currentStage.anythingElse}
+        name="comments"
+        id="comments"
+        placeholder={currentStage.comments}
         cols="30"
         rows="4"
+        onChange={handleChange}
       ></textarea>
       <br />
-      <button>Save</button>
+      <button onClick={handleUpdateStage}>Save</button>
     </div>
   );
 };

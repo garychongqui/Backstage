@@ -1,10 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import { AppContext } from '../../context/AppContext';
 
 const MyStages = () => {
-  const { currentUser } = useContext(AppContext);
   const [packages, setPackages] = useState([]);
   const [isUpdated, setIsUpdated] = useState(false);
 
@@ -67,13 +65,12 @@ const MyStages = () => {
               <br />
 
               <p>{package1?.comments}</p>
-     
+
               <button
                 className="btn-2"
                 onClick={() => handleEditClick(package1?._id)}
               >
                 Edit
-
               </button>
             </div>
             <div>

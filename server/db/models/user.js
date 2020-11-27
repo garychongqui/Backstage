@@ -33,10 +33,7 @@ const userSchema = new mongoose.Schema(
         }
       }
     },
-
-    userType: {
-      type: String
-    },
+    equipment: Array,
     tokens: [
       {
         token: {
@@ -58,11 +55,11 @@ userSchema.virtual('events', {
   localField: '_id',
   foreignField: 'user'
 });
-userSchema.virtual('equipment', {
-  ref: 'Equipment',
-  localField: '_id',
-  foreignField: 'user'
-});
+// userSchema.virtual('equipment', {
+//   ref: 'Equipment',
+//   localField: '_id',
+//   foreignField: 'user'
+// });
 userSchema.virtual('packages', {
   ref: 'Package',
   localField: '_id',

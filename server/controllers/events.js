@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 exports.createEvent = async (req, res) => {
   try {
+    const { eventTitle, eventDate, selectedPackage } = req.body.data;
     const theEvent = new Event({
-      eventTitle: req.body.eventTitle,
-      eventDate: req.body.eventDate,
-
-      selectedPackage: req.body.selectedPackage,
+      eventTitle,
+      eventDate,
+      selectedPackage,
       user: req.user._id
     });
     await theEvent.save();
