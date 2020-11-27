@@ -42,7 +42,7 @@ label:hover {
 }
 
 .main-area {
-  @apply content-center justify-center;
+  @apply content-center justify-center w-full;
 }
 .main-area {
   @apply bg-gray-dark content-center;

@@ -81,7 +81,6 @@ class MyEquipment extends React.Component {
     const sortedDescriptionArray = descriptionArray.sort((a, b) => {
       return a.index < b.index ? -1 : 1;
     });
-
     for (let i = 0; i < sortedDescriptionArray.length; i++) {
       if (
         sortedDescriptionArray[i]?.index !==
