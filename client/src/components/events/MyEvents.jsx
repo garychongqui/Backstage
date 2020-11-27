@@ -29,7 +29,8 @@ const MyEvents = () => {
   const handleEventDelete = async (eventId) => {
     try {
       setIsUpdated(!isUpdated);
-      const res = await axios.delete(`/api/events/${eventId}`);
+      await axios.delete(`/api/events/${eventId}`);
+      alert('event deleted');
     } catch (error) {
       alert(error);
     }
@@ -71,12 +72,10 @@ const MyEvents = () => {
               <br />
               <span>{event1?.status ? 'Opened by Artist' : 'Not Opened'}</span>
               <br />
-
-              <button>Edit</button>
             </div>
             <div>
               <button onClick={() => handleEventDelete(event1?._id)}>
-                Delete this stage
+                Delete this event
               </button>
             </div>
           </div>

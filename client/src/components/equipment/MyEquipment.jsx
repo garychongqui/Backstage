@@ -110,7 +110,7 @@ class MyEquipment extends React.Component {
         uniqueQuantityArray.splice(index, 1);
       }
     });
-
+    // console.log('d', uniqueDescriptionArray, 'q', uniqueQuantityArray);
     await axios
       .post('/api/equipment', { uniqueDescriptionArray, uniqueQuantityArray })
       .then(alert('Equipment list saved'));

@@ -1,18 +1,30 @@
 const Equipment = require('../db/models/equipment');
+const User = require('../db/models/user');
 const mongoose = require('mongoose');
 // Add Equipment item
 // ***********************************************//
 exports.addEquipList = async (req, res) => {
   try {
-    req.body.uniqueDescriptionArray.forEach((obj) =>
-      Equipment.create({
+    const theUser = User.findOne({ _id: req.user._id });
+    req.body.uniqueDescriptionArray.forEach((obj) => {
+      let equipItem = Equipment.create({
         name: obj.item,
         description: obj.description,
         quantity: req.body.uniqueQuantityArray[obj.index].quantity,
         user: req.user
-      })
-    );
+      });
+      theUser.push(equipItem);
+    });
     res.status(201);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+exports.getAllEquip = async (req, res) => {
+  try {
+    const allEquip = await Equipment.find({ user: req.user._id });
+    res.status(200).json(allEquip);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
