@@ -22,9 +22,6 @@ function EquipWithQuantity(index, item, quantity) {
   this.item = item;
   this.quantity = quantity;
 }
-// this.quantity = this.quantity;
-// this.appendQuantity = function (quantity) {
-//   this.quantity = quantity;}
 
 let descriptionArray = [];
 let quantityArray = [];
@@ -56,22 +53,19 @@ class MyEquipment extends React.Component {
     }
   };
 
-  handleEquipDelete = (event) => {};
-
-  // handleDescriptionBlur = (index, event) => {
-  //   this.setState({
-  //     descriptionValue: event.target.value
-  //   });
-  //   this.setState({
-  //     descriptionArray: [
-  //       this.state.descriptionArray.concat({
-  //         index: index,
-  //         value: this.state.descriptionValue
-  //       })
-  //     ]
-  //   });
-  //   console.log(this.state.descriptionArray);
-  // };
+  handleEquipDelete = (index) => {
+    console.log(this.state.equipNames);
+    let newEquipNames = this.state.equipNames;
+    newEquipNames.splice(index, 1);
+    this.setState({ equipNames: newEquipNames });
+    // let newEquipNames = this.state.equipNames.splice(
+    //   this.state.equipNames.indexOf(event.target.value)
+    // );
+    // console.log(newEquipNames);
+    // this.setState({
+    //   equipNames: newEquipNames
+    // });
+  };
 
   handleDescriptionChange = (event, index) => {
     const equipWithDescription = new EquipWithDescription(
@@ -80,7 +74,6 @@ class MyEquipment extends React.Component {
       event.target.value
     );
     descriptionArray.push(equipWithDescription);
-    // console.log(descriptionArray);
   };
   handleQuantityChange = (event, index) => {
     const equipWithQuantity = new EquipWithQuantity(
@@ -89,33 +82,7 @@ class MyEquipment extends React.Component {
       event.target.value
     );
     quantityArray.push(equipWithQuantity);
-    // console.log(quantityArray);
   };
-  // this.setState({
-  //   equipObj: {
-  //     number: index,
-  //     item: event.target.name,
-  //     description: event.target.value
-  //   }
-  // });
-  // console.log(event.target.value);
-
-  //onBlur, push objects to array
-
-  // handleSave = () => {
-  //   console.log('d: ', descriptionArray);
-  //   console.log('q: ', quantityArray);
-  //   let uniqueDescriptions = [];
-  //   for (let i = 0; i < descriptionArray.length; i++) {
-  //     for (let j = 0; j < uniqueDescriptions.length + 1; j++) {
-  //       console.log(descriptionArray[i]?.index);
-  //       if (uniqueDescriptions[j]?.index !== descriptionArray[i]?.index) {
-  //         uniqueDescriptions.push(descriptionArray[i]);
-  //       }
-  //     }
-  //   }
-  //   console.log(uniqueDescriptions);
-  // };
 
   handleSave = async (event) => {
     event.preventDefault();
@@ -142,7 +109,7 @@ class MyEquipment extends React.Component {
     console.log(uniqueQuantityArray);
     await axios
       .post('/api/equipment', { uniqueDescriptionArray, uniqueQuantityArray })
-      .then((response) => console.log(response));
+      .then(alert('Equipment list saved'));
   };
 
   render() {
@@ -191,10 +158,8 @@ class MyEquipment extends React.Component {
                     onBlur={(event) =>
                       this.handleDescriptionChange(event, index)
                     }
-                    // onBlur={(event) => this.handleDescriptionBlur(index, event)}
                   />
                   <input
-                    // name={`${equipItem?.}`}
                     placeholder="quantity"
                     name={item}
                     defaultValue="1"
@@ -211,6 +176,7 @@ class MyEquipment extends React.Component {
                     viewBox="0 0 24 24"
                     stroke="#A6271F"
                     width="40"
+                    onClick={() => this.handleEquipDelete(index)}
                   >
                     <path
                       strokeLinecap="round"
