@@ -29,12 +29,12 @@ const Login = () => {
     event.preventDefault();
     const response = await axios.post('/api/users/login', formData);
     setCurrentUser(response.data);
-    history.push('/home');
+    history.push('/dashboard');
   };
   return (
     <div className="container">
       <div className="main-area">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>
             <input
@@ -42,7 +42,8 @@ const Login = () => {
               name="email"
               id=""
               className="text-input"
-              placeholder="Enter your e-mail"
+              placeholder="Email"
+              onChange={handleChange}
             />
           </div>
           <div className="inner-form">
@@ -51,7 +52,8 @@ const Login = () => {
               name="email"
               id=""
               className="text-input"
-              placeholder="Enter your password"
+              placeholder="Password"
+              onChange={handleChange}
             />
           </div>
           <div className="btn-area">
@@ -61,9 +63,11 @@ const Login = () => {
           </div>
         </form>
       </div>
-
-      {/*   <div>
-      <form onSubmit={handleSubmit}>
+    </div>
+  );
+  {
+    /* <div>
+      <form onSubmit={handleSubmit} >
         <input
           type="email"
           placeholder="email"
@@ -80,9 +84,10 @@ const Login = () => {
         />
         <input type="submit" name="submit" />
       </form>
-      <button onClick={handleLogout}>Log out</button> */}
-    </div>
-  );
+      <button onClick={handleLogout}>Log out</button>
+    </div> */
+    // );
+  }
 };
 
 export default Login;
