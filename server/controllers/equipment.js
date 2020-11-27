@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 // ***********************************************//
 exports.addEquipList = async (req, res) => {
   try {
-    console.log(req.body);
     req.body.uniqueDescriptionArray.forEach((obj) =>
       Equipment.create({
         name: obj.item,

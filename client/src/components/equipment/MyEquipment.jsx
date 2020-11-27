@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import equipLists from '../../helper';
+import equipLists, { sort } from '../../helper';
 import './myEquipment.css';
 
 const categoryList = [
@@ -54,17 +54,9 @@ class MyEquipment extends React.Component {
   };
 
   handleEquipDelete = (index) => {
-    console.log(this.state.equipNames);
     let newEquipNames = this.state.equipNames;
     newEquipNames.splice(index, 1);
     this.setState({ equipNames: newEquipNames });
-    // let newEquipNames = this.state.equipNames.splice(
-    //   this.state.equipNames.indexOf(event.target.value)
-    // );
-    // console.log(newEquipNames);
-    // this.setState({
-    //   equipNames: newEquipNames
-    // });
   };
 
   handleDescriptionChange = (event, index) => {
@@ -89,6 +81,7 @@ class MyEquipment extends React.Component {
     const sortedDescriptionArray = descriptionArray.sort((a, b) => {
       return a.index < b.index ? -1 : 1;
     });
+
     for (let i = 0; i < sortedDescriptionArray.length; i++) {
       if (
         sortedDescriptionArray[i]?.index !==
@@ -97,7 +90,13 @@ class MyEquipment extends React.Component {
         uniqueDescriptionArray.push(descriptionArray[i]);
       }
     }
-    console.log(uniqueDescriptionArray);
+
+    uniqueDescriptionArray.forEach((obj, index) => {
+      if (!this.state.equipNames.includes(obj.item)) {
+        uniqueDescriptionArray.splice(index, 1);
+      }
+    });
+
     const sortedQuantityArray = quantityArray.sort((a, b) => {
       return a.index < b.index ? -1 : 1;
     });
@@ -106,7 +105,12 @@ class MyEquipment extends React.Component {
         uniqueQuantityArray.push(quantityArray[i]);
       }
     }
-    console.log(uniqueQuantityArray);
+    uniqueQuantityArray.forEach((obj, index) => {
+      if (!this.state.equipNames.includes(obj.item)) {
+        uniqueQuantityArray.splice(index, 1);
+      }
+    });
+
     await axios
       .post('/api/equipment', { uniqueDescriptionArray, uniqueQuantityArray })
       .then(alert('Equipment list saved'));
@@ -162,7 +166,6 @@ class MyEquipment extends React.Component {
                   <input
                     placeholder="quantity"
                     name={item}
-                    defaultValue="1"
                     required
                     min="0"
                     size="4"
