@@ -5,15 +5,8 @@ const packageSchema = new Schema(
     name: String,
     width: Number,
     depth: Number,
-
     isOutdoor: { type: Boolean, default: false },
     comments: String,
-
-  
-
-    
-
-
     user: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
