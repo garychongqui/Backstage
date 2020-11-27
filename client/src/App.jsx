@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" />
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/asrtist" component={ArtistCollab} />
+          <Route path="/artist" component={ArtistCollab} />
         </Switch>
       </BrowserRouter>
     </AppContextProvider>

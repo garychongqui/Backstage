@@ -34,7 +34,7 @@ const CreateEvent = ({ handleClose, show }) => {
   const handleGenerateEvent = () => {
     axios
       .post('/api/events', {
-        data: { eventTitle, eventDate, selectedPackage, status: 'Unopened' }
+        data: { eventTitle, eventDate, selectedPackage, hasBeenOpened: false }
       })
       .then((results) =>
         setEventURL(`http://localhost:3000/artist/${results.data._id}`)

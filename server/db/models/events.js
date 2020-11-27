@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const eventSchema = new Schema(
-
   {
     eventTitle: {
       type: String,
@@ -11,15 +9,13 @@ const eventSchema = new Schema(
     },
     eventDate: String,
     selectedPackage: Object,
-    status: String,
+    comments: String,
+    hasBeenOpened: Boolean,
     user: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }
 );
 
-
 const Event = mongoose.model('Event', eventSchema);
 
 module.exports = Event;
-
-

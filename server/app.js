@@ -1,4 +1,3 @@
-//We're importing db
 require('./db/config');
 const express = require('express'),
   path = require('path'),
@@ -14,7 +13,6 @@ const express = require('express'),
 
 const app = express();
 
-//Middleware (parse incoming JSON into objects)
 app.use(express.json());
 
 app.use(
@@ -23,13 +21,11 @@ app.use(
   })
 );
 
-// Unauthenticated routes
 app.use('/api/users', openRoutes);
 app.use('/artist', artistRoutes);
 
 app.use(cookieParser());
 
-// Serve any static files
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }

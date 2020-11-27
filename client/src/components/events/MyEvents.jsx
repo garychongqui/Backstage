@@ -17,7 +17,6 @@ const MyEvents = () => {
         url: `/api/events`
         // withCredentials: true
       });
-      console.log(res.data);
       setEvents(res.data);
     } catch (error) {
       console.log(error);
@@ -39,7 +38,7 @@ const MyEvents = () => {
   return (
     <div>
       <br />
-/*
+      /*
       <h1 className="dash-h1">My Events</h1>
       <div className="existing-event">
         <h3 className="dash-h3">Event 1</h3>
@@ -53,12 +52,11 @@ const MyEvents = () => {
         <p>Status: Completed by Artist</p>
         <button>See more</button>
       </div>
-*/
+      */
       <br />
       <h1>My Events</h1>
       <br />
       <br />
-
       <br />
       <br />
       <h1>Here Are Your Events</h1>
@@ -71,7 +69,7 @@ const MyEvents = () => {
             <div className="saved-stage">
               <span>{`Date: ${event1?.eventDate}`}</span>
               <br />
-              <span>{`Status: ${event1?.status}`}</span>
+              <span>{event1?.status ? 'Opened by Artist' : 'Not Opened'}</span>
               <br />
 
               <button>Edit</button>
@@ -84,7 +82,6 @@ const MyEvents = () => {
           </div>
         );
       })}
-
     </div>
   );
 };
