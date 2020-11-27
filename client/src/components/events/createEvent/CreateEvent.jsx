@@ -46,10 +46,17 @@ const CreateEvent = ({ handleClose, show }) => {
 
   return (
     <div className={showHideClassName}>
-      <div class="fixed z-10 inset-0 overflow-y-auto entire-modal">
+      <div class="entire-modal fixed z-10 inset-0 overflow-y-auto">
         <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-          <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+          <div
+            class="fixed inset-0 transition-opacity"
+            id="background-overlay-parent"
+            aria-hidden="true"
+          >
+            <div
+              class="absolute inset-0 bg-gray-500 opacity-75"
+              id="background-overlay"
+            ></div>
           </div>
 
           <span
@@ -64,6 +71,7 @@ const CreateEvent = ({ handleClose, show }) => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-headline"
+            style={{ minWidth: '70%' }}
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
@@ -109,25 +117,22 @@ const CreateEvent = ({ handleClose, show }) => {
                     <label for="package-select">Select Package</label>
 
                     <div
-                      className="package-select overflow-y-auto w-96"
+                      className="package-select overflow-y-auto h-44 border w-full"
                       id="package-select"
                     >
                       {packages.map((package1) => {
                         return (
                           <div
+                            className=" hover:shadow-2xl hover:border-transparent"
                             key={package1?._id}
                             class={
                               selectedPackage === package1?._id
-                                ? 'bg-blue-100 individual-package-container'
-                                : 'package-container'
+                                ? 'bg-blue-100 individual-package-container shadow-md'
+                                : 'individual-package-container shadow-md '
                             }
+                            onClick={() => handleSelectPackage(package1?._id)}
                           >
-                            <div
-                              onClick={() => handleSelectPackage(package1?._id)}
-                              className="individual-package group border-indigo-500 hover:shadow-md hover:border-transparent"
-                            >
-                              <h2>name: {package1?.name}</h2>
-                            </div>
+                            <h2 className="w-52">{package1?.name}</h2>
                           </div>
                         );
                       })}
@@ -137,18 +142,10 @@ const CreateEvent = ({ handleClose, show }) => {
               </div>
             </div>
             <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button
-                onClick={handleGenerateEvent}
-                type="button"
-                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
-              >
+              <button onClick={handleGenerateEvent} type="button" class="btn-1">
                 Generate Event Link
               </button>
-              <button
-                onClick={handleClose}
-                type="button"
-                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-              >
+              <button onClick={handleClose} type="button" class="btn-2">
                 Close
               </button>
             </div>
