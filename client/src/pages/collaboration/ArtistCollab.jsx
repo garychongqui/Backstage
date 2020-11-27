@@ -82,11 +82,11 @@ const ArtistCollab = () => {
             </h2>
             <span>
               Stage Dimensions: {eventData?.selectedPackage.width} x
-              {eventData?.selectedPackage.depth}
+              {eventData?.selectedPackage.depth} ft.
             </span>
             <br />
             <span>
-              Comments from venue: {eventData?.selectedPackage.anythingElse}
+              Comments from venue: {eventData?.selectedPackage.comments}
             </span>
           </div>
         </div>

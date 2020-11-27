@@ -183,3 +183,7 @@ label:hover {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+.delete-button:hover {
+  cursor: pointer;
+}
