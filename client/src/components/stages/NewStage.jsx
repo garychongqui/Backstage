@@ -21,7 +21,7 @@ const NewStage = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    const response = await axios.post('/api/packages', stageData);
+    await axios.post('/api/packages', stageData);
     alert('stage saved');
     history.push('/dashboard/stages');
   };
@@ -34,8 +34,8 @@ const NewStage = () => {
     <div>
       <form
         name="new-package"
-        method="post"
-        action="/api/packages"
+        // method="post"
+        // action="/api/packages"
         onSubmit={handleFormSubmit}
       >
         <input
@@ -74,9 +74,10 @@ const NewStage = () => {
           />
         </div>
         <div className="additional-comments new-stage-form-selection">
-          <h3>Anything else?</h3>
+          <label for="comments-text-area">Comments</label>
           <textarea
-            name="anythingElse"
+            id="comments-text-area"
+            name="comments"
             rows="5"
             cols="35"
             placeholder="placeholder"
