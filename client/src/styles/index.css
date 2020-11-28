@@ -44,7 +44,6 @@ label:hover {
   @apply bg-gray-dark content-center justify-center;
 }
 
-
 .container {
   @apply bg-gray-dark;
 }
@@ -57,10 +56,11 @@ label:hover {
   @apply flex h-70vh shadow-md;
 }
 .welcome {
-  @apply flex flex-col mt-40 ml-36;
+  @apply flex flex-col mt-24 ml-36;
 }
+
 .join-button {
-  @apply bg-red hover:bg-red text-white p-2 content-center w-32 h-10;
+  @apply bg-red hover:bg-red text-white content-center w-48 h-9 text-2xl ml-16 mt-16;
 }
 
 .landing-container-back {
@@ -68,36 +68,36 @@ label:hover {
 }
 
 .landing-pic-back {
-  @apply ml-80 pt-4 w-30vw h-70vh;
+  @apply ml-52 pt-4 w-30vw h-70vh;
 }
 
 .landing-container-info-back {
-  @apply ml-32 flex flex-col justify-center p-2;
+  @apply ml-20 flex flex-col justify-center p-2;
 }
 
 .landing-container-image-back {
 }
 
 .landing-container-3 {
-  @apply flex flex-row-reverse bg-red h-70vh;
+  @apply flex flex-row-reverse bg-red h-70vh w-full;
 }
 .landing-pic-3 {
-  @apply flex ml-16 w-30vw h-70vh;
+  @apply flex ml-14 w-30vw h-70vh;
 }
 .landing-container-3-info {
-  @apply ml-80 flex flex-col justify-center p-2;
+  @apply ml-28 flex flex-col justify-center p-2;
 }
 .landing-container-3-image {
 }
 
 .landing-container-5 {
-  @apply flex flex-row-reverse bg-red h-70vh;
+  @apply flex flex-row-reverse bg-red h-70vh w-full;
 }
 .landing-pic-5 {
-  @apply flex p-2 ml-16 w-30vw h-70vh;
+  @apply flex p-2 ml-14 w-30vw h-70vh;
 }
 .landing-container-5-info {
-  @apply ml-64 flex flex-col justify-center p-2;
+  @apply ml-28 flex flex-col justify-center p-2;
 }
 .landing-container-5-image {
 }
@@ -112,7 +112,26 @@ label:hover {
 
 .main-area {
   @apply bg-gray-dark text-center justify-center;
-    }
+}
+
+.title-1 {
+  @apply text-5xl font-bold ml-16;
+}
+.title-paragraph-1 {
+  @apply text-xl mt-10 ml-16;
+}
+.title {
+  @apply text-5xl font-bold ml-8 text-white;
+}
+.title-paragraph {
+  @apply text-xl mt-10 ml-8 text-white;
+}
+.title-2 {
+  @apply text-5xl font-bold ml-16;
+}
+.title-paragraph-2 {
+  @apply text-xl mt-10 ml-16;
+}
 /* *********************FORMS AND ONBOARDING**********************  */
 .form {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;

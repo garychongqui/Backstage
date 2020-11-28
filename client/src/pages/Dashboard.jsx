@@ -91,7 +91,7 @@ class Dashboard extends React.Component {
         <BrowserRouter>
           <div className="dash-nav-area">
             <nav className="dash-nav">
-              <Link to="/dashboard/events" className="dash-nav-1">
+              <Link to="/dashboard/events" className="dash-nav-btn">
                 My Events
               </Link>
               <br />
