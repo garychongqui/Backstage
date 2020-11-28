@@ -11,7 +11,7 @@ import axios from 'axios';
 
 class Dashboard extends React.Component {
   state = { show: false, image: null, preview: null };
-  context = {};
+  context = { currentUser: null };
 
   handleImageSelect = (e) => {
     this.setState({ preview: URL.createObjectURL(e.target.files[0]) });
@@ -21,19 +21,15 @@ class Dashboard extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const avatar = new FormData();
-    avatar.append('avatar');
+    avatar.append('avatar', this.state.image, this.state.image.name);
     try {
-      const updatedUser = await axios({
+      await axios({
         method: 'POST',
         url: '/api/users/avatar',
         data: avatar,
         headers: {
           'Content-Type': 'multipart/form-data'
         }
-      });
-      this.setState({
-        currentUser: [...this.state.currentUser],
-        avatar: updatedUser.data.secure_url
       });
     } catch (error) {
       console.log(error);
@@ -51,15 +47,6 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Dashboard</h1>
-
-        <br></br>
-        <CreateEvent show={this.state.show} handleClose={this.hideModal} />
-        <button className="btn-1" type="button" onClick={this.showModal}>
-          Create Event
-        </button>
-
-        <br />
         <br />
         <div className="mt-4">
           <img
@@ -68,7 +55,7 @@ class Dashboard extends React.Component {
                 ? this.state.preview
                 : this.state.currentUser?.avatar
                 ? this.currentUser.avatar
-                : 'https://files.willkennedy.dev/wyncode/wyncode.png'
+                : 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80'
             }
             alt="profile-picture"
             width={250}
@@ -88,6 +75,10 @@ class Dashboard extends React.Component {
             </button>
           </form>
         </div>
+        <CreateEvent show={this.state.show} handleClose={this.hideModal} />
+        <button className="btn-1" type="button" onClick={this.showModal}>
+          Create Event
+        </button>
         <BrowserRouter>
           <div className="dash-nav-area">
             <nav className="dash-nav">
@@ -108,7 +99,11 @@ class Dashboard extends React.Component {
 
             <Switch>
               <Route exact path="/dashboard/events" component={MyEvents} />
-              <Route exact path="/dashboard/stages/new" component={NewStage} />
+              <Route
+                exact
+                path="/dashboard/stages/new"
+                component={NewStage} //should this be somewhere else?
+              />
               <Route
                 exact
                 path="/dashboard/stages/:id"

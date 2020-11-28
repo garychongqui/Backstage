@@ -95,7 +95,7 @@ exports.getCurrentUser = async (req, res) => {
   await req.user
     .populate({ path: 'equipment', model: 'Equipment' })
     .execPopulate();
-  await req.user.populate({ path: 'events', model: 'Events' }).execPopulate();
+  await req.user.populate({ path: 'events', model: 'Event' }).execPopulate();
   res.json({
     user: req.user,
     packages: req.user.packages,
