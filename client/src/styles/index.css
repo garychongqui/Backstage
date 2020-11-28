@@ -187,3 +187,7 @@ label:hover {
 .delete-button:hover {
   cursor: pointer;
 }
+
+/* .modal-container * {
+  border: 1px solid red;
+} */

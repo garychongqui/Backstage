@@ -6,7 +6,6 @@ const Package = require('../db/models/package'),
 // ***********************************************//
 
 exports.getAllPackages = async (req, res) => {
-  console.log('hsad 1run');
   try {
     const thePackages = await Package.find({ user: req.user._id });
     res.status(200).json(thePackages);
@@ -16,7 +15,6 @@ exports.getAllPackages = async (req, res) => {
 };
 
 exports.createPackage = async (req, res) => {
-  console.log('hsad 2run');
   try {
     const package = new Package({
       ...req.body,
@@ -40,7 +38,6 @@ exports.getAllPackages = async (req, res) => {
 };
 
 exports.getOnePackage = async (req, res) => {
-  console.log('hsad 3run');
   try {
     const thePackage = await Package.findOne({ _id: req.params.id });
     res.status(200).json(thePackage);
@@ -53,7 +50,6 @@ exports.getOnePackage = async (req, res) => {
 // Update a package
 // ***********************************************//
 exports.updatePackage = async (req, res) => {
-  console.log('hsad4 run');
   const updates = Object.keys(req.body);
   // console.log(updates);
   try {
@@ -73,7 +69,6 @@ exports.updatePackage = async (req, res) => {
 // Delete a package
 // ***********************************************//
 exports.deletePackage = async (req, res) => {
-  console.log('hsad 5run');
   try {
     const packageToDelete = await Package.findOneAndDelete({
       _id: req.params.id,

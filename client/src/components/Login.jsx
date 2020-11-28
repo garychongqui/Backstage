@@ -12,7 +12,7 @@ const Login = () => {
           name="login-form"
           method="POST"
           action="/api/users/login"
-          onSubmit={() => history.push('/dashboard')}
+          onSubmit={() => history.push('/dashboard/events')}
         >
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>

@@ -32,15 +32,33 @@
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-#package-select {
-  width: 18rem;
+/* #parent-parent-parent {
+  position: fixed;
+  z-index: 10;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  overflow-y: auto;
 }
+
+#parent-parent {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 100vh;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 5rem;
+  text-align: center;
+  /* sm:block sm:p-0 
+} */
 
 #background-overlay-parent {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 650ms;
-  opacity: 100%;
   top: 0px;
   right: 0px;
   bottom: 0px;
@@ -49,9 +67,6 @@
 }
 
 #background-overlay {
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 650ms;
   opacity: 80%;
   background-color: #374151;
   position: absolute;
