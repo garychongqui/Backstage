@@ -23,7 +23,7 @@ class Stage extends React.Component {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     return (
       <div
-        className="the-stage border border-gray-200 shadow-lg w-3/4 rounded-md relative flex flex-wrap"
+        className="the-stage border border-gray-200 shadow-lg w-3/4 rounded-md relative flex flex-wrap items-start"
         style={{
           height: '32rem'
         }}
