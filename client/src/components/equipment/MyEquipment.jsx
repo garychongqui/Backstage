@@ -166,77 +166,91 @@ class MyEquipment extends React.Component {
         <form name="equipmentList" onSubmit={this.handleSave}>
           <h2>Add Equipment</h2>
           <select onChange={this.handleCategorySelect}>
+            {/*
+      <div className="bg-dark-gray">
+        <br />
+        <h1 className="dash-h1">My Equipment</h1>
+
+        <form
+          name="equipmentList"
+          className="equipment-buttons"
+          onSubmit={this.handleSave}
+        >
+          <select
+            className="equipment-dropdown"
+            onChange={this.handleCategorySelect}
+          >
+*/}
             {categoryList.map((item) => (
               <option value={categoryList.indexOf(item)}>{item}</option>
             ))}
           </select>
           {this.state.activeCategory.map((item, index) => (
             <button
+              className="btn-2"
               key={index}
               type="button"
               value={item.name}
               onClick={(event) => this.handleEquipClick(event)}
-              style={{ color: 'lightblue' }}
             >
               {item.name}
             </button>
           ))}
 
-          <div className="equip-table">
-            <span>
-              <strong>Name</strong>
-            </span>
-            <span>
-              <strong>Description</strong>
-            </span>
-            <span>
-              <strong>Quantity</strong>
-            </span>
+          <div className="dash-h4">
+            <span>Name</span>
+            <span>Description</span>
+            <span>Quantity</span>
           </div>
-          <div className="button-mapping">
-            {this.state.equipNames.map((item, index) => {
-              return (
-                <div style={{ display: 'flex' }}>
-                  <span style={{ color: 'lightblue' }}>{item}</span>
-                  <input
-                    placeholder="description"
-                    name={item}
-                    type="text"
-                    size="30"
-                    onBlur={(event) =>
-                      this.handleDescriptionChange(event, index)
-                    }
-                  />
-                  <input
-                    placeholder="quantity"
-                    name={item}
-                    required
-                    min="0"
-                    size="4"
-                    type="number"
-                    onBlur={(event) => this.handleQuantityChange(event, index)}
-                  />
-                  <svg
-                    className="delete-button"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="#A6271F"
-                    width="40"
-                    onClick={() => this.handleEquipDelete(index)}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+
+          <div className="button-mapping-area">
+            <div className="button-mapping">
+              {this.state.equipNames.map((item, index) => {
+                return (
+                  <div style={{ display: 'flex' }}>
+                    <span style={{ color: 'lightblue' }}>{item}</span>
+                    <input
+                      placeholder="description"
+                      name={item}
+                      type="text"
+                      size="30"
+                      onBlur={(event) =>
+                        this.handleDescriptionChange(event, index)
+                      }
                     />
-                  </svg>
-                </div>
-              );
-            })}
+                    <input
+                      placeholder="quantity"
+                      name={item}
+                      required
+                      min="0"
+                      size="4"
+                      type="number"
+                      onBlur={(event) =>
+                        this.handleQuantityChange(event, index)
+                      }
+                    />
+                    <svg
+                      className="delete-button"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#A6271F"
+                      width="40"
+                      onClick={() => this.handleEquipDelete(index)}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <input type="submit" value="Save" />
+          <input className="btn-1" type="submit" value="Save" />
         </form>
       </div>
     );

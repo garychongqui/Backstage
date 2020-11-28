@@ -9,7 +9,7 @@
 /* **********************BUTTONS**************************  */
 
 .btn-1 {
-  @apply bg-red hover:bg-red text-white p-2 text-center content-center m-6 w-32 h-16;
+  @apply bg-red hover:bg-red text-white p-2 text-center content-center m-6  h-16;
 }
 
 label:hover {
@@ -18,35 +18,101 @@ label:hover {
 
 /* **********************BUTTONS**************************  */
 .btn-1 {
-  @apply bg-red hover:bg-red text-white p-2 m-6 content-center w-32 h-16;
+  @apply bg-red hover:bg-red text-white p-2 m-6 text-center content-center w-32 h-16;
 }
 .btn-2 {
-  @apply bg-green hover:bg-green-light text-white p-2 text-center content-center m-6 w-32 h-16;
+  @apply bg-green hover:bg-green-light text-white p-2 text-center content-center m-6  w-32  h-16;
 }
 .btn-3 {
-  @apply bg-black hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16;
+  @apply bg-black hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16;
 }
 .btn-4 {
-  @apply bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16 border-solid border-white border-2;
+  @apply bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16 border-solid border-white border-2;
 }
 .btn-5 {
-  @apply bg-white hover:bg-green-light text-black p-2 m-6 text-center content-center m-6 h-16;
+  @apply bg-white hover:bg-green-light text-black p-2 m-6 text-center content-center m-6 w-32  h-16;
 }
 
 .btn-area {
   @apply text-center;
 }
 /* ***************************AREAS********************************  */
-.container {
+.login-container {
+  @apply bg-gray-dark content-center justify-center;
+}
+.nav-container {
   @apply bg-gray-dark content-center justify-center;
 }
 
-.main-area {
-  @apply content-center justify-center w-full;
+
+.container {
+  @apply bg-gray-dark;
 }
-.main-area {
-  @apply bg-gray-dark content-center;
+
+/* *********************Welcome Landingpage**********************  */
+.landing-page {
+  @apply bg-gray-dark content-center justify-center w-full h-full;
 }
+.landing-container-1 {
+  @apply flex h-70vh shadow-md;
+}
+.welcome {
+  @apply flex flex-col mt-40 ml-36;
+}
+.join-button {
+  @apply bg-red hover:bg-red text-white p-2 content-center w-32 h-10;
+}
+
+.landing-container-back {
+  @apply flex h-70vh;
+}
+
+.landing-pic-back {
+  @apply ml-80 pt-4 w-30vw h-70vh;
+}
+
+.landing-container-info-back {
+  @apply ml-32 flex flex-col justify-center p-2;
+}
+
+.landing-container-image-back {
+}
+
+.landing-container-3 {
+  @apply flex flex-row-reverse bg-red h-70vh;
+}
+.landing-pic-3 {
+  @apply flex ml-16 w-30vw h-70vh;
+}
+.landing-container-3-info {
+  @apply ml-80 flex flex-col justify-center p-2;
+}
+.landing-container-3-image {
+}
+
+.landing-container-5 {
+  @apply flex flex-row-reverse bg-red h-70vh;
+}
+.landing-pic-5 {
+  @apply flex p-2 ml-16 w-30vw h-70vh;
+}
+.landing-container-5-info {
+  @apply ml-64 flex flex-col justify-center p-2;
+}
+.landing-container-5-image {
+}
+
+.landing-footer {
+  @apply bg-gray-dark h-30vh m-4 flex flex-col;
+}
+
+.landing-footer-info {
+  @apply flex flex-col pl-12 pt-12;
+}
+
+.main-area {
+  @apply bg-gray-dark text-center justify-center;
+    }
 /* *********************FORMS AND ONBOARDING**********************  */
 .form {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
@@ -75,6 +141,18 @@ label:hover {
   @apply h-40 w-40;
 }
 
+.saved-stage {
+  @apply bg-gray-light text-gray-dark flex p-2 m-4 w-1/2 justify-center;
+}
+
+.saved-stage-info {
+  @apply bg-gray-light text-gray-dark p-2 m-2 flex flex-col w-2/3;
+}
+
+.saved-stage-btn-area {
+  @apply text-center justify-center bg-gray-light m-3 p-2 w-1/3;
+}
+
 /* *******************DASH-NAV******************* */
 
 .dash-nav-1 {
@@ -94,11 +172,11 @@ label:hover {
 }
 
 .dash-h1 {
-  @apply text-white text-4xl;
+  @apply text-white text-4xl p-2;
 }
 
 .dash-h2 {
-  @apply text-white text-3xl;
+  @apply text-gray-dark text-3xl;
 }
 
 .dash-h3 {
@@ -109,8 +187,16 @@ label:hover {
   @apply text-white text-xl;
 }
 
-.equipment-list {
-  @apply text-white text-xl p-4;
+.dash-title-bar {
+  @apply bg-gray-dark flex w-1/2 m-4;
+}
+
+.equipment-buttons {
+  @apply text-black text-xl p-4 w-1/2;
+}
+
+.equipment-dropdown {
+  @apply text-xl p-2;
 }
 
 .main-nav {
@@ -119,73 +205,8 @@ label:hover {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
-
-.navbar {
-  display: flex;
-  flex-direction: row-reverse;
-  overflow: hidden;
-  background-color: #333;
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover,
-.dropdown:hover .dropbtn {
-  background-color: rgb(29, 28, 28);
-  color: white;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #020202;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.delete-button:hover {
-  cursor: pointer;
+.profile-icon {
+  @apply flex h-12 w-12;
 }
 
 .artist-collab-container * {
