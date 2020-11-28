@@ -42,9 +42,7 @@ const userSchema = new mongoose.Schema(
         }
       }
     ],
-    avatar: {
-      type: String
-    }
+    avatar: String
   },
   {
     timestamps: true

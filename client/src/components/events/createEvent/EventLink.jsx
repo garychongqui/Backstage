@@ -1,11 +1,16 @@
 import React from 'react';
 import { useClipboard } from 'use-clipboard-hook';
+import swal from 'sweetalert';
 
 const EventLink = ({ display, eventURL }) => {
   let showLinkClassName = display ? 'block' : 'hidden';
 
   const { ref, copy } = useClipboard({
-    onSuccess: (text) => alert(`Copied event link!`)
+    onSuccess: (text) =>
+      swal(`Copied event link!`, {
+        icon: 'success',
+        buttonColor: '#15438c'
+      })
   });
 
   return (

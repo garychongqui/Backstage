@@ -229,3 +229,7 @@ label:hover {
 .artist-collab-container * {
   margin: 0.5rem;
 }
+
+.swal {
+  background-color: #0f0cc4;
+}

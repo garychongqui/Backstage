@@ -12,10 +12,13 @@ const MainNav = () => {
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-gray-dark">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
-          <Link to="/">
-            <a className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white">
-              BACKSTAGE
-            </a>
+
+          <Link
+            to="/"
+            className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white"
+          >
+            BackStage
+
           </Link>
           <button
             className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-gray-dark block lg:hidden outline-none focus:outline-none"
@@ -24,11 +27,6 @@ const MainNav = () => {
         </div>
         <div className="lg:flex flex-grow items-center">
           <ul className="flex flex-col lg:flex-row list-none ml-auto">
-            <Link to="/signup">
-              <li className="nav-item px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 ml-2">
-                Join Backstage
-              </li>
-            </Link>
           </ul>
         </div>
         <div>
@@ -50,15 +48,17 @@ const MainNav = () => {
             </button>
 
             <ul className="dropdown-menu absolute hidden text-white pt-1">
-              <Link to="/login">
-                <li className="rounded-t bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-                  Login
-                </li>
+              <Link
+                to="/login"
+                className="rounded-t bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+              >
+                Login
               </Link>
 
               <li className="bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
                 <Logout>Logout</Logout>
               </li>
+
             </ul>
           </div>
         </div>

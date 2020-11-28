@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import '../../styles/index.css';
+import swal from 'sweetalert';
 
 const StageDetails = () => {
   const [currentStage, setCurrentStage] = useState({});
@@ -14,7 +15,7 @@ const StageDetails = () => {
     axios
       .get(`/api/packages/${stageId}`)
       .then((results) => setCurrentStage(results.data))
-      .catch((error) => alert(error));
+      .catch((error) => swal('Operation failed', { icon: 'error' }));
   };
 
   useEffect(() => {

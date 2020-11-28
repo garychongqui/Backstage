@@ -10,7 +10,7 @@ exports.addEquipItem = async (req, res) => {
       console.log('has run');
       let theItem = new Equipment({
         name: obj.item,
-        description: req.body.uniqueDescriptionArray[obj.index].description,
+        description: req.body.uniqueDescriptionArray[obj.index]?.description,
         quantity: obj.quantity,
         user: req.user
       });
