@@ -133,24 +133,44 @@ label:hover {
   @apply text-xl mt-10 ml-16;
 }
 /* *********************SignUP Page**********************  */
-.body {
+body {
   @apply bg-gray-dark content-center justify-center w-full h-100vh;
 }
+
 .signup-container {
-  @apply bg-gray-dark content-center justify-center w-full h-100vh;
+  @apply content-center;
 }
-.form {
-  @apply bg-gray-dark shadow-md rounded  content-center justify-center;
+.signup-title {
+  @apply mt-24;
+}
+.text-ob {
+  @apply text-white p-4 mt-16 content-center text-4xl font-bold justify-center;
+}
+.text-input {
+  @apply bg-white text-center rounded pt-2 content-center justify-center w-20vw;
 }
 .inner-form {
-  @apply font-bold text-center p-2;
+  @apply pt-6;
+}
+.signup-button {
+  @apply bg-black hover:bg-red rounded text-white content-center w-48 h-8 text-xl mt-10;
+}
+
+/* .signup-container {
+  @apply bg-gray-dark content-center justify-center w-full;
+}
+.form {
+  @apply shadow-md rounded  content-center justify-center;
+}
+.inner-form {
+  @apply font-bold text-center p-2 w-30vw;
 }
 .text-input {
   @apply bg-white shadow-md rounded px-2 py-2 content-center;
 }
 .text-ob {
   @apply text-white p-4 px-8 content-center text-4xl font-bold justify-center;
-}
+} */
 
 /* *********************STAGE**********************  */
 
