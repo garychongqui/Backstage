@@ -9,7 +9,7 @@
 /* **********************BUTTONS**************************  */
 
 .btn-1 {
-  @apply bg-red hover:bg-red text-white p-2 text-center content-center m-6 w-32 h-16;
+  @apply bg-red hover:bg-red text-white p-2 text-center content-center m-6  h-16;
 }
 
 label:hover {
@@ -18,35 +18,41 @@ label:hover {
 
 /* **********************BUTTONS**************************  */
 .btn-1 {
-  @apply bg-red hover:bg-red text-white p-2 m-6 content-center w-32 h-16;
+  @apply bg-red hover:bg-red text-white p-2 m-6 text-center content-center w-32 h-16;
 }
 .btn-2 {
-  @apply bg-green hover:bg-green-light text-white p-2 text-center content-center m-6 w-32 h-16;
+  @apply bg-green hover:bg-green-light text-white p-2 text-center content-center m-6  w-32  h-16;
 }
 .btn-3 {
-  @apply bg-black hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16;
+  @apply bg-black hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16;
 }
 .btn-4 {
-  @apply bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6 w-32 h-16 border-solid border-white border-2;
+  @apply bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16 border-solid border-white border-2;
 }
 .btn-5 {
-  @apply bg-white hover:bg-green-light text-black p-2 m-6 text-center content-center m-6 h-16;
+  @apply bg-white hover:bg-green-light text-black p-2 m-6 text-center content-center m-6 w-32  h-16;
 }
 
 .btn-area {
   @apply text-center;
 }
 /* ***************************AREAS********************************  */
-.container {
+.login-container {
   @apply bg-gray-dark content-center justify-center;
 }
 
-.main-area {
-  @apply content-center justify-center;
+.container {
+  @apply bg-gray-dark;
 }
+
+/* .nav-container {
+  @apply px-4 mx-auto flex flex-wrap items-center justify-between
+} */
+
 .main-area {
-  @apply bg-gray-dark content-center;
+  @apply bg-gray-dark content-center justify-center;
 }
+
 /* *********************FORMS AND ONBOARDING**********************  */
 .form {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
@@ -75,6 +81,18 @@ label:hover {
   @apply h-40 w-40;
 }
 
+.saved-stage {
+  @apply bg-gray-light text-gray-dark flex p-2 w-1/2 justify-center;
+}
+
+.saved-stage-info {
+  @apply bg-gray-light text-gray-dark p-4 m-3 flex flex-col w-2/3;
+}
+
+.saved-stage-btn-area {
+  @apply text-center justify-center bg-gray-light m-3 p-2 w-1/3;
+}
+
 /* *******************DASH-NAV******************* */
 
 .dash-nav-1 {
@@ -94,11 +112,11 @@ label:hover {
 }
 
 .dash-h1 {
-  @apply text-white text-4xl;
+  @apply text-white text-4xl p-2;
 }
 
 .dash-h2 {
-  @apply text-white text-3xl;
+  @apply text-gray-dark text-3xl;
 }
 
 .dash-h3 {

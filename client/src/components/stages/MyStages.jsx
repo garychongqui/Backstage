@@ -38,45 +38,50 @@ const MyStages = () => {
   };
 
   return (
-    <div>
+    <div className="bg-dark-gray">
       <br />
       <h1 className="dash-h1">My Stages</h1>
       <br />
-      <br />
-      <button onClick={() => history.push('/dashboard/stages/new')}>
+      <button
+        className="btn-1"
+        onClick={() => history.push('/dashboard/stages/new')}
+      >
         Add A New Stage
       </button>
 
       <br />
-      <br />
-
-      <h3 className="dash-h3">Here Are Your Stages</h3>
 
       {packages.map((package1) => {
         return (
           <div>
             <br />
 
-            <h2 className="dash-h2">{package1?.name}</h2>
             <div className="saved-stage">
-              <span>{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
-              <br />
-              <span>{package1?.isOutdoor ? 'Outdoor' : 'Indoor'}</span>
-              <br />
+              <div className="saved-stage-info">
+                <h2 className="dash-h2">{package1?.name}</h2>
+                <span>{package1?.isOutdoor ? 'Outdoor' : 'Indoor'}</span>
+                <br />
+                <span>{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
+                <br />
 
-              <p>{package1?.comments}</p>
+                <p>{package1?.comments}</p>
+              </div>
 
-              <button
-                className="btn-2"
-                onClick={() => handleEditClick(package1?._id)}
-              >
-                Edit
-              </button>
-            </div>
-            <div>
-              <button onClick={() => handlePackageDelete(package1?._id)}>
-                Delete this stage
-              </button>
+              <div className="stage-btn-area">
+                <button
+                  className="btn-2"
+                  onClick={() => handleEditClick(package1?._id)}
+                >
+                  Edit
+                </button>
+
+                <button
+                  className="btn-4"
+                  onClick={() => handlePackageDelete(package1?._id)}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           </div>
         );

@@ -119,7 +119,8 @@ class MyEquipment extends React.Component {
   render() {
     return (
       <div className="my-equipment-component">
-        <h1>My Equipment (click to add)</h1>
+        <h1 className="dash-h1">My Equipment (click to add)</h1>
+
         <form name="equipmentList" onSubmit={this.handleSave}>
           <select onChange={this.handleCategorySelect}>
             {categoryList.map((item) => (
@@ -128,27 +129,22 @@ class MyEquipment extends React.Component {
           </select>
           {this.state.activeCategory.map((item, index) => (
             <button
+              className="btn-2"
               key={index}
               type="button"
               value={item.name}
               onClick={(event) => this.handleEquipClick(event)}
-              style={{ color: 'lightblue' }}
             >
               {item.name}
             </button>
           ))}
 
-          <div className="equip-table">
-            <span>
-              <strong>Name</strong>
-            </span>
-            <span>
-              <strong>Description</strong>
-            </span>
-            <span>
-              <strong>Quantity</strong>
-            </span>
+          <div className="dash-h4">
+            <span>Name</span>
+            <span>Description</span>
+            <span>Quantity</span>
           </div>
+
           <div className="button-mapping">
             {this.state.equipNames.map((item, index) => {
               return (
@@ -192,7 +188,7 @@ class MyEquipment extends React.Component {
               );
             })}
           </div>
-          <input type="submit" value="Save" />
+          <input className="btn-1" type="submit" value="Save" />
         </form>
       </div>
     );
