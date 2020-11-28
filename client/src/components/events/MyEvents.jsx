@@ -32,12 +32,15 @@ const MyEvents = () => {
     }
   };
   return (
-    <div>
-      <h1>My Events</h1>
-      <br />
-      <br />
-      <br />
-      <br />
+    <div className="container">
+      <div className="dash-title-bar">
+        <br />
+        <h1 className="dash-h1">My Events</h1>
+        <br />
+        <br />
+        <br />
+        <br />
+      </div>
       <h1>Here Are Your Events</h1>
       {events.map((event1) => {
         return (
