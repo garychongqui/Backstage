@@ -15,11 +15,9 @@ import SignUp from './components/SignUp';
 // import Studio from './collaboration/Studio';
 import test from './components/test';
 import ArtistCollab from './pages/collaboration/ArtistCollab';
-import MainNav from './components/mainNav/MainNav';
 import MyEvents from './components/events/MyEvents';
 import MyStages from './components/stages/MyStages';
 import MyEquipment from './components/equipment/MyEquipment';
-
 
 function App() {
   return (
