@@ -43,12 +43,14 @@ const MyStages = () => {
         <br />
         <h1 className="dash-h1">My Stages</h1>
         <br />
-        <button
-          className="btn-1"
-          onClick={() => history.push('/dashboard/stages/new')}
-        >
-          Add A New Stage
-        </button>
+        <div className="dash-title-bar-buttons">
+          <button
+            className="btn-1"
+            onClick={() => history.push('/dashboard/stages/new')}
+          >
+            Add A New Stage
+          </button>
+        </div>
       </div>
 
       {packages.map((package1) => {
@@ -66,7 +68,7 @@ const MyStages = () => {
                 <p>{package1?.comments}</p>
               </div>
 
-              <div className="stage-btn-area">
+              <div className="saved-stage-btn-area">
                 <button
                   className="btn-2"
                   onClick={() => handleEditClick(package1?._id)}
