@@ -109,7 +109,9 @@ label:hover {
   @apply flex flex-col pl-12 pt-12;
 }
 
-
+.main-area {
+  @apply bg-gray-dark text-center justify-center;
+    }
 /* *********************FORMS AND ONBOARDING**********************  */
 .form {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
