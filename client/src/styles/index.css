@@ -132,6 +132,7 @@ label:hover {
 .title-paragraph-2 {
   @apply text-xl mt-10 ml-16;
 }
+
 /* *********************FORMS AND ONBOARDING**********************  */
 .form {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
@@ -172,6 +173,20 @@ label:hover {
   @apply text-center justify-center bg-gray-light m-3 p-2 w-1/3;
 }
 
+/* *******************EVENT******************* */
+
+.saved-event {
+  @apply bg-gray-light text-gray-dark flex p-2 m-4 w-1/2 justify-center;
+}
+
+.saved-event-info {
+  @apply bg-gray-light text-gray-dark p-2 m-2 flex flex-col w-2/3;
+}
+
+.saved-event-btn-area {
+  @apply text-center justify-center bg-gray-light m-3 p-2 w-1/3;
+}
+
 /* *******************DASH-NAV******************* */
 
 .dash-nav-1 {
@@ -191,7 +206,7 @@ label:hover {
 }
 
 .dash-h1 {
-  @apply text-white text-4xl p-2;
+  @apply text-white text-4xl p-3  flex flex-col;
 }
 
 .dash-h2 {
@@ -203,11 +218,15 @@ label:hover {
 }
 
 .dash-h4 {
-  @apply text-white text-xl;
+  @apply text-white p-2 text-xl;
 }
 
 .dash-title-bar {
-  @apply bg-gray-dark flex w-1/2 m-4;
+  @apply bg-gray-dark flex p-2 w-1/2;
+}
+
+.dash-title-bar-buttons {
+  @apply flex flex-col text-center bg-gray-dark justify-items-center;
 }
 
 .equipment-buttons {
