@@ -82,11 +82,11 @@ label:hover {
 }
 
 .saved-stage {
-  @apply bg-gray-light text-gray-dark flex p-2 w-1/2 justify-center;
+  @apply bg-gray-light text-gray-dark flex p-2 m-4 w-1/2 justify-center;
 }
 
 .saved-stage-info {
-  @apply bg-gray-light text-gray-dark p-4 m-3 flex flex-col w-2/3;
+  @apply bg-gray-light text-gray-dark p-2 m-2 flex flex-col w-2/3;
 }
 
 .saved-stage-btn-area {
@@ -127,8 +127,16 @@ label:hover {
   @apply text-white text-xl;
 }
 
-.equipment-list {
-  @apply text-white text-xl p-4;
+.dash-title-bar {
+  @apply bg-gray-dark flex w-1/2 m-4;
+}
+
+.equipment-buttons {
+  @apply text-black text-xl p-4 w-1/2;
+}
+
+.equipment-dropdown {
+  @apply text-xl p-2;
 }
 
 .main-nav {

@@ -2,14 +2,11 @@ import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
-
 const MyEvents = () => {
   const { currentUser } = useContext(AppContext);
   const [events, setEvents] = useState([]);
   const [isUpdated, setIsUpdated] = useState(false);
-
   const history = useHistory();
-
   const getEvents = async () => {
     try {
       let res = await axios({
@@ -25,7 +22,6 @@ const MyEvents = () => {
   useEffect(() => {
     getEvents();
   }, [isUpdated]);
-
   const handleEventDelete = async (eventId) => {
     try {
       setIsUpdated(!isUpdated);
@@ -35,26 +31,8 @@ const MyEvents = () => {
       alert(error);
     }
   };
-
   return (
     <div>
-      <br />
-      /*
-      <h1 className="dash-h1">My Events</h1>
-      <div className="existing-event">
-        <h3 className="dash-h3">Event 1</h3>
-        <h4 className="dash-h4">December 10</h4>
-        <p>Status: Seen by Artist</p>
-        <button>See more</button>
-      </div>
-      <div className="existing-event">
-        <h3>Event 2</h3>
-        <h4>December 13</h4>
-        <p>Status: Completed by Artist</p>
-        <button>See more</button>
-      </div>
-      */
-      <br />
       <h1>My Events</h1>
       <br />
       <br />
@@ -65,7 +43,6 @@ const MyEvents = () => {
         return (
           <div>
             <br />
-
             <h2>{event1?.eventTitle}</h2>
             <div className="saved-stage">
               <span>{`Date: ${event1?.eventDate}`}</span>
@@ -84,5 +61,4 @@ const MyEvents = () => {
     </div>
   );
 };
-
 export default MyEvents;

@@ -118,11 +118,19 @@ class MyEquipment extends React.Component {
 
   render() {
     return (
-      <div className="my-equipment-component">
-        <h1 className="dash-h1">My Equipment (click to add)</h1>
+      <div className="bg-dark-gray">
+        <br />
+        <h1 className="dash-h1">My Equipment</h1>
 
-        <form name="equipmentList" onSubmit={this.handleSave}>
-          <select onChange={this.handleCategorySelect}>
+        <form
+          name="equipmentList"
+          className="equipment-buttons"
+          onSubmit={this.handleSave}
+        >
+          <select
+            className="equipment-dropdown"
+            onChange={this.handleCategorySelect}
+          >
             {categoryList.map((item) => (
               <option value={categoryList.indexOf(item)}>{item}</option>
             ))}
@@ -145,48 +153,52 @@ class MyEquipment extends React.Component {
             <span>Quantity</span>
           </div>
 
-          <div className="button-mapping">
-            {this.state.equipNames.map((item, index) => {
-              return (
-                <div style={{ display: 'flex' }}>
-                  <span style={{ color: 'lightblue' }}>{item}</span>
-                  <input
-                    placeholder="description"
-                    name={item}
-                    type="text"
-                    size="30"
-                    onBlur={(event) =>
-                      this.handleDescriptionChange(event, index)
-                    }
-                  />
-                  <input
-                    placeholder="quantity"
-                    name={item}
-                    required
-                    min="0"
-                    size="4"
-                    type="number"
-                    onBlur={(event) => this.handleQuantityChange(event, index)}
-                  />
-                  <svg
-                    className="delete-button"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="#A6271F"
-                    width="40"
-                    onClick={() => this.handleEquipDelete(index)}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+          <div className="button-mapping-area">
+            <div className="button-mapping">
+              {this.state.equipNames.map((item, index) => {
+                return (
+                  <div style={{ display: 'flex' }}>
+                    <span style={{ color: 'lightblue' }}>{item}</span>
+                    <input
+                      placeholder="description"
+                      name={item}
+                      type="text"
+                      size="30"
+                      onBlur={(event) =>
+                        this.handleDescriptionChange(event, index)
+                      }
                     />
-                  </svg>
-                </div>
-              );
-            })}
+                    <input
+                      placeholder="quantity"
+                      name={item}
+                      required
+                      min="0"
+                      size="4"
+                      type="number"
+                      onBlur={(event) =>
+                        this.handleQuantityChange(event, index)
+                      }
+                    />
+                    <svg
+                      className="delete-button"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="#A6271F"
+                      width="40"
+                      onClick={() => this.handleEquipDelete(index)}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <input className="btn-1" type="submit" value="Save" />
         </form>

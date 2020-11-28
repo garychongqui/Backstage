@@ -39,17 +39,17 @@ const MyStages = () => {
 
   return (
     <div className="bg-dark-gray">
-      <br />
-      <h1 className="dash-h1">My Stages</h1>
-      <br />
-      <button
-        className="btn-1"
-        onClick={() => history.push('/dashboard/stages/new')}
-      >
-        Add A New Stage
-      </button>
-
-      <br />
+      <div className="dash-title-bar">
+        <br />
+        <h1 className="dash-h1">My Stages</h1>
+        <br />
+        <button
+          className="btn-1"
+          onClick={() => history.push('/dashboard/stages/new')}
+        >
+          Add A New Stage
+        </button>
+      </div>
 
       {packages.map((package1) => {
         return (
@@ -59,10 +59,9 @@ const MyStages = () => {
             <div className="saved-stage">
               <div className="saved-stage-info">
                 <h2 className="dash-h2">{package1?.name}</h2>
+                <br />
                 <span>{package1?.isOutdoor ? 'Outdoor' : 'Indoor'}</span>
-                <br />
                 <span>{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
-                <br />
 
                 <p>{package1?.comments}</p>
               </div>
