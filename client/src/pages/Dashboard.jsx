@@ -23,7 +23,7 @@ class Dashboard extends React.Component {
     const avatar = new FormData();
     avatar.append('avatar', this.state.image, this.state.image.name);
     try {
-      const updatedUser = await axios({
+      await axios({
         method: 'POST',
         url: '/api/users/avatar',
         data: avatar,
@@ -31,10 +31,6 @@ class Dashboard extends React.Component {
           'Content-Type': 'multipart/form-data'
         }
       });
-      // this.setState({
-      //   currentUser: [...this.state.currentUser],
-      //   avatar: updatedUser.data.secure_url
-      // });
     } catch (error) {
       console.log(error);
     }

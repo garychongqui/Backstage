@@ -44,7 +44,6 @@ label:hover {
   @apply bg-gray-dark content-center justify-center;
 }
 
-
 .container {
   @apply bg-gray-dark;
 }
@@ -112,7 +111,7 @@ label:hover {
 
 .main-area {
   @apply bg-gray-dark text-center justify-center;
-    }
+}
 /* *********************FORMS AND ONBOARDING**********************  */
 .form {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
@@ -211,4 +210,8 @@ label:hover {
 
 .artist-collab-container * {
   margin: 0.5rem;
+}
+
+.swal {
+  background-color: #0f0cc4;
 }

@@ -3,6 +3,7 @@ import Stage from './Stage';
 import equipLists, { lastIndexOf } from '../../artistEquip';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import moment from 'moment';
 
 const categoryList = [
   'Guitars',
@@ -60,11 +61,15 @@ const ArtistCollab = () => {
 
   return (
     <div className="artist-collab-component text-center">
-      <h1 class="text-left bold text-5xl m-4 rounded-lg">Welcome Backstage.</h1>
+      <h1 class="text-left bold text-5xl m-8 mb-10 rounded-lg">
+        Welcome Backstage.
+      </h1>
 
       <div className="info-header">
         <h2 class="bold text-3xl mt-6">{eventData?.eventTitle}</h2>
-        <h2 class="text-xl text-gray-200">{eventData?.eventDate}</h2>
+        <h2 class="text-xl text-gray-200">
+          {moment(eventData?.eventDate).format('MMMM Do YYYY')}
+        </h2>
       </div>
       <div className="artist-collab-container flex flex-col items-center">
         <div class="icons-and-stage flex w-5/6 items-center justify-evenly">

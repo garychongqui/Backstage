@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 const Login = () => {
   const history = useHistory();
@@ -15,7 +16,7 @@ const Login = () => {
     try {
       const response = await axios.post('/api/users/login', loginData);
     } catch (error) {
-      alert('Login unsuccessful. Please try again.');
+      swal('Login unsuccessful. Please try again.', { icon: 'error' });
     }
 
     history.push('/dashboard/events');

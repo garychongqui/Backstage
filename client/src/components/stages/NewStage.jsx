@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const NewStage = () => {
   const [stageData, setStageData] = useState(null);
@@ -23,7 +24,7 @@ const NewStage = () => {
     event.preventDefault();
     await axios.post('/api/packages', stageData);
 
-    alert('stage saved');
+    swal('Stage saved!', { icon: 'success' });
     history.push('/dashboard/stages');
   };
 
