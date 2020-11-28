@@ -47,7 +47,7 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Dashboard</h1>
+        {/* <h1>Dashboard</h1>
 
         <br></br>
         <CreateEvent show={this.state.show} handleClose={this.hideModal} />
@@ -55,7 +55,7 @@ class Dashboard extends React.Component {
           Create Event
         </button>
 
-        <br />
+        <br /> */}
         <br />
         <div className="mt-4">
           <img
@@ -87,7 +87,7 @@ class Dashboard extends React.Component {
         <BrowserRouter>
           <div className="dash-nav-area">
             <nav className="dash-nav">
-              <Link to="/dashboard/events" className="dash-nav-1">
+              <Link to="/dashboard/events" className="dash-nav-btn">
                 My Events
               </Link>
               <br />
