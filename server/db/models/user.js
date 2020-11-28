@@ -42,24 +42,22 @@ const userSchema = new mongoose.Schema(
         }
       }
     ],
-    avatar: {
-      type: String
-    }
+    avatar: String
   },
   {
     timestamps: true
   }
 );
 userSchema.virtual('events', {
-  ref: 'Events',
+  ref: 'Event',
   localField: '_id',
   foreignField: 'user'
 });
-// userSchema.virtual('equipment', {
-//   ref: 'Equipment',
-//   localField: '_id',
-//   foreignField: 'user'
-// });
+userSchema.virtual('item', {
+  ref: 'Equipment',
+  localField: '_id',
+  foreignField: 'user'
+});
 userSchema.virtual('packages', {
   ref: 'Package',
   localField: '_id',

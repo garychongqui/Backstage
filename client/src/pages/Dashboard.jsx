@@ -21,7 +21,7 @@ class Dashboard extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const avatar = new FormData();
-    avatar.append('avatar');
+    avatar.append('avatar', this.state.image, this.state.image.name);
     try {
       const updatedUser = await axios({
         method: 'POST',
@@ -31,10 +31,10 @@ class Dashboard extends React.Component {
           'Content-Type': 'multipart/form-data'
         }
       });
-      this.setState({
-        currentUser: [...this.state.currentUser],
-        avatar: updatedUser.data.secure_url
-      });
+      // this.setState({
+      //   currentUser: [...this.state.currentUser],
+      //   avatar: updatedUser.data.secure_url
+      // });
     } catch (error) {
       console.log(error);
     }

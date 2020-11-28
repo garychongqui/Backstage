@@ -7,6 +7,7 @@ const MyEvents = () => {
   const [events, setEvents] = useState([]);
   const [isUpdated, setIsUpdated] = useState(false);
   const history = useHistory();
+
   const getEvents = async () => {
     try {
       let res = await axios({
@@ -22,6 +23,7 @@ const MyEvents = () => {
   useEffect(() => {
     getEvents();
   }, [isUpdated]);
+
   const handleEventDelete = async (eventId) => {
     try {
       setIsUpdated(!isUpdated);
@@ -32,7 +34,6 @@ const MyEvents = () => {
     }
   };
   return (
-
     <div className="container">
       <div className="dash-title-bar">
         <br />

@@ -14,7 +14,6 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await axios.post('/api/users/login', loginData);
-      console.log(response);
     } catch (error) {
       alert('Login unsuccessful. Please try again.');
     }
