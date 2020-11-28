@@ -22,6 +22,7 @@ const NewStage = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     await axios.post('/api/packages', stageData);
+
     alert('stage saved');
     history.push('/dashboard/stages');
   };

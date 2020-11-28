@@ -53,11 +53,7 @@ class Dashboard extends React.Component {
 
             <Switch>
               <Route exact path="/dashboard/events" component={MyEvents} />
-              <Route
-                exact
-                path="/dashboard/stages/new"
-                component={NewStage} //should this be somewhere else?
-              />
+              <Route exact path="/dashboard/stages/new" component={NewStage} />
               <Route
                 exact
                 path="/dashboard/stages/:id"

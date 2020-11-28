@@ -136,10 +136,10 @@ const CreateEvent = ({ handleClose, show }) => {
                     />
                     {/* <input type='text' id='time-input' placeholder='time'/> */}
 
-                    <h2 class="text-lg">Select Package</h2>
+                    <h2 class="text-lg">Select Stage</h2>
 
                     <div
-                      className="package-select overflow-auto w-full h-44 "
+                      className="package-select overflow-auto w-full h-44 flex justify-center"
                       id="package-select"
                     >
                       {packages.map((package1) => {

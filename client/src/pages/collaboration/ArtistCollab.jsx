@@ -2,24 +2,34 @@ import React, { useState, useEffect } from 'react';
 import './artistCollab.css';
 import Stage from './Stage';
 import Draggable from 'react-draggable';
-import equipLists, { lastIndexOf } from '../../helper';
+import equipLists, { lastIndexOf } from '../../artistEquip';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 const categoryList = [
-  'Cables',
-  'DJ Equipment',
-  'Microphones',
+  'Guitars',
+  'Keys',
+  'Percussion',
+  'Wind',
+  'Mixers',
+  'Mics & Cables',
   'Speakers',
-  'Stands'
+  'Other'
 ];
 
 const ArtistCollab = () => {
   const [activeCategory, setActiveCategory] = useState(equipLists[0]);
   const [iconsForStage, setIconsForStage] = useState([]);
   const [eventData, setEventData] = useState(null);
-
+  const [equipData, setEquipData] = useState([]);
   const history = useHistory();
+
+  const getEquipInfo = async () => {
+    await axios
+      .get('/api/equipment')
+      .then((results) => setEquipData(results.data));
+  };
+
   const getEventInfo = async () => {
     await axios
       .get(`/artist/${history.location.pathname.slice(8)}`)
@@ -28,6 +38,7 @@ const ArtistCollab = () => {
 
   useEffect(() => {
     getEventInfo();
+    getEquipInfo();
   }, [iconsForStage]);
 
   const handleCategorySelect = (event) => {
@@ -65,11 +76,10 @@ const ArtistCollab = () => {
               style={{
                 backgroundImage: `url(${object.iconURL})`,
                 color: 'white',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                outline: 'none'
               }}
-            >
-              {object.name}
-            </button>
+            ></button>
           ))}
 
           <div className="icon-to-select"></div>
@@ -92,6 +102,14 @@ const ArtistCollab = () => {
         </div>
         <div className="venue-equip-container">
           <h2>Equip offered by venue:</h2>
+          {equipData?.map((item) => {
+            return (
+              <div>
+                <span>{item.name}</span>
+                <span>{item.quantity}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>

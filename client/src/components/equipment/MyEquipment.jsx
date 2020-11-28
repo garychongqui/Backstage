@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import equipLists, { sort } from '../../helper';
+import equipLists, { sort } from '../../venueEquip';
 import './myEquipment.css';
 
 const categoryList = [
