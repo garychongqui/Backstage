@@ -22,7 +22,6 @@ import MyEquipment from './components/equipment/MyEquipment';
 function App() {
   return (
     <AppContextProvider>
-      <MainNav />
       <BrowserRouter>
         <MainNav />
         <Switch>
