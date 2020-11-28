@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import equipLists, { sort } from '../../venueEquip';
 import './myEquipment.css';
+import swal from 'sweetalert';
 
 const categoryList = [
   'Cables',
@@ -62,7 +63,9 @@ class MyEquipment extends React.Component {
         equipNames: this.state.equipNames.concat(event.target.value)
       });
     } else {
-      alert(`${event.target.value} already in array. adjust quantity instead`);
+      swal(`${event.target.value} already selected. Adjust quantity instead`, {
+        icon: 'warning'
+      });
     }
   };
 
@@ -125,7 +128,7 @@ class MyEquipment extends React.Component {
     // console.log('d', uniqueDescriptionArray, 'q', uniqueQuantityArray);
     await axios
       .post('/api/equipment', { uniqueDescriptionArray, uniqueQuantityArray })
-      .then(alert('Equipment list saved'));
+      .then(swal('Equipment list saved', { icon: 'success' }));
   };
 
   render() {

@@ -8,17 +8,14 @@ import { Link } from 'react-router-dom';
 
 const MainNav = () => {
   return (
-
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-gray-dark">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
-          <Link to="/">
-            <a
-              className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white"
-             
-            >
-              BackStage
-            </a>
+          <Link
+            to="/"
+            className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white"
+          >
+            BackStage
           </Link>
           <button
             className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-gray-dark block lg:hidden outline-none focus:outline-none"
@@ -27,19 +24,17 @@ const MainNav = () => {
         </div>
         <div className="lg:flex flex-grow items-center">
           <ul className="flex flex-col lg:flex-row list-none ml-auto">
-
-            <Link to="/createUser">
-              <li className="nav-item px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 ml-2">
-                Join
-              </li>
+            <Link
+              to="/createUser"
+              className="nav-item px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 ml-2"
+            >
+              Join
             </Link>
-
           </ul>
         </div>
         <div>
           <div className="dropdown inline-block relative">
             <button className="bg-gray-300 text-white font-semibold py-2 px-4 rounded inline-flex items-center">
-
               <img
                 className="profile-icon"
                 src="../profileIcons/icon.png"
@@ -56,15 +51,17 @@ const MainNav = () => {
             </button>
 
             <ul className="dropdown-menu absolute hidden text-white pt-1">
-              <Link to="/login">
-                <li className="rounded-t bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-                  Login
-                </li>
+              <Link
+                to="/login"
+                className="rounded-t bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+              >
+                Login
               </Link>
-              <Link to="/logout">
-                <li className="bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-                  Logout
-                </li>
+              <Link
+                to="/logout"
+                className="bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+              >
+                Logout
               </Link>
             </ul>
           </div>

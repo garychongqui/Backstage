@@ -125,7 +125,7 @@ const CreateEvent = ({ handleClose, show }) => {
                       type="date"
                       onInput={(event) => setEventDate(event.target.value)}
                       style={{
-                        width: '35%',
+                        width: '45%',
                         textAlign: 'center',
                         height: '2rem',
                         margin: '1rem',
