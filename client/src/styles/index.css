@@ -40,6 +40,9 @@ label:hover {
 .login-container {
   @apply bg-gray-dark content-center justify-center;
 }
+.nav-container {
+  @apply bg-gray-dark content-center justify-center;
+}
 
 .container {
   @apply bg-gray-dark;
@@ -145,8 +148,11 @@ label:hover {
 .dropdown:hover .dropdown-menu {
   display: block;
 }
+.profile-icon {
+  @apply flex h-12 w-12;
+}
 
-.navbar {
+/* .navbar {
   display: flex;
   flex-direction: row-reverse;
   overflow: hidden;
@@ -212,4 +218,4 @@ label:hover {
 
 .delete-button:hover {
   cursor: pointer;
-}
+} */
