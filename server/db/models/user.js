@@ -51,15 +51,15 @@ const userSchema = new mongoose.Schema(
   }
 );
 userSchema.virtual('events', {
-  ref: 'Events',
+  ref: 'Event',
   localField: '_id',
   foreignField: 'user'
 });
-// userSchema.virtual('equipment', {
-//   ref: 'Equipment',
-//   localField: '_id',
-//   foreignField: 'user'
-// });
+userSchema.virtual('items', {
+  ref: 'Equipment',
+  localField: '_id',
+  foreignField: 'user'
+});
 userSchema.virtual('packages', {
   ref: 'Package',
   localField: '_id',

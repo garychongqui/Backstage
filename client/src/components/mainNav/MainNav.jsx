@@ -1,6 +1,7 @@
 import React from 'react';
 // import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Logout from './../Logout';
 // import dueFilter from '../helpers/dueFilter';
 // import { Navbar, Nav, Dropdown, Image } from 'react-bootstrap';
 // import { AppContext } from '../context/AppContext';
@@ -8,16 +9,12 @@ import { Link } from 'react-router-dom';
 
 const MainNav = () => {
   return (
-
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-gray-dark">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
           <Link to="/">
-            <a
-              className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white"
-             
-            >
-              BackStage
+            <a className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white">
+              BACKSTAGE
             </a>
           </Link>
           <button
@@ -27,19 +24,16 @@ const MainNav = () => {
         </div>
         <div className="lg:flex flex-grow items-center">
           <ul className="flex flex-col lg:flex-row list-none ml-auto">
-
-            <Link to="/createUser">
+            <Link to="/signup">
               <li className="nav-item px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75 ml-2">
-                Join
+                Join Backstage
               </li>
             </Link>
-
           </ul>
         </div>
         <div>
           <div className="dropdown inline-block relative">
             <button className="bg-gray-300 text-white font-semibold py-2 px-4 rounded inline-flex items-center">
-
               <img
                 className="profile-icon"
                 src="../profileIcons/icon.png"
@@ -61,11 +55,10 @@ const MainNav = () => {
                   Login
                 </li>
               </Link>
-              <Link to="/logout">
-                <li className="bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
-                  Logout
-                </li>
-              </Link>
+
+              <li className="bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                <Logout>Logout</Logout>
+              </li>
             </ul>
           </div>
         </div>
