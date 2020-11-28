@@ -1,20 +1,25 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Login = () => {
+const SignUp = () => {
   const history = useHistory();
-
   return (
     <div className="container">
       <div className="main-area">
         <form
           className="form"
-          name="login-form"
+          name="signup-form"
           method="POST"
-          action="/api/users/login"
+          action="/api/users/signup"
         >
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>
+            <input
+              className="text-input"
+              type="text"
+              placeholder="Username"
+              name="name"
+            />
             <input
               className="text-input"
               type="email"
@@ -31,7 +36,14 @@ const Login = () => {
             />
           </div>
           <div className="btn-area">
-            <input type="submit" className="btn-1" value="Login" />
+            <input
+              type="submit"
+              className="btn-1"
+              value="SignUp"
+              onClick={() => {
+                history.push('/dashboard/events');
+              }}
+            />
           </div>
         </form>
       </div>
@@ -39,4 +51,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;

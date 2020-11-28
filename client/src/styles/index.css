@@ -44,9 +44,68 @@ label:hover {
 .main-area {
   @apply content-center justify-center;
 }
-.main-area {
-  @apply bg-gray-dark content-center;
+
+/* *********************Welcome Landingpage**********************  */
+.landing-page {
+  @apply bg-gray-dark content-center justify-center w-full h-full;
 }
+.landing-container-1 {
+  @apply flex h-70vh shadow-md;
+}
+.welcome {
+  @apply flex flex-col mt-40 ml-36;
+}
+.join-button {
+  @apply bg-red hover:bg-red text-white p-2 content-center w-32 h-10;
+}
+
+.landing-container-back {
+  @apply flex h-70vh;
+}
+
+.landing-pic-back {
+  @apply ml-80 pt-4 w-30vw h-70vh;
+}
+
+.landing-container-info-back {
+  @apply ml-32 flex flex-col justify-center p-2;
+}
+
+.landing-container-image-back {
+}
+
+.landing-container-3 {
+  @apply flex flex-row-reverse bg-red h-70vh;
+}
+.landing-pic-3 {
+  @apply flex ml-16 w-30vw h-70vh;
+}
+.landing-container-3-info {
+  @apply ml-80 flex flex-col justify-center p-2;
+}
+.landing-container-3-image {
+}
+
+.landing-container-5 {
+  @apply flex flex-row-reverse bg-red h-70vh;
+}
+.landing-pic-5 {
+  @apply flex p-2 ml-16 w-30vw h-70vh;
+}
+.landing-container-5-info {
+  @apply ml-64 flex flex-col justify-center p-2;
+}
+.landing-container-5-image {
+}
+
+.landing-footer {
+  @apply bg-gray-dark h-30vh m-4 flex flex-col;
+}
+
+.landing-footer-info {
+  @apply flex flex-col pl-12 pt-12;
+}
+
 /* *********************FORMS AND ONBOARDING**********************  */
 .form {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;

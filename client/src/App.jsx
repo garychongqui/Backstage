@@ -10,6 +10,7 @@ import {
 } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 // import Studio from './collaboration/Studio';
 import test from './components/test';
 import ArtistCollab from './pages/collaboration/ArtistCollab';
@@ -21,7 +22,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" />
+          <Route exact path="/signup" component={SignUp} />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route path="/artist" component={ArtistCollab} />
         </Switch>
