@@ -30,6 +30,7 @@ exports.createUser = async (req, res) => {
 };
 // Login a user
 exports.loginUser = async (req, res) => {
+  console.log('has run');
   const { email, password } = req.body;
   try {
     const user = await User.findByCredentials(email, password);

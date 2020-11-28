@@ -12,6 +12,7 @@ const Login = () => {
           name="login-form"
           method="POST"
           action="/api/users/login"
+          // onSubmit={() => history.push('/dashboard/events')}
         >
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>
@@ -31,12 +32,7 @@ const Login = () => {
             />
           </div>
           <div className="btn-area">
-            <input
-              type="submit"
-              className="btn-1"
-              value="Login"
-              onClick={() => history.push('/dashboard/events')}
-            />
+            <input type="submit" className="btn-1" value="Login" />
           </div>
         </form>
       </div>
