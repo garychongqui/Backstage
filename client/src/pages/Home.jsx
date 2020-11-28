@@ -16,8 +16,8 @@ const Home = () => {
           action="/api/users/login"
         >
           <div className="welcome">
-            <h1 className="welcome-landingpage">WELCOME TO BACKSTAGE</h1>
-            <p className="paragraph">
+            <h1 className="title-1">WELCOME TO BACKSTAGE.</h1>
+            <p className="title-paragraph-1">
               We’re here to make connecting venues and artists easier.
             </p>
             <button
@@ -35,8 +35,10 @@ const Home = () => {
 
       <div className="landing-container-back">
         <div className="landing-container-info-back">
-          <h1>Search local Talent & Venues</h1>
-          <p>Quickly filter, find, and save bars and events to view anytime.</p>
+          <h1 className="title">Search local Talent & Venues</h1>
+          <p className="title-paragraph">
+            Quickly filter, find, and save bars and events to view anytime.
+          </p>
         </div>
         <div className="landing-container-image-back">
           <img
@@ -54,8 +56,8 @@ const Home = () => {
         }}
       >
         <div className="landing-container-3-info">
-          <h1>Compare Equipment</h1>
-          <p>
+          <h1 className="title">Compare Equipment</h1>
+          <p className="title-paragraph">
             Find an artist or venue you like? Easily compare equipment- getting
             it right the first time, everytime.
           </p>
@@ -71,8 +73,10 @@ const Home = () => {
 
       <div className="landing-container-back">
         <div className="landing-container-info-back">
-          <h1>Message Venues Directly</h1>
-          <p>1:1 communication with venues allows booking with ease.</p>
+          <h1 className="title">Message Venues Directly</h1>
+          <p className="title-paragraph">
+            1:1 communication with venues allows booking with ease.
+          </p>
         </div>
         <div className="landing-container-image-back">
           <img
@@ -90,8 +94,8 @@ const Home = () => {
         }}
       >
         <div className="landing-container-5-info">
-          <h1>Upload & Share Riders And Stage Set Ups</h1>
-          <p>
+          <h1 className="title-2">Upload & Share Riders And Stage Set Ups</h1>
+          <p className="title-paragraph-2">
             No more combing through endless email attachments... Easily upload
             rider, flyer, & booking contract PDFs.
           </p>
