@@ -53,7 +53,7 @@ userSchema.virtual('events', {
   localField: '_id',
   foreignField: 'user'
 });
-userSchema.virtual('item', {
+userSchema.virtual('items', {
   ref: 'Equipment',
   localField: '_id',
   foreignField: 'user'
