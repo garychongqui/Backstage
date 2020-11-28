@@ -45,14 +45,13 @@ const ArtistCollab = () => {
 
   const handleIconClick = (event) => {
     setIconsForStage(iconsForStage.concat(event.target.value));
-    console.log(iconsForStage);
   };
 
   // const iconRatio = (eventData?.width * eventData?.depth) / 120;
 
   return (
     <div className="artist-collab-component text-center">
-      <h1 class="text-left bold text-4xl">Welcome Backstage.</h1>
+      <h1 class="text-left bold text-5xl m-4 rounded-lg">Welcome Backstage.</h1>
 
       <div className="info-header">
         <h2 class="bold text-3xl mt-6">{eventData?.eventTitle}</h2>
@@ -61,7 +60,7 @@ const ArtistCollab = () => {
       <div className="artist-collab-container flex flex-col items-center">
         <div class="icons-and-stage flex w-5/6 items-center justify-evenly">
           <div
-            className="icon-selection-container flex flex-col items-center w-56"
+            className="icon-selection-container flex flex-col items-center w-56 shadow-md"
             style={{ minHeight: '32rem' }}
           >
             <select onChange={handleCategorySelect} class="text-lg">
@@ -74,7 +73,7 @@ const ArtistCollab = () => {
                 <button
                   className="icon-to-select"
                   key={index}
-                  value={object.name}
+                  value={object.iconURL}
                   onClick={(event) => handleIconClick(event)}
                   style={{
                     backgroundImage: `url(${object.iconURL})`,

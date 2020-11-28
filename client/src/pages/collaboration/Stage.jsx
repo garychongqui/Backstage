@@ -1,13 +1,6 @@
 import React from 'react';
 import Draggable from 'react-draggable';
-
-const equipArray = ['XLR Cable', 'Quarter-Inch Cable', 'Mixer', 'Headphones'];
-const iconArray = [
-  '../../../../icons/png/big-tambourine.png',
-  'Quarter-Inch Cable',
-  'Mixer',
-  'Headphones'
-];
+import equipLists from '../../artistEquip';
 
 class Stage extends React.Component {
   state = {
@@ -30,8 +23,10 @@ class Stage extends React.Component {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     return (
       <div
-        className="the-stage border border-gray-200 shadow-lg w-3/4 rounded-md"
-        style={{ height: '32rem' }}
+        className="the-stage border border-gray-200 shadow-lg w-3/4 rounded-md relative flex flex-wrap"
+        style={{
+          height: '32rem'
+        }}
       >
         {this.props.iconsForStage?.map((icon) => {
           return (
@@ -39,16 +34,12 @@ class Stage extends React.Component {
               <div
                 className="icon-on-stage"
                 style={{
-                  backgroundImage:
-                    'url("https://source.unsplash.com/random/80x80")',
-                  height: `4.5rem`,
-                  width: `4.5rem`
+                  backgroundImage: `url("${icon}")`,
+                  height: `5.5rem`,
+                  width: `5.5rem`,
+                  backgroundSize: '100% 100%'
                 }}
-              >
-                <span style={{ color: 'white', fontWeight: 'bold' }}>
-                  {icon}
-                </span>
-              </div>
+              ></div>
             </Draggable>
           );
         })}

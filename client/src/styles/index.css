@@ -191,7 +191,3 @@ label:hover {
 .artist-collab-container * {
   margin: 0.5rem;
 }
-
-.artist-collab-component * {
-  border: 1px solid red;
-}
