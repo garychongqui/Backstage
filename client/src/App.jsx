@@ -8,17 +8,21 @@ import {
   Link,
   useHistory
 } from 'react-router-dom';
+import MainNav from './components/mainNav/MainNav';
 import Dashboard from './pages/Dashboard';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 // import Studio from './collaboration/Studio';
 import test from './components/test';
 import ArtistCollab from './pages/collaboration/ArtistCollab';
+import MainNav from './components/mainNav/MainNav';
 
 function App() {
   return (
     <AppContextProvider>
+      <MainNav />
       <BrowserRouter>
+        <MainNav />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />

@@ -5,7 +5,7 @@ const Login = () => {
   const history = useHistory();
 
   return (
-    <div className="container">
+    <div className="login-container">
       <div className="main-area">
         <form
           className="form"
