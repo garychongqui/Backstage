@@ -14,10 +14,12 @@ import Login from './components/Login';
 // import Studio from './collaboration/Studio';
 import test from './components/test';
 import ArtistCollab from './pages/collaboration/ArtistCollab';
+import MainNav from './components/mainNav/MainNav';
 
 function App() {
   return (
     <AppContextProvider>
+      <MainNav />
       <BrowserRouter>
         <MainNav />
         <Switch>
