@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import './stage.css';
+import React from 'react';
 import Draggable from 'react-draggable';
 
 const equipArray = ['XLR Cable', 'Quarter-Inch Cable', 'Mixer', 'Headphones'];
@@ -30,7 +29,10 @@ class Stage extends React.Component {
   render() {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     return (
-      <div className="the-stage">
+      <div
+        className="the-stage border border-gray-200 shadow-lg w-3/4 rounded-md"
+        style={{ height: '32rem' }}
+      >
         {this.props.iconsForStage?.map((icon) => {
           return (
             <Draggable bounds="parent" {...dragHandlers}>
@@ -39,8 +41,8 @@ class Stage extends React.Component {
                 style={{
                   backgroundImage:
                     'url("https://source.unsplash.com/random/80x80")',
-                  height: `3.5rem`,
-                  width: `3.5rem`
+                  height: `4.5rem`,
+                  width: `4.5rem`
                 }}
               >
                 <span style={{ color: 'white', fontWeight: 'bold' }}>

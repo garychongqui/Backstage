@@ -188,6 +188,10 @@ label:hover {
   cursor: pointer;
 }
 
-/* .modal-container * {
+.artist-collab-container * {
+  margin: 0.5rem;
+}
+
+.artist-collab-component * {
   border: 1px solid red;
-} */
+}
