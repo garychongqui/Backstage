@@ -117,9 +117,12 @@ class MyEquipment extends React.Component {
 
   render() {
     return (
-      <div className="my-equipment-component">
-        <h1>My Equipment (click to add)</h1>
+      <div className="my-equipment-component flex">
+        <div className="existing-equip-list">
+          <h1>Existing Equip:</h1>
+        </div>
         <form name="equipmentList" onSubmit={this.handleSave}>
+          <h2>Add Equipment</h2>
           <select onChange={this.handleCategorySelect}>
             {categoryList.map((item) => (
               <option value={categoryList.indexOf(item)}>{item}</option>

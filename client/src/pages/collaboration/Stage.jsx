@@ -32,7 +32,7 @@ class Stage extends React.Component {
           return (
             <Draggable bounds="parent" {...dragHandlers}>
               <div
-                className="icon-on-stage"
+                className="icon-on-stage hover: cursor-pointer"
                 style={{
                   backgroundImage: `url("${icon}")`,
                   height: `5.5rem`,

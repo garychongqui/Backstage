@@ -137,6 +137,12 @@ const ArtistCollab = () => {
                 {eventData?.selectedPackage.depth} ft.
               </span>
             </div>
+            <div class="inline-flex justify-between w-11/12">
+              <span>Indoor/Outdoor</span>
+              <span>
+                {eventData?.selectedPackage.isOutdoor ? 'Outdoor' : 'Indoor'}
+              </span>
+            </div>
             <br />
             <div class="inline-flex justify-left w-11/12">
               <p>
