@@ -1,13 +1,15 @@
 const router = require('express').Router(),
   {
-    addEquipItem,
+    addEquipList,
     getEquipItem,
+    getAllEquip,
     updateEquipItem,
     deleteEquipItem
   } = require('../../controllers/equipment');
 
-router.post('/', addEquipItem);
+router.post('/', addEquipList);
 router.get('/:id', getEquipItem);
+router.get('/', getAllEquip);
 router.put('/:id', updateEquipItem);
 router.delete('/:id', deleteEquipItem);
 

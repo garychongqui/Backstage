@@ -1,20 +1,30 @@
 const Equipment = require('../db/models/equipment');
+const User = require('../db/models/user');
 const mongoose = require('mongoose');
 // Add Equipment item
 // ***********************************************//
-exports.addEquipItem = async (req, res) => {
+exports.addEquipList = async (req, res) => {
   try {
-    const theEquipment = new Equipment({
-      name: req.body.name,
-
-      user: req.user._id,
-
-      quantity: req.body.quantity,
-
-      description: req.body.description
+    const theUser = User.findOne({ _id: req.user._id });
+    req.body.uniqueDescriptionArray.forEach((obj) => {
+      let equipItem = Equipment.create({
+        name: obj.item,
+        description: obj.description,
+        quantity: req.body.uniqueQuantityArray[obj.index].quantity,
+        user: req.user
+      });
+      theUser.push(equipItem);
     });
-    await theEquipment.save();
-    res.status(201).json(theEquipment);
+    res.status(201);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+};
+
+exports.getAllEquip = async (req, res) => {
+  try {
+    const allEquip = await Equipment.find({ user: req.user._id });
+    res.status(200).json(allEquip);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -62,15 +72,12 @@ exports.updateEquipItem = async (req, res) => {
 exports.deleteEquipItem = async (req, res) => {
   try {
     const theEquipment = await Equipment.findOneAndDelete({
-
       _id: req.params.id,
       user: req.user._id
     });
     if (!theEquipment)
       return res.status(404).json({ message: 'equipment not found' });
     res.status(200).send('Equipment has been deleted');
-
-   
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
