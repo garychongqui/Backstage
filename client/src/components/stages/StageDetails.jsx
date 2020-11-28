@@ -43,7 +43,7 @@ const StageDetails = () => {
         name="name"
         id="name"
         type="text"
-        placeholder={currentStage.name}
+        defaultValue={currentStage.name}
         onChange={handleChange}
       />
       <br />
@@ -54,7 +54,7 @@ const StageDetails = () => {
         name="width"
         id="width"
         type="number"
-        placeholder={currentStage.width}
+        defaultValue={currentStage.width}
         onChange={handleChange}
       />
       <br />
@@ -65,35 +65,54 @@ const StageDetails = () => {
         name="depth"
         id="depth"
         type="number"
-        placeholder={currentStage.depth}
+        defaultValue={currentStage.depth}
         onChange={handleChange}
       />
       <label for="isOutoor" className="dash-h4">
-        Outdoor Stage
+        Indoor/Outdoor
       </label>
       {currentStage.isOutdoor ? (
-        <input
-          name="isOutdoor"
-          id="isOutdoor"
-          type="checkbox"
-          checked
-          onChange={handleChange}
-        />
+        <select>
+          <option value="true" name="isOutdoor">
+            Outdoor
+          </option>
+          <option value="false" name="isOutdoor">
+            Indoor
+          </option>
+        </select>
       ) : (
-        <input
-          name="isOutdoor"
-          id="isOutdoor"
-          type="checkbox"
-          onChange={handleChange}
-        />
+        <select>
+          <option value="false" name="isOutdoor">
+            Indoor
+          </option>
+          <option value="true" name="isOutdoor">
+            Outdoor
+          </option>
+        </select>
       )}
+      {/*}  <input
+      //     name="isOutdoor"
+      //     id="isOutdoor"
+      //     value="true"
+      //     type="checkbox"
+      //     // checked
+      //     onChange={handleChange}
+      //   />
+      // ) : (
+      //   <input
+      //     name="isOutdoor"
+      //     value="false"
+      //     id="isOutdoor"
+      //     type="checkbox"
+      //     onChange={handleChange}
+      //   /> */}
       <label for="comments" className="dash-h4">
         Comments
       </label>{' '}
       <textarea
         name="comments"
         id="comments"
-        placeholder={currentStage.comments}
+        defaultValue={currentStage.comments}
         cols="30"
         rows="4"
         onChange={handleChange}

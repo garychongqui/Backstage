@@ -1,8 +1,8 @@
-const Events = require('../db/models/events');
+const Event = require('../db/models/events');
 
 exports.getEventForArtist = async (req, res) => {
   try {
-    const theEvent = await Events.findOne({ _id: req.params.id })
+    const theEvent = await Event.findOne({ _id: req.params.id })
       .populate({
         path: 'selectedPackage',
         model: 'Package'
@@ -14,4 +14,13 @@ exports.getEventForArtist = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
+};
+
+exports.setHasBeenSeen = async (req, res) => {
+  try {
+    const theEvent = await Event.findOne({ _id: req.params.id });
+    theEvent.hasBeenOpened = true;
+    await theEvent.save();
+    res.status(200);
+  } catch (error) {}
 };

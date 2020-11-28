@@ -3,17 +3,18 @@ const User = require('../db/models/user');
 const mongoose = require('mongoose');
 // Add Equipment item
 // ***********************************************//
-exports.addEquipList = async (req, res) => {
+exports.addEquipItem = async (req, res) => {
   try {
     const theUser = User.findOne({ _id: req.user._id });
-    req.body.uniqueDescriptionArray.forEach((obj) => {
-      let equipItem = Equipment.create({
+    req.body.uniqueQuantityArray.forEach(async function (obj) {
+      console.log('has run');
+      let theItem = new Equipment({
         name: obj.item,
-        description: obj.description,
-        quantity: req.body.uniqueQuantityArray[obj.index].quantity,
+        description: req.body.uniqueDescriptionArray[obj.index].description,
+        quantity: obj.quantity,
         user: req.user
       });
-      theUser.push(equipItem);
+      await theItem.save();
     });
     res.status(201);
   } catch (error) {

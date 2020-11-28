@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EventLink from './EventLink';
+import './createEvent.css';
 
 const CreateEvent = ({ handleClose, show }) => {
   const [packages, setPackages] = useState([]);
@@ -34,7 +35,7 @@ const CreateEvent = ({ handleClose, show }) => {
   const handleGenerateEvent = () => {
     axios
       .post('/api/events', {
-        data: { eventTitle, eventDate, selectedPackage, hasBeenOpened: false }
+        data: { eventTitle, eventDate, selectedPackage }
       })
       .then((results) =>
         setEventURL(`http://localhost:3000/artist/${results.data._id}`)
@@ -45,10 +46,23 @@ const CreateEvent = ({ handleClose, show }) => {
 
   return (
     <div className={showHideClassName}>
-      <div class="fixed z-10 inset-0 overflow-y-auto entire-modal">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-          <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+      <div
+        class="entire-modal fixed z-10 inset-0 overflow-y-auto"
+        id="parent-parent-parent"
+      >
+        <div
+          class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
+          id="parent-parent"
+        >
+          <div
+            class="fixed inset-0 transition-opacity"
+            id="background-overlay-parent"
+            aria-hidden="true"
+          >
+            <div
+              class="absolute inset-0 bg-gray-500 opacity-75"
+              id="background-overlay"
+            ></div>
           </div>
 
           <span
@@ -63,6 +77,7 @@ const CreateEvent = ({ handleClose, show }) => {
             role="dialog"
             aria-modal="true"
             aria-labelledby="modal-headline"
+            style={{ minWidth: '70%' }}
           >
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
               <div class="sm:flex sm:items-start">
@@ -82,33 +97,49 @@ const CreateEvent = ({ handleClose, show }) => {
                     ></path>
                   </svg> */}
                 {/* </div> */}
-                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                <div class="modal-container flex flex-col items-center w-full  mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                   <h3
                     class="text-lg leading-6 font-medium text-gray-900"
                     id="modal-headline"
                   >
                     New Event{' '}
                   </h3>
-                  <div class="mt-2">
+                  <div class="w-full flex flex-col items-center mt-2 ">
                     <input
+                      id="event-title"
                       type="text"
                       placeholder="Event Title"
                       onInput={(event) => setEventTitle(event.target.value)}
+                      style={{
+                        width: '45%',
+                        height: '2rem',
+                        textAlign: 'center',
+                        backgroundColor: '#FFF7F1',
+                        border: '1px solid black',
+                        borderRadius: '5px'
+                      }}
                     />
-                    <br />
-                    <label for="date-select">Date</label>
+
                     <input
                       id="date-select"
                       type="date"
-                      placeholder="date"
                       onInput={(event) => setEventDate(event.target.value)}
+                      style={{
+                        width: '35%',
+                        textAlign: 'center',
+                        height: '2rem',
+                        margin: '1rem',
+                        backgroundColor: '#FFF7F1',
+                        border: '1px solid black',
+                        borderRadius: '5px'
+                      }}
                     />
                     {/* <input type='text' id='time-input' placeholder='time'/> */}
-                    <br />
-                    <label for="package-select">Select Package</label>
+
+                    <h2 class="text-lg">Select Stage</h2>
 
                     <div
-                      className="package-select overflow-y-auto w-96"
+                      className="package-select overflow-auto w-full h-44 flex justify-center"
                       id="package-select"
                     >
                       {packages.map((package1) => {
@@ -117,16 +148,14 @@ const CreateEvent = ({ handleClose, show }) => {
                             key={package1?._id}
                             class={
                               selectedPackage === package1?._id
-                                ? 'bg-blue-100 individual-package-container'
-                                : 'package-container'
+                                ? 'bg-blue-100 individual-package-container shadow-md mb-4 hover:shadow-lg flex justify-center items-center'
+                                : 'individual-package-container shadow-md mb-4 hover:shadow-lg flex justify-center items-center'
                             }
+                            onClick={() => handleSelectPackage(package1?._id)}
                           >
-                            <div
-                              onClick={() => handleSelectPackage(package1?._id)}
-                              className="individual-package group border-indigo-500 hover:shadow-md hover:border-transparent"
-                            >
-                              <h2>name: {package1?.name}</h2>
-                            </div>
+                            <span className="w-48 text-center text-xl">
+                              {package1?.name}
+                            </span>
                           </div>
                         );
                       })}
@@ -135,20 +164,18 @@ const CreateEvent = ({ handleClose, show }) => {
                 </div>
               </div>
             </div>
-            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button
-                onClick={handleGenerateEvent}
-                type="button"
-                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm"
-              >
-                Generate Event Link
-              </button>
-              <button
-                onClick={handleClose}
-                type="button"
-                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-200 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-              >
+            <div
+              class="flex justify-center"
+              style={{
+                position: 'relative',
+                bottom: '2rem'
+              }}
+            >
+              <button onClick={handleClose} type="button" class="btn-2">
                 Close
+              </button>
+              <button onClick={handleGenerateEvent} type="button" class="btn-1">
+                Generate Event Link
               </button>
             </div>
             <div>

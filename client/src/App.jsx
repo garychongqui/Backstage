@@ -16,6 +16,10 @@ import SignUp from './components/SignUp';
 import test from './components/test';
 import ArtistCollab from './pages/collaboration/ArtistCollab';
 import MainNav from './components/mainNav/MainNav';
+import MyEvents from './components/events/MyEvents';
+import MyStages from './components/stages/MyStages';
+import MyEquipment from './components/equipment/MyEquipment';
+
 
 function App() {
   return (
@@ -28,6 +32,15 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/dashboard/events">
+            <Dashboard />
+          </Route>
+          <Route exact path="/dashboard/stages">
+            <Dashboard />
+          </Route>
+          <Route exact path="/dashboard/equipment">
+            <Dashboard />
+          </Route>
           <Route path="/artist" component={ArtistCollab} />
         </Switch>
       </BrowserRouter>

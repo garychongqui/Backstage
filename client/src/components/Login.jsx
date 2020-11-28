@@ -31,7 +31,12 @@ const Login = () => {
             />
           </div>
           <div className="btn-area">
-            <input type="submit" className="btn-1" value="Login" />
+            <input
+              type="submit"
+              className="btn-1"
+              value="Login"
+              onClick={() => history.push('/dashboard/events')}
+            />
           </div>
         </form>
       </div>

@@ -1,7 +1,5 @@
 const Event = require('../db/models/events');
 
-const mongoose = require('mongoose');
-
 exports.createEvent = async (req, res) => {
   try {
     const { eventTitle, eventDate, selectedPackage } = req.body.data;
@@ -12,7 +10,6 @@ exports.createEvent = async (req, res) => {
       user: req.user._id
     });
     await theEvent.save();
-
     res.status(201).json(theEvent);
   } catch (error) {
     res.status(400).json({ error: error.message });
