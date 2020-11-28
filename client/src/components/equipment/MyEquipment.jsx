@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import equipLists, { sort } from '../../venueEquip';
 import './myEquipment.css';
 
@@ -28,6 +28,7 @@ let quantityArray = [];
 
 let uniqueDescriptionArray = [];
 let uniqueQuantityArray = [];
+
 class MyEquipment extends React.Component {
   constructor(props) {
     super(props);
@@ -35,9 +36,21 @@ class MyEquipment extends React.Component {
       activeCategory: equipLists[0],
       equipNames: [],
       equipObj: {},
-      equipArray: []
+      equipArray: [],
+      existingEquip: []
     };
   }
+
+  async componentDidMount() {
+    await axios
+      .get('/api/equipment')
+      .then((results) => this.setState({ existingEquip: results.data }));
+  }
+
+  getExistingEquip = async () => {
+    console.log('has run');
+    await axios.get('/api/equipment').then((results) => console.log(results));
+  };
 
   handleCategorySelect = (event) => {
     this.setState({ activeCategory: equipLists[event.target.value] });
@@ -117,9 +130,38 @@ class MyEquipment extends React.Component {
 
   render() {
     return (
-      <div className="my-equipment-component flex">
-        <div className="existing-equip-list">
-          <h1>Existing Equip:</h1>
+      <div className="my-equipment-component flex w-5/6 flex justify-center">
+        <div className="existing-equip-list w-1/3 text-lg text-white ">
+          <div class="flex justify-start text-xl">
+            <span class="w-3/4 text-center">Item</span>
+            <span class="w-1/4 text-center">Quantity</span>
+          </div>
+          {this.state.existingEquip?.map((item) => {
+            return (
+              <div class="flex justify-start border">
+                <span
+                  class="w-3/4 border"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    textAlign: 'left'
+                  }}
+                >
+                  {item.name}
+                </span>
+                <span
+                  class="w-1/4 border"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  {item.quantity}
+                </span>
+              </div>
+            );
+          })}
         </div>
         <form name="equipmentList" onSubmit={this.handleSave}>
           <h2>Add Equipment</h2>

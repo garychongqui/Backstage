@@ -28,15 +28,24 @@ const ArtistCollab = () => {
       .then((results) => setEquipData(results.data));
   };
 
+  const eventID = history.location.pathname.slice(8);
+
   const getEventInfo = async () => {
     await axios
-      .get(`/artist/${history.location.pathname.slice(8)}`)
+      .get(`/artist/${eventID}`)
       .then((results) => setEventData(results.data));
+  };
+
+  const setHasBeenSeen = async () => {
+    await axios
+      .patch(`/artist/${eventID}`, { hasBeenOpened: true })
+      .then((results) => console.log(results));
   };
 
   useEffect(() => {
     getEventInfo();
     getEquipInfo();
+    setHasBeenSeen();
   }, [iconsForStage]);
 
   const handleCategorySelect = (event) => {

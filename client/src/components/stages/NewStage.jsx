@@ -65,7 +65,7 @@ const NewStage = () => {
           ></input>
         </div>
         <div className="indoorOrOutdoor new-stage-form-section">
-          <label for="outdoor-checkbox">Is the stage outdoor?</label>
+          <label for="outdoor-checkbox">This is an outdoor stage.</label>
           <input
             type="checkbox"
             name="isOutdoor"

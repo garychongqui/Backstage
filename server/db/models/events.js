@@ -10,7 +10,7 @@ const eventSchema = new Schema(
     eventDate: String,
     selectedPackage: Object,
     comments: String,
-    hasBeenOpened: Boolean,
+    hasBeenOpened: { type: Boolean, default: false },
     user: { type: Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }

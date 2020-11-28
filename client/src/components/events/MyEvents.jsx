@@ -53,7 +53,9 @@ const MyEvents = () => {
             <div className="saved-stage">
               <span>{`Date: ${event1?.eventDate}`}</span>
               <br />
-              <span>{event1?.status ? 'Opened by Artist' : 'Not Opened'}</span>
+              <span>
+                {event1?.hasBeenOpened ? 'Opened by Artist' : 'Not Opened'}
+              </span>
               <br />
             </div>
             <div>
