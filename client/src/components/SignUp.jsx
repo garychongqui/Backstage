@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 const SignUp = () => {
   const history = useHistory();
   return (
-    <div className="container">
+    <div className="singup-container">
       <div className="main-area">
         <form
           className="form"
@@ -20,6 +20,8 @@ const SignUp = () => {
               placeholder="Username"
               name="name"
             />
+          </div>
+          <div className="inner-form">
             <input
               className="text-input"
               type="email"

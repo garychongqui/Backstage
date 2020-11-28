@@ -132,9 +132,15 @@ label:hover {
 .title-paragraph-2 {
   @apply text-xl mt-10 ml-16;
 }
-/* *********************FORMS AND ONBOARDING**********************  */
+/* *********************SignUP Page**********************  */
+.body {
+  @apply bg-gray-dark content-center justify-center w-full h-100vh;
+}
+.signup-container {
+  @apply bg-gray-dark content-center justify-center w-full h-100vh;
+}
 .form {
-  @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
+  @apply bg-gray-dark shadow-md rounded  content-center justify-center;
 }
 .inner-form {
   @apply font-bold text-center p-2;
@@ -143,7 +149,7 @@ label:hover {
   @apply bg-white shadow-md rounded px-2 py-2 content-center;
 }
 .text-ob {
-  @apply text-white p-4 px-8 m-3 content-center text-4xl font-bold justify-center;
+  @apply text-white p-4 px-8 content-center text-4xl font-bold justify-center;
 }
 
 /* *********************STAGE**********************  */
