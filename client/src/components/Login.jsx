@@ -4,16 +4,10 @@ import { useHistory } from 'react-router-dom';
 const Login = () => {
   const history = useHistory();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    history.push('/dashboard');
-  };
-
   return (
     <div className="container">
       <div className="main-area">
         <form
-          onSubmit={handleSubmit}
           className="form"
           name="login-form"
           method="POST"

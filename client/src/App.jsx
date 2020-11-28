@@ -8,6 +8,7 @@ import {
   Link,
   useHistory
 } from 'react-router-dom';
+import MainNav from './components/mainNav/MainNav';
 import Dashboard from './pages/Dashboard';
 import Login from './components/Login';
 // import Studio from './collaboration/Studio';
@@ -18,6 +19,7 @@ function App() {
   return (
     <AppContextProvider>
       <BrowserRouter>
+        <MainNav />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
