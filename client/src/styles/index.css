@@ -357,3 +357,11 @@ label:hover {
 .dash-something {
   @apply bg-gray-dark h-90vh;
 } */
+
+.file-upload-btn-area {
+  @apply text-gray-dark;
+}
+
+.save-image-btn {
+  @apply mt-4 bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16 border-solid border-white border-2;
+}
