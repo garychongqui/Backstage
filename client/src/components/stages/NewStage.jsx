@@ -55,7 +55,7 @@ const NewStage = () => {
           </div>
           <br />
           <div className="new-stage-dimensions">
-            <h3>What are the stage dimensions?</h3>
+            <h3>stage dimensions</h3>
           </div>
           <div className="new-stage-area">
             <label for="stage-width">Width</label>
