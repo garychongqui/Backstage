@@ -10,7 +10,8 @@ const categoryList = [
   'Microphones',
   'Monitor Speakers',
   'Stands',
-  'DI Box'
+  'Direct Input Boxs',
+  'Instruments'
 ];
 
 function EquipWithDescription(index, item, description) {

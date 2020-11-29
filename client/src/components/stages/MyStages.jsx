@@ -38,52 +38,74 @@ const MyStages = () => {
   };
 
   return (
-    <div className="bg-dark-gray">
-      <div className="dash-title-bar">
-        <div className="dash-title-bar-buttons">
+    <div class="flex flex-col items-center">
+      <div className="dash-title-bar w-full flex justify-center">
+        <div className="dash-title-bar-buttons flex justify-center">
           <button
-            className="btn-1"
+            className="btn-4 text-2xl"
+            style={{ height: '5rem', width: '15.5rem' }}
             onClick={() => history.push('/dashboard/stages/new')}
           >
             Add A New Stage
           </button>
         </div>
       </div>
+      <div
+        class="w-7/12"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}
+      >
+        {packages.map((package1) => {
+          return (
+            <div
+              className="flex p-2 m-6 w-full justify-center my-event-card"
+              style={{
+                borderTopRightRadius: '0.5rem',
+                borderBottomRightRadius: '0.5rem',
+                backgroundColor: '#FFF7F1',
+                marginBottom: '.4rem',
+                borderLeft: '8px solid #A6271F'
+              }}
+            >
+              <br />
 
-      {packages.map((package1) => {
-        return (
-          <div>
-            <br />
+              <div className="flex justify-between">
+                <div className="p-2 m-2 flex flex-col w-2/3 h-56 mb-6">
+                  <h2 className="text-3xl">{package1?.name}</h2>
+                  <br />
+                  <span class="text-2xl">
+                    {package1?.isOutdoor ? 'Outdoor' : 'Indoor'}
+                  </span>
+                  <span class="text-2xl my-4">{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
 
-            <div className="saved-stage">
-              <div className="saved-stage-info">
-                <h2 className="dash-h2">{package1?.name}</h2>
-                <br />
-                <span>{package1?.isOutdoor ? 'Outdoor' : 'Indoor'}</span>
-                <span>{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
+                  <p class="text-xl">
+                    <em>{package1?.comments}</em>
+                  </p>
+                </div>
 
-                <p>{package1?.comments}</p>
-              </div>
+                <div className="saved-stage-btn-area">
+                  <button
+                    className="btn-2"
+                    onClick={() => handleEditClick(package1?._id)}
+                  >
+                    Edit
+                  </button>
 
-              <div className="saved-stage-btn-area">
-                <button
-                  className="btn-2"
-                  onClick={() => handleEditClick(package1?._id)}
-                >
-                  Edit
-                </button>
-
-                <button
-                  className="btn-4"
-                  onClick={() => handlePackageDelete(package1?._id)}
-                >
-                  Delete
-                </button>
+                  <button
+                    className="btn-4"
+                    onClick={() => handlePackageDelete(package1?._id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };

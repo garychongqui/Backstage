@@ -18,18 +18,18 @@ class Stage extends React.Component {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'mm', 'a4');
       pdf.text(`${this.props.eventData?.eventDate}`, 20, 20).setFontSize(32);
-      pdf.text(`${this.props.eventData?.eventTitle}`, 20, 45).setFontSize(16);
-      pdf.addImage(imgData, 'PNG', 15, 55, 160, 110);
+      pdf.text(`${this.props.eventData?.eventTitle}`, 20, 32).setFontSize(16);
+      pdf.addImage(imgData, 'PNG', 15, 55, 120, 110);
       pdf.text(
         this.props.items?.map((item) => item),
         20,
-        180
+        140
       );
       // pdf.text(['Item'].concat(this.props.items?.map((item) => item)), 20, 180);
       pdf.text(
         this.props.descriptions?.map((item) => item),
-        70,
-        180
+        80,
+        140
       );
       // pdf.text(
       //   this.props.quantities?.map((item) => item),
