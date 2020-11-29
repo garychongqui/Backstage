@@ -45,7 +45,7 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div className="all-of-it">
+      <div className="container">
         <div
           className="header-container bg-no-repeat bg-cover bg-center"
           style={{ backgroundImage: "url('dashboard-images/jennyblock2.png')" }}

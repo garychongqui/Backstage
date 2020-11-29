@@ -36,19 +36,18 @@ const MyEvents = () => {
     }
   };
   return (
-
     <div className="bg-dark-gray">
       <div className="dash-title-bar">
         <br />
         <h1 className="dash-h1">My Events</h1>
         <br />
         <div className="dash-title-bar-buttons">
-          <button
+          {/* <button
             className="btn-1"
             onClick={() => history.push('/dashboard/events/new')}
           >
             Create Event
-          </button>
+          </button> */}
         </div>
       </div>
 
@@ -57,14 +56,13 @@ const MyEvents = () => {
           <div>
             <br />
 
-
             <div className="saved-event">
               <div className="saved-event-info">
                 <h2 className="dash-h2">{event1?.eventTitle}</h2>
                 <br />
-                     <span>{`Date: ${moment(event1?.eventDate).format(
-                'MMMM Do YYYY'
-              )}`}</span>
+                <span>{`Date: ${moment(event1?.eventDate).format(
+                  'MMMM Do YYYY'
+                )}`}</span>
                 <br />
                 <span>
                   {event1?.hasBeenOpened ? 'Opened by Artist' : 'Not Opened'}
