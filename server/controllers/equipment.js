@@ -55,7 +55,6 @@ exports.updateEquipItem = async (req, res) => {
   try {
     const theEquipment = await Equipment.findOne({
       _id: req.params.id
-      // user: req.user._id
     });
     if (!theEquipment)
       return res.status(404).json({ message: 'Equipment not found' });

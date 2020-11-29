@@ -31,8 +31,9 @@ const MainNav = () => {
             <button className="bg-gray-300 text-white font-semibold py-2 px-4 rounded inline-flex items-center">
               <img
                 className="profile-icon"
-                src="../profileIcons/icon.png"
+                src="../profileIcons/dj-icon.png"
                 alt="artis mirror with lightbulbs"
+                style={{ height: '100%' }}
               />
 
               <svg
