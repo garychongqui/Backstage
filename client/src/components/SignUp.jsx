@@ -5,7 +5,7 @@ const SignUp = () => {
   const history = useHistory();
   return (
     <div className="container">
-      <div className="main-area">
+      <div className="main-area flex">
         <form
           className="form"
           name="signup-form"
@@ -19,6 +19,7 @@ const SignUp = () => {
               type="text"
               placeholder="Username"
               name="name"
+              style={{ marginRight: '1/5rem' }}
             />
             <input
               className="text-input"

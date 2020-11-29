@@ -137,7 +137,8 @@ class Dashboard extends React.Component {
                 justifyContent: 'center',
                 position: 'relative',
                 left: '10rem',
-                color: '#fff7f1'
+                color: '#fff7f1',
+                top: '1rem'
               }}
             >
               <nav

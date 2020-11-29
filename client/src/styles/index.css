@@ -99,8 +99,6 @@ label:hover {
 .landing-container-5-info {
   @apply ml-28 flex flex-col justify-center p-2;
 }
-.landing-container-5-image {
-}
 
 .landing-footer {
   @apply bg-gray-dark h-30vh m-4 flex flex-col;
@@ -138,7 +136,7 @@ label:hover {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
 }
 .inner-form {
-  @apply font-bold text-center p-2;
+  @apply font-bold  p-2;
 }
 .text-input {
   @apply bg-white shadow-md rounded px-2 py-2 content-center;
@@ -383,4 +381,27 @@ label:hover {
 
 .selected-tab {
   border-bottom: 3px solid #a6271f !important;
+}
+
+.my-equipment-component {
+  @apply flex w-full;
+}
+.existing-equip-list {
+  @apply ml-16 w-1/3 text-lg text-gray-dark;
+}
+.category {
+  @apply ml-10 w-80vw bg-green;
+}
+.category-options {
+  @apply bg-green-light hover:bg-green-light text-white p-1 text-center content-center w-48 h-16;
+}
+.category-options-info {
+  @apply flex flex-row space-x-60 ml-14 pl-4 bg-pink-500 border-b-2 border-red font-medium text-lg;
+}
+/* .change {
+  @apply flex;
+} */
+
+.delete-button:hover {
+  cursor: pointer;
 }
