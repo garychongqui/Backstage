@@ -170,6 +170,7 @@ exports.uploadAvatar = async (req, res) => {
     req.user.avatar = response.secure_url;
     await req.user.save();
     res.json(response);
+    // console.log(res.json())
   } catch (e) {
     res.json({ error: e.toString() });
   }

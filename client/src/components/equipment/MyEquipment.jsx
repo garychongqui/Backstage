@@ -5,11 +5,12 @@ import './myEquipment.css';
 import swal from 'sweetalert';
 
 const categoryList = [
-  'Cables',
+  'Audio Cables',
   'DJ Equipment',
   'Microphones',
-  'Speakers',
-  'Stands'
+  'Monitor Speakers',
+  'Stands',
+  'DI Box'
 ];
 
 function EquipWithDescription(index, item, description) {
