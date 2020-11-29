@@ -33,61 +33,79 @@ const NewStage = () => {
   };
 
   return (
-    <div>
-      <form
-        name="new-package"
-        // method="post"
-        // action="/api/packages"
-        onSubmit={handleFormSubmit}
-      >
-        <input
-          name="name"
-          type="text"
-          placeholder="Stage name (click to edit)"
-          onChange={handleChange}
-        />
-        <div className="stage-dimensions new-stage-form-section">
-          <h3>What are the stage dimensions?</h3>
-          <label for="stage-width">Width</label>
-          {/*  get rid of up/down arrows in input box */}
-          <input
-            id="stage-width"
-            type="number"
-            name="width"
-            onChange={handleChange}
-          ></input>
-          <br></br>
-          <label for="stage-depth">Depth</label>
-          <input
-            id="stage-depth"
-            type="number"
-            name="depth"
-            onChange={handleChange}
-          ></input>
-        </div>
-        <div className="indoorOrOutdoor new-stage-form-section">
-          <label for="outdoor-checkbox">This is an outdoor stage.</label>
-          <input
-            type="checkbox"
-            name="isOutdoor"
-            id="outdoor-checkbox"
-            value="true"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="additional-comments new-stage-form-selection">
-          <label for="comments-text-area">Comments</label>
-          <textarea
-            id="comments-text-area"
-            name="comments"
-            rows="5"
-            cols="35"
-            placeholder="placeholder"
-            onChange={handleChange}
-          />
-        </div>
-        <input type="submit" />
-      </form>
+    <div className="new-stage-full">
+      <div>
+        <form
+          name="new-package"
+          // method="post"
+          // action="/api/packages"
+          onSubmit={handleFormSubmit}
+        >
+          <div className="new-stage-name">
+            <h2>STAGE NAME</h2>
+          </div>
+          <div className="new-stage-container">
+            <input
+              className="stage-name-input"
+              name="name"
+              type="text"
+              placeholder="Stage name (click to edit)"
+              onChange={handleChange}
+            />
+          </div>
+          <br />
+          <div className="new-stage-dimensions">
+            <h3>What are the stage dimensions?</h3>
+          </div>
+          <div className="new-stage-area">
+            <label for="stage-width">Width</label>
+            {/*  get rid of up/down arrows in input box */}
+            <input
+              id="stage-width"
+              type="number"
+              name="width"
+              onChange={handleChange}
+            ></input>
+            <br />
+            <label for="stage-depth">Depth</label>
+            <input
+              id="stage-depth"
+              type="number"
+              name="depth"
+              onChange={handleChange}
+            ></input>
+          </div>
+          <div className="new-stage-place">
+            <label for="outdoor-checkbox">outdoor stage?</label>
+            <input
+              type="checkbox"
+              name="isOutdoor"
+              id="outdoor-checkbox"
+              value="true"
+              onChange={handleChange}
+            />
+          </div>
+          <br />
+          <div className="new-stage-comments-title">
+            <label for="comments-text-area">Comments</label>
+          </div>
+          <div className="new-stage-comments">
+            <textarea
+              id="comments-text-area"
+              name="comments"
+              rows="5"
+              cols="75"
+              placeholder="placeholder"
+              onChange={handleChange}
+            />
+            <br />
+          </div>
+          <br />
+          <div className="new-stage-button">
+            <button type="submit">SUBMIT</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

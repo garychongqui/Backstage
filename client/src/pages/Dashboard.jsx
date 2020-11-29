@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import MyStages from '../components/stages/MyStages';
@@ -7,6 +7,7 @@ import MyEvents from '../components/events/MyEvents';
 import CreateEvent from '../components/events/createEvent/CreateEvent';
 import MyEquipment from '../components/equipment/MyEquipment';
 import StageDetails from '../components/stages/StageDetails';
+// import AddImage from '../components/AddImage'
 import axios from 'axios';
 
 class Dashboard extends React.Component {
@@ -54,6 +55,7 @@ class Dashboard extends React.Component {
     return (
       <div className="container">
         <br />
+        {/* <AddImage/>         */}
         <div className="mt-4">
           <img
             src={
