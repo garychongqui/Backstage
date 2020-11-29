@@ -60,40 +60,48 @@ const ArtistCollab = () => {
   // const iconRatio = (eventData?.width * eventData?.depth) / 120;
 
   return (
-    <div style={{ backgroundColor: '#FFF7F1' }}>
+    <div className="bg-gray-dark">
       <div className="artist-collab-component text-center">
-        <h1 class="text-left bold text-4xl m-8 mb-6 rounded-lg">
-          Welcome Backstage.
-        </h1>
-
         <div className="info-header mb-10">
-          <h2 class="bold text-3xl mt-6">{eventData?.eventTitle}</h2>
-          <h2 class="text-xl text-gray-200">
-            {moment(eventData?.eventDate).format('MMMM Do YYYY')}
+          <h2 class="font-bold text-4xl pt-8 mb-2" style={{ color: '#FFF7F1' }}>
+            {eventData?.eventTitle}
           </h2>
+          <em>
+            <h3
+              class="text-2xl text-gray-200 dash mt-4"
+              style={{ color: '#FFF7F1' }}
+            >
+              {moment(eventData?.eventDate).format('MMMM Do YYYY')}
+            </h3>
+          </em>
         </div>
         <div className="artist-collab-container flex flex-col items-center">
-          <div class="icons-and-stage flex w-5/6 items-center justify-evenly">
+          <div
+            class="icons-and-stage flex w-5/6 items-center justify-evenly m-0"
+            style={{ margin: '0px' }}
+          >
             <div
-              class="flex flex-col items-center w-1/4 justify-between border-l-4 text-lg shadow-lg mx-0"
+              class="flex flex-col items-center w-1/4 justify-between border-l-8 text-lg mx-0"
               style={{
                 height: '36rem',
                 borderTopRightRadius: '0.5rem',
                 borderBottomRightRadius: '0.5rem',
-                borderColor: '#A6271F'
+                borderColor: '#A6271F',
+                backgroundColor: '#FFF7F1',
+                marginBottom: '.25rem'
               }}
             >
-              <h2 class="text-xl">Select your equipment</h2>
+              <h2 class="text-2xl">Select your equipment</h2>
               <div
                 className="icon-selection-container flex flex-col items-center w-full my-0"
                 style={{
-                  minHeight: '33rem',
+                  minHeight: '30rem',
                   margin: '0px'
                 }}
               >
                 <select
                   onChange={handleCategorySelect}
-                  class="text-xlg"
+                  class="text-xl"
                   style={{ backgroundColor: '#FFF7F1', outline: 'none' }}
                 >
                   {categoryList.map((category, index) => {
@@ -119,8 +127,8 @@ const ArtistCollab = () => {
                         color: 'white',
                         fontWeight: 'bold',
                         outline: 'none',
-                        height: '4.5rem',
-                        width: '4.5rem',
+                        height: '5.5rem',
+                        width: '5.5rem',
                         backgroundSize: '100% 100%'
                       }}
                     ></button>
@@ -131,48 +139,54 @@ const ArtistCollab = () => {
             <Stage iconsForStage={iconsForStage} />
           </div>
           <div
-            className="venue-icons-and-characteristics-container flex w-5/6 justify-between"
-            style={{ height: '32rem' }}
+            className="venue-icons-and-characteristics-container flex w-5/6 justify-between m-0"
+            style={{ height: '36rem', marginTop: '0px' }}
           >
             <div
-              class="flex flex-col items-center w-full border-l-4 text-lg shadow-lg"
+              class="flex flex-col items-center w-full border-l-8 text-lg "
               style={{
                 borderColor: '#A6271F',
-                width: '64%',
+                width: '62%',
                 borderTopRightRadius: '0.5rem',
-                borderBottomRightRadius: '0.5rem'
+                borderBottomRightRadius: '0.5rem',
+                backgroundColor: '#FFF7F1',
+                height: '36rem',
+                marginRight: '4px'
               }}
             >
-              <h2 class="text-2xl">Venue's Equipment</h2>
+              <h2 class="text-3xl pt-4 font-medium">Venue's Equipment</h2>
               <div className="venue-equip-container w-full overflow-y-auto ">
                 {equipData?.map((item) => {
                   return (
                     <div class="flex justify-start">
                       <span
-                        class="w-1/5"
+                        class=" text-xl"
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
-                          justifyContent: 'center'
+                          justifyContent: 'center',
+                          width: '32%'
                         }}
                       >
                         {item.name}
                       </span>
                       <span
-                        class="w-2/3 mx-4 text-left"
+                        class="mx-4 text-left text-xl"
                         style={{
                           display: 'inline-flex',
-                          alignItems: 'center'
+                          alignItems: 'center',
+                          width: '55%'
                         }}
                       >
                         {item.description}
                       </span>
                       <span
-                        class="w-1/6"
+                        class=" text-xl"
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
-                          justifyContent: 'center'
+                          justifyContent: 'center',
+                          width: '13%'
                         }}
                       >
                         {item.quantity}
@@ -183,39 +197,80 @@ const ArtistCollab = () => {
               </div>
             </div>
             <div
-              class="flex flex-col items-center w-full border-l-4 text-lg shadow-lg"
               style={{
-                borderColor: '#A6271F',
-                width: '36%',
-                borderTopRightRadius: '0.5rem',
-                borderBottomRightRadius: '0.5rem'
+                width: '38%',
+                height: '36rem',
+                marginLeft: '4px'
               }}
+              class="flex flex-col"
             >
-              <h2 class="text-2xl">Stage Characteristics</h2>
-              <div className="stage-characteristics w-full text-xl bold">
-                <div class="flex justify-between w-11/12 flex-col items-center">
-                  <span style={{ fontSize: '1.4rem' }}>
-                    {eventData?.selectedPackage.width} x{' '}
-                    {eventData?.selectedPackage.depth} ft.
-                  </span>
+              <div
+                class="flex flex-col w-full border-l-8 text-lg ml-0"
+                style={{
+                  borderColor: '#A6271F',
+                  borderTopRightRadius: '0.5rem',
+                  borderBottomRightRadius: '0.5rem',
+                  backgroundColor: '#FFF7F1',
+                  height: '50%',
+                  marginTop: '0px',
+                  marginLeft: '0px',
+                  marginRight: '0px'
+                }}
+              >
+                <h2 class="text-3xl pt-4 font-medium text-center">
+                  Stage Characteristics
+                </h2>
+                <div className="stage-characteristics w-full text-xl bold h-full flex flex-wrap justify-start">
+                  <div class="flex flex-col ">
+                    <span
+                      class="rounded-full py-2 px-4"
+                      style={{
+                        fontSize: '1.35rem',
+                        backgroundColor: '#A6271F',
+                        color: '#FFF7F1'
+                      }}
+                    >
+                      {eventData?.selectedPackage.width} x{' '}
+                      {eventData?.selectedPackage.depth} ft.
+                    </span>
+                  </div>
+                  <div class="flex flex-col text-xl">
+                    <span
+                      class="rounded-full py-2 px-4"
+                      style={{
+                        fontSize: '1.35rem',
+                        backgroundColor: '#A6271F',
+                        color: '#FFF7F1'
+                      }}
+                    >
+                      {eventData?.selectedPackage.isOutdoor
+                        ? 'Outdoor'
+                        : 'Indoor'}
+                    </span>
+                  </div>
+                  <br />
                 </div>
-                <div class="flex flex-col items-center justify-between w-11/12 text-xl">
-                  <span style={{ fontSize: '1.4rem' }}>
-                    {eventData?.selectedPackage.isOutdoor
-                      ? 'Outdoor'
-                      : 'Indoor'}
-                  </span>
-                </div>
-                <br />
-                <div class="inline-flex justify-left w-11/12">
+              </div>
+              <div
+                class="flex flex-col items-center w-full border-l-8 text-lg ml-0"
+                style={{
+                  borderColor: '#A6271F',
+                  borderTopRightRadius: '0.5rem',
+                  borderBottomRightRadius: '0.5rem',
+                  backgroundColor: '#FFF7F1',
+                  height: '50%',
+                  margin: '0px'
+                }}
+              >
+                <div class="flex flex-col justify-left w-11/12">
                   <p
-                    class="text-center underline"
+                    class="text-center text-3xl font-medium"
                     style={{ borderBottom: '2px' }}
                   >
-                    Venues Comments
+                    Venue's Comments
                   </p>
 
-                  <p class="text-lg text-left">
+                  <p class="text-xl text-left">
                     <em>{eventData?.selectedPackage.comments}</em>
                   </p>
                 </div>
