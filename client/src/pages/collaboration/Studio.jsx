@@ -11,7 +11,6 @@ const quant = ['2', '4', '1'];
 class Studio extends React.Component {
   generatePdf = () => {
     const newPlot = document.getElementById('stagePlot');
-
     html2canvas(newPlot).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
       const pdf = new jsPDF('p', 'in', [11.5, 8]);
