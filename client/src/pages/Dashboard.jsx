@@ -54,45 +54,15 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <div className="container dash-menu">
+        <div className="container">
           <br />
-          {/* <AddImage /> */}
         </div>
         <div
           className="header-container bg-no-repeat bg-cover bg-center"
           style={{ backgroundImage: "url('dashboard-images/jennyblock2.png')" }}
         >
-          <div className="profile-picture">
-            <div className="mt-4">
-              <form className="d-flex flex-column" onSubmit={this.handleSubmit}>
-                <label for="image">
-                  <input
-                    type="file"
-                    name="image"
-                    id="image"
-                    style={{ display: 'none' }}
-                    onChange={this.handleImageSelect}
-                  />
-                  <img
-                    src={
-                      this.state.preview
-                        ? this.state.preview
-                        : this.state.currentUser?.avatar
-                        ? this.currentUser.avatar
-                        : 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80'
-                    }
-                    alt="profile-picture"
-                    width={250}
-                    height={250}
-                    roundedCircle
-                  />
-                </label>
-                <button type="submit" size="sm" className="mt-4">
-                  Save Image
-                </button>
-              </form>
-            </div>
-          </div>
+          <AddImage />
+          <div className="profile-picture"></div>
 
           {/*  <div className="container">
         <br />
