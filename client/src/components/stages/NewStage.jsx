@@ -41,7 +41,6 @@ const NewStage = () => {
           // action="/api/packages"
           onSubmit={handleFormSubmit}
         >
-          <div></div>
           <div className="new-stage-container">
             <input
               className="stage-name-input"
@@ -49,7 +48,7 @@ const NewStage = () => {
               rows="5"
               name="name"
               type="text"
-              placeholder="Enter new Stage name-->"
+              placeholder="Enter New Stage name"
               onChange={handleChange}
             />
           </div>
@@ -77,7 +76,7 @@ const NewStage = () => {
             ></input>
           </div>
           <div className="new-stage-place">
-            <label for="outdoor-checkbox">Outdoor Stage?</label>
+            <label for="outdoor-checkbox">Outdoor?</label>
             <input
               type="checkbox"
               name="isOutdoor"

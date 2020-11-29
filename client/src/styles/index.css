@@ -162,6 +162,7 @@ label:hover {
   box-shadow: 5px 0 10px 0 black;
   border-radius: 5px;
   border: 2px solid rgb(0, 0, 0);
+  margin-top: 20px;
 }
 .new-stage-area {
   display: flex;
@@ -188,6 +189,7 @@ label:hover {
   color: white;
   background-color: #a6271f;
   border-radius: 10px;
+  padding: 15px;
   box-shadow: 5px 0 10px 0 black;
 }
 .new-stage-dimensions {
@@ -220,19 +222,15 @@ label:hover {
   box-shadow: 5px 0 10px 0 black;
 }
 .stage-name-input {
-  /* min-width: 825px;
-  min-height: 50px; */
+  min-width: 700px;
+  text-align: center;
+}
+.drop-stage {
+  color: darkgrey;
 }
 
 .stageArea {
   @apply bg-gray m-4;
-}
-.stage-width {
-  margin-left: 10px;
-  margin-right: 5px;
-}
-.stage-height {
-  margin-left: 15px;
 }
 
 .stagePlot {

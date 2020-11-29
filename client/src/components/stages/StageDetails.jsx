@@ -84,7 +84,7 @@ const StageDetails = () => {
             Indoor/Outdoor
           </label>
           {currentStage.isOutdoor ? (
-            <select>
+            <select className="drop-stage">
               <option value="true" name="isOutdoor">
                 Outdoor
               </option>
@@ -93,7 +93,7 @@ const StageDetails = () => {
               </option>
             </select>
           ) : (
-            <select>
+            <select className="drop-stage">
               <option value="false" name="isOutdoor">
                 Indoor
               </option>
