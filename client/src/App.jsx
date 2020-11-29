@@ -18,6 +18,7 @@ import ArtistCollab from './pages/collaboration/ArtistCollab';
 import MyEvents from './components/events/MyEvents';
 import MyStages from './components/stages/MyStages';
 import MyEquipment from './components/equipment/MyEquipment';
+import SignUp from './components/SignUp';
 
 function App() {
   return (
