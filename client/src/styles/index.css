@@ -189,7 +189,7 @@ label:hover {
 
 /* *******************DASH-NAV******************* */
 
-/* .dash-nav-1 {
+.dash-nav-1 {
   @apply text-white py-4 px-6 block hover:text-white focus:outline-none text-white border-b-2 font-medium border-white;
 }
 
@@ -246,14 +246,9 @@ label:hover {
 .profile-icon {
   @apply flex h-12 w-12;
 }
-
 .artist-collab-container * {
   margin: 0.5rem;
 }
-
-.swal {
-  background-color: #0f0cc4;
-} */
 
 /* *******************DASH-NAV******************* */
 .header-container {

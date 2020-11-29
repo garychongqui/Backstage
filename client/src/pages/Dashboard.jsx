@@ -77,9 +77,9 @@ class Dashboard extends React.Component {
               </form>
             </div>
             <CreateEvent show={this.state.show} handleClose={this.hideModal} />
-            {/* <button className="btn-1" type="button" onClick={this.showModal}>
-                Create Event
-              </button> */}
+            <button className="btn-1" type="button" onClick={this.showModal}>
+              Create Event
+            </button>
           </div>
         </div>
 
