@@ -133,17 +133,17 @@ class MyEquipment extends React.Component {
 
   render() {
     return (
-      <div className="my-equipment-component flex w-5/6 flex justify-center">
-        <div className="existing-equip-list w-1/3 text-lg text-white ">
+      <div className="my-equipment-component">
+        <div className="existing-equip-list">
           <div class="flex justify-start text-xl">
-            <span class="w-3/4 text-center">Item</span>
-            <span class="w-1/4 text-center">Quantity</span>
+            <span class="w-3/4 text-center text-white text-lg">Item</span>
+            <span class="w-1/4 text-center text-white text-lg">Quantity</span>
           </div>
           {this.state.existingEquip?.map((item) => {
             return (
-              <div class="flex justify-start border">
+              <div class="flex justify-start">
                 <span
-                  class="w-3/4 border"
+                  class="w-3/4 border bg-white pl-2"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -153,7 +153,7 @@ class MyEquipment extends React.Component {
                   {item.name}
                 </span>
                 <span
-                  class="w-1/4 border"
+                  class="w-1/4 border bg-white"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -166,31 +166,26 @@ class MyEquipment extends React.Component {
             );
           })}
         </div>
-        <form name="equipmentList" onSubmit={this.handleSave}>
-          <h2>Add Equipment</h2>
-          <select onChange={this.handleCategorySelect}>
-            {/*
-      <div className="bg-dark-gray">
-        <br />
-        <h1 className="dash-h1">My Equipment</h1>
 
         <form
+          className="category"
           name="equipmentList"
-          className="equipment-buttons"
           onSubmit={this.handleSave}
         >
-          <select
-            className="equipment-dropdown"
-            onChange={this.handleCategorySelect}
-          >
-*/}
-            {categoryList.map((item) => (
-              <option value={categoryList.indexOf(item)}>{item}</option>
-            ))}
-          </select>
+          <div className="text-white">
+            <h1>Select Equipment</h1>
+            <select
+              className="category-drop-menu text-black"
+              onChange={this.handleCategorySelect}
+            >
+              {categoryList.map((item) => (
+                <option value={categoryList.indexOf(item)}>{item}</option>
+              ))}
+            </select>
+          </div>
           {this.state.activeCategory.map((item, index) => (
             <button
-              className="btn-2"
+              className="category-options"
               key={index}
               type="button"
               value={item.name}
@@ -199,20 +194,21 @@ class MyEquipment extends React.Component {
               {item.name}
             </button>
           ))}
-
-          <div className="dash-h4">
-            <span>Name</span>
-            <span>Description</span>
-            <span>Quantity</span>
+          <div className="category-options-info text-white">
+            <h1 className="change">Name</h1>
+            <h1 className="change">Description</h1>
+            <h1 className="change">Quantity</h1>
           </div>
-
           <div className="button-mapping-area">
             <div className="button-mapping">
               {this.state.equipNames.map((item, index) => {
                 return (
                   <div style={{ display: 'flex' }}>
-                    <span style={{ color: 'lightblue' }}>{item}</span>
+                    <span className="w-20vw" style={{ color: 'lightblue' }}>
+                      {item}
+                    </span>
                     <input
+                      className="w-20vw"
                       placeholder="description"
                       name={item}
                       type="text"
