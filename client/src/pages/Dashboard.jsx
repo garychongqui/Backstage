@@ -13,6 +13,12 @@ class Dashboard extends React.Component {
   state = { show: false, image: null, preview: null };
   context = { currentUser: null };
 
+  async componentDidMount() {
+    await axios
+      .get('/api/users/me')
+      .then((response) => this.setState({ currentUser: response.user }));
+  }
+
   handleImageSelect = (e) => {
     this.setState({ preview: URL.createObjectURL(e.target.files[0]) });
     this.setState({ image: e.target.files[0] });
