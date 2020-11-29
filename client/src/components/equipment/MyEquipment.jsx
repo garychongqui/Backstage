@@ -5,11 +5,12 @@ import './myEquipment.css';
 import swal from 'sweetalert';
 
 const categoryList = [
-  'Cables',
+  'Audio Cables',
   'DJ Equipment',
   'Microphones',
-  'Speakers',
-  'Stands'
+  'Monitor Speakers',
+  'Stands',
+  'DI Box'
 ];
 
 function EquipWithDescription(index, item, description) {
@@ -49,7 +50,6 @@ class MyEquipment extends React.Component {
   }
 
   getExistingEquip = async () => {
-    console.log('has run');
     await axios.get('/api/equipment').then((results) => console.log(results));
   };
 

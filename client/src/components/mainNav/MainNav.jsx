@@ -9,16 +9,14 @@ import Logout from './../Logout';
 
 const MainNav = () => {
   return (
-    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-gray-dark">
+    <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-gray-dark shadow-md">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
-
           <Link
             to="/"
             className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white"
           >
             BackStage
-
           </Link>
           <button
             className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-gray-dark block lg:hidden outline-none focus:outline-none"
@@ -26,16 +24,16 @@ const MainNav = () => {
           ></button>
         </div>
         <div className="lg:flex flex-grow items-center">
-          <ul className="flex flex-col lg:flex-row list-none ml-auto">
-          </ul>
+          <ul className="flex flex-col lg:flex-row list-none ml-auto"></ul>
         </div>
         <div>
           <div className="dropdown inline-block relative">
             <button className="bg-gray-300 text-white font-semibold py-2 px-4 rounded inline-flex items-center">
               <img
                 className="profile-icon"
-                src="../profileIcons/icon.png"
+                src="../profileIcons/dj-icon.png"
                 alt="artis mirror with lightbulbs"
+                style={{ height: '100%' }}
               />
 
               <svg
@@ -58,7 +56,6 @@ const MainNav = () => {
               <li className="bg-gray-dark hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
                 <Logout>Logout</Logout>
               </li>
-
             </ul>
           </div>
         </div>

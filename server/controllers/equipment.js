@@ -7,7 +7,6 @@ exports.addEquipItem = async (req, res) => {
   try {
     const theUser = User.findOne({ _id: req.user._id });
     req.body.uniqueQuantityArray.forEach(async function (obj) {
-      console.log('has run');
       let theItem = new Equipment({
         name: obj.item,
         description: req.body.uniqueDescriptionArray[obj.index]?.description,
@@ -56,7 +55,6 @@ exports.updateEquipItem = async (req, res) => {
   try {
     const theEquipment = await Equipment.findOne({
       _id: req.params.id
-      // user: req.user._id
     });
     if (!theEquipment)
       return res.status(404).json({ message: 'Equipment not found' });

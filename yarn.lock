@@ -1165,6 +1165,11 @@ jsonwebtoken@^8.2.0, jsonwebtoken@^8.5.1:
     ms "^2.1.1"
     semver "^5.6.0"
 
+jspdf-autotable@^3.5.13:
+  version "3.5.13"
+  resolved "https://registry.yarnpkg.com/jspdf-autotable/-/jspdf-autotable-3.5.13.tgz#2808db99affc2fe2a6e27cb308bcb0b3d541c9bd"
+  integrity sha512-0oF5eHefuBjlKm60tNpPMmMS2oDNhY5U7vPkMh+s4/JZbnSjsmcUcP4j2r3k0sDvQz4ysmAi3MoOii9niJn7Og==
+
 jspdf@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/jspdf/-/jspdf-2.1.1.tgz#4ee5b694eeceb24acd25b98e37a24ce94b1ccc67"
