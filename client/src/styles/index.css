@@ -154,7 +154,7 @@ label:hover {
 }
 
 .stagePlot {
-  @apply bg-green-light min-w-full;
+  @apply bg-green-light w-1/2;
 }
 
 .instruments {
@@ -251,6 +251,6 @@ label:hover {
   margin: 0.5rem;
 }
 
-.swal {
-  background-color: #0f0cc4;
+.artist-collab-card {
+  @apply border-l-4 text-lg shadow-lg;
 }

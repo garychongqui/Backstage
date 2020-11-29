@@ -49,7 +49,6 @@ class MyEquipment extends React.Component {
   }
 
   getExistingEquip = async () => {
-    console.log('has run');
     await axios.get('/api/equipment').then((results) => console.log(results));
   };
 

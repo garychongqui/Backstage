@@ -1,6 +1,5 @@
 import React from 'react';
 import Draggable from 'react-draggable';
-import equipLists from '../../artistEquip';
 
 class Stage extends React.Component {
   state = {
@@ -23,9 +22,10 @@ class Stage extends React.Component {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     return (
       <div
-        className="the-stage border border-gray-200 shadow-lg w-3/4 rounded-md relative flex flex-wrap items-start"
+        className="the-stage border shadow-xl w-3/4 rounded-md relative flex flex-wrap items-start"
         style={{
-          height: '32rem'
+          height: '36rem',
+          border: '1px solid #A6271F'
         }}
       >
         {this.props.iconsForStage?.map((icon) => {
@@ -35,8 +35,8 @@ class Stage extends React.Component {
                 className="icon-on-stage hover: cursor-pointer"
                 style={{
                   backgroundImage: `url("${icon}")`,
-                  height: `5.5rem`,
-                  width: `5.5rem`,
+                  height: `6rem`,
+                  width: `6rem`,
                   backgroundSize: '100% 100%'
                 }}
               ></div>
