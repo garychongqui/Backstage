@@ -3,7 +3,7 @@ import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 import swal from 'sweetalert';
 
-const AddImage = ({ profile, setProfile }) => {
+const AddImage = () => {
   const { currentUser, setCurrentUser } = useContext(AppContext);
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
@@ -14,6 +14,7 @@ const AddImage = ({ profile, setProfile }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!image) return;
     const avatar = new FormData();
     avatar.append('avatar', image, image?.name);
     try {
