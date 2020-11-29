@@ -3,7 +3,6 @@ import Draggable from 'react-draggable';
 import equipLists from '../../artistEquip';
 import { jsPDF } from 'jspdf';
 import * as html2canvas from 'html2canvas';
-import autotable from 'jspdf-autotable';
 
 class Stage extends React.Component {
   constructor(props) {
@@ -88,7 +87,7 @@ class Stage extends React.Component {
         <button
           className="btn-3"
           onClick={this.generatePdf}
-          stlye={{ position: 'absolute', top: '40rem' }}
+          style={{ position: 'relative', top: '40rem', right: '10rem' }}
         >
           Download PDF
         </button>
