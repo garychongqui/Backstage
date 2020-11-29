@@ -41,21 +41,19 @@ const NewStage = () => {
           // action="/api/packages"
           onSubmit={handleFormSubmit}
         >
-          <div className="new-stage-name">
-            <h2>STAGE NAME</h2>
-          </div>
+          <div></div>
           <div className="new-stage-container">
             <input
               className="stage-name-input"
               name="name"
               type="text"
-              placeholder="Stage name (click to edit)"
+              placeholder="Enter new Stage name-->"
               onChange={handleChange}
             />
           </div>
           <br />
           <div className="new-stage-dimensions">
-            <h3>stage dimensions</h3>
+            <h3 className="dash-h3">Stage Dimensions</h3>
           </div>
           <div className="new-stage-area">
             <label for="stage-width">Width</label>
@@ -76,7 +74,7 @@ const NewStage = () => {
             ></input>
           </div>
           <div className="new-stage-place">
-            <label for="outdoor-checkbox">outdoor stage?</label>
+            <label for="outdoor-checkbox">Outdoor Stage?</label>
             <input
               type="checkbox"
               name="isOutdoor"
@@ -87,7 +85,9 @@ const NewStage = () => {
           </div>
           <br />
           <div className="new-stage-comments-title">
-            <label for="comments-text-area">Comments</label>
+            <label className="dash-h3" for="comments-text-area">
+              Comments
+            </label>
           </div>
           <div className="new-stage-comments">
             <textarea
@@ -102,7 +102,7 @@ const NewStage = () => {
           </div>
           <br />
           <div className="new-stage-button">
-            <button type="submit">SUBMIT</button>
+            <button type="submit">Submit</button>
           </div>
         </form>
       </div>
