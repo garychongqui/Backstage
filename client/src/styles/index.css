@@ -254,3 +254,16 @@ label:hover {
 .swal {
   background-color: #0f0cc4;
 }
+
+.file-upload-btn-area {
+  @apply text-gray-dark;
+}
+
+.save-image-btn {
+  @apply mt-4 bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16 border-solid border-white border-2;
+}
+
+.swal-modal {
+  background-color: rgba(63, 255, 106, 0.69);
+  border: 3px solid white;
+}
