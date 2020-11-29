@@ -1,10 +1,24 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export const AppContext = createContext();
 
 export const AppContextProvider = ({ children }) => {
-  const [contextMessage, setContextMessage] = useState('');
   const [currentUser, setCurrentUser] = useState(null);
+
+  const fetchCurrentUser = async () => {
+    if (currentUser?._id) return;
+
+    const { data } = await axios.get('/api/users/me');
+
+    setCurrentUser(data);
+  };
+
+  useEffect(() => {
+    fetchCurrentUser();
+  }, []);
+
+  console.log('current user', currentUser);
 
   return (
     <AppContext.Provider

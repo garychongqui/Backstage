@@ -89,18 +89,16 @@ exports.passwordRedirect = async (req, res) => {
 // Get current user
 // ***********************************************//
 exports.getCurrentUser = async (req, res) => {
-  await req.user
-    .populate({ path: 'packages', model: 'Package' })
-    .execPopulate();
-  await req.user
-    .populate({ path: 'equipment', model: 'Equipment' })
-    .execPopulate();
-  await req.user.populate({ path: 'events', model: 'Event' }).execPopulate();
+  const user = await User.findById(req.user._id)
+    .populate('packages')
+    .populate('equipment')
+    .populate('events');
+
   res.json({
-    user: req.user,
-    packages: req.user.packages,
-    equipment: req.user.equipment,
-    events: req.user.events
+    ...user.toObject(),
+    packages: user.packages,
+    equipment: user.equipment,
+    events: user.events
   });
 };
 
@@ -168,7 +166,16 @@ exports.uploadAvatar = async (req, res) => {
       req.files.avatar.tempFilePath
     );
     req.user.avatar = response.secure_url;
+
     await req.user.save();
+
+    const test = await User.findById(req.user._id);
+
+    console.log('what is the avatar', {
+      tempPath: req.files.avatar.tempFilePath,
+      url: response.secure_url,
+      avatar: test.avatar
+    });
     res.json(response);
     // console.log(res.json())
   } catch (e) {
