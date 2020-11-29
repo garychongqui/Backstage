@@ -7,7 +7,6 @@ exports.addEquipItem = async (req, res) => {
   try {
     const theUser = User.findOne({ _id: req.user._id });
     req.body.uniqueQuantityArray.forEach(async function (obj) {
-      console.log('has run');
       let theItem = new Equipment({
         name: obj.item,
         description: req.body.uniqueDescriptionArray[obj.index]?.description,

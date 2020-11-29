@@ -56,7 +56,7 @@ class Dashboard extends React.Component {
       <div>
         <div className="container dash-menu">
           <br />
-          <AddImage />
+          {/* <AddImage /> */}
         </div>
         <div
           className="header-container bg-no-repeat bg-cover bg-center"
@@ -92,10 +92,6 @@ class Dashboard extends React.Component {
                 </button>
               </form>
             </div>
-            <CreateEvent show={this.state.show} handleClose={this.hideModal} />
-            <button className="btn-1" type="button" onClick={this.showModal}>
-              Create Event
-            </button>
           </div>
 
           {/*  <div className="container">
@@ -103,19 +99,7 @@ class Dashboard extends React.Component {
         <div className="mt-4">
          */}
         </div>
-        <div className="mt-4">
-          <form className="d-flex flex-column" onSubmit={this.handleSubmit}>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={this.handleImageSelect}
-            />
-            <button type="submit" size="sm" className="mt-4">
-              Save Image
-            </button>
-          </form>
-        </div>{' '}
-        */}
+
         <CreateEvent show={this.state.show} handleClose={this.hideModal} />
         <button className="btn-1" type="button" onClick={this.showModal}>
           Create Event
@@ -138,42 +122,25 @@ class Dashboard extends React.Component {
               <br />
             </nav>
 
-            <div className="dash-nav-area">
-              <nav className="dash-nav">
-                <Link to="/dashboard/events" className="dash-nav-btn">
-                  My Events
-                </Link>
-                <br />
-                <Link to="/dashboard/stages" className="dash-nav-btn">
-                  My Stages
-                </Link>
-                <br />
-                <Link to="/dashboard/equipment" className="dash-nav-btn">
-                  My Equipment
-                </Link>
-                <br />
-                <br />
-              </nav>
-              <Switch>
-                <Route exact path="/dashboard/events" component={MyEvents} />
-                <Route
-                  exact
-                  path="/dashboard/stages/new"
-                  component={NewStage} //should this be somewhere else?
-                />
-                <Route
-                  exact
-                  path="/dashboard/stages/:id"
-                  component={StageDetails}
-                />
-                <Route exact path="/dashboard/stages" component={MyStages} />
-                <Route
-                  exact
-                  path="/dashboard/equipment"
-                  component={MyEquipment}
-                />
-              </Switch>
-            </div>
+            <Switch>
+              <Route exact path="/dashboard/events" component={MyEvents} />
+              <Route
+                exact
+                path="/dashboard/stages/new"
+                component={NewStage} //should this be somewhere else?
+              />
+              <Route
+                exact
+                path="/dashboard/stages/:id"
+                component={StageDetails}
+              />
+              <Route exact path="/dashboard/stages" component={MyStages} />
+              <Route
+                exact
+                path="/dashboard/equipment"
+                component={MyEquipment}
+              />
+            </Switch>
           </div>
         </BrowserRouter>
       </div>
