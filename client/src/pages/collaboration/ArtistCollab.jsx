@@ -32,6 +32,10 @@ const ArtistCollab = () => {
       .then((results) => setEquipData(results.data));
   };
 
+  const items = equipData.map((obj) => obj.name);
+  const descriptions = equipData.map((obj) => obj.description);
+  const quantities = equipData.map((obj) => obj.quantity);
+
   const eventID = history.location.pathname.slice(8);
 
   const getEventInfo = async () => {
@@ -41,16 +45,14 @@ const ArtistCollab = () => {
   };
 
   const setHasBeenSeen = async () => {
-    await axios
-      .patch(`/artist/${eventID}`, { hasBeenOpened: true })
-      .then((results) => console.log(results));
+    await axios.patch(`/artist/${eventID}`, { hasBeenOpened: true });
   };
 
   useEffect(() => {
     getEventInfo();
     getEquipInfo();
     setHasBeenSeen();
-  }, [iconsForStage]);
+  }, [iconsForStage, eventData]);
 
   const handleCategorySelect = (event) => {
     setActiveCategory(equipLists[event.target.value]);
@@ -78,22 +80,6 @@ const ArtistCollab = () => {
   //   allowTaint: true
   // });
   // pdf.save('test.pdf');
-
-  const generatePdf = () => {
-    const newPlot = document.getElementById('to-canvas');
-
-    html2canvas(newPlot).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'in', [11.5, 8]);
-      // var width = 152;
-      // var height = 111;
-      // pdf.setFontSize(40);
-      // pdf.text("hey guyz", 35, 25);
-      pdf.addImage(imgData, 'png', 0.5, 0.5, 7, 4);
-      pdf.save('test.pdf');
-      // Pdf.addImage("../musicIcons/acoustic-guitar.svg", "SVG", 15, 40, 180, 180);
-    });
-  };
 
   return (
     <div className="bg-gray-dark">
@@ -173,7 +159,13 @@ const ArtistCollab = () => {
                 </div>
               </div>
             </div>
-            <Stage iconsForStage={iconsForStage} />
+            <Stage
+              iconsForStage={iconsForStage}
+              eventData={eventData}
+              items={items}
+              descriptions={descriptions}
+              quantities={quantities}
+            />
           </div>
           <div
             className="venue-icons-and-characteristics-container flex w-5/6 justify-between m-0"
