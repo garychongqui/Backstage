@@ -24,7 +24,7 @@ const CreateEvent = ({ handleClose, show }) => {
   };
   useEffect(() => {
     getPackages();
-  }, []);
+  }, [show]);
 
   const handleSelectPackage = (packageId) => {
     setSelectedPackage(packageId);

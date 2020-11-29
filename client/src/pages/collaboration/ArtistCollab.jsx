@@ -4,6 +4,9 @@ import equipLists, { lastIndexOf } from '../../artistEquip';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
+import { jsPDF } from 'jspdf';
+import * as html2canvas from 'html2canvas';
+import Studio from './Studio';
 
 const categoryList = [
   'Guitars',
@@ -59,6 +62,39 @@ const ArtistCollab = () => {
 
   // const iconRatio = (eventData?.width * eventData?.depth) / 120;
 
+  // const generatePdf = () => {
+  //   const newPlot = document.getElementById('stage-component');
+  //   html2canvas(newPlot, { canvas: canvas }).then(function (canvas) {
+  //     console.log('test');
+  //   });
+  // };
+
+  // const imgData = newPlot.toDataURL('image/png');
+  // console.log(imgData);
+
+  // const pdf = new jsPDF('p', 'in', [11.5, 8]);
+  // pdf.text(categoryList, 0, 0);
+  // pdf.addImage(imgData, 'png', 0.25, 0.25, 7, 4, 'NONE', 0, {
+  //   allowTaint: true
+  // });
+  // pdf.save('test.pdf');
+
+  const generatePdf = () => {
+    const newPlot = document.getElementById('to-canvas');
+
+    html2canvas(newPlot).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'in', [11.5, 8]);
+      // var width = 152;
+      // var height = 111;
+      // pdf.setFontSize(40);
+      // pdf.text("hey guyz", 35, 25);
+      pdf.addImage(imgData, 'png', 0.5, 0.5, 7, 4);
+      pdf.save('test.pdf');
+      // Pdf.addImage("../musicIcons/acoustic-guitar.svg", "SVG", 15, 40, 180, 180);
+    });
+  };
+
   return (
     <div className="bg-gray-dark">
       <div className="artist-collab-component text-center">
@@ -107,6 +143,7 @@ const ArtistCollab = () => {
                   {categoryList.map((category, index) => {
                     return (
                       <option
+                        key={index}
                         value={index}
                         style={{ backgroundColor: '#FFF7F1' }}
                       >
@@ -156,9 +193,9 @@ const ArtistCollab = () => {
             >
               <h2 class="text-3xl pt-4 font-medium">Venue's Equipment</h2>
               <div className="venue-equip-container w-full overflow-y-auto ">
-                {equipData?.map((item) => {
+                {equipData?.map((item, index) => {
                   return (
-                    <div class="flex justify-start">
+                    <div class="flex justify-start" key={index}>
                       <span
                         class=" text-xl"
                         style={{
@@ -220,6 +257,7 @@ const ArtistCollab = () => {
                 <h2 class="text-3xl pt-4 font-medium text-center">
                   Stage Characteristics
                 </h2>
+
                 <div className="stage-characteristics w-full text-xl bold h-full flex flex-wrap justify-start">
                   <div class="flex flex-col ">
                     <span
@@ -269,7 +307,6 @@ const ArtistCollab = () => {
                   >
                     Venue's Comments
                   </p>
-
                   <p class="text-xl text-left">
                     <em>{eventData?.selectedPackage.comments}</em>
                   </p>

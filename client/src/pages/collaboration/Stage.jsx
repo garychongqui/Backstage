@@ -1,6 +1,8 @@
 import React from 'react';
 import Draggable from 'react-draggable';
 import equipLists from '../../artistEquip';
+import { jsPDF } from 'jspdf';
+import * as html2canvas from 'html2canvas';
 
 class Stage extends React.Component {
   state = {
@@ -19,11 +21,31 @@ class Stage extends React.Component {
     this.setState({ activeDrags: --this.state.activeDrags });
   };
 
+  generatePdf = () => {
+    const newPlot = document.getElementById('to-canvas');
+    html2canvas(newPlot).then((canvas) => {
+      try {
+        const imgData = canvas?.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'in', [11.5, 8]);
+        // var width = 152;
+        // var height = 111;
+        // pdf.setFontSize(40);
+        // pdf.text("hey guyz", 35, 25);
+        pdf.addImage(imgData, 'png', 0.5, 0.5, 7, 4);
+        pdf.save('test.pdf');
+      } catch (error) {
+        alert();
+      }
+
+      // Pdf.addImage("../musicIcons/acoustic-guitar.svg", "SVG", 15, 40, 180, 180);
+    });
+  };
+
   render() {
     const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     return (
       <div
-        className="the-stage shadow-xl w-3/4 rounded-md relative flex flex-wrap items-start"
+        className="the-stage shadow-xl w-3/4 rounded-md relative flex flex-wrap items-start to-canvas"
         style={{
           height: '36.25rem',
           backgroundColor: '#FFF7F1',

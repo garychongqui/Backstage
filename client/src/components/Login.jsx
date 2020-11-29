@@ -14,12 +14,11 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/api/users/login', loginData);
+      await axios.post('/api/users/login', loginData);
+      history.push('/dashboard/events');
     } catch (error) {
       swal('Login unsuccessful. Please try again.', { icon: 'error' });
     }
-
-    history.push('/dashboard/events');
   };
 
   return (
