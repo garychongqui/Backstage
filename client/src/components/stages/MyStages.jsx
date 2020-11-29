@@ -40,9 +40,6 @@ const MyStages = () => {
   return (
     <div className="bg-dark-gray">
       <div className="dash-title-bar">
-        <br />
-        <h1 className="dash-h1">My Stages</h1>
-        <br />
         <div className="dash-title-bar-buttons">
           <button
             className="btn-1"

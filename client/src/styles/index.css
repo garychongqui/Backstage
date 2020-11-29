@@ -162,7 +162,7 @@ label:hover {
 }
 
 .saved-stage {
-  @apply bg-gray-light text-gray-dark flex p-2 m-4 w-1/2 justify-center;
+  @apply bg-gray-light text-gray-dark flex p-2 m-4 w-1/2 justify-center ml-80;
 }
 
 .saved-stage-info {
@@ -194,15 +194,15 @@ label:hover {
 }
 
 .dash-nav-btn {
-  @apply text-white py-4 px-6 block hover:text-white hover:text-white focus:outline-none text-red border-b-2 font-medium border-red;
+  @apply text-white py-4 px-6 block hover:text-red hover:text-red focus:outline-none text-white border-b-2 font-medium border-red text-xl;
 }
 
 .dash-nav {
-  @apply flex flex-col sm:flex-row p-4;
+  @apply flex flex-col sm:flex-row p-4 space-x-40 justify-center pl-20;
 }
 
 .dash-nav-area {
-  @apply bg-gray p-2;
+  @apply p-2 h-90vh bg-gray-dark;
 }
 
 .dash-h1 {
@@ -250,8 +250,21 @@ label:hover {
   margin: 0.5rem;
 }
 
-/* *******************DASH-NAV******************* */
+.swal {
+  background-color: #0f0cc4;
+}
+.profile-picture {
+  @apply w-72 h-96 rounded float-left ml-5 mt-44;
+}
+/* .dashboard-tabs-container {
+  @apply h-90vh flex justify-center bg-green;
+} */
 .header-container {
+  @apply h-50vh;
+}
+
+/* *******************DASH-NAV******************* */
+/* .header-container {
   @apply h-50vh;
 }
 .profile-picture {
@@ -268,4 +281,4 @@ label:hover {
 }
 .dash-something {
   @apply bg-gray-dark h-90vh;
-}
+} */
