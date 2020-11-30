@@ -17,9 +17,9 @@ const SignUp = () => {
       await axios
         .post('/api/users/signup', signupData)
         .then((response) => console.log(response));
-      history.push('/dashboard/events');
+      history.push('/dashboard/equipment');
     } catch (error) {
-      swal('SingUp unsuccessful. Please try again.', { icon: 'error' });
+      swal('Operation failed', { icon: 'error' });
     }
   };
   return (

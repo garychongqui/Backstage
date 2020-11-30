@@ -147,13 +147,9 @@ class MyEquipment extends React.Component {
               padding: '1rem'
             }}
           >
-            <h2 class="text-2xl semibold text-center text-white">
+            <h2 class="text-2xl semibold text-center text-white pb-6">
               Your Equipment
             </h2>
-            <div class="flex justify-start text-xl">
-              <span class="w-3/4 text-center text-white text-lg">Item</span>
-              <span class="w-1/4 text-center text-white text-lg">Quantity</span>
-            </div>
             {this.state.existingEquip?.map((item) => {
               return (
                 <div class="flex justify-start ">
@@ -186,7 +182,6 @@ class MyEquipment extends React.Component {
             className="category"
             name="equipmentList"
             onSubmit={this.handleSave}
-            onkeypress="return event.keyCode != 13;"
           >
             <div
               className="text-white flex flex-col items-center"

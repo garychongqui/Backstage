@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import moment from 'moment';
 
 const MyEvents = () => {
-  const [events, setEvents] = useState([]);
+  const [events, setEvents] = useState(null);
   const [isUpdated, setIsUpdated] = useState(false);
 
   const getEvents = async () => {
@@ -36,8 +36,10 @@ const MyEvents = () => {
       className="bg-dark-gray flex flex-col items-center"
       style={{ marginTop: '4rem' }}
     >
-      {events.map((event1) => {
-        return (
+      {events?.map((event1) => {
+        return !events ? (
+          <h3>No events!</h3>
+        ) : (
           <div class="flex flex-col items-center w-full">
             <div
               className="flex p-2 m-4 w-7/12 justify-center my-event-card"
