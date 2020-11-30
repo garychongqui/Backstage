@@ -1,17 +1,12 @@
 import React from 'react';
-// import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logout from './../Logout';
-// import dueFilter from '../helpers/dueFilter';
-// import { Navbar, Nav, Dropdown, Image } from 'react-bootstrap';
-// import { AppContext } from '../context/AppContext';
-// import Logout from './Logout';
 
 const MainNav = () => {
   return (
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-gray-dark shadow-md">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <div className="w-full relative flex justify-between lg:w-auto  px-4 lg:static lg:block lg:justify-start">
+        <div className="w-auto relative flex justify-between px-4">
           <Link
             to="/"
             className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white"
@@ -32,7 +27,7 @@ const MainNav = () => {
               <img
                 className="profile-icon"
                 src="../profileIcons/dj-icon.png"
-                alt="artis mirror with lightbulbs"
+                alt="dj icon"
                 style={{ height: '100%' }}
               />
 

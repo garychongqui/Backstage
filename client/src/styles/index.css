@@ -32,7 +32,9 @@ label:hover {
 .btn-area {
   @apply text-center;
 }
+
 /* ***************************AREAS********************************  */
+
 .login-container {
   @apply bg-gray-dark content-center justify-center;
 }
@@ -48,9 +50,11 @@ label:hover {
 .landing-page {
   @apply bg-gray-dark content-center justify-center w-full h-full;
 }
+
 .landing-container-1 {
   @apply flex h-70vh shadow-md;
 }
+
 .welcome {
   @apply flex flex-col mt-24 ml-36;
 }
@@ -71,27 +75,26 @@ label:hover {
   @apply ml-20 flex flex-col justify-center p-2;
 }
 
-.landing-container-image-back {
-}
-
 .landing-container-3 {
   @apply flex flex-row-reverse bg-red h-70vh w-full;
 }
+
 .landing-pic-3 {
   @apply flex ml-14 w-30vw h-70vh;
 }
+
 .landing-container-3-info {
   @apply ml-28 flex flex-col justify-center p-2;
-}
-.landing-container-3-image {
 }
 
 .landing-container-5 {
   @apply flex flex-row-reverse bg-red h-70vh w-full;
 }
+
 .landing-pic-5 {
   @apply flex p-2 ml-14 w-30vw h-70vh;
 }
+
 .landing-container-5-info {
   @apply ml-28 flex flex-col justify-center p-2;
 }
@@ -111,18 +114,23 @@ label:hover {
 .title-1 {
   @apply text-5xl font-bold ml-16;
 }
+
 .title-paragraph-1 {
   @apply text-xl mt-10 ml-16;
 }
+
 .title {
   @apply text-5xl font-bold ml-8 text-white;
 }
+
 .title-paragraph {
   @apply text-xl mt-10 ml-8 text-white;
 }
+
 .title-2 {
   @apply text-5xl font-bold ml-16;
 }
+
 .title-paragraph-2 {
   @apply text-xl mt-10 ml-16;
 }
@@ -313,14 +321,6 @@ label:hover {
   @apply flex flex-col text-center bg-gray-dark justify-items-center;
 }
 
-.equipment-buttons {
-  @apply text-black text-xl p-4 w-1/2;
-}
-
-.equipment-dropdown {
-  @apply text-xl p-2;
-}
-
 .main-nav {
   @apply bg-gray-dark;
 }
@@ -358,28 +358,13 @@ label:hover {
   @apply mt-4 bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16 border-solid border-white border-2;
 }
 
-/* *******************My Equipment Tab******************* */
-/* .my-equipment-component {
-  @apply flex w-full;
-}
-.existing-equip-list {
-  @apply ml-16 w-1/3 text-lg text-gray-dark bg-gray-medium;
-}
-.category {
-  @apply ml-10 w-80vw bg-green;
+.equipment-buttons {
+  @apply text-black text-xl p-4 w-1/2;
 }
 
-.category-options {
-  @apply bg-green-light hover:bg-green-light text-white p-1 text-center content-center w-48 h-16;
+.equipment-dropdown {
+  @apply text-xl p-2;
 }
-.category-options-info {
-  @apply flex flex-row space-x-60 ml-14 pl-4 bg-pink-500 border-b-2 border-red font-medium text-lg;
-} */
-
-/* .nav-div .react-link:hover {
-  color: '#A6271F';
-  border-bottom: 4px solid #fff7f1;
-} */
 
 .nav-div h2 {
   transition: all 100ms ease-in 0ms;
