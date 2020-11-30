@@ -40,6 +40,7 @@ class Stage extends React.Component {
           `${this.props.eventData?.eventTitle} / ${this.props.eventData?.eventDate}`
         );
       } catch (error) {
+        console.log(error);
         swal('Operation Failed', { icon: 'error' });
       }
     });

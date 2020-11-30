@@ -12,8 +12,6 @@ import MainNav from './components/mainNav/MainNav';
 import Dashboard from './pages/Dashboard';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import Studio from './pages/collaboration/Studio';
-import test from './components/test';
 import ArtistCollab from './pages/collaboration/ArtistCollab';
 import MyEvents from './components/events/MyEvents';
 import MyStages from './components/stages/MyStages';
@@ -39,7 +37,6 @@ function App() {
             <Dashboard />
           </Route>
           <Route path="/artist" component={ArtistCollab} />
-          <Route path="/studio" component={Studio} />
         </Switch>
       </BrowserRouter>
     </AppContextProvider>

@@ -4,10 +4,15 @@ import { Link, useHistory } from 'react-router-dom';
 const Home = () => {
   const history = useHistory();
   return (
-    <div className="landing-page">
+    <div className="landing-page ">
       <div
-        className="landing-container-1 bg-no-repeat bg-center"
-        style={{ backgroundImage: "url('landing-page-images/backstage1.png')" }}
+        className="landing-container-1 bg-no-repeat bg-center bg-stretch"
+        style={{
+          backgroundImage: "url('landing-page-images/backstage1.png')",
+          position: 'relative',
+          bottom: '10rem',
+          backgroundSize: '100vw'
+        }}
       >
         <form
           className="form1"
@@ -16,12 +21,17 @@ const Home = () => {
           action="/api/users/login"
         >
           <div className="welcome">
-            <h1 className="title-1">WELCOME TO BACKSTAGE.</h1>
+            <h1
+              style={{ marginTop: '4rem', paddingTop: '4rem' }}
+              className="title-1"
+            >
+              WELCOME TO BACKSTAGE.
+            </h1>
             <p className="title-paragraph-1">
               We’re here to make connecting venues and artists easier.
             </p>
             <button
-              className="join-button"
+              className="join-button rounded-md h-12"
               type="button"
               onClick={() => {
                 history.push('/signup');
@@ -35,9 +45,9 @@ const Home = () => {
 
       <div className="landing-container-back">
         <div className="landing-container-info-back">
-          <h1 className="title">Search local Talent & Venues</h1>
+          <h1 className="title">Save all your equipment in one place</h1>
           <p className="title-paragraph">
-            Quickly filter, find, and save bars and events to view anytime.
+            No more rummaging through storage closets to take inventory.
           </p>
         </div>
         <div className="landing-container-image-back">
@@ -56,10 +66,10 @@ const Home = () => {
         }}
       >
         <div className="landing-container-3-info">
-          <h1 className="title">Compare Equipment</h1>
+          <h1 className="title">Easily share critical info with your artist</h1>
           <p className="title-paragraph">
-            Find an artist or venue you like? Easily compare equipment- getting
-            it right the first time, everytime.
+            Stage dimenstions? Rain plans? Tell artist know everything they need
+            to know before show time.
           </p>
         </div>
         <div className="landing-container-3-image">
@@ -73,9 +83,10 @@ const Home = () => {
 
       <div className="landing-container-back">
         <div className="landing-container-info-back">
-          <h1 className="title">Message Venues Directly</h1>
+          <h1 className="title">See your artist's stage plot</h1>
           <p className="title-paragraph">
-            1:1 communication with venues allows booking with ease.
+            Prepare your stage based on direct artist input for a smooth,
+            music-filled night.
           </p>
         </div>
         <div className="landing-container-image-back">

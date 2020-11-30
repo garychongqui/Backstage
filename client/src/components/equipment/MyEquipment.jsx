@@ -28,7 +28,6 @@ function EquipWithQuantity(index, item, quantity) {
 
 let descriptionArray = [];
 let quantityArray = [];
-
 let uniqueDescriptionArray = [];
 let uniqueQuantityArray = [];
 
@@ -40,18 +39,19 @@ class MyEquipment extends React.Component {
       equipNames: [],
       equipObj: {},
       equipArray: [],
-      existingEquip: []
+      existingEquip: [],
+      isUpdated: true
     };
   }
 
   async componentDidMount() {
-    await axios
-      .get('/api/equipment')
-      .then((results) => this.setState({ existingEquip: results.data }));
+    this.getExistingEquip();
   }
 
   getExistingEquip = async () => {
-    await axios.get('/api/equipment').then((results) => console.log(results));
+    await axios
+      .get('/api/equipment')
+      .then((results) => this.setState({ existingEquip: results.data }));
   };
 
   handleCategorySelect = (event) => {
@@ -106,7 +106,6 @@ class MyEquipment extends React.Component {
         uniqueDescriptionArray.push(descriptionArray[i]);
       }
     }
-
     uniqueDescriptionArray.forEach((obj, index) => {
       if (!this.state.equipNames.includes(obj.item)) {
         uniqueDescriptionArray.splice(index, 1);
@@ -126,15 +125,18 @@ class MyEquipment extends React.Component {
         uniqueQuantityArray.splice(index, 1);
       }
     });
-    // console.log('d', uniqueDescriptionArray, 'q', uniqueQuantityArray);
+
     await axios
       .post('/api/equipment', { uniqueDescriptionArray, uniqueQuantityArray })
       .then(swal('Equipment list saved', { icon: 'success' }));
+    this.getExistingEquip();
+    this.setState({ equipNames: [] });
+    this.setState({ isUpdated: !this.state.isUpdated }).bind(this);
+    this.componentDidUpdate();
   };
 
   render() {
     return (
-
       <div class="flex justify-center my-equipment-con">
         <div className="my-equipment-component flex w-5/6 flex justify-center">
           <div
@@ -182,7 +184,7 @@ class MyEquipment extends React.Component {
           <form
             className="category"
             name="equipmentList"
-            onSubmit={this.handleSave}
+            onSubmit={this.handleSave.bind(this)}
           >
             <div
               className="text-white flex flex-col items-center"
@@ -197,6 +199,7 @@ class MyEquipment extends React.Component {
               <h1 class="text-2xl">Select Equipment</h1>
               <div class="flex flex-col items-center">
                 <select
+                  class="text-xl"
                   className="category-drop-menu text-black"
                   onChange={this.handleCategorySelect}
                 >
@@ -231,119 +234,6 @@ class MyEquipment extends React.Component {
                     <h1 className="change text-xl">Name</h1>
                     <h1 className="change text-xl">Description</h1>
                     <h1 className="change text-xl">Quantity</h1>
-                    {/*
-      <div className="my-equipment-component">
-        <div className="existing-equip-list">
-          <div class="flex justify-start text-xl">
-            <span class="w-3/4 text-center text-white text-lg">Item</span>
-            <span class="w-1/4 text-center text-white text-lg">Quantity</span>
-          </div>
-          {this.state.existingEquip?.map((item) => {
-            return (
-              <div class="flex justify-start">
-                <span
-                  class="w-3/4 border bg-white pl-2"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    textAlign: 'left'
-                  }}
-                >
-                  {item.name}
-                </span>
-                <span
-                  class="w-1/4 border bg-white"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  {item.quantity}
-                </span>
-              </div>
-            );
-          })}
-        </div>
-
-        <form
-          className="category"
-          name="equipmentList"
-          onSubmit={this.handleSave}
-        >
-          <div className="text-white">
-            <h1>Select Equipment</h1>
-            <select
-              className="category-drop-menu text-black"
-              onChange={this.handleCategorySelect}
-            >
-              {categoryList.map((item) => (
-                <option value={categoryList.indexOf(item)}>{item}</option>
-              ))}
-            </select>
-          </div>
-          {this.state.activeCategory.map((item, index) => (
-            <button
-              className="category-options"
-              key={index}
-              type="button"
-              value={item.name}
-              onClick={(event) => this.handleEquipClick(event)}
-            >
-              {item.name}
-            </button>
-          ))}
-          <div className="category-options-info text-white">
-            <h1 className="change">Name</h1>
-            <h1 className="change">Description</h1>
-            <h1 className="change">Quantity</h1>
-          </div>
-          <div className="button-mapping-area">
-            <div className="button-mapping">
-              {this.state.equipNames.map((item, index) => {
-                return (
-                  <div style={{ display: 'flex' }}>
-                    <span className="w-20vw" style={{ color: 'lightblue' }}>
-                      {item}
-                    </span>
-                    <input
-                      className="w-20vw"
-                      placeholder="description"
-                      name={item}
-                      type="text"
-                      size="30"
-                      onBlur={(event) =>
-                        this.handleDescriptionChange(event, index)
-                      }
-                    />
-                    <input
-                      placeholder="quantity"
-                      name={item}
-                      required
-                      min="0"
-                      size="4"
-                      type="number"
-                      onBlur={(event) =>
-                        this.handleQuantityChange(event, index)
-                      }
-                    />
-                    <svg
-                      className="delete-button"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="#A6271F"
-                      width="40"
-                      onClick={() => this.handleEquipDelete(index)}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-*/}
                   </div>
 
                   {this.state.equipNames.map((item, index) => {
