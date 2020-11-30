@@ -25,13 +25,7 @@ const SignUp = () => {
   return (
     <div className="container">
       <div className="main-area flex">
-        <form
-          className="form"
-          name="signup-form"
-          method="POST"
-          action="/api/users/signup"
-          onSubmit={handleSubmit}
-        >
+        <form className="form" name="signup-form" onSubmit={handleSubmit}>
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>
             <input

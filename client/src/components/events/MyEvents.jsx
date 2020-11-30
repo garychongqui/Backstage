@@ -22,24 +22,13 @@ const MyEvents = () => {
     getEvents();
   }, [isUpdated]);
 
-  // const handleEventDelete = async (eventId) => {
-  //   try {
-  //     setIsUpdated(!isUpdated);
-  //     await axios.delete(`/api/events/${eventId}`);
-  //     swal('Event deleted', { icon: 'success' });
-  //   } catch (error) {
-  //     swal('Operation failed', { icon: 'error' });
-  //   }
-  // };
   return (
     <div
       className="bg-dark-gray flex flex-col items-center"
       style={{ marginTop: '4rem' }}
     >
       {events?.map((event1) => {
-        return !events ? (
-          <h3>No events!</h3>
-        ) : (
+        return (
           <div class="flex flex-col items-center w-full">
             <div
               className="flex p-2 m-4 w-7/12 justify-center my-event-card"

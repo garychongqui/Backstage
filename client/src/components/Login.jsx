@@ -24,13 +24,7 @@ const Login = () => {
   return (
     <div className="login-container">
       <div className="main-area">
-        <form
-          className="form"
-          name="login-form"
-          method="POST"
-          action="/api/users/login"
-          onSubmit={handleSubmit}
-        >
+        <form className="form" name="login-form" onSubmit={handleSubmit}>
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>
             <input
