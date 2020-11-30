@@ -87,7 +87,7 @@ class Stage extends React.Component {
         <button
           className="btn-3"
           onClick={this.generatePdf}
-          style={{ position: 'relative', top: '40rem', right: '10rem' }}
+          style={{ position: 'relative', top: '45rem', right: '10rem' }}
         >
           Download PDF
         </button>
