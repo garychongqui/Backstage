@@ -43,9 +43,9 @@ const NewStage = () => {
         >
           <div className="new-stage-container">
             <input
-              className="stage-name-input"
+              className="stage-name"
               cols="75"
-              rows="5"
+              rows="10"
               name="name"
               type="text"
               placeholder="Enter New Stage name"
@@ -53,58 +53,64 @@ const NewStage = () => {
             />
           </div>
           <br />
-          <div className="new-stage-dimensions">
-            <h3 className="dash-h3">Stage Dimensions</h3>
-          </div>
-          <div className="new-stage-area">
-            <label for="stage-width">Width</label>
-            {/*  get rid of up/down arrows in input box */}
-            <input
-              className="stage-width"
-              id="stage-width"
-              type="number"
-              name="width"
-              onChange={handleChange}
-            ></input>
-            <label for="stage-depth">Depth</label>
-            <input
-              className="stage-height"
-              id="stage-depth"
-              type="number"
-              name="depth"
-              onChange={handleChange}
-            ></input>
-          </div>
-          <div className="new-stage-place">
-            <label for="outdoor-checkbox">Outdoor?</label>
-            <input
-              type="checkbox"
-              name="isOutdoor"
-              id="outdoor-checkbox"
-              value="true"
-              onChange={handleChange}
-            />
-          </div>
-          <br />
-          <div className="new-stage-comments-title">
-            <label className="dash-h3" for="comments-text-area">
-              Comments
-            </label>
-          </div>
-          <div className="new-stage-comments">
-            <textarea
-              id="comments-text-area"
-              name="comments"
-              rows="5"
-              cols="75"
-              placeholder="Comments about this stage"
-              onChange={handleChange}
-            />
-            <br />
+          <div className="new-stage-dimensions-box">
+            <div className="new-stage-dimensions">
+              <h3 className="dash-h3">Stage Dimensions</h3>
+            </div>
+            <div className="new-stage-area">
+              <label for="stage-width">Width</label>
+              {/*  get rid of up/down arrows in input box */}
+              <input
+                className="stage-width"
+                id="stage-width"
+                type="number"
+                name="width"
+                onChange={handleChange}
+              ></input>
+              <label for="stage-depth">Depth</label>
+              <input
+                className="stage-height"
+                id="stage-depth"
+                type="number"
+                name="depth"
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="new-stage-place">
+              <label for="outdoor-checkbox">Outdoor?</label>
+              <input
+                type="checkbox"
+                name="isOutdoor"
+                id="outdoor-checkbox"
+                value="true"
+                onChange={handleChange}
+              />
+            </div>
           </div>
           <br />
-          <div className="new-stage-button">
-            <button type="submit">Submit</button>
+          <div className="comment-box">
+            <div className="new-stage-comments-title">
+              <label className="dash-h3" for="comments-text-area">
+                Comments
+              </label>
+            </div>
+            <div className="new-stage-comments">
+              <textarea
+                id="comments-text-area"
+                name="comments"
+                rows="5"
+                cols="75"
+                placeholder="Comments about this stage"
+                onChange={handleChange}
+              />
+              <br />
+            </div>
+          </div>
+          <br />
+          <div className="new-stage-button-box">
+            <button className="new-stage-button" type="submit">
+              Submit
+            </button>
           </div>
         </form>
       </div>

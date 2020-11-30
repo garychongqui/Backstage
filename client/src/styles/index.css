@@ -150,6 +150,7 @@ label:hover {
 .new-stage-name {
   display: flex;
   justify-content: center;
+  border: 2px solid white;
   color: white;
   margin: 10px;
 }
@@ -157,27 +158,22 @@ label:hover {
   display: flex;
   justify-content: center;
   background-color: white;
-  box-shadow: 5px 0 10px 0 black;
   border-radius: 5px;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid white;
   margin-top: 20px;
 }
 .new-stage-area {
   display: flex;
   justify-content: center;
-  border: 2px solid rgb(0, 0, 0);
   padding: 10px;
   background-color: white;
   border-radius: 5px;
-  box-shadow: 5px 0 10px 0 black;
 }
 .new-stage-place {
   display: flex;
   justify-content: center;
   color: white;
-  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
-  box-shadow: 5px 0 10px 0 black;
   margin: 2px;
   padding: 5px;
 }
@@ -187,15 +183,16 @@ label:hover {
   color: white;
   background-color: #a6271f;
   border-radius: 10px;
-  padding: 15px;
-  box-shadow: 5px 0 10px 0 black;
+  padding: 150px;
+}
+.new-stage-button-box {
+  display: flex;
+  justify-content: center;
 }
 .new-stage-dimensions {
   display: flex;
   justify-content: center;
   color: white;
-  border: 2px solid rgb(0, 0, 0);
-  box-shadow: 5px 0 10px 0 black;
   border-radius: 5px;
   padding: 10px;
 }
@@ -203,24 +200,31 @@ label:hover {
   display: flex;
   justify-content: center;
 }
+.comment-box {
+  border: 2px solid white;
+  border-radius: 5px;
+}
 .new-stage-comments {
   display: flex;
   justify-content: center;
-  border: 2px solid rgb(0, 0, 0);
   background-color: white;
   border-radius: 5px;
-  box-shadow: 5px 0 10px 0 black;
 }
 .new-stage-comments-title {
   display: flex;
   justify-content: center;
   color: white;
-  border: 2px solid rgb(0, 0, 0);
   border-radius: 5px;
-  box-shadow: 5px 0 10px 0 black;
 }
-.stage-name-input {
+.new-stage-dimensions-box {
+  display: flex;
+  justify-content: center;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+.stage-name {
   min-width: 700px;
+  min-height: 50px;
   text-align: center;
 }
 .drop-stage {
@@ -323,6 +327,12 @@ label:hover {
 }
 .profile-icon {
   @apply flex h-12 w-12;
+}
+.save-image {
+  background-color: darkred;
+  padding: 5px;
+  margin-top: 15px;
+  border-radius: 5px;
 }
 .artist-collab-container * {
   margin: 0.5rem;

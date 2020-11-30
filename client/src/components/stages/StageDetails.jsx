@@ -39,11 +39,9 @@ const StageDetails = () => {
     <div className="new-stage-full">
       <div>
         <div className="new-stage-container">
-          <label for="name" className="dash-h4">
-            Name
-          </label>
+          <label for="name">Name</label>
           <input
-            className="stage-name-input"
+            className="new-stage-name"
             name="name"
             id="name"
             type="text"
@@ -56,9 +54,7 @@ const StageDetails = () => {
           <h3 className="dash-h3">Stage Dimensions</h3>
         </div>
         <div className="new-stage-area">
-          <label for="width" className="dash-h4">
-            Width
-          </label>
+          <label for="width">Width</label>
           <input
             className="stage-width"
             name="width"
@@ -68,9 +64,7 @@ const StageDetails = () => {
             onChange={handleChange}
           />
           <br />
-          <label for="depth" className="dash-h4">
-            Depth
-          </label>
+          <label for="depth">Depth</label>
           <input
             name="depth"
             id="depth"
@@ -120,23 +114,25 @@ const StageDetails = () => {
       //     onChange={handleChange}
       //   /> */}
         <br />
-        <div className="new-stage-comments-title">
-          <label className="dash-h3" for="comments-text-area">
-            Comments
-          </label>
-        </div>
-        <div className="new-stage-comments">
-          <textarea
-            id="comments-text-area"
-            name="comments"
-            rows="5"
-            cols="75"
-            placeholder="Comments about this stage"
-            onChange={handleChange}
-          />
+        <div className="comment-box">
+          <div className="new-stage-comments-title">
+            <label className="dash-h3" for="comments-text-area">
+              Comments
+            </label>
+          </div>
+          <div className="new-stage-comments">
+            <textarea
+              id="comments-text-area"
+              name="comments"
+              rows="5"
+              cols="75"
+              placeholder="Comments about this stage"
+              onChange={handleChange}
+            />
+            <br />
+          </div>
           <br />
         </div>
-        <br />
         <div className="new-stage-button">
           <button onClick={handleUpdateStage}>Save</button>
         </div>

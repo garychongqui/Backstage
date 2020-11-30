@@ -58,8 +58,8 @@ const AddImage = () => {
               roundedCircle
             />
           </label>
-          <button type="submit" size="sm" className="mt-4">
-            Save Image
+          <button type="submit" size="sm" className="save-image">
+            Save+
           </button>
         </form>
       </div>
