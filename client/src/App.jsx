@@ -12,8 +12,6 @@ import MainNav from './components/mainNav/MainNav';
 import Dashboard from './pages/Dashboard';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import Studio from './pages/collaboration/Studio';
-import test from './components/test';
 import ArtistCollab from './pages/collaboration/ArtistCollab';
 import MyEvents from './components/events/MyEvents';
 import MyStages from './components/stages/MyStages';
@@ -28,18 +26,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/dashboard/events">
-            <Dashboard />
-          </Route>
-          <Route exact path="/dashboard/stages">
-            <Dashboard />
-          </Route>
-          <Route exact path="/dashboard/equipment">
-            <Dashboard />
-          </Route>
-          <Route path="/artist" component={ArtistCollab} />
-          <Route path="/studio" component={Studio} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </BrowserRouter>
     </AppContextProvider>
