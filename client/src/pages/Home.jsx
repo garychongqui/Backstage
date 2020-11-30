@@ -69,8 +69,8 @@ const Home = () => {
         <div className="landing-container-3-info">
           <h1 className="title">Easily share critical info with your artist</h1>
           <p className="title-paragraph">
-            Stage dimenstions? Rain plans? Tell artist know everything they need
-            to know before show time.
+            Stage dimenstions? Rain plans? Tell your artist know everything they
+            need to know before show time.
           </p>
         </div>
         <div className="landing-container-3-image">
@@ -106,10 +106,12 @@ const Home = () => {
         }}
       >
         <div className="landing-container-5-info">
-          <h1 className="title-2">Upload & Share Riders And Stage Set Ups</h1>
+          <h1 className="title-2">
+            Save all of your stage configurations for easy sharing
+          </h1>
           <p className="title-paragraph-2">
-            No more combing through endless email attachments... Easily upload
-            rider, flyer, & booking contract PDFs.
+            Multiple stages? Multiple ways to set up a single stage? Share all
+            the right info with your artist in one click.
           </p>
         </div>
         <div className="landing-container-5-image">
