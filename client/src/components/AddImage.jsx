@@ -52,7 +52,7 @@ const AddImage = () => {
                   ? currentUser.avatar
                   : 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80'
               }
-              alt="profile-picture"
+              alt="profile"
               width={250}
               height={250}
               roundedCircle
