@@ -26,17 +26,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/signup" component={SignUp} />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/dashboard/events">
-            <Dashboard />
-          </Route>
-          <Route exact path="/dashboard/stages">
-            <Dashboard />
-          </Route>
-          <Route exact path="/dashboard/equipment">
-            <Dashboard />
-          </Route>
-          <Route path="/artist" component={ArtistCollab} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </BrowserRouter>
     </AppContextProvider>
