@@ -4,15 +4,10 @@ import { Link, useHistory } from 'react-router-dom';
 const Home = () => {
   const history = useHistory();
   return (
-    <div className="landing-page ">
+    <div className="landing-page">
       <div
-        className="landing-container-1 bg-no-repeat bg-center bg-stretch"
-        style={{
-          backgroundImage: "url('landing-page-images/backstage1.png')",
-          position: 'relative',
-          bottom: '10rem',
-          backgroundSize: '100vw'
-        }}
+        className="landing-container-1 bg-no-repeat bg-center"
+        style={{ backgroundImage: "url('landing-page-images/backstage1.png')" }}
       >
         <form
           className="form1"
@@ -21,20 +16,26 @@ const Home = () => {
           action="/api/users/login"
         >
           <div className="welcome">
-            <h1
-              style={{ marginTop: '4rem', paddingTop: '4rem' }}
-              className="title-1"
-            >
-              WELCOME TO BACKSTAGE.
-            </h1>
+            <h1 className="title-1 pt-20">WELCOME TO BACKSTAGE.</h1>
             <p className="title-paragraph-1">
-              We’re here to make connecting venues and artists easier.
+              We're here to make connecting venues and artists easier.
             </p>
             <button
-              className="join-button rounded-md h-12"
               type="button"
               onClick={() => {
                 history.push('/signup');
+              }}
+              style={{
+                height: '4rem',
+                width: '14rem',
+                backgroundColor: '#a6271f',
+                borderRadius: '10px',
+                color: '#fff7f1',
+                fontSize: '1.5rem',
+                position: 'relative',
+                top: '2rem',
+                left: '4rem',
+                border: '1px solid black'
               }}
             >
               Join Backstage
