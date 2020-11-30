@@ -81,7 +81,7 @@ const MyStages = () => {
                   <span class="text-2xl">
                     {package1?.isOutdoor ? 'Outdoor' : 'Indoor'}
                   </span>
-                  <span class="text-2xl my-4">{`Dimensions: ${package1?.width} x ${package1?.depth}`}</span>
+                  <span class="text-2xl my-4">{`Dimensions: ${package1?.width} x ${package1?.depth} ft.`}</span>
 
                   <p class="text-xl">
                     <em>{package1?.comments}</em>

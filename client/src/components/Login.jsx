@@ -15,7 +15,7 @@ const Login = () => {
     event.preventDefault();
     try {
       await axios.post('/api/users/login', loginData);
-      history.push('/dashboard/events');
+      history.push('/dashboard/equipment');
     } catch (error) {
       swal('Login unsuccessful. Please try again.', { icon: 'error' });
     }
