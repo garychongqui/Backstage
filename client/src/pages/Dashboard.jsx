@@ -57,7 +57,7 @@ class Dashboard extends React.Component {
           className="header-container bg-no-repeat bg-cover bg-center"
           style={{
             backgroundImage: "url('../dashboard-images/jennyblock2.png')",
-            height: '42vh'
+            height: '36vh'
           }}
         >
           <div className="profile-picture">
@@ -85,7 +85,7 @@ class Dashboard extends React.Component {
                     roundedCircle
                     style={{
                       position: 'absolute',
-                      top: '36.5vh',
+                      top: '30.5vh',
                       left: '3rem',
                       height: '18rem',
                       width: '18rem',
@@ -112,17 +112,21 @@ class Dashboard extends React.Component {
 
           <CreateEvent show={this.state.show} handleClose={this.hideModal} />
           <button
-            className="btn-1 text-2xl red-button"
             type="button"
             onClick={this.showModal}
             style={{
               position: 'relative',
-              left: '56vw',
+              left: '54vw',
               margin: '0px',
-              top: '33vh',
+              top: '27vh',
               height: '5rem',
               width: '15.5rem'
             }}
+            class={
+              !this.state.show
+                ? 'block btn-1 text-2xl red-button'
+                : 'hidden btn-1 text-2xl red-button'
+            }
           >
             Create Event
           </button>
@@ -138,7 +142,7 @@ class Dashboard extends React.Component {
                 position: 'relative',
                 left: '10rem',
                 color: '#fff7f1',
-                top: '1rem'
+                top: '-6rem'
               }}
             >
               <nav
