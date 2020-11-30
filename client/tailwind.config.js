@@ -795,6 +795,9 @@ module.exports = {
     'active',
     'disabled'
   ],
+
+  extend: { fontFamily: { custom: ['audiowide', 'sans-serif'] } },
+
   variants: {
     accessibility: ['responsive', 'focus-within', 'focus'],
     alignContent: ['responsive'],
