@@ -1,7 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
-import { AppContext } from '../../context/AppContext';
 import swal from 'sweetalert';
 import moment from 'moment';
 
@@ -24,15 +22,15 @@ const MyEvents = () => {
     getEvents();
   }, [isUpdated]);
 
-  const handleEventDelete = async (eventId) => {
-    try {
-      setIsUpdated(!isUpdated);
-      await axios.delete(`/api/events/${eventId}`);
-      swal('Event deleted', { icon: 'success' });
-    } catch (error) {
-      swal('Operation failed', { icon: 'error' });
-    }
-  };
+  // const handleEventDelete = async (eventId) => {
+  //   try {
+  //     setIsUpdated(!isUpdated);
+  //     await axios.delete(`/api/events/${eventId}`);
+  //     swal('Event deleted', { icon: 'success' });
+  //   } catch (error) {
+  //     swal('Operation failed', { icon: 'error' });
+  //   }
+  // };
   return (
     <div
       className="bg-dark-gray flex flex-col items-center"
