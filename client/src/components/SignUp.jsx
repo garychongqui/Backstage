@@ -21,8 +21,6 @@ const SignUp = () => {
     } catch (error) {
       swal('SingUp unsuccessful. Please try again.', { icon: 'error' });
     }
-
-    history.push('/dashboard/events');
   };
   return (
     <div className="container">
