@@ -33,7 +33,7 @@ const Home = () => {
                 color: '#fff7f1',
                 fontSize: '1.5rem',
                 position: 'relative',
-                top: '2rem',
+                top: '6rem',
                 left: '4rem',
                 border: '1px solid black'
               }}
@@ -46,7 +46,7 @@ const Home = () => {
 
       <div className="landing-container-back">
         <div className="landing-container-info-back">
-          <h1 className="title">Save all your equipment in one place</h1>
+          <h1 className="title">Save Equipment</h1>
           <p className="title-paragraph">
             No more rummaging through storage closets to take inventory.
           </p>
@@ -84,7 +84,7 @@ const Home = () => {
 
       <div className="landing-container-back">
         <div className="landing-container-info-back">
-          <h1 className="title">See your artist's stage plot</h1>
+          <h1 className="title">Share stage plots</h1>
           <p className="title-paragraph">
             Prepare your stage based on direct artist input for a smooth,
             music-filled night.

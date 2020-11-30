@@ -52,11 +52,11 @@ label:hover {
 }
 
 .landing-container-1 {
-  @apply flex h-70vh shadow-md;
+  @apply flex h-70vh shadow-md bg-no-repeat bg-center;
 }
 
 .welcome {
-  @apply flex flex-col mt-24 ml-36;
+  @apply flex flex-col mt-2 ml-32;
 }
 
 .join-button {
@@ -68,11 +68,11 @@ label:hover {
 }
 
 .landing-pic-back {
-  @apply ml-52 pt-4 w-30vw h-70vh;
+  @apply ml-60 pt-4 w-30vw h-70vh;
 }
 
 .landing-container-info-back {
-  @apply ml-20 flex flex-col justify-center p-2;
+  @apply ml-20 flex flex-col justify-center p-2 w-40vw;
 }
 
 .landing-container-3 {
@@ -80,7 +80,7 @@ label:hover {
 }
 
 .landing-pic-3 {
-  @apply flex ml-14 w-30vw h-70vh;
+  @apply flex ml-14 w-full h-70vh;
 }
 
 .landing-container-3-info {
