@@ -169,12 +169,12 @@ exports.uploadAvatar = async (req, res) => {
 
     await req.user.save();
 
-    const test = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id);
 
     console.log('what is the avatar', {
       tempPath: req.files.avatar.tempFilePath,
       url: response.secure_url,
-      avatar: test.avatar
+      avatar: user.avatar
     });
     res.json(response);
     // console.log(res.json())

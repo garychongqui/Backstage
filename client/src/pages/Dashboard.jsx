@@ -61,7 +61,7 @@ class Dashboard extends React.Component {
           }}
         >
           <div className="profile-picture">
-            <div className="mt-4">
+            {/* <div className="mt-4">
               <form className="d-flex flex-column" onSubmit={this.handleSubmit}>
                 <label for="image">
                   <input
@@ -102,7 +102,8 @@ class Dashboard extends React.Component {
                   Save Image
                 </button>
               </form>
-            </div>
+            </div> */}
+            <AddImage />
           </div>
 
           {/*  <div className="container">

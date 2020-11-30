@@ -61,25 +61,6 @@ const ArtistCollab = () => {
     setIconsForStage(iconsForStage.concat(event.target.value));
   };
 
-  // const iconRatio = (eventData?.width * eventData?.depth) / 120;
-
-  // const generatePdf = () => {
-  //   const newPlot = document.getElementById('stage-component');
-  //   html2canvas(newPlot, { canvas: canvas }).then(function (canvas) {
-  //     console.log('test');
-  //   });
-  // };
-
-  // const imgData = newPlot.toDataURL('image/png');
-  // console.log(imgData);
-
-  // const pdf = new jsPDF('p', 'in', [11.5, 8]);
-  // pdf.text(categoryList, 0, 0);
-  // pdf.addImage(imgData, 'png', 0.25, 0.25, 7, 4, 'NONE', 0, {
-  //   allowTaint: true
-  // });
-  // pdf.save('test.pdf');
-
   return (
     <div className="bg-gray-dark">
       <div className="artist-collab-component text-center">
