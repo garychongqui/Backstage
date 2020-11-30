@@ -6,6 +6,7 @@ const StageDetails = () => {
   const [currentStage, setCurrentStage] = useState({});
   const [stageData, setStageData] = useState(null);
   const history = useHistory();
+
   const getStageDetails = () => {
     const stageId = history.location.pathname.slice(18);
     axios
@@ -21,7 +22,6 @@ const StageDetails = () => {
     console.log(stageData);
   };
   const handleUpdateStage = async () => {
-    console.log('cuad');
     const stageId = history.location.pathname.slice(18);
     await axios
       .patch(`/api/packages/${stageId}`, stageData)

@@ -13,23 +13,21 @@ class Stage extends React.Component {
     const newPlot = document.getElementById('theStage');
     html2canvas(newPlot).then((canvas) => {
       try {
-        console.log(`${this.props.eventData?.eventDate}`);
-        console.log(`${this.props.eventData?.eventTitle}`);
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('p', 'mm', [216, 279]);
-        pdf.text(`${this.props.eventData?.eventDate}`, 20, 20).setFontSize(32);
+        pdf.text(`${this.props.eventData?.eventDate}`, 20, 20).setFontSize(28);
         pdf.text(`${this.props.eventData?.eventTitle}`, 20, 34);
         pdf.addImage(imgData, 'PNG', 0, 0, 175, 130);
-        pdf.text("Venue's Equipment", 60, 120).setFontSize(16);
+        pdf.text("Venue's Equipment", 85, 120).setFontSize(16);
         pdf.text(
           this.props.items?.map((item) => item),
           20,
-          140
+          135
         );
         pdf.text(
           this.props.descriptions?.map((item) => item),
-          80,
-          140
+          110,
+          135
         );
         // pdf.text(
         //   this.props.quantities?.map((item) => item),

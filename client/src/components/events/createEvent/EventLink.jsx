@@ -17,9 +17,7 @@ const EventLink = ({ display, eventURL }) => {
     <div class={showLinkClassName}>
       <div>
         <div class="mt-1 relative rounded-md shadow-sm">
-          <div class="absolute inset-y-0 left-0 pl-3 flex items-center ">
-            {/* <span class="text-gray-500 sm:text-sm">{eventURL}</span> */}
-          </div>
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center "></div>
           <input
             readonly
             type="text"

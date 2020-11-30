@@ -7,7 +7,6 @@ import CreateEvent from '../components/events/createEvent/CreateEvent';
 import MyEquipment from '../components/equipment/MyEquipment';
 import StageDetails from '../components/stages/StageDetails';
 import AddImage from '../components/AddImage';
-import axios from 'axios';
 
 class Dashboard extends React.Component {
   state = { show: false, image: null, preview: null, currentTab: 'events' };
@@ -41,7 +40,7 @@ class Dashboard extends React.Component {
               position: 'relative',
               left: '54vw',
               margin: '0px',
-              top: '27vh',
+              top: '15vh',
               height: '5rem',
               width: '15.5rem'
             }}
@@ -80,12 +79,13 @@ class Dashboard extends React.Component {
                 <Link to="/dashboard/events" class="w-1/3 react-link">
                   <h2
                     onClick={() => this.setState({ currentTab: 'events' })}
-                    class={`h-full font-medium text-2xl hover:text-red text-center flex items-center justify-center ${
+                    class={`h-full font-medium text-3xl hover:text-red text-center flex items-center justify-center ${
                       this.state.currentTab === 'events' ? 'selected-tab' : ' '
                     }`}
                     style={{
                       margin: '0px',
-                      color: '#fff7f1'
+                      color: '#fff7f1',
+                      fontWeight: '600'
                     }}
                   >
                     My Events
@@ -95,12 +95,13 @@ class Dashboard extends React.Component {
                 <Link to="/dashboard/stages" class="w-1/3 react-link">
                   <h2
                     onClick={() => this.setState({ currentTab: 'stages' })}
-                    class={`h-full font-medium text-2xl hover:text-red text-center flex items-center justify-center ${
+                    class={`h-full font-medium text-3xl hover:text-red text-center flex items-center justify-center ${
                       this.state.currentTab === 'stages' ? 'selected-tab' : ' '
                     }`}
                     style={{
                       margin: '0px',
-                      color: '#fff7f1'
+                      color: '#fff7f1',
+                      fontWeight: '600'
                     }}
                   >
                     My Stages
@@ -110,12 +111,13 @@ class Dashboard extends React.Component {
                 <Link to="/dashboard/equipment" className="w-1/3 react-link">
                   <h2
                     onClick={() => this.setState({ currentTab: 'equip' })}
-                    class={`h-full font-medium text-2xl text-center flex items-center justify-center ${
+                    class={`h-full font-medium text-3xl text-center flex items-center justify-center ${
                       this.state.currentTab === 'equip' ? 'selected-tab' : ' '
                     }`}
                     style={{
                       margin: '0px',
-                      color: '#fff7f1'
+                      color: '#fff7f1',
+                      fontWeight: '600'
                     }}
                   >
                     My Equipment{' '}
@@ -128,11 +130,7 @@ class Dashboard extends React.Component {
 
             <Switch>
               <Route exact path="/dashboard/events" component={MyEvents} />
-              <Route
-                exact
-                path="/dashboard/stages/new"
-                component={NewStage} //should this be somewhere else?
-              />
+              <Route exact path="/dashboard/new-stage" component={NewStage} />
               <Route
                 exact
                 path="/dashboard/stages/:id"

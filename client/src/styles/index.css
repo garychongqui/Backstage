@@ -412,3 +412,7 @@ label:hover {
 .my-equipment-con * {
   margin: 0.5rem;
 }
+
+.the-profile-image:hover {
+  filter: brightness(75%);
+}
