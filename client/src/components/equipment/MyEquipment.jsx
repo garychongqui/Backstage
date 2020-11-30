@@ -233,12 +233,6 @@ class MyEquipment extends React.Component {
                   className="button-mapping"
                   style={{ minWidth: '38rem', maxWidth: '38rem' }}
                 >
-                  <div className="category-options-info text-white flex justify-between w-full px-16">
-                    <h1 className="change text-xl">Name</h1>
-                    <h1 className="change text-xl">Description</h1>
-                    <h1 className="change text-xl">Quantity</h1>
-                  </div>
-
                   {this.state.equipNames.map((item, index) => {
                     return (
                       <div style={{ display: 'flex', alignItems: 'center' }}>
