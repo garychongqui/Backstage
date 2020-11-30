@@ -16,7 +16,7 @@ const MainNav = () => {
           <ul className="main-nav-ul"></ul>
         </div>
         <div>
-          <div className="dropdown inline-block relative">
+          <div className="dropdown inline-block relative hover">
             <button className="group-hover:bg-gray-dark">
               <img
                 className="profile-icon"
@@ -26,8 +26,14 @@ const MainNav = () => {
               />
             </button>
 
-            <ul className="dropdown-menu absolute hidden text-white bg-gray-dark p-2 rounded">
-              <Link to="/login" className="group-hover:bg-gray-dark p-2">
+            <ul
+              className="dropdown-menu absolute hidden text-white bg-gray-dark p-2 rounded"
+              id="show"
+            >
+              <Link
+                to="/login"
+                className="group-hover:bg-gray-dark text-white p-2"
+              >
                 Login
               </Link>
 
