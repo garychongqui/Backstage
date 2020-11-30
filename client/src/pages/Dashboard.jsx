@@ -62,16 +62,15 @@ class Dashboard extends React.Component {
                 display: 'flex',
                 justifyContent: 'center',
                 position: 'relative',
-                left: '10rem',
                 color: '#fff7f1',
-                top: '-10rem'
+                bottom: '2vh'
               }}
             >
               <nav
                 class={!this.state.show ? 'flex' : 'hidden'}
                 className="flex"
                 style={{
-                  width: '80%',
+                  width: '100%',
                   height: '4rem',
                   marginTop: '.5rem'
                 }}
