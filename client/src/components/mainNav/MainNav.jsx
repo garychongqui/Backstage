@@ -7,10 +7,7 @@ const MainNav = () => {
     <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-gray-dark shadow-md">
       <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div className="w-auto relative flex justify-between px-4">
-          <Link
-            to="/"
-            className="text font-cursive leading-relaxed inline-block mr-2 py-2 whitespace-no-wrap uppercase text-white"
-          >
+          <Link to="/" className="main-nav-pro">
             BackStage
           </Link>
           <button

@@ -53,11 +53,13 @@ const NewStage = () => {
                 onChange={handleChange}
               ></input>
             </div>
+
           </div>
           <div className="new-stage-place mt-10">
-            <label for="outdoor-checkbox">Outdoor</label>
+            <label for="outdoor-checkbox"
+              style={{ paddingTop: '8px' }}
+              className="text-xl">Outdoor</label>
             <input
-              style={{ paddingTop: '11px' }}
               type="checkbox"
               name="isOutdoor"
               id="outdoor-checkbox"
