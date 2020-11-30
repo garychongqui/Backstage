@@ -2,14 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
-import '../../styles/index.css';
-
 const StageDetails = () => {
   const [currentStage, setCurrentStage] = useState({});
   const [stageData, setStageData] = useState(null);
-
   const history = useHistory();
-
   const getStageDetails = () => {
     const stageId = history.location.pathname.slice(18);
     axios
@@ -17,37 +13,33 @@ const StageDetails = () => {
       .then((results) => setCurrentStage(results.data))
       .catch((error) => swal('Operation failed', { icon: 'error' }));
   };
-
   useEffect(() => {
     getStageDetails();
   }, []);
-
   const handleChange = async (event) => {
     setStageData({ ...stageData, [event.target.name]: event.target.value });
     console.log(stageData);
   };
-
   const handleUpdateStage = async () => {
     console.log('cuad');
     const stageId = history.location.pathname.slice(18);
     await axios
       .patch(`/api/packages/${stageId}`, stageData)
       .then((results) => console.log(results));
+    swal('Stage Updated!', { icon: 'success' });
+    history.push('/dashboard/stages');
   };
-
   return (
     <div className="new-stage-full">
       <div>
-        <div className="new-stage-container">
-          <label for="name">Name</label>
+        <div className="">
           <input
-            className="new-stage-name text-black"
+            className="stage-name"
             cols="75"
             rows="10"
             name="name"
-            id="name"
             type="text"
-            defaultValue={currentStage.name}
+            defaultValue={currentStage?.name}
             onChange={handleChange}
           />
         </div>
@@ -62,18 +54,18 @@ const StageDetails = () => {
             name="width"
             id="width"
             type="number"
-            defaultValue={currentStage.width}
+            defaultValue={currentStage?.width}
             onChange={handleChange}
           />
           <br />
           <label for="depth">Depth</label>
           <input
+            className="stage-height"
             name="depth"
             id="depth"
             type="number"
-            defaultValue={currentStage.depth}
+            defaultValue={currentStage?.depth}
             onChange={handleChange}
-            style={{ marginLeft: '0.5rem' }}
           />
         </div>
         <div className="new-stage-place">
@@ -100,22 +92,6 @@ const StageDetails = () => {
             </select>
           )}
         </div>
-        {/*}  <input
-      //     name="isOutdoor"
-      //     id="isOutdoor"
-      //     value="true"
-      //     type="checkbox"
-      //     // checked
-      //     onChange={handleChange}
-      //   />
-      // ) : (
-      //   <input
-      //     name="isOutdoor"
-      //     value="false"
-      //     id="isOutdoor"
-      //     type="checkbox"
-      //     onChange={handleChange}
-      //   /> */}
         <br />
         <div className="comment-box">
           <div className="new-stage-comments-title">
@@ -136,12 +112,13 @@ const StageDetails = () => {
           </div>
           <br />
         </div>
-        <div className="new-stage-button">
-          <button onClick={handleUpdateStage}>Save</button>
+        <div className="new-stage-button-box ">
+          <button className="new-stage-button" onClick={handleUpdateStage}>
+            Save
+          </button>
         </div>
       </div>
     </div>
   );
 };
-
 export default StageDetails;

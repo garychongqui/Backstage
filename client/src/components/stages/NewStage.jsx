@@ -26,7 +26,7 @@ const NewStage = () => {
               rows="10"
               name="name"
               type="text"
-              placeholder="Enter New Stage name"
+              placeholder="Enter Stage Name"
               onChange={handleChange}
             />
           </div>
@@ -54,8 +54,11 @@ const NewStage = () => {
               ></input>
             </div>
             <div className="new-stage-place">
-              <label for="outdoor-checkbox">Outdoor?</label>
+              <label style for="outdoor-checkbox">
+                Outdoor?
+              </label>
               <input
+                style={{ marginTop: '0.25rem' }}
                 type="checkbox"
                 name="isOutdoor"
                 id="outdoor-checkbox"
