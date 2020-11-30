@@ -56,9 +56,21 @@ const AddImage = () => {
               width={250}
               height={250}
               roundedCircle
+              class="the-profile-image"
             />
           </label>
-          <button type="submit" size="sm" className="save-image">
+          <button
+            type="submit"
+            size="sm"
+            className="save-image"
+            style={{
+              color: 'white',
+              padding: '8px',
+              fontSize: '1.25rem',
+              paddingLeft: '14px',
+              paddingRight: '14px'
+            }}
+          >
             Save+
           </button>
         </form>

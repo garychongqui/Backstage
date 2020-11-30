@@ -54,11 +54,9 @@ const NewStage = () => {
               ></input>
             </div>
             <div className="new-stage-place">
-              <label style for="outdoor-checkbox">
-                Outdoor?
-              </label>
+              <label for="outdoor-checkbox">Outdoor?</label>
               <input
-                style={{ marginTop: '0.25rem' }}
+                style={{ paddingTop: '11px' }}
                 type="checkbox"
                 name="isOutdoor"
                 id="outdoor-checkbox"

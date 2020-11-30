@@ -181,7 +181,11 @@ class MyEquipment extends React.Component {
               );
             })}
           </div>
-          <form className="category" name="equipmentList">
+          <form
+            className="category"
+            name="equipmentList"
+            onSubmit={this.handleSave}
+          >
             <div
               className="text-white flex flex-col items-center"
               style={{
@@ -193,9 +197,8 @@ class MyEquipment extends React.Component {
               }}
             >
               <h1 class="text-2xl">Select Equipment</h1>
-              <div class="flex flex-col items-center">
+              <div class="flex flex-col items-center text-xl">
                 <select
-                  class="text-xl"
                   className="category-drop-menu text-black"
                   onChange={this.handleCategorySelect}
                 >
@@ -204,7 +207,7 @@ class MyEquipment extends React.Component {
                   ))}
                 </select>
               </div>
-              <div class="flex flex-wrap w-full justify-evenly">
+              <div class="flex flex-wrap w-full justify-evenly text-xl">
                 {this.state.activeCategory.map((item, index) => (
                   <button
                     className="category-options btn-2"
@@ -286,7 +289,7 @@ class MyEquipment extends React.Component {
                   })}
                 </div>
               </div>
-              <button className="btn-1" type="button" onClick={this.handleSave}>
+              <button className="btn-1" type="submit">
                 Save
               </button>
             </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const MyStages = () => {
   const [packages, setPackages] = useState([]);
@@ -28,6 +29,7 @@ const MyStages = () => {
     try {
       setIsUpdated(!isUpdated);
       const res = await axios.delete(`/api/packages/${packageId}`);
+      swal('Stage deleted.', { icon: 'success' });
     } catch (error) {
       alert(error);
     }
@@ -44,7 +46,7 @@ const MyStages = () => {
           <button
             className="btn-4 text-2xl"
             style={{ height: '5rem', width: '15.5rem' }}
-            onClick={() => history.push('/dashboard/stages/new')}
+            onClick={() => history.push('/dashboard/new-stage')}
           >
             Add A New Stage
           </button>

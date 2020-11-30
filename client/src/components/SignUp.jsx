@@ -14,7 +14,10 @@ const SignUp = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('/api/users/signup', signupData);
+      await axios
+        .post('/api/users/signup', signupData)
+        .then((response) => console.log(response));
+      history.push('/dashboard/equipment');
     } catch (error) {
       swal('SingUp unsuccessful. Please try again.', { icon: 'error' });
     }
@@ -29,7 +32,7 @@ const SignUp = () => {
           name="signup-form"
           method="POST"
           action="/api/users/signup"
-          onSubmit={{ handleSubmit }}
+          onSubmit={handleSubmit}
         >
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>
@@ -39,7 +42,7 @@ const SignUp = () => {
               placeholder="Username"
               name="name"
               required
-              onChange={{ handleChange }}
+              onChange={handleChange}
             />
           </div>
           <div className="inner-form">
@@ -49,7 +52,7 @@ const SignUp = () => {
               placeholder="Email"
               name="email"
               required
-              onChange={{ handleChange }}
+              onChange={handleChange}
             />
           </div>
           <div className="inner-form">
@@ -59,7 +62,7 @@ const SignUp = () => {
               className="text-input"
               placeholder="Password"
               required
-              onChange={{ handleChange }}
+              onChange={handleChange}
             />
           </div>
           <div className="btn-area">
