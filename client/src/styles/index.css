@@ -101,7 +101,7 @@ label:hover {
 }
 
 .landing-footer {
-  @apply bg-gray-dark h-30vh m-4 flex flex-col;
+  @apply bg-gray-dark h-20vh m-4 flex flex-col;
 }
 
 .landing-footer-info {

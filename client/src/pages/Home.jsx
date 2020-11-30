@@ -110,10 +110,7 @@ const Home = () => {
       </div>
 
       <div className="landing-footer">
-        <div className="landing-footer-info">
-          <h3>Privacy</h3>
-          <h3>About Backstage</h3>
-        </div>
+        <div className="landing-footer-info"></div>
       </div>
     </div>
   );

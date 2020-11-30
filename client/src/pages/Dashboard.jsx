@@ -53,7 +53,6 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div class="w-full">
-
         <div
           className="header-container bg-no-repeat bg-cover bg-center"
           style={{
@@ -61,7 +60,6 @@ class Dashboard extends React.Component {
             height: '36vh'
           }}
         >
-
           <div className="profile-picture">
             <div className="mt-4">
               <form className="d-flex flex-column" onSubmit={this.handleSubmit}>
@@ -148,7 +146,7 @@ class Dashboard extends React.Component {
               }}
             >
               <nav
-                class={!this.state.show ? 'block' : 'hidden'}
+                class={!this.state.show ? 'flex' : 'hidden'}
                 className="flex"
                 style={{
                   width: '80%',

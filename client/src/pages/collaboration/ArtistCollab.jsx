@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 import moment from 'moment';
 import { jsPDF } from 'jspdf';
 import * as html2canvas from 'html2canvas';
-import Studio from './Studio';
 
 const categoryList = [
   'Guitars',
