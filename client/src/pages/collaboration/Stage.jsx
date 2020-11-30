@@ -31,11 +31,11 @@ class Stage extends React.Component {
           80,
           140
         );
-        pdf.text(
-          this.props.quantities?.map((item) => item),
-          90,
-          180
-        );
+        // pdf.text(
+        //   this.props.quantities?.map((item) => item),
+        //   90,
+        //   180
+        // );
         pdf.save(
           `${this.props.eventData?.eventTitle} / ${this.props.eventData?.eventDate}`
         );

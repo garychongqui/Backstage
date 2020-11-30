@@ -12,37 +12,6 @@ import axios from 'axios';
 class Dashboard extends React.Component {
   state = { show: false, image: null, preview: null, currentTab: 'events' };
 
-  // context = { currentUser: null };
-
-  // async componentDidMount() {
-  //   await axios
-  //     .get('/api/users/me')
-  //     .then((response) => this.setState({ currentUser: response.user }));
-  // }
-
-  // handleImageSelect = (e) => {
-  //   this.setState({ preview: URL.createObjectURL(e.target.files[0]) });
-  //   this.setState({ image: e.target.files[0] });
-  // };
-
-  // handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const avatar = new FormData();
-  //   avatar.append('avatar', this.state.image, this.state.image.name);
-  //   try {
-  //     await axios({
-  //       method: 'POST',
-  //       url: '/api/users/avatar',
-  //       data: avatar,
-  //       headers: {
-  //         'Content-Type': 'multipart/form-data'
-  //       }
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
   showModal = () => {
     this.setState({ show: true });
   };
@@ -61,55 +30,8 @@ class Dashboard extends React.Component {
           }}
         >
           <div className="profile-picture">
-            {/* <div className="mt-4">
-              <form className="d-flex flex-column" onSubmit={this.handleSubmit}>
-                <label for="image">
-                  <input
-                    type="file"
-                    name="image"
-                    id="image"
-                    style={{ display: 'none' }}
-                    onChange={this.handleImageSelect}
-                  />
-                  <img
-                    class={!this.state.show ? 'block' : 'hidden'}
-                    src={
-                      this.state.preview
-                        ? this.state.preview
-                        : this.state.currentUser?.avatar
-                        ? this.currentUser.avatar
-                        : 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80'
-                    }
-                    width={250}
-                    height={250}
-                    roundedCircle
-                    style={{
-                      position: 'absolute',
-                      top: '30.5vh',
-                      left: '3rem',
-                      height: '18rem',
-                      width: '18rem',
-                      zIndex: '99'
-                    }}
-                  />
-                </label>
-                <button
-                  type="submit"
-                  size="sm"
-                  className="mt-4"
-                  style={{ color: 'white', zIndex: '99', fontSize: '2rem' }}
-                >
-                  Save Image
-                </button>
-              </form>
-            </div> */}
             <AddImage />
           </div>
-
-          {/*  <div className="container">
-        <br />
-        <div className="mt-4">
-         */}
 
           <CreateEvent show={this.state.show} handleClose={this.hideModal} />
           <button

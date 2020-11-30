@@ -414,3 +414,7 @@ label:hover {
 .delete-button:hover {
   cursor: pointer;
 }
+
+.my-equipment-con * {
+  margin: 0.5rem;
+}

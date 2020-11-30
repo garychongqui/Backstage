@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EventLink from './EventLink';
+import './createEvent.css';
 
 const CreateEvent = ({ handleClose, show }) => {
   const [packages, setPackages] = useState([]);
