@@ -18,8 +18,6 @@ export const AppContextProvider = ({ children }) => {
     fetchCurrentUser();
   }, []);
 
-  console.log('current user', currentUser);
-
   return (
     <AppContext.Provider
       value={{

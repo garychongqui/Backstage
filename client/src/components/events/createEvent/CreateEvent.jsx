@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EventLink from './EventLink';
 import './createEvent.css';
+import swal from 'sweetalert';
 
 const CreateEvent = ({ handleClose, show }) => {
   const [packages, setPackages] = useState([]);
@@ -33,16 +34,21 @@ const CreateEvent = ({ handleClose, show }) => {
   let showHideClassName = show ? 'block' : 'hidden';
 
   const handleGenerateEvent = () => {
-    axios
-      .post('/api/events', {
-        data: { eventTitle, eventDate, selectedPackage }
-      })
-      .then((results) =>
-        setEventURL(
-          `http://welcome-backstage.herokuapp.com/artist/${results.data._id}`
-        )
-      );
-    setShowLinkClassName(true);
+    if (!selectedPackage) {
+      swal('Please select a stage', { icon: 'warning' });
+    }
+    if (selectedPackage) {
+      axios
+        .post('/api/events', {
+          data: { eventTitle, eventDate, selectedPackage }
+        })
+        .then((results) =>
+          setEventURL(
+            `http://welcome-backstage.herokuapp.com/artist/${results.data._id}`
+          )
+        );
+      setShowLinkClassName(true);
+    }
   };
   return (
     <div className={showHideClassName}>
@@ -119,7 +125,7 @@ const CreateEvent = ({ handleClose, show }) => {
                       }}
                     />
 
-                    <h2 class="text-lg">Select Stage</h2>
+                    <h2 class="text-xl">Select Stage</h2>
 
                     <div
                       className="package-select overflow-auto w-full h-44 flex justify-center"

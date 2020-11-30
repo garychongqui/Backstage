@@ -147,7 +147,9 @@ class MyEquipment extends React.Component {
               padding: '1rem'
             }}
           >
-            <h2 class="text-2xl semibold text-center">Your Equipment</h2>
+            <h2 class="text-2xl semibold text-center text-white">
+              Your Equipment
+            </h2>
             <div class="flex justify-start text-xl">
               <span class="w-3/4 text-center text-white text-lg">Item</span>
               <span class="w-1/4 text-center text-white text-lg">Quantity</span>
@@ -189,14 +191,16 @@ class MyEquipment extends React.Component {
             <div
               className="text-white flex flex-col items-center"
               style={{
-                marginTop: '2.5rem',
+                marginTop: '2rem',
                 borderRadius: '10px',
                 padding: '1rem',
                 minWidth: '38rem',
                 maxWidth: '38rem'
               }}
             >
-              <h1 class="text-2xl">Select Equipment</h1>
+              <h1 class="text-2xl" style={{ marginBottom: '1.5rem' }}>
+                Add Equipment
+              </h1>
               <div class="flex flex-col items-center text-xl">
                 <select
                   className="category-drop-menu text-black"
@@ -229,12 +233,6 @@ class MyEquipment extends React.Component {
                   className="button-mapping"
                   style={{ minWidth: '38rem', maxWidth: '38rem' }}
                 >
-                  <div className="category-options-info text-white flex justify-between w-full px-16">
-                    <h1 className="change text-xl">Name</h1>
-                    <h1 className="change text-xl">Description</h1>
-                    <h1 className="change text-xl">Quantity</h1>
-                  </div>
-
                   {this.state.equipNames.map((item, index) => {
                     return (
                       <div style={{ display: 'flex', alignItems: 'center' }}>

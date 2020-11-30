@@ -19,7 +19,6 @@ const StageDetails = () => {
   }, []);
   const handleChange = async (event) => {
     setStageData({ ...stageData, [event.target.name]: event.target.value });
-    console.log(stageData);
   };
   const handleUpdateStage = async () => {
     const stageId = history.location.pathname.slice(18);

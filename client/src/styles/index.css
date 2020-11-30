@@ -154,7 +154,6 @@ label:hover {
 .new-stage-name {
   display: flex;
   justify-content: center;
-  border: 2px solid white;
   color: white;
 }
 .new-stage-container {
@@ -162,7 +161,6 @@ label:hover {
   justify-content: center;
   background-color: white;
   border-radius: 5px;
-  border: 2px solid white;
   margin-top: 20px;
 }
 .new-stage-area {
@@ -211,7 +209,6 @@ label:hover {
   justify-content: center;
 }
 .comment-box {
-  border: 2px solid white;
   border-radius: 5px;
 }
 .new-stage-comments {
@@ -229,7 +226,7 @@ label:hover {
 .new-stage-dimensions-box {
   display: flex;
   justify-content: center;
-  border: 2px solid white;
+
   border-radius: 5px;
 }
 .stage-name {
