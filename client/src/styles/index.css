@@ -402,3 +402,51 @@ label:hover {
 .main-nav-pro {
   @apply font-cursive leading-relaxed inline-block mr-2 py-2 uppercase text-white;
 }
+
+.main-nav-1 {
+  @apply relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-dark shadow-md;
+}
+
+.main-nav-2 {
+  @apply container px-4 mx-auto flex flex-wrap items-center justify-between;
+}
+
+.main-nav-3 {
+  @apply w-auto relative flex justify-between px-4;
+}
+
+.main-nav-button-1 {
+  @apply cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-gray-dark block hidden outline-none;
+}
+
+.main-nav-4 {
+  @apply flex flex-grow items-center;
+}
+
+.main-nav-ul {
+  @apply flex flex-col flex-row list-none ml-auto;
+}
+
+/* .main-nav-drop {
+  @apply inline-block relative dropdown;
+} */
+
+.main-nav-button-2 {
+  @apply bg-gray text-white font-semibold py-2 px-4 rounded inline-flex items-center;
+}
+
+.main-nav-svg {
+  @apply fill-current h-4 w-4;
+}
+/* 
+.main-nav-drop-2 {
+  @apply block group:hover absolute hidden text-white pt-1;
+}
+
+.main-nav-drop-3 {
+  @apply rounded-t bg-gray-dark group:hover py-2 px-4;
+}
+
+.main-nav-drop-4 {
+  @apply bg-gray-dark group:hover py-2 px-4;
+} */
