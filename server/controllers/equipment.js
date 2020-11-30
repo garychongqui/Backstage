@@ -1,8 +1,7 @@
 const Equipment = require('../db/models/equipment');
 const User = require('../db/models/user');
 const mongoose = require('mongoose');
-// Add Equipment item
-// ***********************************************//
+
 exports.addEquipItem = async (req, res) => {
   try {
     const theUser = User.findOne({ _id: req.user._id });
@@ -65,9 +64,7 @@ exports.updateEquipItem = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-// // ***********************************************//
-// // Delete a task
-// // ***********************************************//
+
 exports.deleteEquipItem = async (req, res) => {
   try {
     const theEquipment = await Equipment.findOneAndDelete({

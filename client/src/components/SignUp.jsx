@@ -17,12 +17,10 @@ const SignUp = () => {
       await axios
         .post('/api/users/signup', signupData)
         .then((response) => console.log(response));
-      history.push('/dashboard/equipment');
+      history.push('/dashboard/events');
     } catch (error) {
       swal('SingUp unsuccessful. Please try again.', { icon: 'error' });
     }
-
-    history.push('/dashboard/events');
   };
   return (
     <div className="container">

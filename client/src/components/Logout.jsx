@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useHistory, Link } from 'react-router-dom';
-import { Dropdown } from 'react-bootstrap';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import swal from 'sweetalert';

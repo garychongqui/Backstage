@@ -30,7 +30,7 @@ const forgotPasswordEmail = (email, token) => {
     to: email,
     from: `${process.env.FROM_EMAIL}`,
     subject: 'Password Reset.',
-    // text: `Hi ${name}! Please click the link below to reset your password.`
+    text: `Hi ${name}! Please click the link below to reset your password.`,
     html: exampleHTMLEmail
   });
 };

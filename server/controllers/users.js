@@ -6,7 +6,7 @@ const User = require('../db/models/user'),
     forgotPasswordEmail
   } = require('../emails/index'),
   jwt = require('jsonwebtoken');
-//Attempt to create a user
+
 exports.createUser = async (req, res) => {
   try {
     const user = new User({
@@ -27,7 +27,7 @@ exports.createUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-// Login a user
+
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -43,17 +43,12 @@ exports.loginUser = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-// Password Reset Request
-// This route sends an email that the
-// user must click within 10 minutes
-// to reset their password.
-// ******************************
+
 exports.requestPasswordReset = async (req, res) => {
   try {
     const { email } = req.query,
       user = await User.findOne({ email });
     if (!user) throw new Error("account doesn't exist");
-    // Build jwt token
     const token = jwt.sign(
       { _id: user._id.toString(), name: user.name },
       process.env.JWT_SECRET,
@@ -67,9 +62,7 @@ exports.requestPasswordReset = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-// ******************************
-// Redirect to password reset page
-// ******************************
+
 exports.passwordRedirect = async (req, res) => {
   const { token } = req.params;
   try {
@@ -86,8 +79,7 @@ exports.passwordRedirect = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-// Get current user
-// ***********************************************//
+
 exports.getCurrentUser = async (req, res) => {
   const user = await User.findById(req.user._id)
     .populate('packages')
@@ -102,8 +94,6 @@ exports.getCurrentUser = async (req, res) => {
   });
 };
 
-// Update a user
-// ***********************************************//
 exports.updateCurrentUser = async (req, res) => {
   const updates = Object.keys(req.body);
   const allowedUpdates = ['name', 'email', 'password', 'avatar'];
@@ -120,8 +110,7 @@ exports.updateCurrentUser = async (req, res) => {
     res.status(400).json({ error: e.toString() });
   }
 };
-// Logout a user
-// ***********************************************//
+
 exports.logoutUser = async (req, res) => {
   try {
     req.user.tokens = req.user.tokens.filter((token) => {
@@ -134,8 +123,7 @@ exports.logoutUser = async (req, res) => {
     res.status(500).json({ error: e.toString() });
   }
 };
-// Logout all devices
-// ***********************************************//
+
 exports.logoutAllDevices = async (req, res) => {
   try {
     req.user.tokens = [];
@@ -146,8 +134,7 @@ exports.logoutAllDevices = async (req, res) => {
     res.status(500).send();
   }
 };
-// Delete a user
-// ***********************************************//
+
 exports.deleteUser = async (req, res) => {
   try {
     await req.user.remove();
@@ -158,8 +145,7 @@ exports.deleteUser = async (req, res) => {
     res.status(500).json({ error: e.toString() });
   }
 };
-// Upload avatar
-// ***********************************************//
+
 exports.uploadAvatar = async (req, res) => {
   try {
     const response = await cloudinary.uploader.upload(
@@ -171,19 +157,12 @@ exports.uploadAvatar = async (req, res) => {
 
     const user = await User.findById(req.user._id);
 
-    console.log('what is the avatar', {
-      tempPath: req.files.avatar.tempFilePath,
-      url: response.secure_url,
-      avatar: user.avatar
-    });
     res.json(response);
-    // console.log(res.json())
   } catch (e) {
     res.json({ error: e.toString() });
   }
 };
-// Update password
-// ******************************
+
 exports.updatePassword = async (req, res) => {
   try {
     req.user.password = req.body.password;

@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import MyStages from '../components/stages/MyStages';
 import NewStage from '../components/stages/NewStage';
@@ -38,11 +38,12 @@ class Dashboard extends React.Component {
             onClick={this.showModal}
             style={{
               position: 'relative',
-              left: '54vw',
+              left: '59vw',
               margin: '0px',
-              top: '15vh',
+              top: '27vh',
               height: '5rem',
-              width: '15.5rem'
+              width: '15.5rem',
+              border: '1px solid white'
             }}
             class={
               !this.state.show
@@ -62,16 +63,15 @@ class Dashboard extends React.Component {
                 display: 'flex',
                 justifyContent: 'center',
                 position: 'relative',
-                left: '10rem',
                 color: '#fff7f1',
-                top: '-6rem'
+                bottom: '4vh'
               }}
             >
               <nav
                 class={!this.state.show ? 'flex' : 'hidden'}
                 className="flex"
                 style={{
-                  width: '80%',
+                  width: '100%',
                   height: '4rem',
                   marginTop: '.5rem'
                 }}

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Stage from './Stage';
-import equipLists, { lastIndexOf } from '../../artistEquip';
+import equipLists from '../../artistEquip';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
-import { jsPDF } from 'jspdf';
-import * as html2canvas from 'html2canvas';
 
 const categoryList = [
   'Guitars',
