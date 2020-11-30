@@ -9,12 +9,12 @@ class Stage extends React.Component {
     super(props);
   }
 
-  rows = this.props.eventData;
-
   generatePdf = () => {
     const newPlot = document.getElementById('theStage');
     html2canvas(newPlot).then((canvas) => {
       try {
+        console.log(`${this.props.eventData?.eventDate}`);
+        console.log(`${this.props.eventData?.eventTitle}`);
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('p', 'mm', [216, 279]);
         pdf.text(`${this.props.eventData?.eventDate}`, 20, 20).setFontSize(32);

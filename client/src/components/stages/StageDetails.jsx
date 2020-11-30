@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import '../../styles/index.css';
 
 const StageDetails = () => {
   const [currentStage, setCurrentStage] = useState({});
@@ -40,7 +41,9 @@ const StageDetails = () => {
         <div className="new-stage-container">
           <label for="name">Name</label>
           <input
-            className="new-stage-name"
+            className="new-stage-name text-black"
+            cols="75"
+            rows="10"
             name="name"
             id="name"
             type="text"
@@ -70,6 +73,7 @@ const StageDetails = () => {
             type="number"
             defaultValue={currentStage.depth}
             onChange={handleChange}
+            style={{ marginLeft: '0.5rem' }}
           />
         </div>
         <div className="new-stage-place">

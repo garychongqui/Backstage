@@ -148,7 +148,6 @@ label:hover {
   justify-content: center;
   border: 2px solid white;
   color: white;
-  margin: 10px;
 }
 .new-stage-container {
   display: flex;
@@ -165,6 +164,13 @@ label:hover {
   background-color: white;
   border-radius: 5px;
 }
+.stage-width {
+  margin-left: 20px;
+}
+.stage-height {
+  margin-right: 20px;
+  margin-left: 20px;
+}
 .new-stage-place {
   display: flex;
   justify-content: center;
@@ -179,7 +185,7 @@ label:hover {
   color: white;
   background-color: #a6271f;
   border-radius: 10px;
-  padding: 150px;
+  padding: 15px;
 }
 .new-stage-button-box {
   display: flex;
@@ -190,7 +196,7 @@ label:hover {
   justify-content: center;
   color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 .new-stage-full {
   display: flex;
