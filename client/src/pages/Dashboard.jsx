@@ -64,7 +64,7 @@ class Dashboard extends React.Component {
                 position: 'relative',
                 left: '10rem',
                 color: '#fff7f1',
-                top: '-6rem'
+                top: '-10rem'
               }}
             >
               <nav
