@@ -1,10 +1,6 @@
 const Package = require('../db/models/package'),
   mongoose = require('mongoose');
 
-// ***********************************************//
-// Create a package
-// ***********************************************//
-
 exports.getAllPackages = async (req, res) => {
   try {
     const thePackages = await Package.find({ user: req.user._id });
@@ -43,20 +39,15 @@ exports.getOnePackage = async (req, res) => {
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-  // res.json(req.user);
 };
-// ***********************************************//
-// Update a package
-// ***********************************************//
+
 exports.updatePackage = async (req, res) => {
   const updates = Object.keys(req.body);
-  // console.log(updates);
+
   try {
     const package = await Package.findOne({
       _id: req.params.id
     });
-    // console.log(package);
-    // if (!package) return res.status(404).json({ message: 'Stage not found' });
     updates.forEach((update) => (package[update] = req.body[update]));
     await package.save();
     res.status(200).json(package);
@@ -64,9 +55,7 @@ exports.updatePackage = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
-// ***********************************************//
-// Delete a package
-// ***********************************************//
+
 exports.deletePackage = async (req, res) => {
   try {
     const packageToDelete = await Package.findOneAndDelete({

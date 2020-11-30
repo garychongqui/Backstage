@@ -9,7 +9,7 @@ import StageDetails from '../components/stages/StageDetails';
 import AddImage from '../components/AddImage';
 
 class Dashboard extends React.Component {
-  state = { show: false, image: null, preview: null, currentTab: 'events' };
+  state = { show: false, image: null, preview: null, currentTab: 'equip' };
 
   showModal = () => {
     this.setState({ show: true });
