@@ -56,7 +56,7 @@ label:hover {
 }
 
 .welcome {
-  @apply flex flex-col mt-1 ml-20;
+  @apply flex flex-col mt-10 ml-20;
 }
 
 .join-button {
@@ -438,24 +438,11 @@ label:hover {
 .main-nav-svg {
   @apply fill-current h-4 w-4;
 }
-/* 
-.main-nav-drop-2 {
-  @apply block group:hover absolute hidden text-white pt-1;
-}
-
-.main-nav-drop-3 {
-  @apply rounded-t bg-gray-dark group:hover py-2 px-4;
-}
-
-.main-nav-drop-4 {
-  @apply bg-gray-dark group:hover py-2 px-4;
-} */
 
 .hover:hover #show {
   display: block;
   right: 0%;
 }
-
 .drop-down {
   position: relative;
 }
@@ -466,4 +453,5 @@ label:hover {
   background: rgb(34, 34, 34);
   color: white;
   border-radius: 5px;
+  padding: 0.5rem;
 }

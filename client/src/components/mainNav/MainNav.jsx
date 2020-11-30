@@ -27,13 +27,14 @@ const MainNav = () => {
             </button>
 
             <ul className="drop-down-menu" id="show">
-              <Link
-                to="/login"
-                className="group-hover:bg-gray-dark text-white p-2"
-              >
-                Login
-              </Link>
-
+              <li>
+                <Link
+                  to="/login"
+                  className="group-hover:bg-gray-dark text-white p-2"
+                >
+                  Login
+                </Link>
+              </li>
               <li className="group-hover:bg-gray-dark p-2">
                 <Logout>Logout</Logout>
               </li>
