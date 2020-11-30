@@ -35,7 +35,7 @@ const Home = () => {
                 position: 'relative',
                 top: '2rem',
                 left: '4rem',
-                border: '1px solid black'
+                border: '1px solid white'
               }}
             >
               Join Backstage

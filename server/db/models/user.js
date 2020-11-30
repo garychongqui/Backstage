@@ -82,7 +82,6 @@ userSchema.methods.generateAuthToken = async function () {
   await user.save();
   return token;
 };
-// find user by email and password...this is meant for the "login" portion
 userSchema.statics.findByCredentials = async (email, password) => {
   const user = await User.findOne({ email });
   if (!user) throw new Error('user does not exist');
@@ -90,8 +89,6 @@ userSchema.statics.findByCredentials = async (email, password) => {
   if (!isMatch) throw new Error('Unable to login.');
   return user;
 };
-// This mongoose middleware will hash our user's passwords
-// whenever a user is "created" or a user password is "updated"...Never save passwords on db without encryption.
 userSchema.pre('save', async function (next) {
   const user = this;
   if (user.isModified('password'))

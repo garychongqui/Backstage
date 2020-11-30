@@ -38,11 +38,12 @@ class Dashboard extends React.Component {
             onClick={this.showModal}
             style={{
               position: 'relative',
-              left: '54vw',
+              left: '59vw',
               margin: '0px',
-              top: '25vh',
+              top: '27vh',
               height: '5rem',
-              width: '15.5rem'
+              width: '15.5rem',
+              border: '1px solid white'
             }}
             class={
               !this.state.show
