@@ -9,33 +9,31 @@ class Stage extends React.Component {
     super(props);
   }
 
-  rows = this.props.eventData;
-
   generatePdf = () => {
     const newPlot = document.getElementById('theStage');
     html2canvas(newPlot).then((canvas) => {
       try {
         const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF('p', 'mm', [216, 279]);
+        const pdf = new jsPDF('p', 'mm', 'a4');
         pdf.text(`${this.props.eventData?.eventDate}`, 20, 20).setFontSize(32);
         pdf.text(`${this.props.eventData?.eventTitle}`, 20, 34);
         pdf.addImage(imgData, 'PNG', 0, 0, 175, 130);
         pdf.text("Venue's Equipment", 60, 120).setFontSize(16);
-        pdf.text(
-          this.props.items?.map((item) => item),
-          20,
-          140
-        );
-        pdf.text(
-          this.props.descriptions?.map((item) => item),
-          80,
-          140
-        );
-        pdf.text(
-          this.props.quantities?.map((item) => item),
-          90,
-          180
-        );
+        // pdf.text(
+        //   this.props.items?.map((item) => item),
+        //   20,
+        //   140
+        // );
+        // pdf.text(
+        //   this.props.descriptions?.map((item) => item),
+        //   80,
+        //   140
+        // );
+        // pdf.text(
+        //   this.props.quantities?.map((item) => item),
+        //   90,
+        //   180
+        // );
         pdf.save(
           `${this.props.eventData?.eventTitle} / ${this.props.eventData?.eventDate}`
         );
