@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
+import swal from 'sweetalert';
 
 const SignUp = () => {
   const history = useHistory();
+  const [signupData, setSignUpData] = useState({});
+
+  const handleChange = (event) => {
+    setSignUpData({ ...signupData, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post('/api/users/signup', signupData);
+    } catch (error) {
+      swal('SingUp unsuccessful. Please try again.', { icon: 'error' });
+    }
+
+    history.push('/dashboard/events');
+  };
   return (
     <div className="container">
       <div className="main-area flex">
@@ -19,8 +37,10 @@ const SignUp = () => {
               type="text"
               placeholder="Username"
               name="name"
-              style={{ marginRight: '1/5rem' }}
+              // style={{ marginRight: '1/5rem' }}
             />
+          </div>
+          <div className="inner-form">
             <input
               className="text-input"
               type="email"
