@@ -53,12 +53,15 @@ const NewStage = () => {
                 onChange={handleChange}
               ></input>
             </div>
-
           </div>
           <div className="new-stage-place mt-10">
-            <label for="outdoor-checkbox"
+            <label
+              for="outdoor-checkbox"
               style={{ paddingTop: '8px' }}
-              className="text-xl">Outdoor</label>
+              className="text-xl"
+            >
+              Outdoor
+            </label>
             <input
               type="checkbox"
               name="isOutdoor"
@@ -89,7 +92,7 @@ const NewStage = () => {
           <br />
           <div className="new-stage-button-box">
             <button className="new-stage-button" type="submit">
-              Submit
+              Save
             </button>
           </div>
         </form>
