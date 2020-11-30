@@ -1,9 +1,8 @@
 import React from 'react';
 import Draggable from 'react-draggable';
-import equipLists from '../../artistEquip';
 import { jsPDF } from 'jspdf';
 import * as html2canvas from 'html2canvas';
-import autotable from 'jspdf-autotable';
+import swal from 'sweetalert';
 
 class Stage extends React.Component {
   constructor(props) {
@@ -15,30 +14,34 @@ class Stage extends React.Component {
   generatePdf = () => {
     const newPlot = document.getElementById('theStage');
     html2canvas(newPlot).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF('p', 'mm', 'a4');
-      pdf.text(`${this.props.eventData?.eventDate}`, 20, 20).setFontSize(32);
-      pdf.text(`${this.props.eventData?.eventTitle}`, 20, 45).setFontSize(16);
-      pdf.addImage(imgData, 'PNG', 15, 55, 160, 110);
-      pdf.text(
-        this.props.items?.map((item) => item),
-        20,
-        180
-      );
-      // pdf.text(['Item'].concat(this.props.items?.map((item) => item)), 20, 180);
-      pdf.text(
-        this.props.descriptions?.map((item) => item),
-        70,
-        180
-      );
-      // pdf.text(
-      //   this.props.quantities?.map((item) => item),
-      //   90,
-      //   180
-      // );
-      pdf.save(
-        `${this.props.eventData?.eventTitle} / ${this.props.eventData?.eventDate}`
-      );
+      try {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', [216, 279]);
+        pdf.text(`${this.props.eventData?.eventDate}`, 20, 20).setFontSize(32);
+        pdf.text(`${this.props.eventData?.eventTitle}`, 20, 34);
+        pdf.addImage(imgData, 'PNG', 0, 0, 175, 130);
+        pdf.text("Venue's Equipment", 60, 120).setFontSize(16);
+        pdf.text(
+          this.props.items?.map((item) => item),
+          20,
+          140
+        );
+        pdf.text(
+          this.props.descriptions?.map((item) => item),
+          80,
+          140
+        );
+        pdf.text(
+          this.props.quantities?.map((item) => item),
+          90,
+          180
+        );
+        pdf.save(
+          `${this.props.eventData?.eventTitle} / ${this.props.eventData?.eventDate}`
+        );
+      } catch (error) {
+        swal('Operation Failed', { icon: 'error' });
+      }
     });
   };
   state = {
@@ -66,6 +69,7 @@ class Stage extends React.Component {
             backgroundColor: '#FFF7F1',
             border: '4px solid #A6271F',
             marginBottom: '0.25rem',
+            marginTop: '5.6rem',
             top: '0'
           }}
         >
@@ -88,7 +92,7 @@ class Stage extends React.Component {
         <button
           className="btn-3"
           onClick={this.generatePdf}
-          stlye={{ position: 'absolute', top: '40rem' }}
+          style={{ position: 'relative', top: '45rem', right: '10rem' }}
         >
           Download PDF
         </button>

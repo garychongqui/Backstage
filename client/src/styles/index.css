@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* * {
-  border: 1px solid blue;
-} */
+body {
+  background-color: #222222;
+}
 
 /* **********************BUTTONS**************************  */
 
@@ -18,19 +18,19 @@ label:hover {
 
 /* **********************BUTTONS**************************  */
 .btn-1 {
-  @apply bg-red hover:bg-red text-white p-2 m-6 text-center content-center w-32 h-16;
+  @apply bg-red hover:bg-red text-white p-2 m-6 text-center content-center w-32 h-16 rounded-md;
 }
 .btn-2 {
-  @apply bg-green hover:bg-green-light text-white p-2 text-center content-center m-6  w-32  h-16;
+  @apply bg-green hover:bg-green-light text-white p-2 text-center content-center m-6  w-32  h-16 rounded-md;
 }
 .btn-3 {
-  @apply bg-black hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16;
+  @apply bg-black text-white p-2 text-center content-center m-6  w-32  h-16 rounded-md;
 }
 .btn-4 {
-  @apply bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16 border-solid border-white border-2;
+  @apply bg-gray hover:bg-gray-light text-white p-2 text-center content-center m-6  w-32  h-16 border-solid border-white border-2 rounded-md;
 }
 .btn-5 {
-  @apply bg-white hover:bg-green-light text-black p-2 m-6 text-center content-center m-6 w-32  h-16;
+  @apply bg-white hover:bg-green-light text-black p-2 m-6 text-center content-center m-6 w-32  h-16 rounded-md;
 }
 
 .btn-area {
@@ -99,8 +99,6 @@ label:hover {
 .landing-container-5-info {
   @apply ml-28 flex flex-col justify-center p-2;
 }
-.landing-container-5-image {
-}
 
 .landing-footer {
   @apply bg-gray-dark h-30vh m-4 flex flex-col;
@@ -138,7 +136,7 @@ label:hover {
   @apply bg-gray-dark shadow-md rounded p-8 content-center justify-center;
 }
 .inner-form {
-  @apply font-bold text-center p-2;
+  @apply font-bold  p-2;
 }
 .text-input {
   @apply bg-white shadow-md rounded px-2 py-2 content-center;
@@ -242,15 +240,15 @@ label:hover {
 }
 
 .saved-stage {
-  @apply bg-gray-light text-gray-dark flex p-2 m-4 w-1/2 justify-center ml-80;
+  @apply flex p-2 m-4 w-1/2 justify-center ml-80;
 }
 
 .saved-stage-info {
-  @apply bg-gray-light text-gray-dark p-2 m-2 flex flex-col w-2/3;
+  @apply p-2 m-2 flex flex-col w-2/3;
 }
 
 .saved-stage-btn-area {
-  @apply text-center justify-center bg-gray-light m-3 p-2 w-1/3;
+  @apply text-center m-3 p-2 w-1/3;
 }
 
 /* *******************EVENT******************* */
@@ -270,11 +268,11 @@ label:hover {
 /* *******************DASH-NAV******************* */
 
 .dash-nav-1 {
-  @apply text-white py-4 px-6 block hover:text-white focus:outline-none text-white border-b-2 font-medium border-white;
+  @apply text-white py-4 px-6 block hover:text-white focus:outline-none border-b-2 font-medium border-white;
 }
 
 .dash-nav-btn {
-  @apply text-white py-4 px-6 block hover:text-red hover:text-red focus:outline-none text-white border-b-2 font-medium border-red text-xl;
+  @apply text-white py-4 hover:text-red  focus:outline-none border-b-2 font-medium border-red text-xl hover:border-white;
 }
 
 .dash-nav {
@@ -282,7 +280,7 @@ label:hover {
 }
 
 .dash-nav-area {
-  @apply p-2 h-90vh bg-gray-dark;
+  @apply p-2 bg-gray-dark;
 }
 
 .dash-h1 {
@@ -349,7 +347,7 @@ label:hover {
 }
 
 /* *******************My Equipment Tab******************* */
-.my-equipment-component {
+/* .my-equipment-component {
   @apply flex w-full;
 }
 .existing-equip-list {
@@ -364,7 +362,49 @@ label:hover {
 }
 .category-options-info {
   @apply flex flex-row space-x-60 ml-14 pl-4 bg-pink-500 border-b-2 border-red font-medium text-lg;
+} */
+
+/* .nav-div .react-link:hover {
+  color: '#A6271F';
+  border-bottom: 4px solid #fff7f1;
+} */
+
+.nav-div h2 {
+  transition: all 100ms ease-in 0ms;
+  border-bottom: 3px solid #fff7f1;
 }
+.nav-div h2:hover {
+  border-bottom: 3px solid #a6271f;
+  transition: all 100ms ease-in 0ms;
+}
+
+.red-button:hover {
+  background-color: #b9544e;
+}
+
+.selected-tab {
+  border-bottom: 3px solid #a6271f !important;
+}
+
+.my-equipment-component {
+  @apply flex w-full;
+}
+.existing-equip-list {
+  @apply ml-16 w-1/3 text-lg text-gray-dark;
+}
+/* .category {
+  @apply ml-10 w-80vw bg-green;
+} */
+/* .category-options {
+  @apply bg-green-light hover:bg-green-light text-white p-1 text-center content-center w-48 h-16;
+} */
+/* .category-options-info {
+  @apply flex flex-row space-x-60 ml-14 pl-4 bg-pink-500 border-b-2 border-red font-medium text-lg;
+} */
 /* .change {
   @apply flex;
 } */
+
+.delete-button:hover {
+  cursor: pointer;
+}

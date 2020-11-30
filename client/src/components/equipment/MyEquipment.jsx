@@ -10,7 +10,8 @@ const categoryList = [
   'Microphones',
   'Monitor Speakers',
   'Stands',
-  'DI Box'
+  'Direct Input Boxs',
+  'Instruments'
 ];
 
 function EquipWithDescription(index, item, description) {
@@ -133,6 +134,104 @@ class MyEquipment extends React.Component {
 
   render() {
     return (
+
+      <div class="flex justify-center my-equipment-con">
+        <div className="my-equipment-component flex w-5/6 flex justify-center">
+          <div
+            className="existing-equip-list w-full text-lg text-white"
+            style={{
+              borderRight: '5px solid #FFF7F1',
+              marginTop: '2.5rem',
+              borderRadius: '10px',
+              padding: '1rem'
+            }}
+          >
+            <h2 class="text-2xl semibold text-center">Your Equipment</h2>
+            <div class="flex justify-start text-xl">
+              <span class="w-3/4 text-center text-white text-lg">Item</span>
+              <span class="w-1/4 text-center text-white text-lg">Quantity</span>
+            </div>
+            {this.state.existingEquip?.map((item) => {
+              return (
+                <div class="flex justify-start ">
+                  <span
+                    class="w-3/4 border bg-white pl-2 text-black rounded-md semibold"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      textAlign: 'left',
+                      height: '3rem'
+                    }}
+                  >
+                    {item.name}
+                  </span>
+                  <span
+                    class="w-1/4 border bg-white text-black rounded-md semibold"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    {item.quantity}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+          <form
+            className="category"
+            name="equipmentList"
+            onSubmit={this.handleSave}
+          >
+            <div
+              className="text-white flex flex-col items-center"
+              style={{
+                marginTop: '2.5rem',
+                borderRadius: '10px',
+                padding: '1rem',
+                minWidth: '38rem',
+                maxWidth: '38rem'
+              }}
+            >
+              <h1 class="text-2xl">Select Equipment</h1>
+              <div class="flex flex-col items-center">
+                <select
+                  className="category-drop-menu text-black"
+                  onChange={this.handleCategorySelect}
+                >
+                  {categoryList.map((item) => (
+                    <option value={categoryList.indexOf(item)}>{item}</option>
+                  ))}
+                </select>
+              </div>
+              <div class="flex flex-wrap w-full justify-evenly">
+                {this.state.activeCategory.map((item, index) => (
+                  <button
+                    className="category-options btn-2"
+                    key={index}
+                    type="button"
+                    value={item.name}
+                    onClick={(event) => this.handleEquipClick(event)}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+
+              <div
+                className="button-mapping-area flex justify-center"
+                style={{ minWidth: '32rem', maxWidth: '32rem' }}
+              >
+                <div
+                  className="button-mapping"
+                  style={{ minWidth: '38rem', maxWidth: '38rem' }}
+                >
+                  <div className="category-options-info text-white flex justify-between w-full px-16">
+                    <h1 className="change text-xl">Name</h1>
+                    <h1 className="change text-xl">Description</h1>
+                    <h1 className="change text-xl">Quantity</h1>
+                    {/*
       <div className="my-equipment-component">
         <div className="existing-equip-list">
           <div class="flex justify-start text-xl">
@@ -244,16 +343,69 @@ class MyEquipment extends React.Component {
                         d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
+*/}
                   </div>
-                );
-              })}
+
+                  {this.state.equipNames.map((item, index) => {
+                    return (
+                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <span
+                          class="text-lg"
+                          style={{ color: '#FFF7F1', width: '10rem' }}
+                        >
+                          {item}
+                        </span>
+                        <input
+                          className="w-20vw text-black"
+                          placeholder="description"
+                          name={item}
+                          type="text"
+                          size="24"
+                          onBlur={(event) =>
+                            this.handleDescriptionChange(event, index)
+                          }
+                          style={{ height: '3rem' }}
+                        />
+                        <input
+                          class="text-black"
+                          placeholder="quantity"
+                          name={item}
+                          required
+                          min="0"
+                          size="4"
+                          type="number"
+                          onBlur={(event) =>
+                            this.handleQuantityChange(event, index)
+                          }
+                          style={{ height: '3rem', width: '5rem' }}
+                        />
+                        <svg
+                          className="delete-button"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="#A6271F"
+                          width="40"
+                          onClick={() => this.handleEquipDelete(index)}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <input className="btn-1" type="submit" value="Save" />
             </div>
-          </div>
-          <input className="btn-1" type="submit" value="Save" />
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
 }
-
 export default MyEquipment;
