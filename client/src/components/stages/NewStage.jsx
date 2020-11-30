@@ -41,13 +41,14 @@ const NewStage = () => {
           // action="/api/packages"
           onSubmit={handleFormSubmit}
         >
-          <div></div>
           <div className="new-stage-container">
             <input
               className="stage-name-input"
+              cols="75"
+              rows="5"
               name="name"
               type="text"
-              placeholder="Enter new Stage name-->"
+              placeholder="Enter New Stage name"
               onChange={handleChange}
             />
           </div>
@@ -59,14 +60,15 @@ const NewStage = () => {
             <label for="stage-width">Width</label>
             {/*  get rid of up/down arrows in input box */}
             <input
+              className="stage-width"
               id="stage-width"
               type="number"
               name="width"
               onChange={handleChange}
             ></input>
-            <br />
             <label for="stage-depth">Depth</label>
             <input
+              className="stage-height"
               id="stage-depth"
               type="number"
               name="depth"
@@ -74,7 +76,7 @@ const NewStage = () => {
             ></input>
           </div>
           <div className="new-stage-place">
-            <label for="outdoor-checkbox">Outdoor Stage?</label>
+            <label for="outdoor-checkbox">Outdoor?</label>
             <input
               type="checkbox"
               name="isOutdoor"
@@ -95,7 +97,7 @@ const NewStage = () => {
               name="comments"
               rows="5"
               cols="75"
-              placeholder="placeholder"
+              placeholder="Comments about this stage"
               onChange={handleChange}
             />
             <br />
