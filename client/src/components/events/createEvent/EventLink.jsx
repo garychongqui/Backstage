@@ -24,7 +24,7 @@ const EventLink = ({ display, eventURL }) => {
             readonly
             type="text"
             id="price"
-            class="focus:outline-none"
+            class="focus:outline-none text-xl"
             value={eventURL}
             ref={ref}
             style={{

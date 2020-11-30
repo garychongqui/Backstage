@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import equipLists, { sort } from '../../venueEquip';
 import swal from 'sweetalert';
+import '../../styles/index.css';
 
 const categoryList = [
   'Audio Cables',
@@ -27,6 +28,7 @@ function EquipWithQuantity(index, item, quantity) {
 
 let descriptionArray = [];
 let quantityArray = [];
+
 let uniqueDescriptionArray = [];
 let uniqueQuantityArray = [];
 
@@ -94,6 +96,7 @@ class MyEquipment extends React.Component {
 
   handleSave = async (event) => {
     event.preventDefault();
+    this.getExistingEquip();
     const sortedDescriptionArray = descriptionArray.sort((a, b) => {
       return a.index < b.index ? -1 : 1;
     });
@@ -105,6 +108,7 @@ class MyEquipment extends React.Component {
         uniqueDescriptionArray.push(descriptionArray[i]);
       }
     }
+
     uniqueDescriptionArray.forEach((obj, index) => {
       if (!this.state.equipNames.includes(obj.item)) {
         uniqueDescriptionArray.splice(index, 1);
@@ -124,14 +128,11 @@ class MyEquipment extends React.Component {
         uniqueQuantityArray.splice(index, 1);
       }
     });
-
+    // console.log('d', uniqueDescriptionArray, 'q', uniqueQuantityArray);
     await axios
       .post('/api/equipment', { uniqueDescriptionArray, uniqueQuantityArray })
       .then(swal('Equipment list saved', { icon: 'success' }));
-    this.getExistingEquip();
-    this.setState({ equipNames: [] });
-    this.setState({ isUpdated: !this.state.isUpdated }).bind(this);
-    this.componentDidUpdate();
+    this.setState({ isUpdated: !this.state.isUpdated });
   };
 
   render() {
@@ -180,11 +181,7 @@ class MyEquipment extends React.Component {
               );
             })}
           </div>
-          <form
-            className="category"
-            name="equipmentList"
-            onSubmit={this.handleSave.bind(this)}
-          >
+          <form className="category" name="equipmentList">
             <div
               className="text-white flex flex-col items-center"
               style={{
@@ -245,7 +242,7 @@ class MyEquipment extends React.Component {
                           {item}
                         </span>
                         <input
-                          className="w-20vw text-black"
+                          className="w-20vw text-black rounded-md"
                           placeholder="description"
                           name={item}
                           type="text"
@@ -256,7 +253,7 @@ class MyEquipment extends React.Component {
                           style={{ height: '3rem' }}
                         />
                         <input
-                          class="text-black"
+                          class="text-black rounded-md"
                           placeholder="quantity"
                           name={item}
                           required
@@ -289,7 +286,9 @@ class MyEquipment extends React.Component {
                   })}
                 </div>
               </div>
-              <input className="btn-1" type="submit" value="Save" />
+              <button className="btn-1" type="button" onClick={this.handleSave}>
+                Save
+              </button>
             </div>
           </form>
         </div>

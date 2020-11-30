@@ -2,45 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
-
 const NewStage = () => {
   const [stageData, setStageData] = useState(null);
-
   const history = useHistory();
-  // const handleFormSubmit = () => {
-  //   try {
-  //     axios
-  //       .post('/api/packages', { data: equipToSave })
-  //       .then((response) => console.log(response))
-  //       .then(alert('package created'));
-  //     // .then(history.push('/packages/'));
-  //     // .then((response) => alert(response));
-  //   } catch (error) {
-  //     alert(error);
-  //   }
-  // };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     await axios.post('/api/packages', stageData);
-
     swal('Stage saved!', { icon: 'success' });
     history.push('/dashboard/stages');
   };
-
   const handleChange = async (event) => {
     setStageData({ ...stageData, [event.target.name]: event.target.value });
   };
-
   return (
     <div className="new-stage-full">
       <div>
-        <form
-          name="new-package"
-          // method="post"
-          // action="/api/packages"
-          onSubmit={handleFormSubmit}
-        >
+        <form name="new-package" onSubmit={handleFormSubmit}>
           <div className="new-stage-container">
             <input
               className="stage-name"
@@ -48,7 +26,7 @@ const NewStage = () => {
               rows="10"
               name="name"
               type="text"
-              placeholder="Enter New Stage name"
+              placeholder="Enter Stage Name"
               onChange={handleChange}
             />
           </div>
@@ -59,7 +37,6 @@ const NewStage = () => {
             </div>
             <div className="new-stage-area">
               <label for="stage-width">Width</label>
-              {/*  get rid of up/down arrows in input box */}
               <input
                 className="stage-width"
                 id="stage-width"
@@ -77,8 +54,11 @@ const NewStage = () => {
               ></input>
             </div>
             <div className="new-stage-place">
-              <label for="outdoor-checkbox">Outdoor?</label>
+              <label style for="outdoor-checkbox">
+                Outdoor?
+              </label>
               <input
+                style={{ marginTop: '0.25rem' }}
                 type="checkbox"
                 name="isOutdoor"
                 id="outdoor-checkbox"
@@ -117,5 +97,4 @@ const NewStage = () => {
     </div>
   );
 };
-
 export default NewStage;

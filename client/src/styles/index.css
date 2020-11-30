@@ -148,7 +148,6 @@ label:hover {
   justify-content: center;
   border: 2px solid white;
   color: white;
-  margin: 10px;
 }
 .new-stage-container {
   display: flex;
@@ -165,6 +164,13 @@ label:hover {
   background-color: white;
   border-radius: 5px;
 }
+.stage-width {
+  margin-left: 20px;
+}
+.stage-height {
+  margin-right: 20px;
+  margin-left: 20px;
+}
 .new-stage-place {
   display: flex;
   justify-content: center;
@@ -179,7 +185,7 @@ label:hover {
   color: white;
   background-color: #a6271f;
   border-radius: 10px;
-  padding: 150px;
+  padding: 15px;
 }
 .new-stage-button-box {
   display: flex;
@@ -190,7 +196,7 @@ label:hover {
   justify-content: center;
   color: white;
   border-radius: 5px;
-  padding: 10px;
+  padding: 5px;
 }
 .new-stage-full {
   display: flex;
@@ -398,19 +404,11 @@ label:hover {
 .existing-equip-list {
   @apply ml-16 w-1/3 text-lg text-gray-dark;
 }
-/* .category {
-  @apply ml-10 w-80vw bg-green;
-} */
-/* .category-options {
-  @apply bg-green-light hover:bg-green-light text-white p-1 text-center content-center w-48 h-16;
-} */
-/* .category-options-info {
-  @apply flex flex-row space-x-60 ml-14 pl-4 bg-pink-500 border-b-2 border-red font-medium text-lg;
-} */
-/* .change {
-  @apply flex;
-} */
 
 .delete-button:hover {
   cursor: pointer;
+}
+
+.my-equipment-con * {
+  margin: 0.5rem;
 }

@@ -29,6 +29,7 @@ const SignUp = () => {
           name="signup-form"
           method="POST"
           action="/api/users/signup"
+          onSubmit={{ handleSubmit }}
         >
           <div className="inner-form">
             <h1 className="text-ob">Welcome Backstage</h1>
@@ -37,7 +38,8 @@ const SignUp = () => {
               type="text"
               placeholder="Username"
               name="name"
-              // style={{ marginRight: '1/5rem' }}
+              required
+              onChange={{ handleChange }}
             />
           </div>
           <div className="inner-form">
@@ -46,6 +48,8 @@ const SignUp = () => {
               type="email"
               placeholder="Email"
               name="email"
+              required
+              onChange={{ handleChange }}
             />
           </div>
           <div className="inner-form">
@@ -54,17 +58,12 @@ const SignUp = () => {
               name="password"
               className="text-input"
               placeholder="Password"
+              required
+              onChange={{ handleChange }}
             />
           </div>
           <div className="btn-area">
-            <input
-              type="submit"
-              className="btn-1"
-              value="SignUp"
-              onClick={() => {
-                history.push('/dashboard/events');
-              }}
-            />
+            <input type="submit" className="btn-1" value="SignUp" />
           </div>
         </form>
       </div>
