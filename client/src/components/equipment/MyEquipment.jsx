@@ -185,6 +185,7 @@ class MyEquipment extends React.Component {
             className="category"
             name="equipmentList"
             onSubmit={this.handleSave}
+            onkeypress="return event.keyCode != 13;"
           >
             <div
               className="text-white flex flex-col items-center"

@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
               position: 'relative',
               left: '54vw',
               margin: '0px',
-              top: '15vh',
+              top: '25vh',
               height: '5rem',
               width: '15.5rem'
             }}
@@ -63,7 +63,7 @@ class Dashboard extends React.Component {
                 justifyContent: 'center',
                 position: 'relative',
                 color: '#fff7f1',
-                bottom: '2vh'
+                bottom: '4vh'
               }}
             >
               <nav
