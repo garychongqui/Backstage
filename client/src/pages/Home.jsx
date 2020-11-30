@@ -10,7 +10,7 @@ const Home = () => {
         style={{
           backgroundImage: "url('landing-page-images/backstage1.png')",
           position: 'relative',
-          bottom: '10rem',
+          bottom: '3rem',
           backgroundSize: '100vw'
         }}
       >
@@ -21,20 +21,27 @@ const Home = () => {
           action="/api/users/login"
         >
           <div className="welcome">
-            <h1
-              style={{ marginTop: '4rem', paddingTop: '4rem' }}
-              className="title-1"
-            >
+            <h1 style={{ paddingTop: '3rem' }} className="title-1">
               WELCOME TO BACKSTAGE.
             </h1>
-            <p className="title-paragraph-1">
-              We’re here to make connecting venues and artists easier.
-            </p>
+
             <button
-              className="join-button rounded-md h-12"
+              className=""
               type="button"
               onClick={() => {
                 history.push('/signup');
+              }}
+              style={{
+                height: '4rem',
+                width: '14rem',
+                backgroundColor: ' #a6271f',
+                borderRadius: '10px',
+                color: '#fff7f1',
+                fontSize: '1.5rem',
+                position: 'relative',
+                top: '2rem',
+                left: '4rem',
+                border: '1px solid black'
               }}
             >
               Join Backstage
