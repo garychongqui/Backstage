@@ -3,6 +3,7 @@ import Draggable from 'react-draggable';
 import { jsPDF } from 'jspdf';
 import * as html2canvas from 'html2canvas';
 import swal from 'sweetalert';
+import './index.css';
 
 class Stage extends React.Component {
   constructor(props) {

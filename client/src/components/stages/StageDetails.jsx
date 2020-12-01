@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import './index.css';
+
 const StageDetails = () => {
   const [currentStage, setCurrentStage] = useState({});
   const [stageData, setStageData] = useState(null);
