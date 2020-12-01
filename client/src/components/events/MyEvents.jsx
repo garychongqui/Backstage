@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import swal from 'sweetalert';
 import moment from 'moment';
-import './index.css';
+import '../../styles/index.css';
 
 const MyEvents = () => {
   const [events, setEvents] = useState(null);

@@ -7,7 +7,7 @@ import CreateEvent from '../components/events/createEvent/CreateEvent';
 import MyEquipment from '../components/equipment/MyEquipment';
 import StageDetails from '../components/stages/StageDetails';
 import AddImage from '../components/AddImage';
-import './index.css';
+import '../styles/index.css';
 
 class Dashboard extends React.Component {
   state = { show: false, image: null, preview: null, currentTab: 'equip' };
