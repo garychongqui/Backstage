@@ -35,7 +35,7 @@ const NewStage = () => {
           <br />
           <div className="new-stage-dimensions-box">
             <div className="new-stage-dimensions">
-              <h3 className="dash-h3">Stage Dimensions</h3>
+              <h3 className="dash-h3">Stage Dimensions (ft.) </h3>
             </div>
             <div className="new-stage-area">
               <label for="stage-width">Width</label>
@@ -56,15 +56,17 @@ const NewStage = () => {
               ></input>
             </div>
           </div>
-          <div className="new-stage-place mt-10">
+          <div className="new-stage-place">
             <label
-              for="outdoor-checkbox"
-              style={{ paddingTop: '8px' }}
-              className="text-xl"
+              className="outdoor-checkbox-label"
+              // for="outdoor-checkbox"
+              // style={{ paddingTop: '8px' }}
+              // className="text-xl"
             >
               Outdoor
             </label>
             <input
+              className="outdoor-checkbox-input"
               type="checkbox"
               name="isOutdoor"
               id="outdoor-checkbox"
@@ -75,9 +77,7 @@ const NewStage = () => {
           <br />
           <div className="comment-box">
             <div className="new-stage-comments-title">
-              <label className="dash-h3" for="comments-text-area">
-                Comments
-              </label>
+              <label className="dash-h3">Comments</label>
             </div>
             <div className="new-stage-comments">
               <textarea

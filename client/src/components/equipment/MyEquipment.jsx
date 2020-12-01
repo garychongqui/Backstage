@@ -136,41 +136,39 @@ class MyEquipment extends React.Component {
 
   render() {
     return (
-      <div className="flex justify-center my-equipment-con">
-        <div className="my-equipment-component flex w-5/6 flex justify-center">
+      <div className="my-equipment-con">
+        <div className="my-equipment-component">
           <div
-            className="existing-equip-list w-full text-lg text-white"
-            style={{
-              borderRight: '5px solid #FFF7F1',
-              marginTop: '2.5rem',
-              borderRadius: '10px',
-              padding: '1rem'
-            }}
+            className="existing-equip-list"
+            // style={{
+            //   borderRight: '5px solid #FFF7F1',
+            //   marginTop: '2.5rem',
+            //   borderRadius: '10px',
+            //   padding: '1rem'
+            // }}
           >
-            <h2 className="text-2xl semibold text-center text-white pb-6">
-              Your Equipment
-            </h2>
+            <h2 className="your-equipment-title">Your Equipment</h2>
             {this.state.existingEquip?.map((item) => {
               return (
-                <div className="flex justify-start ">
+                <div className="equipment-items">
                   <span
-                    className="w-3/4 border bg-white pl-2 text-black rounded-md semibold"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      textAlign: 'left',
-                      height: '3rem'
-                    }}
+                    className="your-equipment-item-box"
+                    // style={{
+                    //   display: 'inline-flex',
+                    //   alignItems: 'center',
+                    //   textAlign: 'left',
+                    //   height: '3rem'
+                    // }}
                   >
                     {item.name}
                   </span>
                   <span
-                    className="w-1/4 border bg-white text-black rounded-md semibold"
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      justifyContent: 'center'
-                    }}
+                    className="your-equipment-quantity-box"
+                    // style={{
+                    //   display: 'inline-flex',
+                    //   alignItems: 'center',
+                    //   justifyContent: 'center'
+                    // }}
                   >
                     {item.quantity}
                   </span>
@@ -179,26 +177,24 @@ class MyEquipment extends React.Component {
             })}
           </div>
           <form
-            className="category"
+            className="equipment-form-container"
             name="equipmentList"
             onSubmit={this.handleSave}
           >
             <div
-              className="text-white flex flex-col items-center"
-              style={{
-                marginTop: '2rem',
-                borderRadius: '10px',
-                padding: '1rem',
-                minWidth: '38rem',
-                maxWidth: '38rem'
-              }}
+              className="add-equipment-area"
+              // style={{
+              //   marginTop: '2rem',
+              //   borderRadius: '10px',
+              //   padding: '1rem',
+              //   minWidth: '38rem',
+              //   maxWidth: '38rem'
+              // }}
             >
-              <h1 className="text-2xl" style={{ marginBottom: '1.5rem' }}>
-                Add Equipment
-              </h1>
-              <div className="flex flex-col items-center text-xl">
+              <h1 className="add-equipment-title">Add Equipment</h1>
+              <div className="equipment-category-dropdown">
                 <select
-                  className="category-drop-menu text-black"
+                  className="category-drop-menu"
                   onChange={this.handleCategorySelect}
                 >
                   {categoryList.map((item) => (
@@ -206,10 +202,10 @@ class MyEquipment extends React.Component {
                   ))}
                 </select>
               </div>
-              <div className="flex flex-wrap w-full justify-evenly text-xl">
+              <div className="equipment-category-btn-area">
                 {this.state.activeCategory.map((item, index) => (
                   <button
-                    className="category-options btn-2"
+                    className="btn-2"
                     key={index}
                     type="button"
                     value={item.name}
@@ -221,48 +217,48 @@ class MyEquipment extends React.Component {
               </div>
 
               <div
-                className="button-mapping-area flex justify-center"
-                style={{ minWidth: '32rem', maxWidth: '32rem' }}
+                className="button-mapping-area"
+                // style={{ minWidth: '32rem', maxWidth: '32rem' }}
               >
                 <div
                   className="button-mapping"
-                  style={{ minWidth: '38rem', maxWidth: '38rem' }}
+                  // style={{ minWidth: '38rem', maxWidth: '38rem' }}
                 >
                   {this.state.equipNames.map((item, index) => {
                     return (
-                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                      <div className="equipment-align-buttons">
                         <span
-                          className="text-lg"
-                          style={{ color: '#FFF7F1', width: '10rem' }}
+                          className="equipment-text-special"
+                          // style={{ text-lg color: '#FFF7F1', width: '10rem' }}
                         >
                           {item}
                         </span>
                         <input
-                          className="w-20vw text-black rounded-md"
+                          className="equipment-description-box"
                           placeholder="description"
                           name={item}
                           type="text"
-                          size="24"
+                          // size="24"
                           onBlur={(event) =>
                             this.handleDescriptionChange(event, index)
                           }
-                          style={{ height: '3rem' }}
+                          // style={{ height: '3rem' }}
                         />
                         <input
-                          className="text-black rounded-md"
+                          className="equipment-quantity-box"
                           placeholder="quantity"
                           name={item}
                           required
-                          min="0"
-                          size="4"
+                          // min="0"
+                          // size="4"
                           type="number"
                           onBlur={(event) =>
                             this.handleQuantityChange(event, index)
                           }
-                          style={{ height: '3rem', width: '5rem' }}
+                          // style={{ height: '3rem', width: '5rem' }}
                         />
                         <svg
-                          className="delete-button"
+                          // className="delete-button"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
