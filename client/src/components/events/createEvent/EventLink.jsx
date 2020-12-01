@@ -1,7 +1,7 @@
 import React from 'react';
 import { useClipboard } from 'use-clipboard-hook';
 import swal from 'sweetalert';
-import './index.css';
+import '../../../styles/index.css';
 
 const EventLink = ({ display, eventURL }) => {
   let showLinkClassName = display ? 'block' : 'hidden';

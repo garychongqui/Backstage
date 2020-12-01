@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import swal from 'sweetalert';
-import './index.css';
+import '../styles/index.css';
 
 const Login = () => {
   const history = useHistory();

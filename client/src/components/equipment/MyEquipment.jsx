@@ -3,7 +3,6 @@ import React from 'react';
 import equipLists, { sort } from '../../venueEquip';
 import swal from 'sweetalert';
 import '../../styles/index.css';
-import './index.css';
 
 const categoryList = [
   'Audio Cables',

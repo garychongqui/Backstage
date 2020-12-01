@@ -3,7 +3,7 @@ import axios from 'axios';
 import EventLink from './EventLink';
 import './createEvent.css';
 import swal from 'sweetalert';
-import './index.css';
+import '../../../styles/index.css';
 
 const CreateEvent = ({ handleClose, show }) => {
   const [packages, setPackages] = useState([]);

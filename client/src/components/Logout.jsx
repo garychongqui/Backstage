@@ -3,7 +3,7 @@ import { useHistory, Link } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 import swal from 'sweetalert';
-import './index.css';
+import '../styles/index.css';
 
 const Logout = () => {
   const { setCurrentUser } = useContext(AppContext);

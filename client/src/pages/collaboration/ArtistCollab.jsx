@@ -4,7 +4,7 @@ import equipLists from '../../artistEquip';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import moment from 'moment';
-import './index.css';
+import '../../styles/index.css';
 
 const categoryList = [
   'Guitars',
