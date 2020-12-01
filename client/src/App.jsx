@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ArtistCollab from './pages/collaboration/ArtistCollab';
+import './index.css';
 
 function App() {
   return (

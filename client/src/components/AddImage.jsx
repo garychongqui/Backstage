@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { AppContext } from '../context/AppContext';
 import swal from 'sweetalert';
+import './index.css';
 
 const AddImage = () => {
   const { currentUser, setCurrentUser } = useContext(AppContext);
