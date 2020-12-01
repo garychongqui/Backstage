@@ -187,7 +187,11 @@ label:hover {
   padding: 5px;
 }
 
-.outdoor-checkbox {
+.outdoor-checkbox-label {
+  @apply text-xl;
+}
+
+.outdoor-checkbox-input {
   @apply text-xl;
 }
 
