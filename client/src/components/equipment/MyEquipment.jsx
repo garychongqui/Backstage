@@ -139,36 +139,41 @@ class MyEquipment extends React.Component {
       <div className="my-equipment-con">
         <div className="my-equipment-component">
           <div
-            className="existing-equip-list"
-            // style={{
-            //   borderRight: '5px solid #FFF7F1',
-            //   marginTop: '2.5rem',
-            //   borderRadius: '10px',
-            //   padding: '1rem'
-            // }}
+
+            className="existing-equip-list w-full text-lg text-white"
+            style={{
+              borderRight: '5px solid #FFF7F1',
+              marginTop: '2.5rem',
+              borderRadius: '10px',
+              padding: '1rem',
+              color: 'white'
+            }}
+
+
           >
             <h2 className="your-equipment-title">Your Equipment</h2>
             {this.state.existingEquip?.map((item) => {
               return (
-                <div className="equipment-items">
+
+                <div className="flex justify-center ">
                   <span
-                    className="your-equipment-item-box"
-                    // style={{
-                    //   display: 'inline-flex',
-                    //   alignItems: 'center',
-                    //   textAlign: 'left',
-                    //   height: '3rem'
-                    // }}
+                    className="w-3/4 flex border bg-white pl-2 text-black rounded-md semibold"
+                    style={{
+                      alignItems: 'center',
+                      textAlign: 'left',
+                      height: '3rem'
+                    }}
                   >
                     {item.name}
                   </span>
                   <span
-                    className="your-equipment-quantity-box"
-                    // style={{
-                    //   display: 'inline-flex',
-                    //   alignItems: 'center',
-                    //   justifyContent: 'center'
-                    // }}
+
+                    className="w-1/4 border flex bg-white text-black rounded-md semibold"
+                    style={{
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+
                   >
                     {item.quantity}
                   </span>
@@ -182,14 +187,16 @@ class MyEquipment extends React.Component {
             onSubmit={this.handleSave}
           >
             <div
-              className="add-equipment-area"
-              // style={{
-              //   marginTop: '2rem',
-              //   borderRadius: '10px',
-              //   padding: '1rem',
-              //   minWidth: '38rem',
-              //   maxWidth: '38rem'
-              // }}
+              className="text-white flex flex-col items-center"
+              style={{
+                marginTop: '2rem',
+                borderRadius: '10px',
+                padding: '1rem',
+                minWidth: '38rem',
+                maxWidth: '38rem',
+                color: 'white'
+              }}
+
             >
               <h1 className="add-equipment-title">Add Equipment</h1>
               <div className="equipment-category-dropdown">
@@ -242,7 +249,8 @@ class MyEquipment extends React.Component {
                           onBlur={(event) =>
                             this.handleDescriptionChange(event, index)
                           }
-                          // style={{ height: '3rem' }}
+                          style={{ height: '3rem', color: 'black' }}
+
                         />
                         <input
                           className="equipment-quantity-box"
@@ -255,7 +263,12 @@ class MyEquipment extends React.Component {
                           onBlur={(event) =>
                             this.handleQuantityChange(event, index)
                           }
-                          // style={{ height: '3rem', width: '5rem' }}
+                          style={{
+                            height: '3rem',
+                            width: '5rem',
+                            color: 'black'
+                          }}
+
                         />
                         <svg
                           // className="delete-button"

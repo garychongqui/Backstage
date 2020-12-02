@@ -31,14 +31,19 @@ const MyEvents = () => {
         return (
           <div className="saved-event-card-area">
             <div
-              className="saved-event-inner-card-area"
-              // style={{
-              //   borderTopRightRadius: '0.5rem',
-              //   borderBottomRightRadius: '0.5rem',
-              //   backgroundColor: '#FFF7F1',
-              //   marginBottom: '.4rem',
-              //   borderLeft: '8px solid #A6271F'
-              // }}
+
+              className="flex p-2 m-4 w-full justify-center saved-event-inner-card-area"
+              style={{
+                borderTopRightRadius: '0.5rem',
+                borderBottomRightRadius: '0.5rem',
+                backgroundColor: '#FFF7F1',
+                marginBottom: '.4rem',
+                borderLeft: '8px solid #A6271F',
+                maxWidth: '700px',
+                padding: '20px',
+                textAlign: 'center'
+              }}
+
             >
               <div className="saved-event-inner-card-text-area">
                 <h2 className="dash-h2">{event1?.eventTitle}</h2>
@@ -47,7 +52,7 @@ const MyEvents = () => {
                   {moment(event1?.eventDate).format('MMMM Do YYYY')}
                 </span>
                 <br />
-                {/* <span
+                { <span
                   className="saved-event-has-been-opened-text"
                   style={
                     event1?.hasBeenOpened
