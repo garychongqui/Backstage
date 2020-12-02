@@ -42,12 +42,14 @@
     }
   },
   "scripts": {
+    "build:css": "cd client && yarn run build:css",
+    "prestart": "yarn run build:css",
+    "prebuild": "yarn run build:css",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "cd client && yarn run start",
     "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\"",
     "heroku-postbuild": "cd client && yarn && yarn run build",
-    "prettify": "prettier '*/**/*.js' '*/**/*.jsx' '*/**/*.html' '*/**/*.css' --write",
-    "build:css": "cd client && yarn run build:css"
+    "prettify": "prettier '*/**/*.js' '*/**/*.jsx' '*/**/*.html' '*/**/*.css' --write"
   }
 }
