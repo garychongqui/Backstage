@@ -85,7 +85,7 @@ const Home = () => {
 
       <div className="landing-container-back">
         <div className="landing-container-info-back">
-          <h1 className="title">Share stage plots</h1>
+          <h1 className="title">Exchange stage plots</h1>
           <p className="title-paragraph">
             Prepare your stage based on direct artist input for a smooth,
             music-filled night.

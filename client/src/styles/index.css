@@ -42,6 +42,10 @@ label:hover {
   @apply bg-gray-dark content-center justify-center;
 }
 
+.login-button:hover {
+  cursor: pointer;
+}
+
 /* .container {
   @apply bg-gray-dark;
 } */
@@ -364,6 +368,7 @@ label:hover {
 }
 
 .nav-div h2 {
+  padding: 2.5rem;
   transition: all 100ms ease-in 0ms;
   border-bottom: 3px solid #fff7f1;
 }

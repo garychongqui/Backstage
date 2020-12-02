@@ -85,7 +85,7 @@ const ArtistCollab = () => {
             style={{ margin: '0px' }}
           >
             <div
-              className="flex flex-col items-center w-1/4 justify-between border-l-8 text-lg mx-0"
+              className="flex flex-col items-center w-1/4 justify-start border-l-8 text-lg mx-0"
               style={{
                 height: '36rem',
                 borderTopRightRadius: '0.5rem',
@@ -97,7 +97,7 @@ const ArtistCollab = () => {
             >
               <h2 className="text-2xl">Select your equipment</h2>
               <div
-                className="icon-selection-container flex flex-col items-center w-full my-0"
+                className="icon-selection-container flex justify-start flex-col items-center w-full my-0"
                 style={{
                   minHeight: '30rem',
                   margin: '0px'
@@ -242,8 +242,8 @@ const ArtistCollab = () => {
                         color: '#FFF7F1'
                       }}
                     >
-                      {eventData?.selectedPackage.width} x{' '}
-                      {eventData?.selectedPackage.depth} ft.
+                      {eventData?.selectedPackage?.width} x{' '}
+                      {eventData?.selectedPackage?.depth} ft.
                     </span>
                   </div>
                   <div className="flex flex-col text-xl">

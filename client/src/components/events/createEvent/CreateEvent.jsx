@@ -44,9 +44,7 @@ const CreateEvent = ({ handleClose, show }) => {
           data: { eventTitle, eventDate, selectedPackage }
         })
         .then((results) =>
-          setEventURL(
-            `http://welcome-backstage.herokuapp.com/artist/${results.data._id}`
-          )
+          setEventURL(`http://localhost:3000/artist/${results.data._id}`)
         );
       setShowLinkClassName(true);
     }
@@ -54,7 +52,7 @@ const CreateEvent = ({ handleClose, show }) => {
   return (
     <div className={showHideClassName}>
       <div
-        className="entire-modal fixed z-100 inset-0 overflow-y-auto"
+        className="entire-modal fixed z-10 inset-0 overflow-y-auto"
         id="parent-parent-parent"
       >
         <div

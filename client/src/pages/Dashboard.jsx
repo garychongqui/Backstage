@@ -58,14 +58,14 @@ class Dashboard extends React.Component {
         <BrowserRouter>
           <div className="bg-gray-dark w-full">
             <div
-              className="nav-div"
+              className={!this.state.show ? 'flex nav-div' : 'hidden nav-div'}
               style={{
                 width: '100%',
                 display: 'flex',
                 justifyContent: 'center',
                 position: 'relative',
                 color: '#fff7f1',
-                bottom: '4vh'
+                bottom: '17vh'
               }}
             >
               <nav

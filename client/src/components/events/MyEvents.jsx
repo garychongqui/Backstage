@@ -25,7 +25,7 @@ const MyEvents = () => {
   return (
     <div
       className="bg-dark-gray flex flex-col items-center"
-      style={{ marginTop: '4rem' }}
+      style={{ position: 'relative', bottom: '4rem' }}
     >
       {events?.map((event1) => {
         return (
@@ -40,7 +40,7 @@ const MyEvents = () => {
                 borderLeft: '8px solid #A6271F'
               }}
             >
-              <div className="p-2 m-2 flex flex-col items-center w-full h-56 mb-6 ml-36">
+              <div className="p-2 m-2 flex flex-col items-start w-full h-56 mb-6 ml-28 mt-16 ">
                 <h2 className="dash-h2 text-3xl">{event1?.eventTitle}</h2>
                 <br />
                 <span className="text-2xl">
@@ -59,7 +59,6 @@ const MyEvents = () => {
                 </span>
                 <br />
               </div>
-              <div className="text-center justify-center m-3 p-2 w-1/3"></div>
             </div>
           </div>
         );

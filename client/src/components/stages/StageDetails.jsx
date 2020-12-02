@@ -106,7 +106,7 @@ const StageDetails = () => {
               name="comments"
               rows="5"
               cols="75"
-              placeholder="Comments about this stage"
+              defaultValue={currentStage?.comments}
               onChange={handleChange}
             />
             <br />

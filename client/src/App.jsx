@@ -22,6 +22,7 @@ function App() {
           <Route path="/artist" component={ArtistCollab} />
         </Switch>
       </BrowserRouter>
+      <div className="w-full h-36" style={{ backgroundColor: '#222222' }}></div>
     </AppContextProvider>
   );
 }

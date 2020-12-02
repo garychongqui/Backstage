@@ -35,7 +35,7 @@ const NewStage = () => {
           <br />
           <div className="new-stage-dimensions-box">
             <div className="new-stage-dimensions">
-              <h3 className="dash-h3">Stage Dimensions</h3>
+              <h3 className="dash-h3">Stage Dimensions (ft.)</h3>
             </div>
             <div className="new-stage-area">
               <label for="stage-width">Width</label>

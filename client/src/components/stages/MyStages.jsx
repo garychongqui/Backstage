@@ -41,7 +41,10 @@ const MyStages = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div
+      className="flex flex-col items-center"
+      style={{ position: 'relative', bottom: '8rem' }}
+    >
       <div className="dash-title-bar w-full flex justify-center">
         <div className="dash-title-bar-buttons flex justify-center">
           <button

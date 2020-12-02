@@ -7,7 +7,7 @@ module.exports = [
     }
   ],
   [
-    { name: 'Mixer', iconURL: 'https://source.unsplash.com/random/80x80' },
+    { name: 'DJ Mixer', iconURL: 'https://source.unsplash.com/random/80x80' },
     { name: 'CDJ', iconURL: 'https://source.unsplash.com/random/80x80' },
     {
       name: 'Vinyl Player',
@@ -29,8 +29,14 @@ module.exports = [
     }
   ],
   [
-    { name: 'Monitor', iconURL: 'https://source.unsplash.com/random/80x80' },
-    { name: 'House Sound', iconURL: 'https://source.unsplash.com/random/80x80' }
+    {
+      name: 'Stage Monitor',
+      iconURL: 'https://source.unsplash.com/random/80x80'
+    },
+    {
+      name: 'Drum Monitor',
+      iconURL: 'https://source.unsplash.com/random/80x80'
+    }
   ],
   [
     { name: 'Mic Stand', iconURL: 'https://source.unsplash.com/random/80x80' },
