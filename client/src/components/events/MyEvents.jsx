@@ -37,7 +37,7 @@ const MyEvents = () => {
                 borderBottomRightRadius: '0.5rem',
                 backgroundColor: '#FFF7F1',
                 marginBottom: '.4rem',
-                borderLeft: '8px solid #A6271F'
+                borderLeft: '24px solid #A6271F'
               }}
             >
               <div className="p-2 m-2 flex flex-col items-start w-full h-56 mb-6 ml-28 mt-16 ">

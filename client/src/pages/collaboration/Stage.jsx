@@ -16,10 +16,8 @@ class Stage extends React.Component {
       try {
         const imgData = canvas.toDataURL('image/png');
         const pdf = new jsPDF('p', 'mm', [216, 279]);
-        pdf.text(`${this.props.eventData?.eventDate}`, 20, 20).setFontSize(28);
-        pdf.text(`${this.props.eventData?.eventTitle}`, 20, 34);
-        pdf.addImage(imgData, 'PNG', 0, 0, 175, 130);
-        pdf.text("Venue's Equipment", 85, 120).setFontSize(16);
+        pdf.addImage(imgData, 'PNG', 0, 0, 175, 140).setFontSize(28);
+        pdf.text("Venue's Equipment", 75, 120).setFontSize(16);
         pdf.text(
           this.props.items?.map((item) => item),
           20,
@@ -30,6 +28,8 @@ class Stage extends React.Component {
           110,
           135
         );
+        pdf.text(`${this.props.eventData?.eventDate}`, 20, 20);
+        pdf.text(`${this.props.eventData?.eventTitle}`, 20, 34);
         // pdf.text(
         //   this.props.quantities?.map((item) => item),
         //   90,

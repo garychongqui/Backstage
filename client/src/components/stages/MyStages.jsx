@@ -73,7 +73,7 @@ const MyStages = () => {
                 borderBottomRightRadius: '0.5rem',
                 backgroundColor: '#FFF7F1',
                 marginBottom: '.4rem',
-                borderLeft: '8px solid #A6271F'
+                borderLeft: '24px solid #A6271F'
               }}
             >
               <br />

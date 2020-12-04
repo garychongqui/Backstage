@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="landing-page">
       <div
-        className="landing-container-1 bg-no-repeat bg-center"
+        className="landing-container-1 bg-no-repeat bg-center bg-cover"
         style={{ backgroundImage: "url('landing-page-images/backstage1.png')" }}
       >
         <form
@@ -68,7 +68,7 @@ const Home = () => {
         }}
       >
         <div className="landing-container-3-info">
-          <h1 className="title">Easily share critical info with your artist</h1>
+          <h1 className="title">Share info artists that need to know</h1>
           <p className="title-paragraph">
             Stage dimenstions? Rain plans? Tell your artist know everything they
             need to know before show time.
@@ -107,9 +107,7 @@ const Home = () => {
         }}
       >
         <div className="landing-container-5-info">
-          <h1 className="title-2">
-            Save all of your stage configurations for easy sharing
-          </h1>
+          <h1 className="title-2">Save all of your stage configurations</h1>
           <p className="title-paragraph-2">
             Multiple stages? Multiple ways to set up a single stage? Share all
             the right info with your artist in one click.
